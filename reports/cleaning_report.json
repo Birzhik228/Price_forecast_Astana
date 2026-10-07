@@ -1,0 +1,148 @@
+{
+  "rows_before": 18388,
+  "rows_after": 17929,
+  "removed": {
+    "missing_price_or_area": 0,
+    "price_out_of_bounds": 0,
+    "area_out_of_bounds": 0,
+    "duplicate_url": 0,
+    "duplicate_features": 459
+  },
+  "rows_removed": 459,
+  "missing_before": {
+    "price": 0,
+    "area": 0,
+    "rooms": 0,
+    "floor": 971,
+    "total_floors": 971,
+    "year_built": 0,
+    "building_type": 1117,
+    "condition": 10887,
+    "district": 778,
+    "residential_complex": 3893,
+    "address": 0,
+    "url": 0,
+    "collected_at": 0
+  },
+  "missing_after": {
+    "price": 0,
+    "area": 0,
+    "rooms": 0,
+    "floor": 971,
+    "total_floors": 971,
+    "year_built": 0,
+    "building_type": 1106,
+    "condition": 10498,
+    "district": 774,
+    "residential_complex": 3755,
+    "address": 0,
+    "url": 0,
+    "collected_at": 0
+  },
+  "numeric_parse_failures": {
+    "price": 0,
+    "area": 0,
+    "rooms": 0,
+    "floor": 0,
+    "total_floors": 0,
+    "year_built": 0
+  },
+  "invalid_optional_to_missing": {
+    "rooms": 0,
+    "floor": 0,
+    "total_floors": 0,
+    "year_built": 0
+  },
+  "inconsistent_floor_pairs_to_missing": 0,
+  "invalid_urls_to_missing": 0,
+  "thresholds": {
+    "price_min": 1000000,
+    "price_max": 2000000000,
+    "area_min": 10.0,
+    "area_max": 1000.0,
+    "reference_year": 2026
+  },
+  "optional_limits": {
+    "rooms": [
+      1,
+      20
+    ],
+    "floor": [
+      1,
+      100
+    ],
+    "total_floors": [
+      1,
+      100
+    ],
+    "year_built": [
+      1850,
+      2031
+    ]
+  },
+  "dedup_columns": [
+    "price",
+    "district",
+    "area",
+    "rooms",
+    "floor",
+    "total_floors",
+    "year_built",
+    "building_type",
+    "condition",
+    "address",
+    "residential_complex"
+  ],
+  "dedup_keep": "first_valid_row_in_source_order",
+  "review_candidates": [
+    {
+      "source_row": 5707,
+      "url": "https://krisha.kz/a/show/1007757991",
+      "reason": "price_per_m2_below_100000; retained_for_review"
+    },
+    {
+      "source_row": 12060,
+      "url": "https://krisha.kz/a/show/1007453701",
+      "reason": "price_per_m2_below_100000; retained_for_review"
+    }
+  ],
+  "ignored_source_columns": [
+    "id",
+    "listing_id",
+    "source",
+    "residential_complex_id",
+    "living_area",
+    "kitchen_area",
+    "price_usd",
+    "price_per_m2",
+    "building_series",
+    "ceiling_height",
+    "bathroom",
+    "balcony",
+    "parking",
+    "furniture",
+    "floor_type",
+    "heating",
+    "security",
+    "internet",
+    "documents",
+    "offer_type",
+    "latitude",
+    "longitude",
+    "updated_at",
+    "is_active"
+  ],
+  "notes": [
+    "Optional missing values are not imputed before train/test split.",
+    "Feature duplicates are candidates, not proven apartment identities; rejected rows are preserved.",
+    "collected_at retains the source text and its original timezone information (if any).",
+    "source_row is a 1-based record position, excluding the header, in the original CSV."
+  ],
+  "input_file": "C:\\Users\\Adina\\Documents\\ChatGPT\\ML 2\\data\\raw\\kaggle_astana\\astana_apartments.csv",
+  "output_file": "C:\\Users\\Adina\\Documents\\ChatGPT\\ML 2\\data\\processed\\listings_clean.csv",
+  "rejected_file": "C:\\Users\\Adina\\Documents\\ChatGPT\\ML 2\\data\\processed\\listings_rejected.csv",
+  "input_sha256": "923bd5483eaea5fdfe9cbf8d36c40ec1875992f66ed70ee29426dd6bc2d189ee",
+  "output_sha256": "3cef002023d07f6079ff8263472716198ef37e8174d16e88a2567a84a6ae1e27",
+  "pandas_version": "2.2.3",
+  "numpy_version": "2.2.6"
+}

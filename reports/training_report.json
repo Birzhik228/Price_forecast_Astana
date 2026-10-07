@@ -1,0 +1,344 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-07T06:51:37.824681+00:00",
+  "model_name": "RandomForest (tuned)",
+  "target": "asking_price",
+  "currency": "KZT",
+  "feature_columns": [
+    "area",
+    "rooms",
+    "floor",
+    "total_floors",
+    "year_built",
+    "district",
+    "building_type",
+    "condition"
+  ],
+  "numeric_features": [
+    "area",
+    "rooms",
+    "floor",
+    "total_floors",
+    "year_built"
+  ],
+  "categorical_features": [
+    "district",
+    "building_type",
+    "condition"
+  ],
+  "categories_from_train": {
+    "district": [
+      "Алматы",
+      "Байконур",
+      "Есиль",
+      "Нура",
+      "Сарайшык",
+      "Сарыарка"
+    ],
+    "building_type": [
+      "иной",
+      "кирпичный",
+      "монолитный",
+      "панельный"
+    ],
+    "condition": [
+      "не новый, но аккуратный ремонт",
+      "свежий ремонт",
+      "свободная планировка",
+      "требует ремонта",
+      "черновая отделка"
+    ]
+  },
+  "numeric_ranges_from_train": {
+    "area": {
+      "min": 11.0,
+      "max": 556.4
+    },
+    "rooms": {
+      "min": 1.0,
+      "max": 13.0
+    },
+    "floor": {
+      "min": 1.0,
+      "max": 41.0
+    },
+    "total_floors": {
+      "min": 2.0,
+      "max": 43.0
+    },
+    "year_built": {
+      "min": 1950.0,
+      "max": 2028.0
+    }
+  },
+  "input_sha256": "3cef002023d07f6079ff8263472716198ef37e8174d16e88a2567a84a6ae1e27",
+  "model_sha256": "f40f892700324892ee0fde041f8a5feaca2e0c01fb4231185e5c3a751b073bac",
+  "random_state": 42,
+  "test_size": 0.2,
+  "train_rows": 14343,
+  "test_rows": 3586,
+  "cv_folds": 3,
+  "selection_criterion": "minimum mean CV MAE on train; test is diagnostic only",
+  "selected_cv_mae_tenge": 8418442.853475386,
+  "test_metrics": {
+    "mae_tenge": 7687845.398795101,
+    "rmse_tenge": 14790969.810631238,
+    "r2": 0.8423329422920839
+  },
+  "approximate_range": {
+    "half_width_tenge": 7687845.398795101,
+    "source": "holdout_test_mae",
+    "interpretation": "prediction +/- MAE; descriptive, not a confidence or prediction interval",
+    "guaranteed_coverage": null
+  },
+  "training_scope": "train only; not refitted on test or full dataset",
+  "python_version": "3.12.14",
+  "package_versions": {
+    "numpy": "2.2.6",
+    "pandas": "2.2.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.6.1",
+    "xgboost": "3.0.2",
+    "joblib": "1.5.1"
+  },
+  "input_file": "C:\\Users\\Adina\\Documents\\ChatGPT\\ML 2\\data\\processed\\listings_clean.csv",
+  "comparison": [
+    {
+      "model": "LinearRegression",
+      "cv_mae_tenge": 12593434.227683784,
+      "cv_mae_std_tenge": 322468.1698177898,
+      "cv_rmse_tenge": 24062981.115906075,
+      "cv_rmse_std_tenge": 2946582.828092701,
+      "cv_r2": 0.6772035606622303,
+      "test_mae_tenge": 12056656.930834273,
+      "test_rmse_tenge": 20325428.124445222,
+      "test_r2": 0.7022669364894119,
+      "selected": false,
+      "negative_test_predictions": 71
+    },
+    {
+      "model": "RandomForest",
+      "cv_mae_tenge": 8493076.212253816,
+      "cv_mae_std_tenge": 380469.77388598357,
+      "cv_rmse_tenge": 19289349.938220456,
+      "cv_rmse_std_tenge": 3599062.600782757,
+      "cv_r2": 0.7911086874591614,
+      "test_mae_tenge": 7726969.181237263,
+      "test_rmse_tenge": 14572223.341185749,
+      "test_r2": 0.8469619936166751,
+      "selected": false,
+      "negative_test_predictions": 0
+    },
+    {
+      "model": "XGBoost",
+      "cv_mae_tenge": 8862592.320992818,
+      "cv_mae_std_tenge": 171871.88575944782,
+      "cv_rmse_tenge": 19340174.239656627,
+      "cv_rmse_std_tenge": 2400577.2682077163,
+      "cv_r2": 0.7914995176764443,
+      "test_mae_tenge": 8310868.366982711,
+      "test_rmse_tenge": 15439919.192533027,
+      "test_r2": 0.8281942447620794,
+      "selected": false,
+      "negative_test_predictions": 0
+    },
+    {
+      "model": "RandomForest (tuned)",
+      "cv_mae_tenge": 8418442.853475386,
+      "cv_mae_std_tenge": 375719.75704010046,
+      "cv_rmse_tenge": 19120064.179980744,
+      "cv_rmse_std_tenge": 3650338.2842336954,
+      "cv_r2": 0.7945852393304375,
+      "test_mae_tenge": 7687845.398795101,
+      "test_rmse_tenge": 14790969.810631238,
+      "test_r2": 0.8423329422920839,
+      "selected": true,
+      "negative_test_predictions": 0
+    }
+  ],
+  "tuned_family": "RandomForest",
+  "search_candidates": [
+    {
+      "parameters": {
+        "model__n_estimators": 350,
+        "model__min_samples_leaf": 4,
+        "model__max_features": 1.0,
+        "model__max_depth": null
+      },
+      "cv_mae_tenge": 8679686.275111353,
+      "cv_mae_std_tenge": 347559.874496162,
+      "cv_rmse_tenge": 19337240.65482354,
+      "cv_rmse_std_tenge": 3393658.9629105744,
+      "cv_r2": 0.7904276943151652
+    },
+    {
+      "parameters": {
+        "model__n_estimators": 350,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 0.8,
+        "model__max_depth": 24
+      },
+      "cv_mae_tenge": 8418442.853475386,
+      "cv_mae_std_tenge": 375719.75704010046,
+      "cv_rmse_tenge": 19120064.179980744,
+      "cv_rmse_std_tenge": 3650338.2842336954,
+      "cv_r2": 0.7945852393304375
+    },
+    {
+      "parameters": {
+        "model__n_estimators": 200,
+        "model__min_samples_leaf": 2,
+        "model__max_features": 0.8,
+        "model__max_depth": null
+      },
+      "cv_mae_tenge": 8462895.764409551,
+      "cv_mae_std_tenge": 420714.6251961078,
+      "cv_rmse_tenge": 19193074.789601337,
+      "cv_rmse_std_tenge": 3649045.735131699,
+      "cv_r2": 0.7930702088351943
+    },
+    {
+      "parameters": {
+        "model__n_estimators": 200,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 1.0,
+        "model__max_depth": null
+      },
+      "cv_mae_tenge": 8473138.553177012,
+      "cv_mae_std_tenge": 389155.2195997133,
+      "cv_rmse_tenge": 19386437.196706805,
+      "cv_rmse_std_tenge": 3703176.600966325,
+      "cv_r2": 0.7887847918161061
+    },
+    {
+      "parameters": {
+        "model__n_estimators": 200,
+        "model__min_samples_leaf": 4,
+        "model__max_features": 0.8,
+        "model__max_depth": 24
+      },
+      "cv_mae_tenge": 8665745.734054768,
+      "cv_mae_std_tenge": 360577.8733981216,
+      "cv_rmse_tenge": 19265618.385464363,
+      "cv_rmse_std_tenge": 3479529.9231354226,
+      "cv_r2": 0.7918220666116528
+    },
+    {
+      "parameters": {
+        "model__n_estimators": 350,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 1.0,
+        "model__max_depth": null
+      },
+      "cv_mae_tenge": 8461971.902821338,
+      "cv_mae_std_tenge": 377612.02379195386,
+      "cv_rmse_tenge": 19332024.54224285,
+      "cv_rmse_std_tenge": 3664050.953359408,
+      "cv_r2": 0.7900209198162557
+    },
+    {
+      "parameters": {
+        "model__n_estimators": 350,
+        "model__min_samples_leaf": 2,
+        "model__max_features": 1.0,
+        "model__max_depth": 24
+      },
+      "cv_mae_tenge": 8481543.710682442,
+      "cv_mae_std_tenge": 378429.77967740153,
+      "cv_rmse_tenge": 19246572.66594096,
+      "cv_rmse_std_tenge": 3581488.6378423283,
+      "cv_r2": 0.792054616299552
+    },
+    {
+      "parameters": {
+        "model__n_estimators": 200,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 0.8,
+        "model__max_depth": 24
+      },
+      "cv_mae_tenge": 8434594.809860354,
+      "cv_mae_std_tenge": 382457.70423872356,
+      "cv_rmse_tenge": 19141702.360757444,
+      "cv_rmse_std_tenge": 3660504.340722687,
+      "cv_r2": 0.7941087729390613
+    }
+  ],
+  "best_search_parameters": {
+    "model__n_estimators": 350,
+    "model__min_samples_leaf": 1,
+    "model__max_features": 0.8,
+    "model__max_depth": 24
+  },
+  "tuning_improved_cv": true,
+  "constant_train_median_test_metrics": {
+    "mae_tenge": 21913931.260457333,
+    "rmse_tenge": 38932932.761608094,
+    "r2": -0.0924005278284512
+  },
+  "price_summary_by_subset": {
+    "train": {
+      "0": 3990000.0,
+      "0.5": 36000000.0,
+      "0.95": 120000000.0,
+      "0.99": 225000000.0,
+      "1": 1500000000.0
+    },
+    "test": {
+      "0": 5000000.0,
+      "0.5": 36000000.0,
+      "0.95": 118000000.0,
+      "0.99": 205000000.0,
+      "1": 370000000.0
+    }
+  },
+  "feature_importance": [
+    {
+      "feature": "area",
+      "importance_mean_tenge": 22573160.655949403,
+      "importance_std_tenge": 412665.24895998475
+    },
+    {
+      "feature": "year_built",
+      "importance_mean_tenge": 4987715.558067971,
+      "importance_std_tenge": 151160.7587889514
+    },
+    {
+      "feature": "district",
+      "importance_mean_tenge": 1842570.3493970637,
+      "importance_std_tenge": 125577.6198197287
+    },
+    {
+      "feature": "total_floors",
+      "importance_mean_tenge": 1108843.8614025414,
+      "importance_std_tenge": 64260.76862117754
+    },
+    {
+      "feature": "rooms",
+      "importance_mean_tenge": 935408.4116194986,
+      "importance_std_tenge": 134138.27528920065
+    },
+    {
+      "feature": "building_type",
+      "importance_mean_tenge": 432799.0125202672,
+      "importance_std_tenge": 54333.459421089596
+    },
+    {
+      "feature": "condition",
+      "importance_mean_tenge": 287097.01497356256,
+      "importance_std_tenge": 27817.78159368799
+    },
+    {
+      "feature": "floor",
+      "importance_mean_tenge": 272088.24950100214,
+      "importance_std_tenge": 47666.18172524998
+    }
+  ],
+  "importance_method": "CV validation within train, 5 permutations per fold; fixed selected parameters",
+  "importance_caveat": "Descriptive, not nested CV; correlated features may share importance; std is not a confidence interval",
+  "limitations": [
+    "Random split of one snapshot does not measure accuracy on future market data.",
+    "Similar flats or repeated offers may remain after heuristic deduplication.",
+    "CV scores used for selection are optimistic; use holdout metrics for the final assessment.",
+    "MAE is an average and can hide large errors, especially for expensive properties."
+  ]
+}

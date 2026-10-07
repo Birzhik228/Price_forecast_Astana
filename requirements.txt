@@ -1,0 +1,25 @@
+# Прямые зависимости; код Python 3.11+, проверено на Windows / Python 3.12.14.
+# Полный снимок проверенного Windows-окружения: requirements.lock.txt.
+
+# Сбор данных.
+requests==2.32.5
+beautifulsoup4==4.13.5
+
+# Таблицы и вычисления.
+pandas==2.2.3
+numpy==2.2.6
+
+# Графики и исследование данных.
+matplotlib==3.10.3
+seaborn==0.13.2
+jupyterlab==4.4.3
+ipykernel==6.29.5
+
+# Обучение и сохранение моделей.
+scikit-learn==1.6.1
+xgboost==3.0.2
+joblib==1.5.1
+threadpoolctl==3.7.0
+
+# Веб-приложение.
+streamlit==1.45.1

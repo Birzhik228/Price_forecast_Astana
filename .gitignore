@@ -1,0 +1,29 @@
+# Локальные окружения и кэш Python.
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Локальные настройки и секреты.
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Данные, модели и журналы не храним в Git.
+/data/raw/*
+!/data/raw/.gitkeep
+/data/processed/*
+!/data/processed/.gitkeep
+/models/*
+!/models/.gitkeep
+/logs/*
+!/logs/.gitkeep
