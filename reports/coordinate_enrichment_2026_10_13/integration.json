@@ -1,0 +1,13 @@
+{
+  "activated": true,
+  "reason": "user_requested_coordinate_enrichment_and_predeclared_gate_passed",
+  "model_path": "models\\verified_geo_2026\\complex_coords.joblib",
+  "metadata_path": "models\\deployment\\complex_coords_osm.json",
+  "model_sha256": "1c68f8a289f8bd6eed5a7d96553c4b83a6db522a9ee7e7a0fed0b853423f0025",
+  "registry_sha256": "fdd7cea2fe8040a325c76a57d573f5a2eda5b13fe937080b5a2eadd2ca8810d5",
+  "base_model_preserved": true,
+  "fit_calls": 0,
+  "config_before_sha256": "863c3d6216303a773551ddd5223576a5281b37812f5c8ec9ececb25593cef6ec",
+  "config_after_sha256": "0bd09943cbeffa95c2f21dd3c8fbef53c589bf0bca11bd3498b4a323c99e495a",
+  "runtime_check_sha256": "664a1b0a3d56035f79d19a32f62eae74dadcdbb309ab76b824cb0b89e35059ce"
+}

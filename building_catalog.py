@@ -22,7 +22,21 @@ from clean import normalize_text, normalize_url
 ASTANA_BBOX = {"latitude_min": 50.8, "latitude_max": 51.4,
                "longitude_min": 70.8, "longitude_max": 71.9}
 MAX_COORDINATE_RADIUS_M = 125.0
+CATALOG_POLICY_VERSION = 2
+# Only visually matching suffix letters. No street/complex transliteration.
+SUFFIX_HOMOGLYPHS = str.maketrans({"a": "а", "c": "с", "e": "е", "o": "о", "p": "р", "x": "х", "y": "у"})
 ISSUE_COLUMNS = ["record_id", "building_id", "issue", "field", "value", "detail"]
+NORMALIZATION_AUDIT_COLUMNS = [
+    "record_id", "dataset_period", "original_source_row", "address_original",
+    "address_before_alias", "address_normalized", "old_building_id", "candidate_building_id",
+    "new_building_id", "suffix_changed", "candidate_old_id_count", "decision", "reason",
+]
+CONFLICT_AUDIT_COLUMNS = [
+    "record_id", "candidate_building_id", "old_building_id", "house_key", "address_original",
+    "address_normalized", "complex_name", "year_built", "total_floors", "building_type",
+    "raw_latitude", "raw_longitude", "raw_coordinate_status", "conflict_reasons",
+    "candidate_listing_count", "candidate_coordinate_radius_m", "decision",
+]
 BUILDING_COLUMNS = [
     "building_id", "complex_id", "complex_name", "address_normalized", "district",
     "latitude", "longitude", "coordinate_status", "coordinate_source",
@@ -30,12 +44,18 @@ BUILDING_COLUMNS = [
     "listing_count", "display_label", "year_built", "total_floors", "building_type",
     "year_built_status", "total_floors_status", "building_type_status",
     "complex_status", "developer", "elevator",
+    "house_key", "building_match_status",
 ]
 EXTRA_COLUMNS = [
     "building_id", "complex_id", "complex_name", "address_normalized", "address_status",
     "latitude", "longitude", "coordinate_status", "coordinate_source",
     "coordinate_spread_m", "parking_type", "parking_status", "date_label",
     "developer", "elevator",
+    "house_key", "candidate_building_id", "old_building_id", "building_match_status",
+    "building_conflict_reasons", "address_before_alias", "address_original",
+    "raw_latitude", "raw_longitude", "raw_coordinate_status", "raw_coordinate_source",
+    "raw_latitude_text", "raw_longitude_text", "raw_address", "raw_title",
+    "raw_residential_complex", "raw_parking",
 ]
 _HOUSE = r"\d+[а-яёa-z]?(?:[/-]\d+[а-яёa-z]?)*"
 _HOUSE_ADDRESS = re.compile(
@@ -62,7 +82,7 @@ def _identifier(prefix: str, value: str) -> str:
     return prefix + hashlib.sha256(value.encode("utf-8")).hexdigest()[:20]
 
 
-def normalize_address(value: object, complex_name: object = None) -> tuple[str | None, str]:
+def _normalize_address_before_alias(value: object, complex_name: object = None) -> tuple[str | None, str]:
     """Возвращает нормализованный полный адрес и осторожную оценку его полноты.
 
     Никаких исправлений опечаток, транслитерации, отбрасывания корпуса или
@@ -86,6 +106,46 @@ def normalize_address(value: object, complex_name: object = None) -> tuple[str |
     unit = match["unit"] or ""
     # Explicit optional 'дом/д.' is syntax, but corpus identifiers remain in key.
     return f"{street} {match['house']}{unit}", "house"
+
+
+def normalize_complex_name(value: object) -> str | None:
+    """Pointwise name key: Unicode/case/space only, without learned aliases."""
+    return _key(value)
+
+
+def normalize_address(value: object, complex_name: object = None) -> tuple[str | None, str]:
+    """Row-local address key; aliases only visually matching house/corpus suffixes.
+
+    For example, ``Туран 44a`` and ``Туран 44а`` share a candidate key.
+    ``A-52 44a`` keeps Latin A in the street name. This function neither sees
+    other rows nor resolves whether the candidate actually denotes one house.
+    """
+    address, status = _normalize_address_before_alias(value, complex_name)
+    if status != "house":
+        return address, status
+    match = _HOUSE_ADDRESS.fullmatch(address)
+    house = re.sub(r"(?<=\d)[a-z]", lambda value: value[0].translate(SUFFIX_HOMOGLYPHS), match["house"])
+    unit = match["unit"] or ""
+    if unit:
+        label, token = unit.rsplit(" ", 1)
+        # Only a number with at most one suffix letter, or a one-letter corpus.
+        # An arbitrary multi-letter token is not transliterated.
+        if re.fullmatch(r"(?:\d+)?[а-яёa-z]", token):
+            token = token.translate(SUFFIX_HOMOGLYPHS)
+        unit = label + " " + token
+    return f"{match['street']} {house}{unit}", status
+
+
+def canonical_house_key(address: object, district: object, complex_name: object = None) -> str | None:
+    """Deterministic POINTWISE candidate identity, safe to recompute inside CV.
+
+    This key deliberately does not depend on the catalog's global conflict
+    resolution, coordinate consensus, price, or other samples. A fitted model
+    must check conflicts and learn any geography using its training fold only.
+    """
+    normalized, status = normalize_address(address, complex_name)
+    district_key = _key(district)
+    return f"astana|{district_key}|{normalized}" if status == "house" and district_key else None
 
 
 def _distance_m(latitudes: np.ndarray, longitudes: np.ndarray, lat: float, lon: float) -> np.ndarray:
@@ -172,12 +232,15 @@ def build_property_catalog(
             complex_name = _text(source_name)
         complex_key = _key(complex_name)
         complex_id = _identifier("complex_", "astana|" + complex_key) if complex_key else None
+        address_before_alias, old_address_status = _normalize_address_before_alias(row["address"], complex_name)
         address, address_status = normalize_address(row["address"], complex_name)
         district = _key(row["district"])
         if address_status == "house" and not district:
             address_status = "district_missing"
-        building_id = (_identifier("building_", f"astana|{district}|{address}")
-                       if address_status == "house" else None)
+        house_key = canonical_house_key(row["address"], row["district"], complex_name)
+        building_id = _identifier("building_", house_key) if house_key else None
+        old_building_id = (_identifier("building_", f"astana|{district}|{address_before_alias}")
+                           if old_address_status == "house" and district else None)
         parking = _key(original.get("parking" if period == "2026-01" else "Парковка"))
         parking_status = "observed" if parking else "unknown"
         if period == "2026-01":
@@ -188,11 +251,26 @@ def build_property_catalog(
         else:
             latitude, longitude, coordinate_status = None, None, "missing"
             date_label = "Март 2026 — период по заявлению источника; дата объявления неизвестна"
-        extra = dict(zip(EXTRA_COLUMNS, [
-            building_id, complex_id, complex_name, address, address_status,
-            latitude, longitude, coordinate_status, "january_raw" if coordinate_status != "missing" else None,
-            None, parking, parking_status, date_label, None, None,
-        ]))
+        extra = {
+            "building_id": building_id, "complex_id": complex_id, "complex_name": complex_name,
+            "address_normalized": address, "address_status": address_status,
+            "latitude": latitude, "longitude": longitude, "coordinate_status": coordinate_status,
+            "coordinate_source": "january_raw" if coordinate_status != "missing" else None,
+            "coordinate_spread_m": None, "parking_type": parking, "parking_status": parking_status,
+            "date_label": date_label, "developer": None, "elevator": None,
+            "house_key": house_key, "candidate_building_id": building_id, "old_building_id": old_building_id,
+            "building_match_status": "resolved" if building_id else "address_unresolved",
+            "building_conflict_reasons": None, "address_before_alias": address_before_alias,
+            "address_original": row["address"],
+            # These fields are pointwise raw evidence, never overwritten by consensus.
+            "raw_latitude": latitude, "raw_longitude": longitude,
+            "raw_coordinate_status": coordinate_status,
+            "raw_coordinate_source": "january_raw" if period == "2026-01" else "march_raw_no_coordinate_columns",
+            "raw_latitude_text": original.get("latitude"), "raw_longitude_text": original.get("longitude"),
+            "raw_address": original.get("address"), "raw_title": original.get("title"),
+            "raw_residential_complex": source_name,
+            "raw_parking": original.get("parking" if period == "2026-01" else "Парковка"),
+        }
         additions.append(extra)
         tagged = {**row, **extra}
         if address_status != "house":
@@ -203,13 +281,74 @@ def build_property_catalog(
                   f"{original.get('latitude')},{original.get('longitude')}", "Вне bbox Астаны либо нечисловая/неполная пара.")
     listings = pd.concat([listings, pd.DataFrame(additions, columns=EXTRA_COLUMNS)], axis=1)
 
+    # Candidate identity is row-local; acceptance below is catalog-only evidence.
+    # No majority or arbitrary partition can resolve a contradictory house identity.
+    normalization_records, conflict_records = [], []
+    candidate_conflicts: Counter[str] = Counter()
+    alias_decisions: Counter[str] = Counter()
+    alias_merge_reduction = 0
+    for candidate_id, part in listings.dropna(subset=["candidate_building_id"]).groupby("candidate_building_id", sort=True):
+        reasons = []
+        for field in ("complex_id", "year_built", "total_floors", "building_type"):
+            if part[field].dropna().nunique() > 1:
+                reasons.append(("complex" if field == "complex_id" else field) + "_conflict")
+        good = part.loc[part["raw_coordinate_status"].eq("unverified")]
+        radius = None
+        if len(good):
+            lat, lon = float(good["raw_latitude"].median()), float(good["raw_longitude"].median())
+            radius = float(_distance_m(good["raw_latitude"].to_numpy(float), good["raw_longitude"].to_numpy(float), lat, lon).max())
+            if radius > MAX_COORDINATE_RADIUS_M:
+                reasons.append("coordinate_spread")
+        if len(part) > 1 and part["raw_coordinate_status"].eq("invalid").any():
+            reasons.append("invalid_coordinate_evidence")
+        old_id_count = int(part["old_building_id"].nunique())
+        is_alias_merge = old_id_count > 1
+        changed = part["address_before_alias"].ne(part["address_normalized"])
+        reason_text = ";".join(reasons) if reasons else "suffix_homoglyph_only_no_observed_conflict"
+        if reasons:
+            listings.loc[part.index, "building_id"] = None
+            listings.loc[part.index, "building_match_status"] = "ambiguous_conflict"
+            listings.loc[part.index, "building_conflict_reasons"] = reason_text
+            candidate_conflicts.update(reasons)
+            issue({"building_id": candidate_id}, "ambiguous_house_candidate", "house_key", part.iloc[0]["house_key"],
+                  f"Не объединено: {reason_text}. Каждая запись сохранена отдельно, building_id отсутствует.")
+            for row in part.to_dict(orient="records"):
+                conflict_records.append({**{key: row.get(key) for key in CONFLICT_AUDIT_COLUMNS},
+                                         "conflict_reasons": reason_text, "candidate_listing_count": len(part),
+                                         "candidate_coordinate_radius_m": radius,
+                                         "decision": "retain_individual_records_without_building_id"})
+        if is_alias_merge:
+            alias_decisions["rejected" if reasons else "accepted"] += 1
+            if not reasons:
+                alias_merge_reduction += old_id_count - 1
+        if is_alias_merge or changed.any():
+            for index, row in part.iterrows():
+                if is_alias_merge or changed.loc[index]:
+                    normalization_records.append({
+                        **{key: row.get(key) for key in NORMALIZATION_AUDIT_COLUMNS},
+                        "new_building_id": None if reasons else candidate_id,
+                        "suffix_changed": bool(changed.loc[index]), "candidate_old_id_count": old_id_count,
+                        "decision": ("rejected_ambiguous" if reasons else
+                                     "accepted_merge" if is_alias_merge else "accepted_normalization"),
+                        "reason": reason_text,
+                    })
+    # A suffix can be normalized even when a missing district prevents a key.
+    # Such rows still belong in the full normalization history, without a merge.
+    changed_without_key = listings["candidate_building_id"].isna() & listings["address_before_alias"].fillna("").ne(listings["address_normalized"].fillna(""))
+    for row in listings.loc[changed_without_key].to_dict(orient="records"):
+        normalization_records.append({
+            **{key: row.get(key) for key in NORMALIZATION_AUDIT_COLUMNS},
+            "new_building_id": None, "suffix_changed": True, "candidate_old_id_count": 0,
+            "decision": "rejected_missing_district", "reason": "suffix_normalized_but_district_missing_no_house_key",
+        })
+
     # A reused exact marker across different explicit houses may be a complex centroid.
     # It cannot validate a house-level location even when many ads repeat that marker.
     markers: dict[tuple[float, float], set[str]] = {}
-    valid = listings["coordinate_status"].eq("unverified") & listings["building_id"].notna()
+    valid = listings["raw_coordinate_status"].eq("unverified") & listings["candidate_building_id"].notna()
     for row in listings.loc[valid].to_dict(orient="records"):
         marker = (round(row["latitude"], 6), round(row["longitude"], 6))
-        markers.setdefault(marker, set()).add(row["building_id"])
+        markers.setdefault(marker, set()).add(row["candidate_building_id"])
     reused = {marker for marker, ids in markers.items() if len(ids) > 1}
     buildings = []
     for building_id, part in listings.dropna(subset=["building_id"]).groupby("building_id", sort=True):
@@ -217,6 +356,7 @@ def build_property_catalog(
         values: dict[str, object] = {
             "building_id": building_id, "address_normalized": first["address_normalized"],
             "district": first["district"], "listing_count": len(part), "developer": None, "elevator": None,
+            "house_key": first["house_key"], "building_match_status": "resolved",
         }
         complex_id, complex_status = _consensus(part["complex_id"])
         values.update(complex_id=complex_id, complex_status=complex_status)
@@ -269,7 +409,12 @@ def build_property_catalog(
         buildings.append(values)
     building_frame = pd.DataFrame(buildings, columns=BUILDING_COLUMNS)
     issue_frame = pd.DataFrame(issues, columns=ISSUE_COLUMNS)
+    normalization_audit = pd.DataFrame(normalization_records, columns=NORMALIZATION_AUDIT_COLUMNS)
+    conflict_audit = pd.DataFrame(conflict_records, columns=CONFLICT_AUDIT_COLUMNS)
+    for frame in (normalization_audit, conflict_audit):
+        frame.sort_values(["candidate_building_id", "record_id"], inplace=True, ignore_index=True)
     summary = {
+        "catalog_policy_version": CATALOG_POLICY_VERSION,
         "listing_count": len(listings), "building_count": len(building_frame),
         "complex_count": int(listings["complex_id"].nunique()),
         "listings_with_building_id": int(listings["building_id"].notna().sum()),
@@ -280,6 +425,19 @@ def build_property_catalog(
         "address_status_counts": dict(sorted(Counter(listings["address_status"]).items())),
         "dataset_period_counts": dict(sorted(Counter(listings["dataset_period"]).items())),
         "coordinate_inherited_count": int(listings["coordinate_source"].eq("building_consensus").sum()),
+        "candidate_building_count": int(listings["candidate_building_id"].nunique()),
+        "ambiguous_candidate_count": int(conflict_audit["candidate_building_id"].nunique()),
+        "ambiguous_listing_count": len(conflict_audit),
+        "candidate_conflicts": dict(sorted(candidate_conflicts.items())),
+        "normalization": {
+            "changed_address_rows": int(listings["address_before_alias"].fillna("").ne(listings["address_normalized"].fillna("")).sum()),
+            "accepted_merge_candidates": alias_decisions["accepted"],
+            "rejected_merge_candidates": alias_decisions["rejected"],
+            "accepted_merge_old_id_reduction": alias_merge_reduction,
+            "audit_rows": len(normalization_audit),
+            "decisions": dict(sorted(Counter(normalization_audit["decision"]).items())),
+        },
+        "raw_coordinate_status_counts": dict(sorted(Counter(listings["raw_coordinate_status"]).items())),
         "issue_counts": dict(sorted(Counter(issue_frame["issue"]).items())),
         "building_conflicts": {field: int(building_frame[status].eq("conflict").sum()) for field, status in [
             ("complex", "complex_status"), ("parking", "parking_status"),
@@ -289,9 +447,15 @@ def build_property_catalog(
         "policy": {"bbox": ASTANA_BBOX, "maximum_radius_from_median_m": MAX_COORDINATE_RADIUS_M,
                    "minimum_coordinate_observations": 2, "distance_allowed_statuses": ["plausible"],
                    "building_key": "astana + exact normalized district + single explicit house address",
-                   "complex_key": "astana + exact normalized complex name"},
+                   "complex_key": "astana + exact normalized complex name",
+                   "house_suffix_aliases": {chr(key): value for key, value in SUFFIX_HOMOGLYPHS.items()},
+                   "conflicted_candidate_policy": "retain individual records; building_id=null",
+                   "pointwise_training_columns": ["house_key", "raw_latitude", "raw_longitude", "raw_coordinate_status"],
+                   "training_warning": "Never use global catalog building_id/conflicts/consensus in CV; fit maps within each training fold."},
         "limitations": [
-            "Адреса и ЖК сопоставлены консервативно без справочника; разные написания не объединены.",
+            "Адреса и ЖК сопоставлены консервативно; только a/c/e/o/p/x/y в суффиксе дома/корпуса заменены на кириллицу.",
+            "Конфликты ЖК/года/этажности/типа/географии оставляют строки отдельно без building_id; кандидат сохранён для аудита.",
+            "house_key и raw_* — построчные исходные данные для CV; глобальные решения каталога не являются входами модели.",
             "building_id не является реестровым ID; корпуса и дроби сохранены, неоднозначные адреса исключены.",
             "plausible означает только согласованность архивных точек: точность дома внешне не подтверждена.",
             "Одинаковые координаты у разных домов и внутридомовые конфликты запрещают расчёт расстояний.",
@@ -301,4 +465,5 @@ def build_property_catalog(
             "Цены являются архивными ценами предложения; ссылки и актуальная доступность не проверялись.",
         ],
     }
-    return {"listings": listings, "buildings": building_frame, "issues": issue_frame, "summary": summary}
+    return {"listings": listings, "buildings": building_frame, "issues": issue_frame, "summary": summary,
+            "normalization_audit": normalization_audit, "conflict_audit": conflict_audit}

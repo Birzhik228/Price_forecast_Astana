@@ -1,0 +1,49 @@
+{
+  "sources": {
+    "models/best_model.joblib": "f40f892700324892ee0fde041f8a5feaca2e0c01fb4231185e5c3a751b073bac",
+    "models/model_metadata.json": "c623c137cab6f093071a18a6c183d513ad311744378b1695ca4063dcd39ac1da",
+    "models/combined_2026/best_model.joblib": "643bfe75014cb3929376a44e689905c1fe8c4fa1e72165ec7b9c0e30db4d3c8a",
+    "models/combined_2026/model_metadata.json": "580f8b324ff052e56bbae537dc9385268191761b2e4f19d23de891a7b94f3825",
+    "models/march_2026/best_model.joblib": "9b8253694c7f2fc109d72f30b4ce9432ad443fdf86dde32c47c5faa97ec00de2",
+    "models/march_2026/model_metadata.json": "bd64a3c2ea87309c16ea28a1c62db101d93ee920ea1466990beccb245fc4d554",
+    "data/processed/combined_2026/listings_clean.csv": "28ad11f14b56315ea2dd903ffc7f8ab9d5a788f7f5e070b5ec1b61c0711d98eb",
+    "reports/combined_update/split_manifest.csv": "b7a8c84df93c77aa925b2965d2768e357d429802991395a27b865f1101e4dc69",
+    "data/raw/kaggle_astana/astana_apartments.csv": "923bd5483eaea5fdfe9cbf8d36c40ec1875992f66ed70ee29426dd6bc2d189ee",
+    "data/raw/turarr_march_2026/astana_apartments_raw.csv": "79c518f9ec37272c5052ea9936d3020030f4d02cccfb749fb92487fbfdf70676",
+    "data/processed/property_catalog/manifest.json": "c8ac0cf5583ebc55cbd4636244c895fc226a87ebc4bcef4c4b99a92fd6c8bb2d",
+    "data/processed/property_catalog/listings.csv": "bb6bfa27828cb3913229b3b6d7fff6e3e6c735e97f91cbaf91eb8b318a3f85cf",
+    "location_model.py": "61742fc582d1b108bceb8a69e1931c9a7cb584cd2c1b5e9b41236dbe60b19eee",
+    "building_catalog.py": "8fdcf1bf38aeb1da402a09c3a82a5c4fd5e95368b10bd29f03b7138170edc94b",
+    "location_experiment.py": "9f87c6479942120a526442af0a635704e7d9ac33593c9cd8f074d0ef4a70285d"
+  },
+  "parameters": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "criterion": "squared_error",
+    "max_depth": 24,
+    "max_features": 0.8,
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 1,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 350,
+    "n_jobs": 2,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "folds": 3,
+  "seed": 42,
+  "variants": [
+    "baseline8",
+    "complex",
+    "coords",
+    "complex_coords"
+  ],
+  "selection": "minimum pooled apartment-group OOF MAE, no holdout selection",
+  "signature": "1053ea3da0171c28bdf9a5a565270ae67fa5a127754235a18049caa7996c7a99"
+}

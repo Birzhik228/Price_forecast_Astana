@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "source_id": "REPLACE_publisher_and_snapshot_identifier",
+  "source_url": "REPLACE_original_export_or_publisher_URL",
+  "csv_path": "REPLACE_path_relative_to_this_manifest.csv",
+  "csv_sha256": "REPLACE_SHA256_of_original_export",
+  "city": "astana",
+  "market": "sale_apartment",
+  "currency": "KZT",
+  "target": "asking_price",
+  "date_basis": "source_observed_at",
+  "observed_at_column": "collected_at",
+  "date_evidence": "REPLACE_how_the_source_records_each_price_observation_date_not_download_or_commit_date",
+  "usage_basis": "REPLACE_public_license_or_authorized_export_description"
+}

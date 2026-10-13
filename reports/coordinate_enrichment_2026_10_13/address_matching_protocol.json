@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-13T15:43:51.412080+00:00",
+  "source_sha256": {
+    "reports/coordinate_enrichment_2026_10_13/address_candidates.csv": "819ba8f5fed162fbed21ba4605ca84a84ac32220934a36ff1b34f1ee340f26c1",
+    "data/raw/osm_2026_10_13/astana_addresses.json": "0978a34d40f0c3b0066e2bc37262a0f092cca1a7e407ab892d35c12976405eff",
+    "data/raw/osm_2026_10_13/kazakhstan-261012.source.json": "0216f52f852fbd64e02048117ed5c0a9893a70ecdbbb02ea56faa12837530bd0",
+    "data/raw/osm_2026_10_13/astana_addresses.source.json": "2d378cb1c2eb637ef49d8e0c8646e5184e7c4f37b8bda1de7274f0b34c8fd275",
+    "reports/coordinate_enrichment_2026_10_13/audit_summary.json": "a598a47c55bc5ceab3204a64b7a328b51e5a182dcc7cc6c8b114a46cef260deb",
+    "verified_addresses.py": "b0ff91095ffa599d5ede4526487595590b3f767f7280db5b0043d3b656505275",
+    "enrich_coordinates.py": "1de60728634bb6edb7d8942af23c865c2dd8b3abf5f313356965ad9273cd19ca"
+  },
+  "selection_uses_price_or_prediction_error": false,
+  "policy": [
+    "Exact street + house number on one building footprint within Astana.",
+    "Street language aliases require evidence on the same OSM road object.",
+    "No fuzzy addresses, district guessing, ambiguous building footprints or unreviewed renamings.",
+    "Keep all refusals and confirmed-but-ineligible addresses in audit files."
+  ]
+}

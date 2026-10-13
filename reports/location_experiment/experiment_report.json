@@ -1,0 +1,505 @@
+{
+  "created_at_utc": "2026-10-13T10:44:09.925971+00:00",
+  "signature": "06db5ac2d007cd6968c39fbd030335cb0a0328e3cf1d58e297e67cce55025bc6",
+  "active_model": "january",
+  "activated": false,
+  "selected_variant": "complex",
+  "training_rows": 19269,
+  "test_rows": 590,
+  "original_test_rows": 590,
+  "excluded_test_rows": [],
+  "comparison": [
+    {
+      "model": "baseline8",
+      "n": 590,
+      "mae_tenge": 7182650.364455767,
+      "rmse_tenge": 12835362.971525228,
+      "r2": 0.8530028928822403,
+      "over_20_pct": 25.76271186440678
+    },
+    {
+      "model": "complex",
+      "n": 590,
+      "mae_tenge": 6433066.749508977,
+      "rmse_tenge": 11966812.153898532,
+      "r2": 0.8722239594106076,
+      "over_20_pct": 21.35593220338983
+    },
+    {
+      "model": "coords",
+      "n": 590,
+      "mae_tenge": 7187038.52368162,
+      "rmse_tenge": 12804305.932661315,
+      "r2": 0.8537133942804906,
+      "over_20_pct": 26.779661016949152
+    },
+    {
+      "model": "complex_coords",
+      "n": 590,
+      "mae_tenge": 6442701.30963452,
+      "rmse_tenge": 12123338.426170168,
+      "r2": 0.8688594694564467,
+      "over_20_pct": 21.864406779661017
+    },
+    {
+      "model": "january",
+      "n": 590,
+      "mae_tenge": 7578905.912365296,
+      "rmse_tenge": 13894390.816682056,
+      "r2": 0.8277451338036276,
+      "over_20_pct": 27.796610169491526
+    },
+    {
+      "model": "combined",
+      "n": 590,
+      "mae_tenge": 7182650.364455767,
+      "rmse_tenge": 12835362.971525228,
+      "r2": 0.8530028928822403,
+      "over_20_pct": 25.76271186440678
+    }
+  ],
+  "original_holdout_comparison": [
+    {
+      "model": "baseline8",
+      "n": 590,
+      "mae_tenge": 7182650.364455767,
+      "rmse_tenge": 12835362.971525228,
+      "r2": 0.8530028928822403,
+      "over_20_pct": 25.76271186440678
+    },
+    {
+      "model": "complex",
+      "n": 590,
+      "mae_tenge": 6433066.749508977,
+      "rmse_tenge": 11966812.153898532,
+      "r2": 0.8722239594106076,
+      "over_20_pct": 21.35593220338983
+    },
+    {
+      "model": "coords",
+      "n": 590,
+      "mae_tenge": 7187038.52368162,
+      "rmse_tenge": 12804305.932661315,
+      "r2": 0.8537133942804906,
+      "over_20_pct": 26.779661016949152
+    },
+    {
+      "model": "complex_coords",
+      "n": 590,
+      "mae_tenge": 6442701.30963452,
+      "rmse_tenge": 12123338.426170168,
+      "r2": 0.8688594694564467,
+      "over_20_pct": 21.864406779661017
+    },
+    {
+      "model": "january",
+      "n": 590,
+      "mae_tenge": 7578905.912365296,
+      "rmse_tenge": 13894390.816682056,
+      "r2": 0.8277451338036276,
+      "over_20_pct": 27.796610169491526
+    },
+    {
+      "model": "combined",
+      "n": 590,
+      "mae_tenge": 7182650.364455767,
+      "rmse_tenge": 12835362.971525228,
+      "r2": 0.8530028928822403,
+      "over_20_pct": 25.76271186440678
+    }
+  ],
+  "cv_comparison": [
+    {
+      "signature": "06db5ac2d007cd6968c39fbd030335cb0a0328e3cf1d58e297e67cce55025bc6",
+      "variant": "baseline8",
+      "metrics": {
+        "n": 19269,
+        "mae_tenge": 8265441.571967777,
+        "rmse_tenge": 18566910.614182312,
+        "r2": 0.7899891946159299,
+        "over_20_pct": 28.278582178628888
+      },
+      "folds": [
+        {
+          "fold": 1,
+          "fit_rows": 12846,
+          "validation_rows": 6423,
+          "geo_available_rows": 0,
+          "elapsed_seconds": 17.218999999808148,
+          "n": 6423,
+          "mae_tenge": 8269184.74792952,
+          "rmse_tenge": 16586853.182153445,
+          "r2": 0.8207468810630589,
+          "over_20_pct": 27.8530281799782
+        },
+        {
+          "fold": 2,
+          "fit_rows": 12846,
+          "validation_rows": 6423,
+          "geo_available_rows": 0,
+          "elapsed_seconds": 16.29700000002049,
+          "n": 6423,
+          "mae_tenge": 8485935.791492535,
+          "rmse_tenge": 22339127.52889713,
+          "r2": 0.7301678611904187,
+          "over_20_pct": 28.631480616534326
+        },
+        {
+          "fold": 3,
+          "fit_rows": 12846,
+          "validation_rows": 6423,
+          "geo_available_rows": 0,
+          "elapsed_seconds": 15.608999999938533,
+          "n": 6423,
+          "mae_tenge": 8041204.176481275,
+          "rmse_tenge": 16125451.684416905,
+          "r2": 0.8311458909245139,
+          "over_20_pct": 28.351237739374124
+        }
+      ],
+      "fitted_under_signature": "83b013454ee12bc0ce4e1720b5f36410af2939a2414004edce49bdd0681b65a4"
+    },
+    {
+      "signature": "06db5ac2d007cd6968c39fbd030335cb0a0328e3cf1d58e297e67cce55025bc6",
+      "variant": "complex",
+      "metrics": {
+        "n": 19269,
+        "mae_tenge": 7610979.516107836,
+        "rmse_tenge": 17898130.76060322,
+        "r2": 0.8048458907155206,
+        "over_20_pct": 24.58352794644247
+      },
+      "folds": [
+        {
+          "fold": 1,
+          "fit_rows": 12846,
+          "validation_rows": 6423,
+          "geo_available_rows": 0,
+          "elapsed_seconds": 45.34400000004098,
+          "n": 6423,
+          "mae_tenge": 7579146.922597928,
+          "rmse_tenge": 15610245.274322314,
+          "r2": 0.8412337548586806,
+          "over_20_pct": 24.100887435777672
+        },
+        {
+          "fold": 2,
+          "fit_rows": 12846,
+          "validation_rows": 6423,
+          "geo_available_rows": 0,
+          "elapsed_seconds": 35.76600000006147,
+          "n": 6423,
+          "mae_tenge": 7826724.8408079,
+          "rmse_tenge": 21867951.76787702,
+          "r2": 0.7414303928346582,
+          "over_20_pct": 24.708080336291452
+        },
+        {
+          "fold": 3,
+          "fit_rows": 12846,
+          "validation_rows": 6423,
+          "geo_available_rows": 0,
+          "elapsed_seconds": 20.219000000040978,
+          "n": 6423,
+          "mae_tenge": 7427066.784917682,
+          "rmse_tenge": 15464222.648560636,
+          "r2": 0.8447098016185395,
+          "over_20_pct": 24.94161606725829
+        }
+      ],
+      "fitted_under_signature": "83b013454ee12bc0ce4e1720b5f36410af2939a2414004edce49bdd0681b65a4"
+    },
+    {
+      "signature": "06db5ac2d007cd6968c39fbd030335cb0a0328e3cf1d58e297e67cce55025bc6",
+      "variant": "coords",
+      "metrics": {
+        "n": 19269,
+        "mae_tenge": 8271683.157772883,
+        "rmse_tenge": 18618806.725095294,
+        "r2": 0.7888135574042164,
+        "over_20_pct": 28.59515283616171
+      },
+      "folds": [
+        {
+          "fold": 1,
+          "fit_rows": 12846,
+          "validation_rows": 6423,
+          "geo_available_rows": 158,
+          "elapsed_seconds": 9.969000000040978,
+          "n": 6423,
+          "mae_tenge": 8277728.70121585,
+          "rmse_tenge": 16639829.12060187,
+          "r2": 0.8196000370343545,
+          "over_20_pct": 28.366806788105247
+        },
+        {
+          "fold": 2,
+          "fit_rows": 12846,
+          "validation_rows": 6423,
+          "geo_available_rows": 137,
+          "elapsed_seconds": 18.17200000002049,
+          "n": 6423,
+          "mae_tenge": 8485381.393495103,
+          "rmse_tenge": 22367311.313478436,
+          "r2": 0.7294865733330643,
+          "over_20_pct": 28.8183092013078
+        },
+        {
+          "fold": 3,
+          "fit_rows": 12846,
+          "validation_rows": 6423,
+          "geo_available_rows": 103,
+          "elapsed_seconds": 17.781000000191852,
+          "n": 6423,
+          "mae_tenge": 8051939.378607695,
+          "rmse_tenge": 16211087.657602467,
+          "r2": 0.8293476924109431,
+          "over_20_pct": 28.600342519072086
+        }
+      ],
+      "fitted_under_signature": "83b013454ee12bc0ce4e1720b5f36410af2939a2414004edce49bdd0681b65a4"
+    },
+    {
+      "signature": "06db5ac2d007cd6968c39fbd030335cb0a0328e3cf1d58e297e67cce55025bc6",
+      "variant": "complex_coords",
+      "metrics": {
+        "n": 19269,
+        "mae_tenge": 7615132.564716028,
+        "rmse_tenge": 17891077.0426841,
+        "r2": 0.8049996822820283,
+        "over_20_pct": 24.557579531890603
+      },
+      "folds": [
+        {
+          "fold": 1,
+          "fit_rows": 12846,
+          "validation_rows": 6423,
+          "geo_available_rows": 158,
+          "elapsed_seconds": 52.59400000004098,
+          "n": 6423,
+          "mae_tenge": 7581638.790778781,
+          "rmse_tenge": 15637544.138529439,
+          "r2": 0.8406779752646026,
+          "over_20_pct": 24.100887435777672
+        },
+        {
+          "fold": 2,
+          "fit_rows": 12846,
+          "validation_rows": 6423,
+          "geo_available_rows": 137,
+          "elapsed_seconds": 51.26600000006147,
+          "n": 6423,
+          "mae_tenge": 7824609.350231275,
+          "rmse_tenge": 21813213.64977867,
+          "r2": 0.7427232345002611,
+          "over_20_pct": 24.58352794644247
+        },
+        {
+          "fold": 3,
+          "fit_rows": 12846,
+          "validation_rows": 6423,
+          "geo_available_rows": 103,
+          "elapsed_seconds": 48.96900000004098,
+          "n": 6423,
+          "mae_tenge": 7439149.553138026,
+          "rmse_tenge": 15489442.753902651,
+          "r2": 0.8442028729684335,
+          "over_20_pct": 24.988323213451658
+        }
+      ],
+      "fitted_under_signature": "83b013454ee12bc0ce4e1720b5f36410af2939a2414004edce49bdd0681b65a4"
+    }
+  ],
+  "unseen_house_check": {
+    "signature": "06db5ac2d007cd6968c39fbd030335cb0a0328e3cf1d58e297e67cce55025bc6",
+    "seed": 42,
+    "fit_rows": 15418,
+    "validation_rows": 3851,
+    "results": [
+      {
+        "variant": "baseline8",
+        "n": 3851,
+        "mae_tenge": 8131728.44365029,
+        "rmse_tenge": 16992052.214416027,
+        "r2": 0.8024549327676851,
+        "over_20_pct": 26.928070631004935,
+        "geo_available_rows": 0
+      },
+      {
+        "variant": "complex",
+        "n": 3851,
+        "mae_tenge": 7528516.013797937,
+        "rmse_tenge": 16463708.56409497,
+        "r2": 0.814548708877457,
+        "over_20_pct": 23.811996883926252,
+        "geo_available_rows": 0
+      },
+      {
+        "variant": "complex_coords",
+        "n": 3851,
+        "mae_tenge": 7554188.397331034,
+        "rmse_tenge": 16624570.929626318,
+        "r2": 0.8109070173294312,
+        "over_20_pct": 23.760062321474944,
+        "geo_available_rows": 0
+      }
+    ],
+    "selection_used": false,
+    "unknown_address_caveat": "Unknown addresses cannot establish building independence.",
+    "selection_caveat": "Diagnostic reuse of training population; fixed parameters and variant were selected with CV that included these rows. Not independent model-selection validation."
+  },
+  "holdout_geo_available_rows": 8,
+  "catalogue_summary": {
+    "catalog_policy_version": 2,
+    "listing_count": 19859,
+    "building_count": 2842,
+    "complex_count": 1210,
+    "listings_with_building_id": 3503,
+    "listings_with_complex_id": 15808,
+    "listings_with_parking": 13785,
+    "coordinate_status_counts": {
+      "invalid": 28,
+      "missing": 3705,
+      "plausible": 497,
+      "unverified": 15629
+    },
+    "building_coordinate_status_counts": {
+      "invalid": 6,
+      "missing": 411,
+      "plausible": 170,
+      "unverified": 2255
+    },
+    "address_status_counts": {
+      "ambiguous": 8091,
+      "district_missing": 552,
+      "house": 9992,
+      "incomplete": 1224
+    },
+    "dataset_period_counts": {
+      "2026-01": 16119,
+      "2026-03": 3740
+    },
+    "coordinate_inherited_count": 35,
+    "candidate_building_count": 4068,
+    "ambiguous_candidate_count": 1226,
+    "ambiguous_listing_count": 6489,
+    "candidate_conflicts": {
+      "building_type_conflict": 280,
+      "complex_conflict": 60,
+      "coordinate_spread": 189,
+      "invalid_coordinate_evidence": 3,
+      "total_floors_conflict": 721,
+      "year_built_conflict": 887
+    },
+    "normalization": {
+      "changed_address_rows": 35,
+      "accepted_merge_candidates": 2,
+      "rejected_merge_candidates": 10,
+      "accepted_merge_old_id_reduction": 2,
+      "audit_rows": 74,
+      "decisions": {
+        "accepted_merge": 7,
+        "accepted_normalization": 7,
+        "rejected_ambiguous": 58,
+        "rejected_missing_district": 2
+      }
+    },
+    "raw_coordinate_status_counts": {
+      "invalid": 28,
+      "missing": 3740,
+      "unverified": 16091
+    },
+    "issue_counts": {
+      "address_ambiguous": 8091,
+      "address_district_missing": 552,
+      "address_incomplete": 1224,
+      "ambiguous_house_candidate": 1226,
+      "building_field_conflict": 18,
+      "coordinate_invalid": 28,
+      "coordinate_reused_across_houses": 940
+    },
+    "building_conflicts": {
+      "complex": 0,
+      "parking": 18,
+      "year_built": 0,
+      "total_floors": 0,
+      "building_type": 0
+    },
+    "policy": {
+      "bbox": {
+        "latitude_min": 50.8,
+        "latitude_max": 51.4,
+        "longitude_min": 70.8,
+        "longitude_max": 71.9
+      },
+      "maximum_radius_from_median_m": 125.0,
+      "minimum_coordinate_observations": 2,
+      "distance_allowed_statuses": [
+        "plausible"
+      ],
+      "building_key": "astana + exact normalized district + single explicit house address",
+      "complex_key": "astana + exact normalized complex name",
+      "house_suffix_aliases": {
+        "a": "а",
+        "c": "с",
+        "e": "е",
+        "o": "о",
+        "p": "р",
+        "x": "х",
+        "y": "у"
+      },
+      "conflicted_candidate_policy": "retain individual records; building_id=null",
+      "pointwise_training_columns": [
+        "house_key",
+        "raw_latitude",
+        "raw_longitude",
+        "raw_coordinate_status"
+      ],
+      "training_warning": "Never use global catalog building_id/conflicts/consensus in CV; fit maps within each training fold."
+    },
+    "limitations": [
+      "Адреса и ЖК сопоставлены консервативно; только a/c/e/o/p/x/y в суффиксе дома/корпуса заменены на кириллицу.",
+      "Конфликты ЖК/года/этажности/типа/географии оставляют строки отдельно без building_id; кандидат сохранён для аудита.",
+      "house_key и raw_* — построчные исходные данные для CV; глобальные решения каталога не являются входами модели.",
+      "building_id не является реестровым ID; корпуса и дроби сохранены, неоднозначные адреса исключены.",
+      "plausible означает только согласованность архивных точек: точность дома внешне не подтверждена.",
+      "Одинаковые координаты у разных домов и внутридомовые конфликты запрещают расчёт расстояний.",
+      "Парковка — текст объявления, не наличие места в собственности и не включение в цену; пропуск неизвестен.",
+      "Застройщик и лифт неизвестны; большинством конфликтующие характеристики дома не выбираются.",
+      "Январские даты — сбор без часового пояса; март — период по заявлению автора, без дат строк.",
+      "Цены являются архивными ценами предложения; ссылки и актуальная доступность не проверялись."
+    ]
+  },
+  "protected_before": {
+    "models/best_model.joblib": "f40f892700324892ee0fde041f8a5feaca2e0c01fb4231185e5c3a751b073bac",
+    "models/model_metadata.json": "c623c137cab6f093071a18a6c183d513ad311744378b1695ca4063dcd39ac1da",
+    "models/combined_2026/best_model.joblib": "643bfe75014cb3929376a44e689905c1fe8c4fa1e72165ec7b9c0e30db4d3c8a",
+    "models/combined_2026/model_metadata.json": "580f8b324ff052e56bbae537dc9385268191761b2e4f19d23de891a7b94f3825",
+    "models/march_2026/best_model.joblib": "9b8253694c7f2fc109d72f30b4ce9432ad443fdf86dde32c47c5faa97ec00de2",
+    "models/march_2026/model_metadata.json": "bd64a3c2ea87309c16ea28a1c62db101d93ee920ea1466990beccb245fc4d554",
+    "data/processed/combined_2026/listings_clean.csv": "28ad11f14b56315ea2dd903ffc7f8ab9d5a788f7f5e070b5ec1b61c0711d98eb",
+    "reports/combined_update/split_manifest.csv": "b7a8c84df93c77aa925b2965d2768e357d429802991395a27b865f1101e4dc69",
+    "data/raw/kaggle_astana/astana_apartments.csv": "923bd5483eaea5fdfe9cbf8d36c40ec1875992f66ed70ee29426dd6bc2d189ee",
+    "data/raw/turarr_march_2026/astana_apartments_raw.csv": "79c518f9ec37272c5052ea9936d3020030f4d02cccfb749fb92487fbfdf70676"
+  },
+  "protected_after": {
+    "models/best_model.joblib": "f40f892700324892ee0fde041f8a5feaca2e0c01fb4231185e5c3a751b073bac",
+    "models/model_metadata.json": "c623c137cab6f093071a18a6c183d513ad311744378b1695ca4063dcd39ac1da",
+    "models/combined_2026/best_model.joblib": "643bfe75014cb3929376a44e689905c1fe8c4fa1e72165ec7b9c0e30db4d3c8a",
+    "models/combined_2026/model_metadata.json": "580f8b324ff052e56bbae537dc9385268191761b2e4f19d23de891a7b94f3825",
+    "models/march_2026/best_model.joblib": "9b8253694c7f2fc109d72f30b4ce9432ad443fdf86dde32c47c5faa97ec00de2",
+    "models/march_2026/model_metadata.json": "bd64a3c2ea87309c16ea28a1c62db101d93ee920ea1466990beccb245fc4d554",
+    "data/processed/combined_2026/listings_clean.csv": "28ad11f14b56315ea2dd903ffc7f8ab9d5a788f7f5e070b5ec1b61c0711d98eb",
+    "reports/combined_update/split_manifest.csv": "b7a8c84df93c77aa925b2965d2768e357d429802991395a27b865f1101e4dc69",
+    "data/raw/kaggle_astana/astana_apartments.csv": "923bd5483eaea5fdfe9cbf8d36c40ec1875992f66ed70ee29426dd6bc2d189ee",
+    "data/raw/turarr_march_2026/astana_apartments_raw.csv": "79c518f9ec37272c5052ea9936d3020030f4d02cccfb749fb92487fbfdf70676"
+  },
+  "limitations": [
+    "Мартовский test уже изучался: это повторное диагностическое сравнение, а не свежая независимая оценка.",
+    "Проверки координат используют только train, но не подтверждают точность по внешнему реестру.",
+    "Координаты доступны только для домов, согласованно представленных в train; новым домам они не приписываются.",
+    "Группы квартир/домов основаны на консервативных адресных эвристиках; невыявленные повторы остаются возможными.",
+    "Восемь исходных параметров и цены сохраняются; конфликтные свойства дома не заменяют индивидуальную анкету.",
+    "Предсказывается архивная цена предложения, не цена сделки и не прогноз на шесть месяцев."
+  ]
+}

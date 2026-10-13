@@ -1,0 +1,33 @@
+{
+  "checked_on": "2026-10-13",
+  "requests": [
+    {
+      "url": "https://krisha.kz/robots.txt",
+      "http_status": 200,
+      "local_path": "data/raw/fresh_2026_10_13/robots.txt",
+      "sha256": "d0f78f9f3b6818b3efa61ff7cdcbd4efa9a1b43ee9a6153204a311af12ddb8ff",
+      "bytes": 677
+    },
+    {
+      "url": "https://krisha.kz/content/special/agreement",
+      "http_status": 200,
+      "local_path": "data/raw/fresh_2026_10_13/terms.html",
+      "sha256": "e1fafbd51a26734d6d88d3bdd3868cae0c6acffb75dcc3914a51c05ee88e870d",
+      "bytes": 471552
+    },
+    {
+      "url": "https://krisha.kz/prodazha/kvartiry/astana/",
+      "http_status": 200,
+      "local_path": "data/raw/fresh_2026_10_13/catalog_page_001.html",
+      "sha256": "12be74ebf9bd59997c7d8ab8f3c499ac7ec38815e2b09b9805aab6408fccffb0",
+      "bytes": 438039
+    },
+    {
+      "url": "https://krisha.kz/a/show/1016358354",
+      "http_status": 468,
+      "saved_listing": false,
+      "action": "stopped; no bulk collection or bypass"
+    }
+  ],
+  "note": "Diagnostic access checks only. Saved catalogue/terms are not a fresh apartment holdout. A separate successful single-card probe is documented in source_research.json."
+}

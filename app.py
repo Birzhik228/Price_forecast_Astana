@@ -10,10 +10,15 @@ import pandas as pd
 import streamlit as st
 from sklearn.pipeline import Pipeline
 
-from config import MODEL_METADATA_PATH, MODEL_PIPELINE_PATH, PROPERTY_CATALOG_DIR
+from config import (
+    APP_MODEL_METADATA_PATH as MODEL_METADATA_PATH,
+    APP_MODEL_PIPELINE_PATH as MODEL_PIPELINE_PATH,
+    PROPERTY_CATALOG_DIR,
+)
 from comparables import PropertyCatalog, find_comparables, load_catalog, safe_listing_url
 from features import CATEGORICAL_FEATURES, NUMERIC_FEATURES
-from prediction import FIELD_LABELS, INPUT_LIMITS, load_artifacts, predict_apartment
+from prediction import FIELD_LABELS, INPUT_LIMITS
+from location_prediction import load_app_artifacts as load_artifacts, predict_app_apartment as predict_apartment
 
 
 LOGGER = logging.getLogger(__name__)
@@ -57,21 +62,40 @@ def optional_value(value: Any) -> Any:
     return None if value is None or pd.isna(value) else value
 
 
+def autofill_complex_district(districts: dict[str, str]) -> None:
+    """Обновлять район только при смене ЖК, сохраняя последующие ручные правки."""
+    st.session_state["district"] = districts.get(st.session_state.get("location_complex"))
+
+
 def location_selector(catalog: PropertyCatalog, metadata: dict[str, Any]) -> dict[str, Any]:
-    """Местоположение для аналогов; известные параметры дома можно перенести в форму."""
+    """Местоположение для модели и аналогов; сведения дома можно перенести в форму."""
     listings, buildings = catalog.listings, catalog.buildings
     complexes = listings.loc[listings["complex_id"].notna(), ["complex_id", "complex_name"]]
     complex_labels = complexes.drop_duplicates("complex_id").set_index("complex_id")["complex_name"].to_dict()
     complex_ids = sorted(complex_labels, key=lambda key: str(complex_labels[key]).casefold())
+    # Все объявления: каталог разрешённых домов может скрыть спорные районы ЖК.
+    known_districts = listings.dropna(subset=["complex_id", "district"]).groupby("complex_id")["district"].unique()
+    complex_districts = {
+        complex_id: districts[0] for complex_id, districts in known_districts.items()
+        if len(districts) == 1 and districts[0] in metadata["categories_from_train"]["district"]
+    }
     if st.session_state.get("location_complex") not in complex_labels:
         st.session_state["location_complex"] = None
-    with st.expander("ЖК и дом для поиска похожих квартир", expanded=True):
-        st.caption("Необязательно. Выбор места уточняет поиск аналогов. Модель цены пока использует восемь параметров ниже.")
+    location_model = metadata.get("schema_version") == 2
+    with st.expander("ЖК и адрес квартиры", expanded=True):
+        st.caption(
+            "Необязательно. ЖК участвует в оценке цены. По адресу модель учитывает координаты, если они известны для этого дома. Выбор также уточняет поиск аналогов."
+            if location_model else
+            "Необязательно. Выбор места уточняет поиск аналогов. Модель цены использует восемь параметров ниже."
+        )
         complex_id = st.selectbox(
             "Жилой комплекс", [None, *complex_ids], key="location_complex",
             placeholder="Выберите ЖК или оставьте пустым",
             format_func=lambda value: "Не указан" if value is None else str(complex_labels[value]),
+            on_change=autofill_complex_district, args=(complex_districts,),
         )
+        if complex_id and complex_id not in complex_districts:
+            st.caption("Для этого ЖК район неизвестен или указан по-разному. Выберите район вручную в анкете ниже.")
         available = buildings if complex_id is None else buildings.loc[buildings["complex_id"].eq(complex_id)]
         house_labels = available.set_index("building_id")["display_label"].to_dict()
         house_ids = sorted(house_labels, key=lambda key: str(house_labels[key]).casefold())
@@ -128,6 +152,24 @@ def location_selector(catalog: PropertyCatalog, metadata: dict[str, Any]) -> dic
     return location
 
 
+def manual_location_selector(location: dict[str, Any]) -> dict[str, Any]:
+    """Allow a location outside the archive, preserving unknown values."""
+    result = location.copy()
+    if result.get("complex_name") and result.get("address_normalized"):
+        return result
+    with st.expander("ЖК или адреса нет в списке", expanded=not bool(location)):
+        if not result.get("complex_name"):
+            value = st.text_input("Название ЖК", key="location_manual_complex", max_chars=200,
+                                  placeholder="Необязательно, например: название вашего ЖК").strip()
+            result["complex_name"] = value or None
+        if not result.get("address_normalized"):
+            value = st.text_input("Адрес дома", key="location_manual_address", max_chars=240,
+                                  placeholder="Улица и номер дома",
+                                  help="Укажите район в анкете ниже. Если адрес модели неизвестен, расчёт останется доступен без известных координат дома.").strip()
+            result["address_normalized"] = value or None
+    return result
+
+
 def render_comparables(catalog: PropertyCatalog, values: dict[str, Any], location: dict[str, Any]) -> None:
     """Архивные цены служат отдельным сравнением и не изменяют прогноз модели."""
     st.subheader("Похожие объявления из архива")
@@ -167,14 +209,14 @@ def main() -> None:
     st.write("Укажите параметры квартиры и получите оценку в тенге.")
 
     try:
-        signature = (file_signature(MODEL_PIPELINE_PATH), file_signature(MODEL_METADATA_PATH))
+        file_signatures = (file_signature(MODEL_PIPELINE_PATH), file_signature(MODEL_METADATA_PATH))
+        signature = (str(MODEL_PIPELINE_PATH), str(MODEL_METADATA_PATH), *file_signatures)
         with st.spinner("Загружаем модель…"):
             pipeline, metadata = cached_artifacts(
-                str(MODEL_PIPELINE_PATH), str(MODEL_METADATA_PATH), *signature,
+                str(MODEL_PIPELINE_PATH), str(MODEL_METADATA_PATH), *file_signatures,
             )
     except FileNotFoundError:
-        st.error("Файлы обученной модели не найдены. Сначала выполните обучение из папки проекта.")
-        st.code(r".\.venv\Scripts\python.exe -X utf8 train.py", language="powershell")
+        st.error("Файлы модели с ЖК и координатами не найдены. Восстановите сохранённые артефакты и подготовьте модель для приложения по README.")
         return
     except Exception:
         LOGGER.exception("Не удалось загрузить модель")
@@ -182,6 +224,13 @@ def main() -> None:
         return
 
     data_period_label = metadata.get("data_period_label", "января 2026 года")
+    uses_location = metadata.get("schema_version") == 2
+    if uses_location:
+        st.caption("Модель: ЖК и координаты")
+        if metadata.get("geo_enrichment"):
+            st.caption("Координаты части домов дополнены по точным адресам "
+                       "[OpenStreetMap](https://www.openstreetmap.org/copyright), снимок 12 октября 2026. "
+                       "© OpenStreetMap contributors · ODbL 1.0.")
     st.caption(f"Модель обучена на объявлениях {data_period_label}. Это не оценка рынка на сегодня.")
 
     if st.session_state.get("artifact_signature") != signature:
@@ -209,7 +258,12 @@ def main() -> None:
         st.session_state.pop("last_location", None)
         st.session_state["catalog_signature"] = catalog_state
     location = location_selector(catalog, metadata) if catalog is not None else {}
-    location_selection = (location.get("complex_id"), location.get("building_id"), location.get("exclude_url"), location.get("invalid_listing_url"))
+    if uses_location:
+        location = manual_location_selector(location)
+    location_selection = tuple(location.get(field) for field in (
+        "complex_id", "building_id", "complex_name", "address_normalized", "location_district",
+        "exclude_url", "invalid_listing_url",
+    ))
     if st.session_state.get("location_selection") != location_selection:
         st.session_state.pop("prediction", None)
         st.session_state.pop("last_input", None)
@@ -270,7 +324,7 @@ def main() -> None:
             if house_district and values.get("district") and house_district != values["district"]:
                 raise ValueError("Район в анкете отличается от района выбранного дома. Исправьте район или выбор дома перед расчётом.")
             with st.spinner("Рассчитываем стоимость…"):
-                result = predict_apartment(pipeline, metadata, values)
+                result = predict_apartment(pipeline, metadata, values, location=location)
             st.session_state["prediction"] = result
             st.session_state["last_input"] = values.copy()
             st.session_state["last_location"] = location.copy()
@@ -295,6 +349,8 @@ def main() -> None:
         )
         for notice in result.warnings:
             st.warning(notice)
+        for note in getattr(result, "location_notes", ()):
+            st.caption(note)
         with st.expander("Параметры этого расчёта"):
             snapshot = st.session_state["last_input"]
             labels = []
@@ -304,6 +360,12 @@ def main() -> None:
                     "Не указано" if value is None else f"{value:g}"
                 )
                 labels.append({"Параметр": FIELD_LABELS[column], "Значение": displayed})
+            if uses_location:
+                place = st.session_state["last_location"]
+                labels.extend([
+                    {"Параметр": "ЖК", "Значение": place.get("complex_name") or "Не указан"},
+                    {"Параметр": "Адрес дома", "Значение": place.get("address_normalized") or "Не указан"},
+                ])
             st.table(pd.DataFrame(labels).set_index("Параметр"))
 
         if catalog is not None:
@@ -318,12 +380,15 @@ def main() -> None:
     with st.expander("Как понимать оценку"):
         st.write(
             "Модель сравнивает параметры с закономерностями в объявлениях о продаже квартир. "
-            "Фактическая цена сделки, торг, точный адрес, вид из окна и другие детали в прогнозе не учитываются."
+            + ("Учитывает ЖК и доступные по адресу координаты дома. Фактическая цена сделки, торг и вид из окна в прогнозе не учитываются."
+               if uses_location else "Фактическая цена сделки, торг, точный адрес, вид из окна и другие детали в прогнозе не учитываются.")
         )
         st.write(
-            f"Средняя абсолютная ошибка на отложенной выборке — {format_tenge(metadata['test_metrics']['mae_tenge'])}. "
+            f"Средняя абсолютная ошибка {'на повторно использованной мартовской выборке' if uses_location else 'на отложенной выборке'} — {format_tenge(metadata['test_metrics']['mae_tenge'])}. "
             "Это среднее по разным квартирам. Особенно дорогие или необычные квартиры могут оцениваться значительно хуже."
         )
+        if uses_location:
+            st.write("Координаты взяты из обучающего справочника и проверены на внутреннюю согласованность; точность до дома внешним источником не подтверждена. Проверка на свежих данных ещё не проведена.")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,92 @@
+{
+  "created_at_utc": "2026-10-13T10:08:20.386803+00:00",
+  "policy": "Price-independent exact signature: row-local canonical_house_key(address,district,residential_complex) plus finite area,rooms,floor,total_floors,year_built. No incomplete signature matching. No dataset, split or model modification.",
+  "target_price_used": false,
+  "protected_rows": 590,
+  "complete_canonical_house_rows": 279,
+  "incomplete_or_ambiguous_rows": 311,
+  "distinct_complete_signatures": 279,
+  "test_internal_duplicate_signatures": 0,
+  "matches": {
+    "january_all": {
+      "reference_rows": 17929,
+      "complete_reference_rows": 8772,
+      "matching_keys": 0,
+      "affected_test_rows": 0,
+      "matching_reference_rows": 0,
+      "examples": []
+    },
+    "january_frozen_train": {
+      "reference_rows": 14343,
+      "complete_reference_rows": 7018,
+      "matching_keys": 0,
+      "affected_test_rows": 0,
+      "matching_reference_rows": 0,
+      "examples": []
+    },
+    "march_frozen_train": {
+      "reference_rows": 3165,
+      "complete_reference_rows": 1445,
+      "matching_keys": 0,
+      "affected_test_rows": 0,
+      "matching_reference_rows": 0,
+      "examples": []
+    },
+    "combined_frozen_train": {
+      "reference_rows": 19269,
+      "complete_reference_rows": 9184,
+      "matching_keys": 0,
+      "affected_test_rows": 0,
+      "matching_reference_rows": 0,
+      "examples": []
+    }
+  },
+  "sources": {
+    "combined_csv": {
+      "path": "data/processed/combined_2026/listings_clean.csv",
+      "sha256": "28ad11f14b56315ea2dd903ffc7f8ab9d5a788f7f5e070b5ec1b61c0711d98eb"
+    },
+    "combined_split": {
+      "path": "reports/combined_update/split_manifest.csv",
+      "sha256": "b7a8c84df93c77aa925b2965d2768e357d429802991395a27b865f1101e4dc69"
+    },
+    "january_csv": {
+      "path": "data/processed/january_2026/listings_clean.csv",
+      "sha256": "3cef002023d07f6079ff8263472716198ef37e8174d16e88a2567a84a6ae1e27"
+    },
+    "january_split": {
+      "path": "reports/split_manifest.csv",
+      "sha256": "cf1c43bda13d9f8d0a83b1afb82137a486ea5e70771395d2413c0884d6b1f67b"
+    },
+    "march_csv": {
+      "path": "data/processed/march_2026/listings_clean.csv",
+      "sha256": "46ab0642cb837147cf3e9743d974158345160320aae34bf2eff5914287fee6c9"
+    },
+    "march_split": {
+      "path": "reports/march_update/split_manifest.csv",
+      "sha256": "df187aa148e10c0e09477b98312bd3cb271d6ee5e12120694edd54faadb56511"
+    },
+    "canonical_helper": {
+      "path": "building_catalog.py",
+      "sha256": "8fdcf1bf38aeb1da402a09c3a82a5c4fd5e95368b10bd29f03b7138170edc94b"
+    },
+    "january_metadata": {
+      "path": "models/model_metadata.json",
+      "sha256": "c623c137cab6f093071a18a6c183d513ad311744378b1695ca4063dcd39ac1da"
+    },
+    "combined_metadata": {
+      "path": "models/combined_2026/model_metadata.json",
+      "sha256": "580f8b324ff052e56bbae537dc9385268191761b2e4f19d23de891a7b94f3825"
+    },
+    "march_metadata": {
+      "path": "models/march_2026/model_metadata.json",
+      "sha256": "bd64a3c2ea87309c16ea28a1c62db101d93ee920ea1466990beccb245fc4d554"
+    }
+  },
+  "limitations": [
+    "These are heuristic apartment signatures, not verified property identifiers.",
+    "Zero matches does not exclude changed descriptions or repeated apartments with incomplete signatures.",
+    "All protected rows belong to the previously analyzed March holdout; this is not fresh independent validation."
+  ],
+  "source_row_alignment_verified": true
+}

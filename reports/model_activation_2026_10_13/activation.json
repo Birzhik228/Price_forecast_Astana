@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-13T15:03:47.909338+00:00",
+  "status": "deployment_metadata_prepared",
+  "activation_reason": "explicit_user_request",
+  "variant": "complex_coords",
+  "fit_calls": 0,
+  "configuration_changed_by_this_script": false,
+  "models_copied_or_overwritten": false,
+  "selected_by_cv": false,
+  "cv_selected_variant": "complex",
+  "experiment_signature": "06db5ac2d007cd6968c39fbd030335cb0a0328e3cf1d58e297e67cce55025bc6",
+  "deployment_metadata": {
+    "path": "models/deployment/complex_coords.json",
+    "sha256": "6ba7b1d06bc1605f7984686414e58648933ed5ecda52d067bd3b2734f0aa7c86"
+  },
+  "model": {
+    "path": "models/location_2026/complex_coords.joblib",
+    "sha256": "86d0faf99d7062c2d1402f0ce15a930c1764a69c9d8d75e3e0d20e4037a58b50"
+  },
+  "original_metadata_sha256": "680f18d8df5ac49fdf055aa815d764fb26e68a2b11e43f402d5b3904f47c6965",
+  "experiment_report_sha256": "84737d8526b83cd07e59585a55e510c776e67173a0efbd3fa86e51d9d79aae6e",
+  "previous_january": {
+    "model_path": "models/best_model.joblib",
+    "metadata_path": "models/model_metadata.json",
+    "model_sha256": "f40f892700324892ee0fde041f8a5feaca2e0c01fb4231185e5c3a751b073bac",
+    "metadata_sha256": "c623c137cab6f093071a18a6c183d513ad311744378b1695ca4063dcd39ac1da"
+  },
+  "source_sha256": {
+    "models/best_model.joblib": "f40f892700324892ee0fde041f8a5feaca2e0c01fb4231185e5c3a751b073bac",
+    "models/model_metadata.json": "c623c137cab6f093071a18a6c183d513ad311744378b1695ca4063dcd39ac1da",
+    "models/combined_2026/best_model.joblib": "643bfe75014cb3929376a44e689905c1fe8c4fa1e72165ec7b9c0e30db4d3c8a",
+    "models/combined_2026/model_metadata.json": "580f8b324ff052e56bbae537dc9385268191761b2e4f19d23de891a7b94f3825",
+    "models/march_2026/best_model.joblib": "9b8253694c7f2fc109d72f30b4ce9432ad443fdf86dde32c47c5faa97ec00de2",
+    "models/march_2026/model_metadata.json": "bd64a3c2ea87309c16ea28a1c62db101d93ee920ea1466990beccb245fc4d554",
+    "data/processed/combined_2026/listings_clean.csv": "28ad11f14b56315ea2dd903ffc7f8ab9d5a788f7f5e070b5ec1b61c0711d98eb",
+    "reports/combined_update/split_manifest.csv": "b7a8c84df93c77aa925b2965d2768e357d429802991395a27b865f1101e4dc69",
+    "data/raw/kaggle_astana/astana_apartments.csv": "923bd5483eaea5fdfe9cbf8d36c40ec1875992f66ed70ee29426dd6bc2d189ee",
+    "data/raw/turarr_march_2026/astana_apartments_raw.csv": "79c518f9ec37272c5052ea9936d3020030f4d02cccfb749fb92487fbfdf70676",
+    "data/processed/property_catalog/manifest.json": "c8ac0cf5583ebc55cbd4636244c895fc226a87ebc4bcef4c4b99a92fd6c8bb2d",
+    "data/processed/property_catalog/listings.csv": "bb6bfa27828cb3913229b3b6d7fff6e3e6c735e97f91cbaf91eb8b318a3f85cf",
+    "location_model.py": "2b1908c219c69f4f009383c7812227543cc371d5f1bf41aac2743a61d8763b3e",
+    "building_catalog.py": "8fdcf1bf38aeb1da402a09c3a82a5c4fd5e95368b10bd29f03b7138170edc94b",
+    "location_experiment.py": "fd27b31a7dd48b6a7c068bde029ba65752e03e93c606aaea7acc24a8bdffb21b",
+    "reports/location_experiment/experiment_plan.json": "1452b23aff1210512b86d202b1eee2f2518f6a3cb8333ce6cbbd3281424c3710",
+    "reports/location_experiment/experiment_report.json": "84737d8526b83cd07e59585a55e510c776e67173a0efbd3fa86e51d9d79aae6e",
+    "reports/location_experiment/holdout_predictions.csv": "467c870dcfcb6d7ceba1f214ba50ac3fe608512d43ef7c3599bdf62b20a5a343",
+    "reports/location_experiment/split_manifest.csv": "0d1961e59a78473309e64069a47798a9cc2489708778ec213f22a20ace3eb797",
+    "reports/location_experiment/unseen_house_check.json": "007b56ecd1ded0c463b2d359cf886ff0aff5265a6d11d500b11ff793aa39ff8b",
+    "reports/location_experiment/alias_overlap_audit.json": "4bdd4f8b4bc12cc6b2bd545fd720b58cc17b68d2077ccf5d97ffd8f4a0fbf84a",
+    "reports/location_experiment/cv_baseline8.json": "070e3e5291658455738ca510caf9e88226bb2b2692f817daeab670138bf3895e",
+    "reports/location_experiment/cv_complex.json": "bd000470b51b213f894287ca9ebe4df58635a92169363693fe4fcd32306a0c2b",
+    "reports/location_experiment/cv_coords.json": "fe57ebff4695f8d3b1ca4dbc56444011525a024c7917be4632dc7e5100bd2a78",
+    "reports/location_experiment/cv_complex_coords.json": "6cf80b03f73a29ffabb1a99181bfeea63a28af7b3c224c3e48c5915bb3ec973b",
+    "models/location_2026/baseline8.joblib": "90f2ee072cb443c576ce753b8ff8f4928ba2ec83037547184cbb81178ec4ad79",
+    "models/location_2026/baseline8.json": "891dade27002aeecd607bffe36264f8ef5a242e45942690749fb64edb6901a7f",
+    "models/location_2026/complex.joblib": "b02a3e5e46ee069a75f13210ed20cf8a33834d7fe9fb3bb4f881bd1541fae108",
+    "models/location_2026/complex.json": "1b0a28fd181fa02b24733e0a06486e328a704cd182740efca155b048cacf4d4e",
+    "models/location_2026/coords.joblib": "a2763637f4ec5c09c3cc2850a58f16fe4ee85d6de40e789ad69807edae2a4bcc",
+    "models/location_2026/coords.json": "321f96b1a4cd0c909775320181d3151ad049ee2ddf1a02612a9ae8467ed34868",
+    "models/location_2026/complex_coords.joblib": "86d0faf99d7062c2d1402f0ce15a930c1764a69c9d8d75e3e0d20e4037a58b50",
+    "models/location_2026/complex_coords.json": "680f18d8df5ac49fdf055aa815d764fb26e68a2b11e43f402d5b3904f47c6965",
+    "reports/location_experiment/checkpoint_reuse.json": "e1cdb96324b213fe0b5bd5ee1821858cf7fd91663edd71e95318fc432dcc217e",
+    "reports/location_experiment/evaluation_fix_backup/experiment_plan.json": "a86efede9aa6e1eb3c838e703a9ed998096bd36723437f1e1e34f148b62076c8",
+    "reports/location_experiment/evaluation_fix_backup/location_experiment.py": "9f87c6479942120a526442af0a635704e7d9ac33593c9cd8f074d0ef4a70285d",
+    "reports/location_experiment/evaluation_fix_backup/cv_baseline8.json": "762eafbc8e91d5e507613e871c1e59bb69f5f08b766873107ced5d9784c8669d",
+    "reports/location_experiment/evaluation_fix_backup/baseline8_metadata.json": "68d713a6f01a8f5a6e35be49a0e35840bb97768c12be1ab0338886f7b0b03a5d",
+    "reports/location_experiment/evaluation_fix_backup/cv_complex.json": "8247e901540471f5ce676b56a866380b365b0155255eea012e21503df87ab6b7",
+    "reports/location_experiment/evaluation_fix_backup/complex_metadata.json": "888b4f26636a8c64db70ed69ae32f39758faf0fbd530b2f61cc6c8688da260c5",
+    "reports/location_experiment/evaluation_fix_backup/cv_coords.json": "944f88db965023e4de900e618095c9a61377a6056784a2abbf4690308189f48b",
+    "reports/location_experiment/evaluation_fix_backup/coords_metadata.json": "9b5e6b44b6e1cf991adab0def1c59b94db3fadacf33cd0dacf6b839b3e5c57ba",
+    "reports/location_experiment/evaluation_fix_backup/cv_complex_coords.json": "dcd53b8d8c578b5a11b4a2d061b57fa7b8f6a5afce55004908c48601260f73d1",
+    "reports/location_experiment/evaluation_fix_backup/complex_coords_metadata.json": "eeaf1f11806ab280e4bd1cedd269b1150196aac0fb6c4ed880ffca12d35af310",
+    "reports/location_experiment/verification.json": "ddaeaef68782fb1edb58a7ca0abfa7d0392929eff54a4b15d613202bb59496a5"
+  },
+  "train_rows": 19269,
+  "test_rows": 590,
+  "test_metrics": {
+    "n": 590,
+    "mae_tenge": 6442701.30963452,
+    "rmse_tenge": 12123338.426170168,
+    "r2": 0.8688594694564467,
+    "over_20_pct": 21.864406779661017
+  },
+  "comparison_on_reused_march_holdout": [
+    {
+      "model": "baseline8",
+      "n": 590,
+      "mae_tenge": 7182650.364455767,
+      "rmse_tenge": 12835362.971525228,
+      "r2": 0.8530028928822403,
+      "over_20_pct": 25.76271186440678
+    },
+    {
+      "model": "complex",
+      "n": 590,
+      "mae_tenge": 6433066.749508977,
+      "rmse_tenge": 11966812.153898532,
+      "r2": 0.8722239594106076,
+      "over_20_pct": 21.35593220338983
+    },
+    {
+      "model": "coords",
+      "n": 590,
+      "mae_tenge": 7187038.52368162,
+      "rmse_tenge": 12804305.932661315,
+      "r2": 0.8537133942804906,
+      "over_20_pct": 26.779661016949152
+    },
+    {
+      "model": "complex_coords",
+      "n": 590,
+      "mae_tenge": 6442701.30963452,
+      "rmse_tenge": 12123338.426170168,
+      "r2": 0.8688594694564467,
+      "over_20_pct": 21.864406779661017
+    },
+    {
+      "model": "january",
+      "n": 590,
+      "mae_tenge": 7578905.912365296,
+      "rmse_tenge": 13894390.816682056,
+      "r2": 0.8277451338036276,
+      "over_20_pct": 27.796610169491526
+    },
+    {
+      "model": "combined",
+      "n": 590,
+      "mae_tenge": 7182650.364455767,
+      "rmse_tenge": 12835362.971525228,
+      "r2": 0.8530028928822403,
+      "over_20_pct": 25.76271186440678
+    }
+  ],
+  "fresh_validation_completed": false,
+  "limitations": [
+    "Мартовский test уже изучался: это повторное диагностическое сравнение, а не свежая независимая оценка.",
+    "Проверки координат используют только train, но не подтверждают точность по внешнему реестру.",
+    "Координаты доступны только для домов, согласованно представленных в train; новым домам они не приписываются.",
+    "Группы квартир/домов основаны на консервативных адресных эвристиках; невыявленные повторы остаются возможными.",
+    "Восемь исходных параметров и цены сохраняются; конфликтные свойства дома не заменяют индивидуальную анкету.",
+    "Предсказывается архивная цена предложения, не цена сделки и не прогноз на шесть месяцев.",
+    "Свежая независимая оценка после марта не выполнена: пригодных новых наблюдений нет.",
+    "Вариант с ЖК и координатами выбран пользователем; минимум CV MAE получил вариант только с ЖК."
+  ],
+  "checks": [
+    "experiment_signature",
+    "all_pinned_source_and_verified_artifact_sha256",
+    "original_model_and_metadata",
+    "identical_combined_and_location_train_rows",
+    "disjoint_apartment_groups",
+    "train_categories_and_ranges_recomputed",
+    "holdout_record_ids_and_prices",
+    "holdout_metrics_recomputed",
+    "no_training_or_original_artifact_writes"
+  ]
+}

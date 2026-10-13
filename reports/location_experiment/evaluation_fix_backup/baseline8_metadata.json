@@ -1,0 +1,27 @@
+{
+  "schema_version": 2,
+  "variant": "baseline8",
+  "feature_columns": [
+    "area",
+    "rooms",
+    "floor",
+    "total_floors",
+    "year_built",
+    "district",
+    "building_type",
+    "condition",
+    "residential_complex",
+    "house_key",
+    "raw_latitude",
+    "raw_longitude",
+    "raw_coordinate_status"
+  ],
+  "experiment_signature": "83b013454ee12bc0ce4e1720b5f36410af2939a2414004edce49bdd0681b65a4",
+  "model_sha256": "90f2ee072cb443c576ce753b8ff8f4928ba2ec83037547184cbb81178ec4ad79",
+  "selected_by_cv": false,
+  "activated": false,
+  "train_rows": 19269,
+  "geo_training_only": true,
+  "target": "asking_price",
+  "currency": "KZT"
+}

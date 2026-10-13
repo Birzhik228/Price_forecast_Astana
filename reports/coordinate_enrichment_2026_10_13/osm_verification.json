@@ -1,0 +1,98 @@
+{
+  "checked_at": "2026-10-13T15:45:47.000591+00:00",
+  "status": "passed",
+  "element_count": 83820,
+  "unique_osm_type_ids": true,
+  "source_output_extractor_sha256_match": true,
+  "coordinates_finite_valid_ranges": true,
+  "contributor_metadata_absent": true,
+  "boundary_relation_id": 3087155,
+  "boundary_valid": true,
+  "boundary_member_ways_verified_against_pbf": 36,
+  "boundary_bounds_west_south_east_north": [
+    71.2179735,
+    50.8576076,
+    71.7851913,
+    51.3511101
+  ],
+  "counts": {
+    "roads_with_name:ru": 5146,
+    "roads_with_name:kk": 1646,
+    "roads_with_name:en": 1631,
+    "roads_with_alt_name": 85,
+    "roads_with_old_name": 219,
+    "valid_polygon_features": 77860,
+    "multiouter_features": 204,
+    "features_with_holes": 88,
+    "invalid_polygon_features_retained_for_matcher_rejection": 0
+  },
+  "output_sha256": "0978a34d40f0c3b0066e2bc37262a0f092cca1a7e407ab892d35c12976405eff",
+  "output_bytes": 124406272,
+  "notes": [
+    "This validates topology and provenance, not the address matcher or physical survey accuracy.",
+    "Invalid footprint geometries, if present, must be rejected by the matcher; no geometry repair is applied here."
+  ],
+  "schema_version": 1,
+  "input_sha256": "cafe5698da867819c0166b484f345444f4ac2be7a862bdfa3f22ebcc706878e5",
+  "extractor_sha256": "88b0ff5b325d92f00a734feb6469629708aa685170e3ec57071d3b401cfdda54",
+  "source_manifest_sha256": "0216f52f852fbd64e02048117ed5c0a9893a70ecdbbb02ea56faa12837530bd0",
+  "extraction_manifest_sha256": "2d378cb1c2eb637ef49d8e0c8646e5184e7c4f37b8bda1de7274f0b34c8fd275",
+  "source_url": "https://download.geofabrik.de/asia/kazakhstan-261012.osm.pbf",
+  "source_bytes": 224251709,
+  "pbf_header": {
+    "generator": "osmium/1.16.0",
+    "osmosis_replication_timestamp": "2026-10-12T20:21:35Z",
+    "osmosis_replication_sequence_number": "4919",
+    "osmosis_replication_base_url": "https://download.geofabrik.de/asia/kazakhstan-updates"
+  },
+  "extraction_counts": {
+    "filtered_objects_seen": 6646650,
+    "unassembled_address_or_building_relations_countrywide": 10,
+    "astana_boundary_assembled": 1,
+    "retained_node": 440,
+    "retained_way": 83053,
+    "retained_relation": 327,
+    "retained_addressed_features": 52190,
+    "retained_building_features": 77728,
+    "retained_named_roads": 5475
+  },
+  "geometry_kind_counts": {
+    "point": 440,
+    "multipolygon": 204,
+    "polygon": 77656,
+    "linestring": 5516,
+    "closed_way": 4
+  },
+  "administrative_boundary": {
+    "type": "relation",
+    "id": 3087155,
+    "version": 64,
+    "timestamp": "2025-10-20T04:13:03+00:00",
+    "osm_url": "https://www.openstreetmap.org/relation/3087155",
+    "tags": {
+      "name": "Астана",
+      "name:ru": "Астана",
+      "name:kk": "Астана",
+      "boundary": "administrative",
+      "admin_level": "4",
+      "ISO3166-2": "KZ-71",
+      "type": null,
+      "wikidata": "Q1520"
+    },
+    "outer_parts": 5,
+    "member_ways": 36
+  },
+  "synthetic_checks_passed": [
+    "Address nodes outside bbox excluded; complete building outline retained.",
+    "Multilingual road tags name:ru/name:kk retained without translation.",
+    "Multiouter relation retains separate polygons and has no flattened geometry.",
+    "Polygon holes remain associated with their outer ring.",
+    "Administrative boundary/member way provenance preserved."
+  ],
+  "limitations": [
+    "This is a structural/provenance check, not an address correctness survey or model-accuracy evaluation.",
+    "Ten countrywide building/address relations could not be assembled by the extractor; their city membership is unknown.",
+    "The bbox includes surroundings outside Astana; the matcher must use the validated administrative boundary.",
+    "OSM edit/snapshot timestamps do not represent field-survey dates."
+  ]
+}

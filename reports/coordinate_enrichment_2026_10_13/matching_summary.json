@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "matching": {
+    "schema_version": 1,
+    "candidate_house_keys": 4068,
+    "exact_matches": 898,
+    "eligible_new_matches": 550,
+    "unique_matched_buildings": 845,
+    "unique_eligible_new_buildings": 521,
+    "eligible_buildings_also_matching_existing_model": 1,
+    "existing_model_matches_preserved": 71,
+    "identity_review_matches": 286,
+    "audit_reason_counts": {
+      "no_exact_building_address": 2876,
+      "unique_exact_osm_building": 550,
+      "candidate_district_ambiguous": 229,
+      "catalog_identity_review_required": 277,
+      "existing_model_coordinate_preserved": 71,
+      "matched_footprint_multiple_candidate_districts": 2,
+      "multiple_distinct_building_footprints": 50,
+      "conflicting_or_unresolved_source_address_objects": 13
+    },
+    "source_rejection_counts": {
+      "address_node_not_building_footprint": 415,
+      "not_residential_building_footprint": 945,
+      "multiple_building_footprints": 182,
+      "explicit_nonresidential_amenity": 81,
+      "ambiguous_osm_address": 311,
+      "outside_astana_boundary": 7290,
+      "inactive_or_unbuilt_building": 29
+    },
+    "accepted_osm_objects": 28126,
+    "boundary_check": "osm_administrative_relation_3087155",
+    "snapshot": {
+      "source_url": "https://download.geofabrik.de/asia/kazakhstan-261012.osm.pbf",
+      "source_sha256": "cafe5698da867819c0166b484f345444f4ac2be7a862bdfa3f22ebcc706878e5",
+      "pbf_header": {
+        "generator": "osmium/1.16.0",
+        "osmosis_replication_timestamp": "2026-10-12T20:21:35Z",
+        "osmosis_replication_sequence_number": "4919",
+        "osmosis_replication_base_url": "https://download.geofabrik.de/asia/kazakhstan-updates"
+      },
+      "fetched_at": "2026-10-13T15:15:45.515373+00:00",
+      "extracted_at": "2026-10-13T15:43:11.639090+00:00",
+      "license": "ODbL-1.0",
+      "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "attribution": "© OpenStreetMap contributors",
+      "attribution_url": "https://www.openstreetmap.org/copyright"
+    },
+    "limitations": [
+      "OSM exact address is not an official verification or a guarantee of entrance accuracy.",
+      "Point lies on the mapped building surface; apartment/entrance location is unknown.",
+      "No fuzzy matching, guessed translations, old street names, or complex centroids were used.",
+      "Catalog trait conflicts remain unresolved and existing model coordinates are not overridden."
+    ]
+  },
+  "registry_entries": 550,
+  "registry_path": "data/processed/verified_coordinates_2026_10_13/registry.json",
+  "registry_sha256": "fdd7cea2fe8040a325c76a57d573f5a2eda5b13fe937080b5a2eadd2ca8810d5",
+  "protocol_sha256": "020cb0a9fa469f3a3fe889dc96cb8518dc29d85a3ad1f4433b7b1c0b036e3242",
+  "artifacts_sha256": {
+    "matched_addresses.csv": "9e10cb5cf5f9fd4256d66df8750c1afba9b5097699e78d365d0cfa74d7176553",
+    "address_matching_audit.csv": "205137de2985c2c2847e2f16ba14a9668917ba49fa2af8aa790432b37e0bcb2d"
+  },
+  "original_artifacts_unchanged": true
+}

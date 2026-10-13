@@ -1,0 +1,3 @@
+# Preserve exact bytes: experiment manifests pin SHA-256 of code and reports.
+# Existing artifacts intentionally contain both LF and CRLF line endings.
+* -text

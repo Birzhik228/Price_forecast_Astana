@@ -1,0 +1,13 @@
+{
+  "status": "stopped_before_holdout",
+  "reason": "Bounded dense representation benchmarked faster; all CV fits restart with new signature.",
+  "benchmark": {
+    "variant": "complex_coords",
+    "rows": 12846,
+    "trees": 20,
+    "columns": 285,
+    "sparse_seconds": 10.984,
+    "dense_seconds": 3.875
+  },
+  "not_final_experiment": true
+}

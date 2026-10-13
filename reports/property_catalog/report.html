@@ -4,7 +4,7 @@ body{margin:0;background:#f6f8fb;color:#18364b;font:16px/1.65 "Segoe UI",Arial,s
 </style></head><body><main>
 <p class="eyebrow">АСТАНА · АРХИВНЫЙ КАТАЛОГ И ПОИСК АНАЛОГОВ</p><h1>Дом, окружение и похожие объявления</h1>
 <p class="lead">Каталог связывает исходные объявления с домами и ЖК, сохраняет происхождение дополнительных сведений и помогает найти похожие квартиры.</p>
-<div class="grid"><div class="card"><strong>19 859</strong>объявлений после удаления повторов</div><div class="card"><strong>4 080</strong>адресных групп домов</div><div class="card"><strong>196 / 200</strong>запросов нашли хотя бы один аналог</div></div>
+<div class="grid"><div class="card"><strong>19 859</strong>объявлений после удаления повторов</div><div class="card"><strong>2 842</strong>адресных групп домов</div><div class="card"><strong>196 / 200</strong>запросов нашли хотя бы один аналог</div></div>
 <p class="note">Это архивные цены предложения января и конца марта 2026 года. Ссылки и наличие квартир сейчас не проверялись. Координаты приблизительны; число найденных аналогов не измеряет точность прогноза цены.</p>
 <h2>Что добавлено</h2><ul>
 <li>Исходные свойства восстановлены по периоду и номеру записи raw; совпадение ссылки проверяется. Глобальный номер объединённого CSV не используется как номер строки raw.</li>
@@ -12,10 +12,10 @@ body{margin:0;background:#f6f8fb;color:#18364b;font:16px/1.65 "Segoe UI",Arial,s
 <li>При поиске соблюдаются одинаковое число комнат и площадь ±20%. Порядок совпадений: дом → ЖК → близость по допустимым координатам → район; цена не задаёт порядок аналогов.</li>
 <li>В форме есть необязательное поле «Ссылка на оцениваемое объявление (если есть)». Допустимая ссылка на карточку Krisha исключает её и известные связанные повторы из аналогов; сетевые запросы не выполняются, ссылка не передаётся модели. Если ссылка не указана или исходная запись не распознана в каталоге, собственное объявление может остаться среди аналогов. Повторные квартиры внутри результатов объединяются.</li>
 <li>Интерфейс показывает контекст выбранного дома и архивные аналоги отдельно от прогноза модели. Неизвестные удобства остаются неизвестными.</li></ul>
-<h2>Источники и покрытие</h2><div class="scroll"><table><thead><tr><th>Период источника</th><th>В каталоге</th><th>В диагностических запросах</th></tr></thead><tbody><tr><td>2026-01</td><td>16 119</td><td>166</td></tr><tr><td>2026-03</td><td>3 740</td><td>34</td></tr></tbody></table></div><div class="scroll"><table><thead><tr><th>Поле / статус</th><th>Объявлений</th></tr></thead><tbody><tr><td>Полный идентификатор дома</td><td>9 992</td></tr><tr><td>Идентификатор ЖК</td><td>15 808</td></tr><tr><td>Дата отдельного наблюдения</td><td>16 119</td></tr><tr><td>Сведения о парковке в объявлении</td><td>13 785</td></tr><tr><td>Парковка неизвестна</td><td>6 074</td></tr><tr><td>Координаты: unverified</td><td>13 882</td></tr><tr><td>Координаты: missing</td><td>3 370</td></tr><tr><td>Координаты: plausible</td><td>2 579</td></tr><tr><td>Координаты: invalid</td><td>28</td></tr></tbody></table></div>
+<h2>Источники и покрытие</h2><div class="scroll"><table><thead><tr><th>Период источника</th><th>В каталоге</th><th>В диагностических запросах</th></tr></thead><tbody><tr><td>2026-01</td><td>16 119</td><td>166</td></tr><tr><td>2026-03</td><td>3 740</td><td>34</td></tr></tbody></table></div><div class="scroll"><table><thead><tr><th>Поле / статус</th><th>Объявлений</th></tr></thead><tbody><tr><td>Полный идентификатор дома</td><td>3 503</td></tr><tr><td>Идентификатор ЖК</td><td>15 808</td></tr><tr><td>Дата отдельного наблюдения</td><td>16 119</td></tr><tr><td>Сведения о парковке в объявлении</td><td>13 785</td></tr><tr><td>Парковка неизвестна</td><td>6 074</td></tr><tr><td>Координаты: unverified</td><td>15 629</td></tr><tr><td>Координаты: missing</td><td>3 705</td></tr><tr><td>Координаты: plausible</td><td>497</td></tr><tr><td>Координаты: invalid</td><td>28</td></tr></tbody></table></div>
 <p class="muted">Идентификатор дома основан на текстовом адресе, а не на проверенном реестре недвижимости. Название ЖК может объединять несколько зданий. Отсутствие значения не означает отсутствие свойства.</p>
 <h2>Воспроизводимая проверка поиска</h2><p>Выбрано 200 объявлений из каталога: случайная выборка без возвращения, seed 42, исходный порядок по record_id. Для каждого запроса переданы его доступные характеристики и местоположение, а собственная запись, группа и ссылка исключены. Возвращается не более пяти аналогов.</p>
-<div class="scroll"><table><thead><tr><th>Показатель</th><th>Запросов</th></tr></thead><tbody><tr><td>Нет аналогов</td><td>4</td></tr><tr><td>Один–два аналога</td><td>1</td></tr><tr><td>Три–пять аналогов</td><td>195</td></tr><tr><td>Есть совпадение дома, ЖК или по близости координат</td><td>152</td></tr><tr><td>Только совпадение района</td><td>44</td></tr></tbody></table></div><div class="scroll"><table><thead><tr><th>Основание совпадения</th><th>Возвращённых строк</th></tr></thead><tbody><tr><td>Тот же дом</td><td>128</td></tr><tr><td>Тот же ЖК</td><td>427</td></tr><tr><td>Тот же район</td><td>354</td></tr><tr><td>Рядом по координатам</td><td>63</td></tr></tbody></table></div>
+<div class="scroll"><table><thead><tr><th>Показатель</th><th>Запросов</th></tr></thead><tbody><tr><td>Нет аналогов</td><td>4</td></tr><tr><td>Один–два аналога</td><td>1</td></tr><tr><td>Три–пять аналогов</td><td>195</td></tr><tr><td>Есть совпадение дома, ЖК или по близости координат</td><td>141</td></tr><tr><td>Только совпадение района</td><td>55</td></tr></tbody></table></div><div class="scroll"><table><thead><tr><th>Основание совпадения</th><th>Возвращённых строк</th></tr></thead><tbody><tr><td>Тот же дом</td><td>4</td></tr><tr><td>Тот же ЖК</td><td>548</td></tr><tr><td>Тот же район</td><td>420</td></tr></tbody></table></div>
 <p class="note">Это проверка доступности аналогов для уже известных каталогу анкет. У ручного ввода с неполным адресом покрытие может быть ниже. Совпадение только района не обещает соседний дом. Эта диагностика не оценивает MAE, справедливую цену или качество аналогов по экспертной разметке.</p>
 <h2>Качество данных и ограничения</h2><ul>
 <li>Январские даты наблюдения относятся к 3–6 января 2026 года; часовой пояс исходных значений не указан. Для марта известен только период по описанию автора, без даты отдельного объявления.</li>
@@ -23,27 +23,28 @@ body{margin:0;background:#f6f8fb;color:#18364b;font:16px/1.65 "Segoe UI",Arial,s
 <li>Сведения о парковке взяты из объявления. Пропуск — «неизвестно», не «парковки нет»; упоминание паркинга не подтверждает включённое в цену машиноместо. Конфликтующие свойства дома требуют проверки.</li>
 <li>Застройщик и лифт не восстанавливаются догадкой. Если источник их не содержит, поле остаётся неизвестным.</li>
 <li>Возможны ошибочные объединения похожих адресов и пропущенные совпадения разных написаний. Дата скачивания не подменяет дату наблюдения.</li></ul>
-<p>В журнале качества: 13 744 записей; одна исходная строка может иметь несколько замечаний. Ниже показаны первые 20.</p><div class="scroll"><table><thead><tr><th>record_id</th><th>building_id</th><th>issue</th><th>field</th><th>value</th><th>detail</th></tr></thead><tbody><tr><td>2026-01:5</td><td></td><td>address_ambiguous</td><td>address</td><td>мкр уркер, кургальжинское шоссе 108</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:7</td><td></td><td>address_ambiguous</td><td>address</td><td>б.сокпакбаева 1 — сарыарка</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:8</td><td></td><td>address_ambiguous</td><td>address</td><td>улица е-429, 26 24 — сығанақ айтматов</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:11</td><td></td><td>address_incomplete</td><td>address</td><td>рыскулбекова</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:15</td><td></td><td>address_ambiguous</td><td>address</td><td>байтурсынова — а426</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:17</td><td></td><td>address_ambiguous</td><td>address</td><td>аскар токпанов 22 — шарль де голя</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:19</td><td></td><td>address_ambiguous</td><td>address</td><td>толе би 52 — хан шатыр</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:23</td><td></td><td>address_incomplete</td><td>address</td><td>бейбарыс султан</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:25</td><td></td><td>address_ambiguous</td><td>address</td><td>ул. бухар жырау 34/2 — бокейхана</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:26</td><td></td><td>address_ambiguous</td><td>address</td><td>мкр уркер, актамберды жирау 49</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:27</td><td></td><td>address_incomplete</td><td>address</td><td>улица жошы хан</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:28</td><td></td><td>address_incomplete</td><td>address</td><td>куйши дина</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:29</td><td></td><td>address_ambiguous</td><td>address</td><td>улица а 52, 8/1</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:31</td><td></td><td>address_ambiguous</td><td>address</td><td>улица шамши калдаяков, 46 46</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:32</td><td></td><td>address_ambiguous</td><td>address</td><td>шамши калдаякова 25 — нажимеденова</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:37</td><td></td><td>address_ambiguous</td><td>address</td><td>туран 52/2, 52/3</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:38</td><td></td><td>address_ambiguous</td><td>address</td><td>туран 55/16 — орынбор</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:39</td><td></td><td>address_ambiguous</td><td>address</td><td>пересечение ул. казыбек би и е75,е77 (рядом с пересечением улиц туран и улы дала) 40 — тұран-ұлы дала</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:40</td><td></td><td>address_ambiguous</td><td>address</td><td>петрова 1/1 — орбита</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:41</td><td></td><td>address_incomplete</td><td>address</td><td>санжара асфендиярова</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr></tbody></table></div>
+<p>В журнале качества: 12 079 записей; одна исходная строка может иметь несколько замечаний. Ниже показаны первые 20.</p><div class="scroll"><table><thead><tr><th>record_id</th><th>building_id</th><th>issue</th><th>field</th><th>value</th><th>detail</th></tr></thead><tbody><tr><td>2026-01:5</td><td></td><td>address_ambiguous</td><td>address</td><td>мкр уркер, кургальжинское шоссе 108</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:7</td><td></td><td>address_ambiguous</td><td>address</td><td>б.сокпакбаева 1 — сарыарка</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:8</td><td></td><td>address_ambiguous</td><td>address</td><td>улица е-429, 26 24 — сығанақ айтматов</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:11</td><td></td><td>address_incomplete</td><td>address</td><td>рыскулбекова</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:15</td><td></td><td>address_ambiguous</td><td>address</td><td>байтурсынова — а426</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:17</td><td></td><td>address_ambiguous</td><td>address</td><td>аскар токпанов 22 — шарль де голя</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:19</td><td></td><td>address_ambiguous</td><td>address</td><td>толе би 52 — хан шатыр</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:23</td><td></td><td>address_incomplete</td><td>address</td><td>бейбарыс султан</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:25</td><td></td><td>address_ambiguous</td><td>address</td><td>ул. бухар жырау 34/2 — бокейхана</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:26</td><td></td><td>address_ambiguous</td><td>address</td><td>мкр уркер, актамберды жирау 49</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:27</td><td></td><td>address_incomplete</td><td>address</td><td>улица жошы хан</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:28</td><td></td><td>address_incomplete</td><td>address</td><td>куйши дина</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:29</td><td></td><td>address_ambiguous</td><td>address</td><td>улица а 52, 8/1</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:31</td><td></td><td>address_ambiguous</td><td>address</td><td>улица шамши калдаяков, 46 46</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:32</td><td></td><td>address_ambiguous</td><td>address</td><td>шамши калдаякова 25 — нажимеденова</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:37</td><td></td><td>address_ambiguous</td><td>address</td><td>туран 52/2, 52/3</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:38</td><td></td><td>address_ambiguous</td><td>address</td><td>туран 55/16 — орынбор</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:39</td><td></td><td>address_ambiguous</td><td>address</td><td>пересечение ул. казыбек би и е75,е77 (рядом с пересечением улиц туран и улы дала) 40 — тұран-ұлы дала</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:40</td><td></td><td>address_ambiguous</td><td>address</td><td>петрова 1/1 — орбита</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr><tr><td>2026-01:41</td><td></td><td>address_incomplete</td><td>address</td><td>санжара асфендиярова</td><td>Дом не сопоставлен: нужен один однозначный адрес и район; название ЖК дом не заменяет.</td></tr></tbody></table></div>
 <details><summary>Полная сводка проверок качества</summary><pre>{
   &quot;schema_version&quot;: 1,
   &quot;summary&quot;: {
+    &quot;catalog_policy_version&quot;: 2,
     &quot;listing_count&quot;: 19859,
-    &quot;building_count&quot;: 4080,
+    &quot;building_count&quot;: 2842,
     &quot;complex_count&quot;: 1210,
-    &quot;listings_with_building_id&quot;: 9992,
+    &quot;listings_with_building_id&quot;: 3503,
     &quot;listings_with_complex_id&quot;: 15808,
     &quot;listings_with_parking&quot;: 13785,
     &quot;coordinate_status_counts&quot;: {
       &quot;invalid&quot;: 28,
-      &quot;missing&quot;: 3370,
-      &quot;plausible&quot;: 2579,
-      &quot;unverified&quot;: 13882
+      &quot;missing&quot;: 3705,
+      &quot;plausible&quot;: 497,
+      &quot;unverified&quot;: 15629
     },
     &quot;building_coordinate_status_counts&quot;: {
       &quot;invalid&quot;: 6,
-      &quot;missing&quot;: 433,
-      &quot;plausible&quot;: 614,
-      &quot;unverified&quot;: 3027
+      &quot;missing&quot;: 411,
+      &quot;plausible&quot;: 170,
+      &quot;unverified&quot;: 2255
     },
     &quot;address_status_counts&quot;: {
       &quot;ambiguous&quot;: 8091,
@@ -55,24 +56,51 @@ body{margin:0;background:#f6f8fb;color:#18364b;font:16px/1.65 "Segoe UI",Arial,s
       &quot;2026-01&quot;: 16119,
       &quot;2026-03&quot;: 3740
     },
-    &quot;coordinate_inherited_count&quot;: 370,
+    &quot;coordinate_inherited_count&quot;: 35,
+    &quot;candidate_building_count&quot;: 4068,
+    &quot;ambiguous_candidate_count&quot;: 1226,
+    &quot;ambiguous_listing_count&quot;: 6489,
+    &quot;candidate_conflicts&quot;: {
+      &quot;building_type_conflict&quot;: 280,
+      &quot;complex_conflict&quot;: 60,
+      &quot;coordinate_spread&quot;: 189,
+      &quot;invalid_coordinate_evidence&quot;: 3,
+      &quot;total_floors_conflict&quot;: 721,
+      &quot;year_built_conflict&quot;: 887
+    },
+    &quot;normalization&quot;: {
+      &quot;changed_address_rows&quot;: 35,
+      &quot;accepted_merge_candidates&quot;: 2,
+      &quot;rejected_merge_candidates&quot;: 10,
+      &quot;accepted_merge_old_id_reduction&quot;: 2,
+      &quot;audit_rows&quot;: 74,
+      &quot;decisions&quot;: {
+        &quot;accepted_merge&quot;: 7,
+        &quot;accepted_normalization&quot;: 7,
+        &quot;rejected_ambiguous&quot;: 58,
+        &quot;rejected_missing_district&quot;: 2
+      }
+    },
+    &quot;raw_coordinate_status_counts&quot;: {
+      &quot;invalid&quot;: 28,
+      &quot;missing&quot;: 3740,
+      &quot;unverified&quot;: 16091
+    },
     &quot;issue_counts&quot;: {
       &quot;address_ambiguous&quot;: 8091,
       &quot;address_district_missing&quot;: 552,
       &quot;address_incomplete&quot;: 1224,
-      &quot;building_complex_conflict&quot;: 60,
-      &quot;building_field_conflict&quot;: 2034,
+      &quot;ambiguous_house_candidate&quot;: 1226,
+      &quot;building_field_conflict&quot;: 18,
       &quot;coordinate_invalid&quot;: 28,
-      &quot;coordinate_mixed_validity&quot;: 3,
-      &quot;coordinate_reused_across_houses&quot;: 1563,
-      &quot;coordinate_spread&quot;: 189
+      &quot;coordinate_reused_across_houses&quot;: 940
     },
     &quot;building_conflicts&quot;: {
-      &quot;complex&quot;: 60,
-      &quot;parking&quot;: 149,
-      &quot;year_built&quot;: 887,
-      &quot;total_floors&quot;: 719,
-      &quot;building_type&quot;: 279
+      &quot;complex&quot;: 0,
+      &quot;parking&quot;: 18,
+      &quot;year_built&quot;: 0,
+      &quot;total_floors&quot;: 0,
+      &quot;building_type&quot;: 0
     },
     &quot;policy&quot;: {
       &quot;bbox&quot;: {
@@ -87,10 +115,29 @@ body{margin:0;background:#f6f8fb;color:#18364b;font:16px/1.65 "Segoe UI",Arial,s
         &quot;plausible&quot;
       ],
       &quot;building_key&quot;: &quot;astana + exact normalized district + single explicit house address&quot;,
-      &quot;complex_key&quot;: &quot;astana + exact normalized complex name&quot;
+      &quot;complex_key&quot;: &quot;astana + exact normalized complex name&quot;,
+      &quot;house_suffix_aliases&quot;: {
+        &quot;a&quot;: &quot;а&quot;,
+        &quot;c&quot;: &quot;с&quot;,
+        &quot;e&quot;: &quot;е&quot;,
+        &quot;o&quot;: &quot;о&quot;,
+        &quot;p&quot;: &quot;р&quot;,
+        &quot;x&quot;: &quot;х&quot;,
+        &quot;y&quot;: &quot;у&quot;
+      },
+      &quot;conflicted_candidate_policy&quot;: &quot;retain individual records; building_id=null&quot;,
+      &quot;pointwise_training_columns&quot;: [
+        &quot;house_key&quot;,
+        &quot;raw_latitude&quot;,
+        &quot;raw_longitude&quot;,
+        &quot;raw_coordinate_status&quot;
+      ],
+      &quot;training_warning&quot;: &quot;Never use global catalog building_id/conflicts/consensus in CV; fit maps within each training fold.&quot;
     },
     &quot;limitations&quot;: [
-      &quot;Адреса и ЖК сопоставлены консервативно без справочника; разные написания не объединены.&quot;,
+      &quot;Адреса и ЖК сопоставлены консервативно; только a/c/e/o/p/x/y в суффиксе дома/корпуса заменены на кириллицу.&quot;,
+      &quot;Конфликты ЖК/года/этажности/типа/географии оставляют строки отдельно без building_id; кандидат сохранён для аудита.&quot;,
+      &quot;house_key и raw_* — построчные исходные данные для CV; глобальные решения каталога не являются входами модели.&quot;,
       &quot;building_id не является реестровым ID; корпуса и дроби сохранены, неоднозначные адреса исключены.&quot;,
       &quot;plausible означает только согласованность архивных точек: точность дома внешне не подтверждена.&quot;,
       &quot;Одинаковые координаты у разных домов и внутридомовые конфликты запрещают расчёт расстояний.&quot;,
@@ -113,11 +160,28 @@ body{margin:0;background:#f6f8fb;color:#18364b;font:16px/1.65 "Segoe UI",Arial,s
       &quot;path&quot;: &quot;C:\\Users\\Adina\\Documents\\ChatGPT\\ML 2\\data\\raw\\turarr_march_2026\\astana_apartments_raw.csv&quot;,
       &quot;sha256&quot;: &quot;79c518f9ec37272c5052ea9936d3020030f4d02cccfb749fb92487fbfdf70676&quot;
     }
+  },
+  &quot;previous_stage_archives&quot;: {
+    &quot;catalog&quot;: {
+      &quot;path&quot;: &quot;C:\\Users\\Adina\\Documents\\ChatGPT\\ML 2\\data\\processed\\archive\\property_catalog_before_alias_v2&quot;,
+      &quot;files&quot;: {
+        &quot;buildings.csv&quot;: &quot;7cc640e6ee69009b01f6535e07036e675e9afb5e4d413b492f7e6e490d47aff6&quot;,
+        &quot;listings.csv&quot;: &quot;c48061a4b5f2b35cf33473ba2834a9d2dd5f1a8aac166c7f2a886f8ff30e0a88&quot;,
+        &quot;manifest.json&quot;: &quot;33b2618a5897d0109e61a1cdc7bb296c86006d1a5b0521ee65596e7965794d86&quot;
+      }
+    },
+    &quot;reports&quot;: {
+      &quot;path&quot;: &quot;C:\\Users\\Adina\\Documents\\ChatGPT\\ML 2\\reports\\archive\\property_catalog_before_alias_v2&quot;,
+      &quot;files&quot;: {
+        &quot;issues.csv&quot;: &quot;e91578de931713e89071c8ccc86d0337ae541a086928c0e2307c13982c60edfd&quot;,
+        &quot;quality.json&quot;: &quot;4b43b53f1c79e0681770bd32575ea40f6e405472af6a8852962f3c4e4b32d711&quot;,
+        &quot;report.html&quot;: &quot;70adce5f90e96b4900a79d9634b5340d3420eaf939ea782903dbd8aa35c89f3a&quot;,
+        &quot;retrieval_check.json&quot;: &quot;599890a293978c331af81a802a9b99e3bda39b363c7b0dec225908857aca6e8d&quot;
+      }
+    }
   }
 }</pre></details>
-<h2>Проверка завершённого этапа · 13 октября 2026</h2>
-<p>Полный набор проверок: 187 тестов прошли за 16,127 с. В браузере проверен сценарий «ЖК 7Я → Тауелсиздик 21/2»: перенос параметров дома, расчёт для 60 м² и двух комнат, прогноз 34 991 329 ₸ и пять архивных аналогов с датами и допустимыми ссылками. Это результат проверки интерфейса, а не оценка точности прогноза.</p>
 <h2>Модель и воспроизводимость</h2><div class="callout">Январская модель остаётся активной. Контрольные суммы активной модели, метаданных, отдельной объединённой модели и исходных объединённых данных совпали с зафиксированными значениями.</div><div class="scroll"><table><thead><tr><th>Файл</th><th>Тип</th><th>Совпадение</th><th>Фактический SHA-256</th></tr></thead><tbody><tr><td>models/best_model.joblib</td><td>Модель</td><td>Да</td><td>f40f892700324892ee0fde041f8a5feaca2e0c01fb4231185e5c3a751b073bac</td></tr><tr><td>models/model_metadata.json</td><td>Метаданные модели</td><td>Да</td><td>c623c137cab6f093071a18a6c183d513ad311744378b1695ca4063dcd39ac1da</td></tr><tr><td>models/combined_2026/best_model.joblib</td><td>Модель</td><td>Да</td><td>643bfe75014cb3929376a44e689905c1fe8c4fa1e72165ec7b9c0e30db4d3c8a</td></tr><tr><td>data/processed/combined_2026/listings_clean.csv</td><td>Исходные объединённые данные</td><td>Да</td><td>28ad11f14b56315ea2dd903ffc7f8ab9d5a788f7f5e070b5ec1b61c0711d98eb</td></tr></tbody></table></div>
 <p>Этот скрипт читает каталог и модели, записывает только диагностику и HTML. Обучение и активация модели не выполняются.</p>
 <ul><li><a href="retrieval_check.json">Запросы, результаты, seed и контрольные суммы</a></li><li><a href="quality.json">Качество каталога</a></li><li><a href="issues.csv">Полный журнал замечаний</a></li><li><a href="../../data/processed/property_catalog/manifest.json">Манифест каталога</a></li><li><a href="../../data/processed/property_catalog/buildings.csv">Каталог домов</a></li><li><a href="../../data/processed/property_catalog/listings.csv">Каталог объявлений</a></li></ul>
-<p class="muted">Сформировано: 2026-10-13T08:22:52.718405+00:00.</p></main></body></html>
+<p class="muted">Сформировано: 2026-10-13T10:16:18.010648+00:00.</p></main></body></html>

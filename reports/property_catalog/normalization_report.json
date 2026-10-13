@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "catalog_policy_version": 2,
+  "normalization": {
+    "changed_address_rows": 35,
+    "accepted_merge_candidates": 2,
+    "rejected_merge_candidates": 10,
+    "accepted_merge_old_id_reduction": 2,
+    "audit_rows": 74,
+    "decisions": {
+      "accepted_merge": 7,
+      "accepted_normalization": 7,
+      "rejected_ambiguous": 58,
+      "rejected_missing_district": 2
+    }
+  },
+  "candidate_conflicts": {
+    "building_type_conflict": 280,
+    "complex_conflict": 60,
+    "coordinate_spread": 189,
+    "invalid_coordinate_evidence": 3,
+    "total_floors_conflict": 721,
+    "year_built_conflict": 887
+  },
+  "ambiguous_candidate_count": 1226,
+  "ambiguous_listing_count": 6489,
+  "comparison_to_previous": {
+    "listing_count": {
+      "previous": 19859,
+      "current": 19859
+    },
+    "building_count": {
+      "previous": 4080,
+      "current": 2842
+    },
+    "listings_with_building_id": {
+      "previous": 9992,
+      "current": 3503
+    },
+    "coordinate_status_counts": {
+      "previous": {
+        "invalid": 28,
+        "missing": 3370,
+        "plausible": 2579,
+        "unverified": 13882
+      },
+      "current": {
+        "invalid": 28,
+        "missing": 3705,
+        "plausible": 497,
+        "unverified": 15629
+      }
+    },
+    "coordinate_inherited_count": {
+      "previous": 370,
+      "current": 35
+    }
+  },
+  "archives": {
+    "catalog": {
+      "path": "C:\\Users\\Adina\\Documents\\ChatGPT\\ML 2\\data\\processed\\archive\\property_catalog_before_alias_v2",
+      "files": {
+        "buildings.csv": "7cc640e6ee69009b01f6535e07036e675e9afb5e4d413b492f7e6e490d47aff6",
+        "listings.csv": "c48061a4b5f2b35cf33473ba2834a9d2dd5f1a8aac166c7f2a886f8ff30e0a88",
+        "manifest.json": "33b2618a5897d0109e61a1cdc7bb296c86006d1a5b0521ee65596e7965794d86"
+      }
+    },
+    "reports": {
+      "path": "C:\\Users\\Adina\\Documents\\ChatGPT\\ML 2\\reports\\archive\\property_catalog_before_alias_v2",
+      "files": {
+        "issues.csv": "e91578de931713e89071c8ccc86d0337ae541a086928c0e2307c13982c60edfd",
+        "quality.json": "4b43b53f1c79e0681770bd32575ea40f6e405472af6a8852962f3c4e4b32d711",
+        "report.html": "70adce5f90e96b4900a79d9634b5340d3420eaf939ea782903dbd8aa35c89f3a",
+        "retrieval_check.json": "599890a293978c331af81a802a9b99e3bda39b363c7b0dec225908857aca6e8d"
+      }
+    }
+  },
+  "policy": {
+    "bbox": {
+      "latitude_min": 50.8,
+      "latitude_max": 51.4,
+      "longitude_min": 70.8,
+      "longitude_max": 71.9
+    },
+    "maximum_radius_from_median_m": 125.0,
+    "minimum_coordinate_observations": 2,
+    "distance_allowed_statuses": [
+      "plausible"
+    ],
+    "building_key": "astana + exact normalized district + single explicit house address",
+    "complex_key": "astana + exact normalized complex name",
+    "house_suffix_aliases": {
+      "a": "а",
+      "c": "с",
+      "e": "е",
+      "o": "о",
+      "p": "р",
+      "x": "х",
+      "y": "у"
+    },
+    "conflicted_candidate_policy": "retain individual records; building_id=null",
+    "pointwise_training_columns": [
+      "house_key",
+      "raw_latitude",
+      "raw_longitude",
+      "raw_coordinate_status"
+    ],
+    "training_warning": "Never use global catalog building_id/conflicts/consensus in CV; fit maps within each training fold."
+  },
+  "audit_files": {
+    "normalization_audit": {
+      "path": "normalization_audit.csv",
+      "sha256": "f4cbeff91dcdf4f064a82947eb64083fe4dc3ff541257ff2c3708f39e2a1af49",
+      "rows": 74
+    },
+    "conflict_audit": {
+      "path": "conflict_audit.csv",
+      "sha256": "d574949f56bffa347a198ccc14bcd4399a1a96eb4d3e55ce145c326e36e650f8",
+      "rows": 6489
+    }
+  }
+}

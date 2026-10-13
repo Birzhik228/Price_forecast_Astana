@@ -30,4 +30,7 @@ CV_FOLDS: Final[int] = 3
 SEARCH_ITERATIONS: Final[int] = 8
 MODEL_PIPELINE_PATH: Final[Path] = MODELS_DIR / "best_model.joblib"
 MODEL_METADATA_PATH: Final[Path] = MODELS_DIR / "model_metadata.json"
+# Application routing is separate from the frozen January benchmark artifacts.
+APP_MODEL_PIPELINE_PATH: Final[Path] = MODELS_DIR / "verified_geo_2026" / "complex_coords.joblib"
+APP_MODEL_METADATA_PATH: Final[Path] = MODELS_DIR / "deployment" / "complex_coords_osm.json"
 PROPERTY_CATALOG_DIR: Final[Path] = PROCESSED_DATA_DIR / "property_catalog"

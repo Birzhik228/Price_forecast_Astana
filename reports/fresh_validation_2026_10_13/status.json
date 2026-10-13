@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "checked_on": "2026-10-13",
+  "status": "awaiting_fresh_source",
+  "point_1_fresh_holdout": "not_completed_source_unavailable",
+  "point_2_frozen_comparison": "not_run_without_fresh_holdout",
+  "real_fresh_holdout_rows": 0,
+  "fresh_evaluation_run": false,
+  "fresh_metrics": null,
+  "real_models_fit_calls": 0,
+  "active_model": "january",
+  "sources_reviewed": 14,
+  "protected_previous_hashes_verified": {
+    "models/best_model.joblib": "f40f892700324892ee0fde041f8a5feaca2e0c01fb4231185e5c3a751b073bac",
+    "models/model_metadata.json": "c623c137cab6f093071a18a6c183d513ad311744378b1695ca4063dcd39ac1da",
+    "models/combined_2026/best_model.joblib": "643bfe75014cb3929376a44e689905c1fe8c4fa1e72165ec7b9c0e30db4d3c8a",
+    "models/location_2026/complex.joblib": "b02a3e5e46ee069a75f13210ed20cf8a33834d7fe9fb3bb4f881bd1541fae108",
+    "data/processed/combined_2026/listings_clean.csv": "28ad11f14b56315ea2dd903ffc7f8ab9d5a788f7f5e070b5ec1b61c0711d98eb",
+    "data/processed/property_catalog/listings.csv": "bb6bfa27828cb3913229b3b6d7fff6e3e6c735e97f91cbaf91eb8b318a3f85cf",
+    "reports/combined_update/split_manifest.csv": "b7a8c84df93c77aa925b2965d2768e357d429802991395a27b865f1101e4dc69",
+    "data/raw/kaggle_astana/astana_apartments.csv": "923bd5483eaea5fdfe9cbf8d36c40ec1875992f66ed70ee29426dd6bc2d189ee",
+    "data/raw/turarr_march_2026/astana_apartments_raw.csv": "79c518f9ec37272c5052ea9936d3020030f4d02cccfb749fb92487fbfdf70676"
+  },
+  "preparation": {
+    "pipeline": "fresh_validation.py",
+    "ready_for_reviewed_local_export": true,
+    "unit_tests_new": 33,
+    "unit_tests_total": 252,
+    "tests_passed": true,
+    "real_frozen_models_loadable": [
+      "january",
+      "combined",
+      "complex"
+    ],
+    "history_clean_rows": 21688,
+    "history_raw_records": 23391,
+    "history_unique_urls": 21845,
+    "smoke": "Synthetic candidates with full historical reference exclusion; no saved synthetic dataset, no real-model prediction."
+  },
+  "required_next_input": "Permitted Astana apartment asking-price export with source observation dates, URL/address, model features and reviewed provenance.",
+  "limitation": "No source confirmed among those reviewed; this is not proof that no suitable public data exists."
+}

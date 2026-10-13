@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "checked_on": "2026-10-13",
+  "purpose": "Find permitted, reproducible building-level address and geometry evidence for exact Astana address matches.",
+  "decision": {
+    "source": "OpenStreetMap via Geofabrik Kazakhstan pinned PBF",
+    "reason": "A public regional snapshot supports one bulk download and fully offline address matching; it avoids repeated per-address geocoding requests.",
+    "accepted_evidence_label": "osm_exact_address",
+    "claim": "A unique complete address matches a valid building footprint in the cached OSM snapshot.",
+    "not_established": [
+      "Official cadastral identity, land registry ownership, or field-survey confirmation.",
+      "Exact apartment location within a building or a transaction date.",
+      "Completeness of OSM addresses in Astana.",
+      "Independent fresh model validation or an improvement in model accuracy."
+    ]
+  },
+  "sources": [
+    {
+      "id": "osm_license",
+      "url": "https://www.openstreetmap.org/copyright",
+      "status": "primary_documentation_read",
+      "license": "ODbL-1.0",
+      "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "attribution": "© OpenStreetMap contributors",
+      "findings": [
+        "OSM permits copying, transmission, distribution, and adaptation subject to its licence.",
+        "Credit OpenStreetMap contributors and link the licence when distributing OSM-derived data.",
+        "Keep the derived address-to-coordinate crosswalk and source provenance separately identifiable with ODbL attribution; do not label the derived data CC0.",
+        "Data licensing and the usage policy of an individual hosting service are separate."
+      ]
+    },
+    {
+      "id": "geofabrik_kazakhstan",
+      "url": "https://download.geofabrik.de/asia/kazakhstan.html",
+      "provider_documentation_url": "https://www.geofabrik.de/data/download.html",
+      "status": "public_bulk_download_available_and_downloaded",
+      "latest_url": "https://download.geofabrik.de/asia/kazakhstan-latest.osm.pbf",
+      "pinned_url": "https://download.geofabrik.de/asia/kazakhstan-261012.osm.pbf",
+      "observed_data_through_utc": "2026-10-12T20:21:35Z",
+      "date_evidence": "Kazakhstan download page and independently read PBF header agree: osmosis_replication_timestamp=2026-10-12T20:21:35Z, sequence4919, generator=osmium/1.16.0.",
+      "head_status": 200,
+      "download_status": 200,
+      "download_bytes": 224251709,
+      "sha256": "cafe5698da867819c0166b484f345444f4ac2be7a862bdfa3f22ebcc706878e5",
+      "last_modified_header": "Mon, 12 Oct 2026 23:05:57 GMT",
+      "download_started_at": "2026-10-13T15:15:14.281695+00:00",
+      "fetched_at": "2026-10-13T15:15:45.515373+00:00",
+      "local_pbf": "data/raw/osm_2026_10_13/kazakhstan-261012.osm.pbf",
+      "local_manifest": "data/raw/osm_2026_10_13/kazakhstan-261012.source.json",
+      "findings": [
+        "The country page defines no smaller subregions; no dedicated Astana extract was advertised there.",
+        "PBF preserves the original OSM tags and topology for offline filtering; derived GIS formats need not preserve every multilingual/address tag.",
+        "The public extract excludes contributor user names, user IDs, and changeset IDs according to Geofabrik's notice.",
+        "Snapshot freshness is database currency, not the survey date or correctness of each building."
+      ],
+      "network_scope": "One HEAD and one streaming GET of the pinned PBF. No archive retries or latest fallback were needed."
+    },
+    {
+      "id": "overpass_service",
+      "url": "https://dev.overpass-api.de/overpass-doc/en/preface/commons.html",
+      "instances_url": "https://wiki.openstreetmap.org/wiki/Overpass_API",
+      "endpoint": "https://overpass-api.de/api/interpreter",
+      "status": "permitted_for_moderate_queries_but_probe_temporarily_unavailable",
+      "usage_summary": "The operator prioritizes light users; its broad guidance is about 10000 requests and under 1 GB daily. Do not use the public service as a live application backend or issue large numbers of per-element requests. A single cached city query is modest usage, not a guarantee of availability.",
+      "probe": {
+        "method": "POST",
+        "query": "[out:json][timeout:25];rel[\"boundary\"=\"administrative\"][\"wikidata\"=\"Q1520\"];out tags bb;",
+        "http_status": 504,
+        "response_bytes": 695,
+        "error_category": "server_busy_request_read_and_idx_timeout",
+        "result": "No usable boundary or building data received.",
+        "attempts": 1,
+        "follow_up": "No Overpass retries, alternate endpoint requests, or bulk Overpass query after this response. Switched to the explicitly public Geofabrik regional download."
+      }
+    },
+    {
+      "id": "nominatim",
+      "url": "https://operations.osmfoundation.org/policies/nominatim/",
+      "status": "not_used",
+      "findings": [
+        "The public server discourages bulk geocoding and forbids systematic complete-area/POI collection.",
+        "Its maximum rate is one request per second, with identifying User-Agent/Referer and caching requirements.",
+        "Use extracts for complete regional data; this project makes no Nominatim requests."
+      ]
+    },
+    {
+      "id": "astana_boundary_identifier",
+      "url": "https://www.wikidata.org/wiki/Q1520",
+      "property": "P402",
+      "wikidata_relation_id": 3087156,
+      "wikidata_identifier_caveat": "The linked object is a place=city,type=multipolygon place polygon without boundary/admin_level; do not treat it as the administrative boundary.",
+      "osm_relation_id": 3087155,
+      "osm_url": "https://www.openstreetmap.org/relation/3087155",
+      "status": "administrative_relation_identity_verified_in_pinned_pbf",
+      "identity_evidence": {
+        "version": 64,
+        "timestamp": "2025-10-20T04:13:03+00:00",
+        "boundary": "administrative",
+        "admin_level": "4",
+        "ISO3166-2": "KZ-71",
+        "name": "Астана",
+        "type": "boundary",
+        "wikidata": "Q1520",
+        "member_count": 37
+      },
+      "notes": [
+        "Use the PBF relation tags and assembled geometry to validate city identity and spatial membership.",
+        "The extraction bbox 50.8,70.8,51.4,71.9 is a coarse coverage envelope, not an administrative boundary.",
+        "No boundary centroid is used as a building coordinate."
+      ]
+    },
+    {
+      "id": "osm_address_semantics",
+      "urls": [
+        "https://wiki.openstreetmap.org/wiki/Key:addr:street",
+        "https://wiki.openstreetmap.org/wiki/Key:addr:housenumber",
+        "https://wiki.openstreetmap.org/wiki/Key:name"
+      ],
+      "status": "primary_tag_documentation_read",
+      "findings": [
+        "A house number can identify a door, building, complex, or land parcel; the tag alone does not prove a building footprint.",
+        "Require the complete street and house number together. Preserve slash, suffix, corpus, and building-number distinctions.",
+        "Do not infer street identity from nearest-road distance; corner addresses can belong to a different street.",
+        "Multilingual aliases may be taken from explicit name/name:ru/name:kk/name:en tags on the same road feature. Reject ambiguous alias collisions; do not automatically transliterate or fuzzily merge names.",
+        "Old street names require explicit provenance and a conservative policy; a spelling resemblance is insufficient."
+      ]
+    },
+    {
+      "id": "geometry_semantics",
+      "urls": [
+        "https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL",
+        "https://dev.overpass-api.de/overpass-doc/en/full_data/osm_types.html",
+        "https://docs.osmcode.org/pyosmium/latest/user_manual/03-Working-with-Geometries/",
+        "https://docs.osmcode.org/pyosmium/latest/reference/IO/"
+      ],
+      "status": "primary_api_documentation_read",
+      "findings": [
+        "Overpass out center is the object bounding-box center and need not lie inside the polygon.",
+        "Use complete referenced node locations to assemble way/relation geometries; never join unrelated rings into a single outline.",
+        "Pyosmium with_areas scans relation topology before geometry assembly and preserves separate outer and inner rings.",
+        "Reject invalid/incomplete footprints. Preserve holes and multiple outer parts; a multi-building relation is not automatically one house.",
+        "For an accepted single building footprint, an interior representative point can be derived locally and labelled as such."
+      ]
+    }
+  ],
+  "recommended_single_query_if_overpass_is_used_in_a_future_run": {
+    "executed": false,
+    "endpoint": "https://overpass-api.de/api/interpreter",
+    "method": "POST",
+    "query": "[out:json][timeout:90][bbox:50.8,70.8,51.4,71.9];(nwr[\"addr:housenumber\"];way[\"building\"];relation[\"building\"];way[\"highway\"][~\"^(name(:.*)?|alt_name|old_name|official_name|short_name)$\"~\".\"];);out body geom;",
+    "notes": [
+      "Run at most one bounded request, cache exact response and query, and retain osm3s timestamp plus SHA256.",
+      "Building/address and multilingual road data can be retrieved together; this query intentionally preserves tags rather than matching addresses on the server.",
+      "The bbox is broader than Astana. Separately validate city-boundary membership before accepting coordinates.",
+      "This is a future option only: the current run uses the pinned PBF and performs no further Overpass calls."
+    ]
+  },
+  "acceptance_recommendations": [
+    "Match exact normalized street plus complete house number to one unique physical building; require consistent city/boundary evidence.",
+    "Discard conflicts across candidate footprints, distinct corpora, streets, or ambiguous aliases rather than choosing the nearest candidate.",
+    "Deduplicate relation/member-way representations only when their complete physical geometry including holes agrees; retain all source object IDs.",
+    "Reject apartment-complex centroids, generic POIs, interpolation, bare address nodes, and multiouter/campus relations for automatic building confirmation unless additional building-level evidence is explicitly implemented.",
+    "Keep the raw snapshot, its SHA, extraction version, OSM object IDs/version/edit timestamps, exact source tags, matching rule, and geometry method in provenance.",
+    "Keep OSM coordinates separate from historical listing coordinates and any model's learned training-only coordinate map. If model inputs change, historic model metrics do not automatically validate the changed inference path."
+  ],
+  "excluded_sources": [
+    {
+      "source": "Krisha",
+      "status": "not_accessed_in_this_research"
+    },
+    {
+      "source": "2GIS",
+      "status": "not_accessed_or_scraped"
+    },
+    {
+      "source": "Public Nominatim API",
+      "status": "not_queried"
+    }
+  ],
+  "extraction_validation": {
+    "checked_at": "2026-10-13T15:45:47.000591+00:00",
+    "status": "passed",
+    "element_count": 83820,
+    "unique_osm_type_ids": true,
+    "source_output_extractor_sha256_match": true,
+    "coordinates_finite_valid_ranges": true,
+    "contributor_metadata_absent": true,
+    "boundary_relation_id": 3087155,
+    "boundary_valid": true,
+    "boundary_member_ways_verified_against_pbf": 36,
+    "boundary_bounds_west_south_east_north": [
+      71.2179735,
+      50.8576076,
+      71.7851913,
+      51.3511101
+    ],
+    "counts": {
+      "roads_with_name:ru": 5146,
+      "roads_with_name:kk": 1646,
+      "roads_with_name:en": 1631,
+      "roads_with_alt_name": 85,
+      "roads_with_old_name": 219,
+      "valid_polygon_features": 77860,
+      "multiouter_features": 204,
+      "features_with_holes": 88
+    },
+    "output_sha256": "0978a34d40f0c3b0066e2bc37262a0f092cca1a7e407ab892d35c12976405eff",
+    "output_bytes": 124406272,
+    "notes": [
+      "This validates topology and provenance, not the address matcher or physical survey accuracy.",
+      "Invalid footprint geometries, if present, must be rejected by the matcher; no geometry repair is applied here."
+    ]
+  }
+}

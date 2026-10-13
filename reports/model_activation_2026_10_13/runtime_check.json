@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "variant": "complex_coords",
+  "fit_calls": 0,
+  "model_sha256": "86d0faf99d7062c2d1402f0ce15a930c1764a69c9d8d75e3e0d20e4037a58b50",
+  "mae_tenge": 6442701.30963452,
+  "coordinate_houses_in_frozen_model": 197,
+  "checks": [
+    {
+      "scenario": "known_house",
+      "price_tenge": 49958476.40302587,
+      "location_notes": [
+        "Учтён ЖК: Qazaq Eli Sairam.",
+        "Координаты выбранного дома учтены из обучающего справочника; точность до дома внешне не подтверждена."
+      ]
+    },
+    {
+      "scenario": "missing_location",
+      "price_tenge": 50860679.65467523,
+      "location_notes": [
+        "ЖК не указан. Название комплекса не учтено в оценке.",
+        "Пригодные координаты дома недоступны для этого запроса. Оценка выполнена с неполными сведениями о местоположении."
+      ]
+    },
+    {
+      "scenario": "conflicting_year",
+      "price_tenge": 51409461.50721345,
+      "location_notes": [
+        "Учтён ЖК: Qazaq Eli Sairam.",
+        "Пригодные координаты дома недоступны для этого запроса. Оценка выполнена с неполными сведениями о местоположении."
+      ]
+    }
+  ],
+  "note": "Application smoke on archival inputs, not new accuracy evaluation."
+}

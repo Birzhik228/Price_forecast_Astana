@@ -1,0 +1,1854 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-10-13T15:18:20.691645+00:00",
+  "scope": "read_only_existing_complex_coords_and_catalog; no fitting or external lookups",
+  "active_model": {
+    "variant": "complex_coords",
+    "model_path": "models/location_2026/complex_coords.joblib",
+    "sha256": "86d0faf99d7062c2d1402f0ce15a930c1764a69c9d8d75e3e0d20e4037a58b50",
+    "training_geo_summary": {
+      "fit_rows": 19269,
+      "houses_seen": 4000,
+      "plausible_houses": 197,
+      "externally_verified": false
+    }
+  },
+  "source_sha256": {
+    "models/location_2026/complex_coords.joblib": "86d0faf99d7062c2d1402f0ce15a930c1764a69c9d8d75e3e0d20e4037a58b50",
+    "models/deployment/complex_coords.json": "6ba7b1d06bc1605f7984686414e58648933ed5ecda52d067bd3b2734f0aa7c86",
+    "models/location_2026/complex_coords.json": "680f18d8df5ac49fdf055aa815d764fb26e68a2b11e43f402d5b3904f47c6965",
+    "data/processed/property_catalog/listings.csv": "bb6bfa27828cb3913229b3b6d7fff6e3e6c735e97f91cbaf91eb8b318a3f85cf",
+    "data/processed/property_catalog/buildings.csv": "1213ae927c087c47ab683849fc4619af7d11a0d29ffe24f03c6f0654a34c3ebf",
+    "data/processed/property_catalog/manifest.json": "c8ac0cf5583ebc55cbd4636244c895fc226a87ebc4bcef4c4b99a92fd6c8bb2d",
+    "data/processed/combined_2026/listings_clean.csv": "28ad11f14b56315ea2dd903ffc7f8ab9d5a788f7f5e070b5ec1b61c0711d98eb",
+    "reports/location_experiment/split_manifest.csv": "0d1961e59a78473309e64069a47798a9cc2489708778ec213f22a20ace3eb797",
+    "reports/location_experiment/training_coordinate_audit.csv": "9419f198944bee4b58481ac4dad2b5b262bc5f3af90538d912049363afff1b10",
+    "data/raw/kaggle_astana/astana_apartments.csv": "923bd5483eaea5fdfe9cbf8d36c40ec1875992f66ed70ee29426dd6bc2d189ee",
+    "data/raw/turarr_march_2026/astana_apartments_raw.csv": "79c518f9ec37272c5052ea9936d3020030f4d02cccfb749fb92487fbfdf70676",
+    "building_catalog.py": "8fdcf1bf38aeb1da402a09c3a82a5c4fd5e95368b10bd29f03b7138170edc94b",
+    "location_model.py": "2b1908c219c69f4f009383c7812227543cc371d5f1bf41aac2743a61d8763b3e"
+  },
+  "policy": {
+    "minimum_coordinate_observations": 2,
+    "maximum_coordinate_radius_m": 125.0,
+    "bbox": {
+      "latitude_min": 50.8,
+      "latitude_max": 51.4,
+      "longitude_min": 70.8,
+      "longitude_max": 71.9
+    },
+    "reused_marker_rounding_decimals": 6,
+    "status_precedence": [
+      "trait_conflict",
+      "invalid",
+      "reused_marker",
+      "missing",
+      "insufficient_observations",
+      "coordinate_spread",
+      "plausible"
+    ],
+    "external_coordinate_source_used": false
+  },
+  "coverage": {
+    "catalog": {
+      "rows": 19859,
+      "house_keys": 4068,
+      "rows_with_house_key": 9992,
+      "rows_without_house_key": 9867,
+      "model_mapped_house_rows": 602,
+      "actual_model_geo_rows": 599,
+      "actual_model_geo_pct": 3.0162646658945564,
+      "query_trait_conflict_rows": 3,
+      "valid_raw_coordinate_rows": 16091,
+      "model_house_status_row_counts": {
+        "house_key_missing": 9867,
+        "trait_conflict": 6163,
+        "insufficient_observations": 1405,
+        "reused_marker": 1326,
+        "plausible": 602,
+        "missing": 364,
+        "unseen_house": 68,
+        "coordinate_spread": 52,
+        "invalid": 12
+      }
+    },
+    "by_subset": {
+      "test": {
+        "rows": 590,
+        "house_keys": 258,
+        "rows_with_house_key": 296,
+        "rows_without_house_key": 294,
+        "model_mapped_house_rows": 11,
+        "actual_model_geo_rows": 8,
+        "actual_model_geo_pct": 1.3559322033898304,
+        "query_trait_conflict_rows": 3,
+        "valid_raw_coordinate_rows": 0,
+        "model_house_status_row_counts": {
+          "house_key_missing": 294,
+          "trait_conflict": 170,
+          "unseen_house": 68,
+          "reused_marker": 21,
+          "insufficient_observations": 20,
+          "plausible": 11,
+          "missing": 6
+        }
+      },
+      "train": {
+        "rows": 19269,
+        "house_keys": 4000,
+        "rows_with_house_key": 9696,
+        "rows_without_house_key": 9573,
+        "model_mapped_house_rows": 591,
+        "actual_model_geo_rows": 591,
+        "actual_model_geo_pct": 3.067102600031138,
+        "query_trait_conflict_rows": 0,
+        "valid_raw_coordinate_rows": 16091,
+        "model_house_status_row_counts": {
+          "house_key_missing": 9573,
+          "trait_conflict": 5993,
+          "insufficient_observations": 1385,
+          "reused_marker": 1305,
+          "plausible": 591,
+          "missing": 358,
+          "coordinate_spread": 52,
+          "invalid": 12
+        }
+      }
+    },
+    "by_dataset_period": {
+      "2026-01": {
+        "rows": 16119,
+        "house_keys": 3638,
+        "rows_with_house_key": 8202,
+        "rows_without_house_key": 7917,
+        "model_mapped_house_rows": 550,
+        "actual_model_geo_rows": 550,
+        "actual_model_geo_pct": 3.4121223400955394,
+        "query_trait_conflict_rows": 0,
+        "valid_raw_coordinate_rows": 16091,
+        "model_house_status_row_counts": {
+          "house_key_missing": 7917,
+          "trait_conflict": 5006,
+          "insufficient_observations": 1333,
+          "reused_marker": 1253,
+          "plausible": 550,
+          "coordinate_spread": 49,
+          "invalid": 11
+        }
+      },
+      "2026-03": {
+        "rows": 3740,
+        "house_keys": 1190,
+        "rows_with_house_key": 1790,
+        "rows_without_house_key": 1950,
+        "model_mapped_house_rows": 52,
+        "actual_model_geo_rows": 49,
+        "actual_model_geo_pct": 1.3101604278074865,
+        "query_trait_conflict_rows": 3,
+        "valid_raw_coordinate_rows": 0,
+        "model_house_status_row_counts": {
+          "house_key_missing": 1950,
+          "trait_conflict": 1157,
+          "missing": 364,
+          "reused_marker": 73,
+          "insufficient_observations": 72,
+          "unseen_house": 68,
+          "plausible": 52,
+          "coordinate_spread": 3,
+          "invalid": 1
+        }
+      }
+    }
+  },
+  "training_house_status_counts": {
+    "insufficient_observations": 1333,
+    "trait_conflict": 1123,
+    "reused_marker": 982,
+    "missing": 346,
+    "plausible": 197,
+    "coordinate_spread": 12,
+    "invalid": 7
+  },
+  "nonexclusive_training_rejection_flags": {
+    "trait_conflict_houses": 1123,
+    "invalid_evidence_houses": 9,
+    "reused_marker_houses": 1556,
+    "zero_valid_points_houses": 368,
+    "one_valid_point_houses": 2273,
+    "spread_above_125m_houses": 189
+  },
+  "training_trait_conflict_combinations": {
+    "year_built, total_floors": 410,
+    "year_built": 405,
+    "total_floors": 249,
+    "residential_complex, year_built, total_floors": 35,
+    "residential_complex, year_built": 10,
+    "residential_complex, total_floors": 9,
+    "residential_complex": 5
+  },
+  "districts": [
+    {
+      "district": "Алматы",
+      "rows": 3992,
+      "house_keys": 999,
+      "rows_with_house_key": 2145,
+      "rows_without_house_key": 1847,
+      "model_mapped_house_rows": 144,
+      "actual_model_geo_rows": 143,
+      "actual_model_geo_pct": 3.582164328657315,
+      "query_trait_conflict_rows": 1,
+      "valid_raw_coordinate_rows": 3321,
+      "model_house_status_row_counts": {
+        "house_key_missing": 1847,
+        "trait_conflict": 1211,
+        "reused_marker": 352,
+        "insufficient_observations": 346,
+        "plausible": 144,
+        "missing": 68,
+        "unseen_house": 16,
+        "coordinate_spread": 6,
+        "invalid": 2
+      },
+      "training_house_status_counts": {
+        "insufficient_observations": 331,
+        "trait_conflict": 268,
+        "reused_marker": 259,
+        "missing": 67,
+        "plausible": 53,
+        "coordinate_spread": 3,
+        "invalid": 2
+      },
+      "by_subset": {
+        "test": {
+          "rows": 92,
+          "house_keys": 39,
+          "rows_with_house_key": 40,
+          "rows_without_house_key": 52,
+          "model_mapped_house_rows": 4,
+          "actual_model_geo_rows": 3,
+          "actual_model_geo_pct": 3.260869565217391,
+          "query_trait_conflict_rows": 1,
+          "valid_raw_coordinate_rows": 0,
+          "model_house_status_row_counts": {
+            "house_key_missing": 52,
+            "unseen_house": 16,
+            "trait_conflict": 14,
+            "insufficient_observations": 4,
+            "plausible": 4,
+            "reused_marker": 2
+          }
+        },
+        "train": {
+          "rows": 3900,
+          "house_keys": 983,
+          "rows_with_house_key": 2105,
+          "rows_without_house_key": 1795,
+          "model_mapped_house_rows": 140,
+          "actual_model_geo_rows": 140,
+          "actual_model_geo_pct": 3.5897435897435894,
+          "query_trait_conflict_rows": 0,
+          "valid_raw_coordinate_rows": 3321,
+          "model_house_status_row_counts": {
+            "house_key_missing": 1795,
+            "trait_conflict": 1197,
+            "reused_marker": 350,
+            "insufficient_observations": 342,
+            "plausible": 140,
+            "missing": 68,
+            "coordinate_spread": 6,
+            "invalid": 2
+          }
+        }
+      }
+    },
+    {
+      "district": "Байконур",
+      "rows": 918,
+      "house_keys": 270,
+      "rows_with_house_key": 457,
+      "rows_without_house_key": 461,
+      "model_mapped_house_rows": 34,
+      "actual_model_geo_rows": 34,
+      "actual_model_geo_pct": 3.7037037037037033,
+      "query_trait_conflict_rows": 0,
+      "valid_raw_coordinate_rows": 749,
+      "model_house_status_row_counts": {
+        "house_key_missing": 461,
+        "trait_conflict": 190,
+        "insufficient_observations": 116,
+        "reused_marker": 85,
+        "plausible": 34,
+        "missing": 26,
+        "unseen_house": 6
+      },
+      "training_house_status_counts": {
+        "insufficient_observations": 113,
+        "reused_marker": 64,
+        "trait_conflict": 48,
+        "missing": 26,
+        "plausible": 13
+      },
+      "by_subset": {
+        "test": {
+          "rows": 30,
+          "house_keys": 13,
+          "rows_with_house_key": 14,
+          "rows_without_house_key": 16,
+          "model_mapped_house_rows": 1,
+          "actual_model_geo_rows": 1,
+          "actual_model_geo_pct": 3.3333333333333335,
+          "query_trait_conflict_rows": 0,
+          "valid_raw_coordinate_rows": 0,
+          "model_house_status_row_counts": {
+            "house_key_missing": 16,
+            "trait_conflict": 6,
+            "unseen_house": 6,
+            "insufficient_observations": 1,
+            "plausible": 1
+          }
+        },
+        "train": {
+          "rows": 888,
+          "house_keys": 264,
+          "rows_with_house_key": 443,
+          "rows_without_house_key": 445,
+          "model_mapped_house_rows": 33,
+          "actual_model_geo_rows": 33,
+          "actual_model_geo_pct": 3.7162162162162162,
+          "query_trait_conflict_rows": 0,
+          "valid_raw_coordinate_rows": 749,
+          "model_house_status_row_counts": {
+            "house_key_missing": 445,
+            "trait_conflict": 184,
+            "insufficient_observations": 115,
+            "reused_marker": 85,
+            "plausible": 33,
+            "missing": 26
+          }
+        }
+      }
+    },
+    {
+      "district": "Есиль",
+      "rows": 5408,
+      "house_keys": 1015,
+      "rows_with_house_key": 2752,
+      "rows_without_house_key": 2656,
+      "model_mapped_house_rows": 161,
+      "actual_model_geo_rows": 161,
+      "actual_model_geo_pct": 2.9770710059171597,
+      "query_trait_conflict_rows": 0,
+      "valid_raw_coordinate_rows": 4426,
+      "model_house_status_row_counts": {
+        "house_key_missing": 2656,
+        "trait_conflict": 1829,
+        "insufficient_observations": 342,
+        "reused_marker": 297,
+        "plausible": 161,
+        "missing": 85,
+        "coordinate_spread": 18,
+        "unseen_house": 14,
+        "invalid": 6
+      },
+      "training_house_status_counts": {
+        "trait_conflict": 330,
+        "insufficient_observations": 320,
+        "reused_marker": 218,
+        "missing": 77,
+        "plausible": 51,
+        "coordinate_spread": 4,
+        "invalid": 1
+      },
+      "by_subset": {
+        "test": {
+          "rows": 148,
+          "house_keys": 71,
+          "rows_with_house_key": 77,
+          "rows_without_house_key": 71,
+          "model_mapped_house_rows": 1,
+          "actual_model_geo_rows": 1,
+          "actual_model_geo_pct": 0.6756756756756757,
+          "query_trait_conflict_rows": 0,
+          "valid_raw_coordinate_rows": 0,
+          "model_house_status_row_counts": {
+            "house_key_missing": 71,
+            "trait_conflict": 49,
+            "unseen_house": 14,
+            "insufficient_observations": 7,
+            "reused_marker": 4,
+            "missing": 2,
+            "plausible": 1
+          }
+        },
+        "train": {
+          "rows": 5260,
+          "house_keys": 1001,
+          "rows_with_house_key": 2675,
+          "rows_without_house_key": 2585,
+          "model_mapped_house_rows": 160,
+          "actual_model_geo_rows": 160,
+          "actual_model_geo_pct": 3.041825095057034,
+          "query_trait_conflict_rows": 0,
+          "valid_raw_coordinate_rows": 4426,
+          "model_house_status_row_counts": {
+            "house_key_missing": 2585,
+            "trait_conflict": 1780,
+            "insufficient_observations": 335,
+            "reused_marker": 293,
+            "plausible": 160,
+            "missing": 83,
+            "coordinate_spread": 18,
+            "invalid": 6
+          }
+        }
+      }
+    },
+    {
+      "district": "Нура",
+      "rows": 4727,
+      "house_keys": 778,
+      "rows_with_house_key": 2538,
+      "rows_without_house_key": 2189,
+      "model_mapped_house_rows": 100,
+      "actual_model_geo_rows": 99,
+      "actual_model_geo_pct": 2.094351597207531,
+      "query_trait_conflict_rows": 1,
+      "valid_raw_coordinate_rows": 3697,
+      "model_house_status_row_counts": {
+        "house_key_missing": 2189,
+        "trait_conflict": 1821,
+        "reused_marker": 272,
+        "insufficient_observations": 232,
+        "plausible": 100,
+        "missing": 73,
+        "coordinate_spread": 22,
+        "unseen_house": 14,
+        "invalid": 4
+      },
+      "training_house_status_counts": {
+        "trait_conflict": 256,
+        "insufficient_observations": 215,
+        "reused_marker": 186,
+        "missing": 68,
+        "plausible": 32,
+        "invalid": 4,
+        "coordinate_spread": 3
+      },
+      "by_subset": {
+        "test": {
+          "rows": 174,
+          "house_keys": 79,
+          "rows_with_house_key": 99,
+          "rows_without_house_key": 75,
+          "model_mapped_house_rows": 3,
+          "actual_model_geo_rows": 2,
+          "actual_model_geo_pct": 1.1494252873563218,
+          "query_trait_conflict_rows": 1,
+          "valid_raw_coordinate_rows": 0,
+          "model_house_status_row_counts": {
+            "house_key_missing": 75,
+            "trait_conflict": 68,
+            "unseen_house": 14,
+            "reused_marker": 8,
+            "plausible": 3,
+            "insufficient_observations": 3,
+            "missing": 3
+          }
+        },
+        "train": {
+          "rows": 4553,
+          "house_keys": 764,
+          "rows_with_house_key": 2439,
+          "rows_without_house_key": 2114,
+          "model_mapped_house_rows": 97,
+          "actual_model_geo_rows": 97,
+          "actual_model_geo_pct": 2.1304634307050296,
+          "query_trait_conflict_rows": 0,
+          "valid_raw_coordinate_rows": 3697,
+          "model_house_status_row_counts": {
+            "house_key_missing": 2114,
+            "trait_conflict": 1753,
+            "reused_marker": 264,
+            "insufficient_observations": 229,
+            "plausible": 97,
+            "missing": 70,
+            "coordinate_spread": 22,
+            "invalid": 4
+          }
+        }
+      }
+    },
+    {
+      "district": "Сарайшык",
+      "rows": 1714,
+      "house_keys": 385,
+      "rows_with_house_key": 843,
+      "rows_without_house_key": 871,
+      "model_mapped_house_rows": 52,
+      "actual_model_geo_rows": 52,
+      "actual_model_geo_pct": 3.0338389731621938,
+      "query_trait_conflict_rows": 0,
+      "valid_raw_coordinate_rows": 1323,
+      "model_house_status_row_counts": {
+        "house_key_missing": 871,
+        "trait_conflict": 466,
+        "reused_marker": 136,
+        "insufficient_observations": 125,
+        "missing": 53,
+        "plausible": 52,
+        "coordinate_spread": 6,
+        "unseen_house": 5
+      },
+      "training_house_status_counts": {
+        "insufficient_observations": 117,
+        "reused_marker": 114,
+        "trait_conflict": 84,
+        "missing": 52,
+        "plausible": 11,
+        "coordinate_spread": 2
+      },
+      "by_subset": {
+        "test": {
+          "rows": 53,
+          "house_keys": 21,
+          "rows_with_house_key": 28,
+          "rows_without_house_key": 25,
+          "model_mapped_house_rows": 0,
+          "actual_model_geo_rows": 0,
+          "actual_model_geo_pct": 0.0,
+          "query_trait_conflict_rows": 0,
+          "valid_raw_coordinate_rows": 0,
+          "model_house_status_row_counts": {
+            "house_key_missing": 25,
+            "trait_conflict": 19,
+            "unseen_house": 5,
+            "reused_marker": 2,
+            "insufficient_observations": 2
+          }
+        },
+        "train": {
+          "rows": 1661,
+          "house_keys": 380,
+          "rows_with_house_key": 815,
+          "rows_without_house_key": 846,
+          "model_mapped_house_rows": 52,
+          "actual_model_geo_rows": 52,
+          "actual_model_geo_pct": 3.13064419024684,
+          "query_trait_conflict_rows": 0,
+          "valid_raw_coordinate_rows": 1323,
+          "model_house_status_row_counts": {
+            "house_key_missing": 846,
+            "trait_conflict": 447,
+            "reused_marker": 134,
+            "insufficient_observations": 123,
+            "missing": 53,
+            "plausible": 52,
+            "coordinate_spread": 6
+          }
+        }
+      }
+    },
+    {
+      "district": "Сарыарка",
+      "rows": 2214,
+      "house_keys": 621,
+      "rows_with_house_key": 1257,
+      "rows_without_house_key": 957,
+      "model_mapped_house_rows": 111,
+      "actual_model_geo_rows": 110,
+      "actual_model_geo_pct": 4.9683830171635055,
+      "query_trait_conflict_rows": 1,
+      "valid_raw_coordinate_rows": 1822,
+      "model_house_status_row_counts": {
+        "house_key_missing": 957,
+        "trait_conflict": 646,
+        "insufficient_observations": 244,
+        "reused_marker": 184,
+        "plausible": 111,
+        "missing": 59,
+        "unseen_house": 13
+      },
+      "training_house_status_counts": {
+        "insufficient_observations": 237,
+        "reused_marker": 141,
+        "trait_conflict": 137,
+        "missing": 56,
+        "plausible": 37
+      },
+      "by_subset": {
+        "test": {
+          "rows": 67,
+          "house_keys": 35,
+          "rows_with_house_key": 38,
+          "rows_without_house_key": 29,
+          "model_mapped_house_rows": 2,
+          "actual_model_geo_rows": 1,
+          "actual_model_geo_pct": 1.4925373134328357,
+          "query_trait_conflict_rows": 1,
+          "valid_raw_coordinate_rows": 0,
+          "model_house_status_row_counts": {
+            "house_key_missing": 29,
+            "trait_conflict": 14,
+            "unseen_house": 13,
+            "reused_marker": 5,
+            "insufficient_observations": 3,
+            "plausible": 2,
+            "missing": 1
+          }
+        },
+        "train": {
+          "rows": 2147,
+          "house_keys": 608,
+          "rows_with_house_key": 1219,
+          "rows_without_house_key": 928,
+          "model_mapped_house_rows": 109,
+          "actual_model_geo_rows": 109,
+          "actual_model_geo_pct": 5.076851420586865,
+          "query_trait_conflict_rows": 0,
+          "valid_raw_coordinate_rows": 1822,
+          "model_house_status_row_counts": {
+            "house_key_missing": 928,
+            "trait_conflict": 632,
+            "insufficient_observations": 241,
+            "reused_marker": 179,
+            "plausible": 109,
+            "missing": 58
+          }
+        }
+      }
+    },
+    {
+      "district": null,
+      "rows": 886,
+      "house_keys": 0,
+      "rows_with_house_key": 0,
+      "rows_without_house_key": 886,
+      "model_mapped_house_rows": 0,
+      "actual_model_geo_rows": 0,
+      "actual_model_geo_pct": 0.0,
+      "query_trait_conflict_rows": 0,
+      "valid_raw_coordinate_rows": 753,
+      "model_house_status_row_counts": {
+        "house_key_missing": 886
+      },
+      "training_house_status_counts": {},
+      "by_subset": {
+        "test": {
+          "rows": 26,
+          "house_keys": 0,
+          "rows_with_house_key": 0,
+          "rows_without_house_key": 26,
+          "model_mapped_house_rows": 0,
+          "actual_model_geo_rows": 0,
+          "actual_model_geo_pct": 0.0,
+          "query_trait_conflict_rows": 0,
+          "valid_raw_coordinate_rows": 0,
+          "model_house_status_row_counts": {
+            "house_key_missing": 26
+          }
+        },
+        "train": {
+          "rows": 860,
+          "house_keys": 0,
+          "rows_with_house_key": 0,
+          "rows_without_house_key": 860,
+          "model_mapped_house_rows": 0,
+          "actual_model_geo_rows": 0,
+          "actual_model_geo_pct": 0.0,
+          "query_trait_conflict_rows": 0,
+          "valid_raw_coordinate_rows": 753,
+          "model_house_status_row_counts": {
+            "house_key_missing": 860
+          }
+        }
+      }
+    }
+  ],
+  "catalog_coordinate_status_rows": {
+    "unverified": 15629,
+    "missing": 3705,
+    "plausible": 497,
+    "invalid": 28
+  },
+  "catalog_resolved_building_coordinate_status_counts": {
+    "unverified": 2255,
+    "missing": 411,
+    "plausible": 170,
+    "invalid": 6
+  },
+  "catalog_and_model_are_distinct": {
+    "catalog_resolved_buildings": 2842,
+    "model_train_house_keys": 4000,
+    "all_catalog_candidate_house_keys": 4068,
+    "model_plausible_houses": 197,
+    "catalog_plausible_resolved_buildings": 170,
+    "note": "Catalog resolves all-sample identity including building_type; model uses train-only candidate keys and traits complex/year/floors. Counts need not coincide."
+  },
+  "query_trait_rejections": [
+    {
+      "record_id": "2026-03:2203",
+      "house_key": "astana|сарыарка|тлендиева 52/2",
+      "conflicting_traits": [
+        {
+          "field": "year_built",
+          "train_value": 2016.0,
+          "query_value": 2015.0
+        }
+      ]
+    },
+    {
+      "record_id": "2026-03:3934",
+      "house_key": "astana|алматы|жирентаева 19",
+      "conflicting_traits": [
+        {
+          "field": "year_built",
+          "train_value": 1994.0,
+          "query_value": 1995.0
+        }
+      ]
+    },
+    {
+      "record_id": "2026-03:4945",
+      "house_key": "astana|нура|е 908 24",
+      "conflicting_traits": [
+        {
+          "field": "total_floors",
+          "train_value": 14.0,
+          "query_value": 12.0
+        }
+      ]
+    }
+  ],
+  "missing_house_key": {
+    "rows": 9867,
+    "by_address_status": {
+      "ambiguous": 8091,
+      "incomplete": 1224,
+      "district_missing": 552
+    },
+    "by_period": {
+      "2026-01": {
+        "ambiguous": 6397,
+        "incomplete": 1041,
+        "district_missing": 479
+      },
+      "2026-03": {
+        "ambiguous": 1694,
+        "incomplete": 183,
+        "district_missing": 73
+      }
+    },
+    "top_address_examples": [
+      {
+        "address": "кошкарбаева 1 — момышулы",
+        "address_status": "ambiguous",
+        "district": "Алматы",
+        "rows": 27,
+        "record_id_example": "2026-01:229",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "айтматова 23 — молдагалиева",
+        "address_status": "ambiguous",
+        "district": "Нура",
+        "rows": 25,
+        "record_id_example": "2026-01:805",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "туран",
+        "address_status": "incomplete",
+        "district": "Нура",
+        "rows": 24,
+        "record_id_example": "2026-01:885",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "ул. жошы хан, 12/3 12/3",
+        "address_status": "ambiguous",
+        "district": "Есиль",
+        "rows": 22,
+        "record_id_example": "2026-01:269",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "сарайшык",
+        "address_status": "incomplete",
+        "district": "Есиль",
+        "rows": 20,
+        "record_id_example": "2026-01:666",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "улы дала 25, 27, 29, 29/1 — толе би",
+        "address_status": "ambiguous",
+        "district": "Нура",
+        "rows": 18,
+        "record_id_example": "2026-01:2200",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "шамши калдаяков 60б, 60а",
+        "address_status": "ambiguous",
+        "district": "Сарайшык",
+        "rows": 18,
+        "record_id_example": "2026-01:1267",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "е-321 17/3,17/2, 17/1, 15/1, 15/2, 15/3",
+        "address_status": "ambiguous",
+        "district": "Есиль",
+        "rows": 17,
+        "record_id_example": "2026-01:1966",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "кошкарбаева",
+        "address_status": "incomplete",
+        "district": "Алматы",
+        "rows": 17,
+        "record_id_example": "2026-01:196",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "мангилик ел",
+        "address_status": "incomplete",
+        "district": "Есиль",
+        "rows": 16,
+        "record_id_example": "2026-01:1947",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "сыганак",
+        "address_status": "incomplete",
+        "district": "Нура",
+        "rows": 16,
+        "record_id_example": "2026-01:2242",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "улы дала",
+        "address_status": "incomplete",
+        "district": "Есиль",
+        "rows": 15,
+        "record_id_example": "2026-01:2153",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "б.сокпакбаева 1 — сарыарка",
+        "address_status": "ambiguous",
+        "district": "Сарыарка",
+        "rows": 14,
+        "record_id_example": "2026-01:7",
+        "dataset_periods": [
+          "2026-01"
+        ]
+      },
+      {
+        "address": "сарайшык р-н",
+        "address_status": "incomplete",
+        "district": null,
+        "rows": 14,
+        "record_id_example": "2026-01:514",
+        "dataset_periods": [
+          "2026-01"
+        ]
+      },
+      {
+        "address": "нура р-н",
+        "address_status": "incomplete",
+        "district": null,
+        "rows": 13,
+        "record_id_example": "2026-01:103",
+        "dataset_periods": [
+          "2026-01"
+        ]
+      },
+      {
+        "address": "туран",
+        "address_status": "incomplete",
+        "district": "Есиль",
+        "rows": 13,
+        "record_id_example": "2026-01:1404",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "туран 52/2, 52/3",
+        "address_status": "ambiguous",
+        "district": "Есиль",
+        "rows": 13,
+        "record_id_example": "2026-01:37",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "молдагалиева",
+        "address_status": "incomplete",
+        "district": "Нура",
+        "rows": 12,
+        "record_id_example": "2026-01:166",
+        "dataset_periods": [
+          "2026-01"
+        ]
+      },
+      {
+        "address": "туркестан",
+        "address_status": "incomplete",
+        "district": "Есиль",
+        "rows": 12,
+        "record_id_example": "2026-01:3907",
+        "dataset_periods": [
+          "2026-01"
+        ]
+      },
+      {
+        "address": "улица а 52, 8 8",
+        "address_status": "ambiguous",
+        "district": "Сарайшык",
+        "rows": 12,
+        "record_id_example": "2026-01:197",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "чингиз айтматов",
+        "address_status": "incomplete",
+        "district": "Нура",
+        "rows": 12,
+        "record_id_example": "2026-01:1477",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "кабанбай батыра",
+        "address_status": "incomplete",
+        "district": "Есиль",
+        "rows": 11,
+        "record_id_example": "2026-01:6651",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "култегин 11, 13, 15",
+        "address_status": "ambiguous",
+        "district": "Нура",
+        "rows": 11,
+        "record_id_example": "2026-01:2588",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "сыганак 14, 16, 18, 8, 10, 12, 2, 2/1, 11, 15",
+        "address_status": "ambiguous",
+        "district": "Нура",
+        "rows": 11,
+        "record_id_example": "2026-01:2240",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "азильхан нуршаихов 10, блок 1, 2",
+        "address_status": "ambiguous",
+        "district": "Нура",
+        "rows": 10,
+        "record_id_example": "2026-01:2813",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "анет баба",
+        "address_status": "incomplete",
+        "district": "Нура",
+        "rows": 10,
+        "record_id_example": "2026-01:1536",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "ж.нажимеденова 13 — а51",
+        "address_status": "ambiguous",
+        "district": "Алматы",
+        "rows": 10,
+        "record_id_example": "2026-01:1962",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "косшыгулулы",
+        "address_status": "incomplete",
+        "district": "Сарыарка",
+        "rows": 10,
+        "record_id_example": "2026-01:1020",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "култегин",
+        "address_status": "incomplete",
+        "district": "Нура",
+        "rows": 10,
+        "record_id_example": "2026-01:1594",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "мкр уркер, укили ыбырай 15",
+        "address_status": "ambiguous",
+        "district": "Нура",
+        "rows": 10,
+        "record_id_example": "2026-01:2551",
+        "dataset_periods": [
+          "2026-01"
+        ]
+      },
+      {
+        "address": "нажимеденова",
+        "address_status": "incomplete",
+        "district": "Алматы",
+        "rows": 10,
+        "record_id_example": "2026-01:1462",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "пересечние улиц кенесары и т.шевченко",
+        "address_status": "incomplete",
+        "district": "Сарыарка",
+        "rows": 10,
+        "record_id_example": "2026-01:1212",
+        "dataset_periods": [
+          "2026-01"
+        ]
+      },
+      {
+        "address": "санжара асфендиярова",
+        "address_status": "incomplete",
+        "district": "Нура",
+        "rows": 10,
+        "record_id_example": "2026-01:67",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "сатпаева",
+        "address_status": "incomplete",
+        "district": "Алматы",
+        "rows": 10,
+        "record_id_example": "2026-01:5900",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "сыганак 6 — култегин",
+        "address_status": "ambiguous",
+        "district": "Нура",
+        "rows": 10,
+        "record_id_example": "2026-01:2420",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "тауелсиздик",
+        "address_status": "incomplete",
+        "district": "Алматы",
+        "rows": 10,
+        "record_id_example": "2026-01:934",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "тлендиева",
+        "address_status": "incomplete",
+        "district": "Сарыарка",
+        "rows": 10,
+        "record_id_example": "2026-01:1909",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "толе би",
+        "address_status": "incomplete",
+        "district": "Нура",
+        "rows": 10,
+        "record_id_example": "2026-01:550",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "бейбарыс султан",
+        "address_status": "incomplete",
+        "district": "Сарыарка",
+        "rows": 9,
+        "record_id_example": "2026-01:23",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      },
+      {
+        "address": "бокейхана",
+        "address_status": "incomplete",
+        "district": "Есиль",
+        "rows": 9,
+        "record_id_example": "2026-01:200",
+        "dataset_periods": [
+          "2026-01",
+          "2026-03"
+        ]
+      }
+    ],
+    "candidate_csv_exclusion_reason": "No canonical house key; requires address resolution first, not a coordinate-only lookup."
+  },
+  "marker_reuse": {
+    "raw_january_rows": 18388,
+    "raw_distinct_exact_points": 8585,
+    "max_exact_point_rows": 67,
+    "max_exact_point_share_of_raw_pct": 0.3643680661300849,
+    "top_exact_raw_points": [
+      {
+        "latitude": 51.128204596981,
+        "longitude": 71.38541221575,
+        "rows": 67,
+        "address_texts": 17,
+        "complex_names": [
+          "Respublika"
+        ],
+        "address_examples": [
+          "Е-36",
+          "Е-36 11",
+          "Е-36 11 — Е-36 пересечение Е-16",
+          "Е-36 2",
+          "Е-36 2/1 — Казыбек Би",
+          "Е-36 4",
+          "Е-36 5",
+          "Е-36 5 — Respublika",
+          "Е-36 5 — За Ханшатыром по Сыганак",
+          "Е-36 6",
+          "Е-36 9",
+          "Е-36 — Без комиссии для покупателя"
+        ]
+      },
+      {
+        "latitude": 51.115228333009,
+        "longitude": 71.535925308371,
+        "rows": 66,
+        "address_texts": 19,
+        "complex_names": [
+          "Tasty"
+        ],
+        "address_examples": [
+          "М. Тынышбайулы",
+          "М. Тынышбайулы 5",
+          "М. Тынышбайулы 5 — Байтурсынова",
+          "М. Тынышбайулы 5 — Байтурсынова Нурлы жол",
+          "М. Тынышбайулы 5 — Нурлы Жол",
+          "М. Тынышбайулы 5 — Нурлы жол",
+          "М. Тынышбайулы 5 — Нурлы жол Байтурсынова",
+          "М. Тынышбайулы 5 — Нурлы жол Вокзала",
+          "М. Тынышбайулы 5 — Нурлы жол вокзал",
+          "М. Тынышбайулы 5 — Нурлыжол вогзал",
+          "М. Тынышбайулы 5 — Первая линия от Нурлы Жол",
+          "М. Тынышбайулы 5 — Топ локация Нурлы жол Байтурсынова"
+        ]
+      },
+      {
+        "latitude": 51.11614418398,
+        "longitude": 71.500186139302,
+        "rows": 45,
+        "address_texts": 23,
+        "complex_names": [
+          "A-City"
+        ],
+        "address_examples": [
+          "Жумекен Нажимеденов",
+          "Жумекен Нажимеденов 33",
+          "Жумекен Нажимеденов 33 — Байтурсынова",
+          "Жумекен Нажимеденов 33 — ГОРЯЧАЯ ЦЕНААА!!!!!!!",
+          "Жумекен Нажимеденов 33 — Горящий вариант, ТОП ЛОКАЦИЯ",
+          "Жумекен Нажимеденов 33 — Жумабаева",
+          "Жумекен Нажимеденов 33 — Жумабаева Нурлы Жол",
+          "Жумекен Нажимеденов 33 — Жургенов",
+          "Жумекен Нажимеденов 33 — Жургенова",
+          "Жумекен Нажимеденов 33 — Нажмединова и Жургенова",
+          "Жумекен Нажимеденов 33 — Ул.Жумабаева",
+          "Жумекен Нажимеденов 33 — пересечение Жургенова"
+        ]
+      },
+      {
+        "latitude": 51.106052945073,
+        "longitude": 71.531496161847,
+        "rows": 39,
+        "address_texts": 9,
+        "complex_names": [
+          "Sardar Compass"
+        ],
+        "address_examples": [
+          "Сарайшык р-н",
+          "Улица Шамши Калдаяков 59",
+          "Улица Шамши Калдаяков 59стр",
+          "Шамши Калдаяков 60Б",
+          "Шамши Калдаяков 60Б,",
+          "Шамши Калдаяков 60Б, 60А",
+          "Шамши Калдаяков 60Б, 60А — Калдоякова 161,162,190",
+          "Шамши Калдаяков 60Б, 60А — Нұрлы жол",
+          "Шамши Калдаяков 60Б, 60А — нұрлы жол"
+        ]
+      },
+      {
+        "latitude": 51.143205381444,
+        "longitude": 71.459309126677,
+        "rows": 39,
+        "address_texts": 13,
+        "complex_names": [
+          "TAMASHA"
+        ],
+        "address_examples": [
+          "Тауелсиздик 25/1",
+          "Тауелсиздик 25/1 — Тауелсиздик, Шарля де Голля",
+          "Тауелсиздик 25/1 — Тауелсиздик- Шарль де Голь",
+          "Тауелсиздик 25/1 — Тауелсиздик-Шарль де Голя",
+          "Тауелсиздик 25/1 — Тауелсыздык-Шарль де Голль",
+          "Тауелсиздик 25/1 — Шарль де  голя/ таулсиздик",
+          "Тауелсиздик 25/1 — Шарль де Голль",
+          "Тауелсиздик 25/1 — Шарль де Голь-Тәуелсіздік",
+          "Тауелсиздик 25/1 — Шарль де голль",
+          "Тауелсиздик 25/1 — Шарля де Голя",
+          "Тауелсиздик 25/1 — проспект Таусельздык, Триатлон Парк, ТРЦ Astana  MALL, школа лицей N50",
+          "Тауелсиздик 25/2"
+        ]
+      },
+      {
+        "latitude": 51.170618303946,
+        "longitude": 71.352739333888,
+        "rows": 38,
+        "address_texts": 7,
+        "complex_names": [
+          "Rio de Janeiro"
+        ],
+        "address_examples": [
+          "Бейбарыс Султан",
+          "Бейбарыс Султан 25",
+          "Бейбарыс Султан 25 — Бейбарыс Султан",
+          "Бейбарыс Султан 25/1",
+          "Бейбарыс Султан 25/2",
+          "Бейбарыс Султан 25/3",
+          "Бейбарыс Султан 27"
+        ]
+      },
+      {
+        "latitude": 51.129871034327,
+        "longitude": 71.375505924007,
+        "rows": 38,
+        "address_texts": 18,
+        "complex_names": [
+          "Шыгыс"
+        ],
+        "address_examples": [
+          "Е 15 11/1",
+          "Е 15 15/1 — Левый берег! Ханшатыр",
+          "Е-15 — БЕЗ КОМИССИЙ ДЛЯ ПОКУПАТЕЛЯ",
+          "Маметова 10",
+          "Маншук Маметовой 8",
+          "Сыганак",
+          "Сыганак 14",
+          "Сыганак 14 — Лучшее предложение!",
+          "Сыганак 14, 16, 18,  8, 10, 12, 2, 2/1, 11, 15",
+          "Сыганак 14, 16, 18,  8, 10, 2, 2/1, 15",
+          "Сыганак 14, 16, 18,  8, 10, 2, 2/1, 15 — Сыганак",
+          "Сыганак 16"
+        ]
+      },
+      {
+        "latitude": 51.126433730996,
+        "longitude": 71.363986730466,
+        "rows": 37,
+        "address_texts": 12,
+        "complex_names": [
+          "Delta"
+        ],
+        "address_examples": [
+          "Жубан Молдагалиев 1",
+          "Жубан Молдагалиев 10",
+          "Жубан Молдагалиев 13",
+          "Жубан Молдагалиев 3",
+          "Жубан Молдагалиев 3 — 110  школа",
+          "Жубан Молдагалиев 3 — Айтматова Молдағалиева",
+          "Жубан Молдагалиев 5",
+          "Жубан Молдагалиев 5 — Таттимбета",
+          "Жубан Молдагалиев 7",
+          "Жубан Молдагалиев 9",
+          "Жубан Молдагалиев — Без комиссии для покупателя",
+          "Молдагалиева"
+        ]
+      },
+      {
+        "latitude": 51.131985766158,
+        "longitude": 71.375907137408,
+        "rows": 37,
+        "address_texts": 15,
+        "complex_names": [
+          "Sat City"
+        ],
+        "address_examples": [
+          "Асфендиярова 10",
+          "Е 763 1 — Сагынак",
+          "Култегин 14 — Айтеке би",
+          "Санжара Асфендиярова",
+          "Санжара Асфендиярова 1",
+          "Санжара Асфендиярова 1 — хан шатыр сыганак",
+          "Санжара Асфендиярова 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 — Сыганак",
+          "Санжара Асфендиярова 12",
+          "Санжара Асфендиярова 2",
+          "Санжара Асфендиярова 2 — ГОРЯЯЯЧКААА! СРОЧНОО!! ТАКОЙ ЦЕНЫ НЕТ!",
+          "Санжара Асфендиярова 3",
+          "Санжара Асфендиярова 3 — ГОРЯЧАЯ ЦЕНА!!! СРОЧНО!!!"
+        ]
+      },
+      {
+        "latitude": 51.131434316719,
+        "longitude": 71.358380589066,
+        "rows": 36,
+        "address_texts": 18,
+        "complex_names": [
+          "Park City Forum"
+        ],
+        "address_examples": [
+          "Е-429 26",
+          "Е-429 26 — Айтматова",
+          "Е-429 26 — Левый берег за Хан Шатыром",
+          "Е-429 26 — Левый берег за Ханшатыром",
+          "Е-429 26 — Сыганак -Айтматова",
+          "Е-429 26 — Чингиз Айтматова",
+          "Нура р-н",
+          "Улица Е-429,",
+          "Улица Е-429, 24 — Айтматова - Сыганак",
+          "Улица Е-429, 26 1",
+          "Улица Е-429, 26 24",
+          "Улица Е-429, 26 24 — Сығанақ Айтматов"
+        ]
+      },
+      {
+        "latitude": 51.141687547843,
+        "longitude": 71.359992027228,
+        "rows": 36,
+        "address_texts": 12,
+        "complex_names": [
+          "Алтын Саулет"
+        ],
+        "address_examples": [
+          "Е-429",
+          "Е-429 14",
+          "Е-429 14 — Айтматова -Мухамедханова",
+          "Е-429 14 — Айтматова Мухамедханова",
+          "Е-429 14 — Алтын Саулет 2",
+          "Е-429 14 — Мухамедханова Айтматова",
+          "Е-429 14 — Мухаметханова-Айтматова",
+          "Е-429 14 — Ш Айтматова",
+          "Е-429 14 — Ш.Айтматова, Қ.Мұхамбетханова",
+          "Е-429 14 — айтматова",
+          "Е-429 14/1 — Чингиз Айтматов",
+          "Е-429 14/3"
+        ]
+      },
+      {
+        "latitude": 51.124310292371,
+        "longitude": 71.379407733809,
+        "rows": 36,
+        "address_texts": 14,
+        "complex_names": [
+          "Baidaulet"
+        ],
+        "address_examples": [
+          "Е-15",
+          "Е-15 16",
+          "Е-15 16 — Веки баба сыганак",
+          "Е-15 16 — ГОРЯЧАЯ ЦЕНААААА !!!!!",
+          "Е-15 16 — ИПОТЕКА +++",
+          "Е-15 16 — Пересечение улиц Е35 и Е 15",
+          "Е-15 16 — САМАЯ ГОРЯЧАЯ И НИЗКАЯ ЦЕНА",
+          "Е-15 16 — Сыганак",
+          "Е-15 16 — Хан шатыр школа Бином",
+          "Е-15 16 — Школа Binom им. А.Бокейханова",
+          "Е-15 16 — Школа Бином",
+          "мкр Комсомольский, Е-15 16"
+        ]
+      },
+      {
+        "latitude": 51.10182286931,
+        "longitude": 71.442136694277,
+        "rows": 36,
+        "address_texts": 17,
+        "complex_names": [
+          "Abat"
+        ],
+        "address_examples": [
+          "Жошы хан 12/3 — БИЗНЕС КЛАСС - ОТЛИЧНАЯ ИНВЕСТИЦИЯ",
+          "ул. Жошы хан 12/3",
+          "ул. Жошы хан 12/3 — ПЕРВАЯ ЛИНИЯ.  ОКНА С ВИДОМ НА ПАРК",
+          "ул. Жошы хан 12/3 — СФЕРА ПАРК",
+          "ул. Жошы хан, 12/3",
+          "ул. Жошы хан, 12/3 12 — Даму парк (сфера парк)",
+          "ул. Жошы хан, 12/3 12/3",
+          "ул. Жошы хан, 12/3 12/3 — Сфера парк ,Бином школа, Аллея.",
+          "ул. Жошы хан, 12/3 12/3 — Сфера парк, Даму парк",
+          "ул. Жошы хан, 12/3 182",
+          "ул. Жошы хан, 12/3 2",
+          "ул. Жошы хан, 12/3 257"
+        ]
+      },
+      {
+        "latitude": 51.180855836951,
+        "longitude": 71.437125656451,
+        "rows": 34,
+        "address_texts": 3,
+        "complex_names": [
+          "Шанырак на Дукенулы"
+        ],
+        "address_examples": [
+          "Дукенулы",
+          "Дукенулы 38",
+          "Дукенулы 38 — Рынок Асем, Шапагат"
+        ]
+      },
+      {
+        "latitude": 51.128349611945,
+        "longitude": 71.422389294603,
+        "rows": 34,
+        "address_texts": 14,
+        "complex_names": [
+          "Северное сияние"
+        ],
+        "address_examples": [
+          "Достык",
+          "Достык 5",
+          "Достык 5 — Акмешит",
+          "Достык 5 — Байтерек",
+          "Достык 5 — ПАРКОВОЧНОЕ МЕСТО",
+          "Достык 5 — Сауран",
+          "Достык 5 — ТРЦ Керуен",
+          "Достык 5 — Трц керуен",
+          "Достык 5 — рядом ТЦ Керуен, Мечеть",
+          "Достык 5 — сауран",
+          "Достык 5/1",
+          "Достык 5/1 — Кунаева"
+        ]
+      },
+      {
+        "latitude": 51.08497181287,
+        "longitude": 71.419043540736,
+        "rows": 34,
+        "address_texts": 12,
+        "complex_names": [
+          "Nexpo Trend"
+        ],
+        "address_examples": [
+          "Рыскулова — Кабанбай",
+          "Турар Рыскулов",
+          "Турар Рыскулов 9",
+          "Турар Рыскулов 9 — Expo",
+          "Турар Рыскулов 9 — Mega Silk Way",
+          "Турар Рыскулов 9 — Mega Silk Way , Expo-2017, Назарбаев Университет",
+          "Турар Рыскулов 9 — Mega, Expo, мечеть",
+          "Турар Рыскулов 9 — ВИДОВАЯ НА ЭКСПО ШАР",
+          "Турар Рыскулов 9 — Лучшее предложение",
+          "Турар Рыскулов 9 — Мангилик ел",
+          "Турар Рыскулов 9 — Мега,  Экспо",
+          "Турар Рыскулов 9a"
+        ]
+      },
+      {
+        "latitude": 51.128388403692,
+        "longitude": 71.487231149822,
+        "rows": 33,
+        "address_texts": 12,
+        "complex_names": [
+          "Сенатор Park"
+        ],
+        "address_examples": [
+          "Айнакол",
+          "Айнакол 66",
+          "Айнакол 66 — ГОРЯЧКА",
+          "Айнакол 66 — Кошкарбаева",
+          "Айнакол 66 — Цена окончательно",
+          "Айнакол 66/1",
+          "Айнакол 66/1 — Байтурсынова-кошкарбаева",
+          "Айнакол 66/1 — Нурмагамбетова",
+          "Айнакол 66/1 — Нурмагамбетова-Кошкарбаева,Пирамида, Хазреты Султан, театр Куанышбаева",
+          "Айнакол 66/1 — Нурмаганбетова",
+          "Айнакол 66/1 — Пересечение улиц Айнаколь и Сағадат Нұрмағамбетова",
+          "Айнакол — Возле мечети Хазрет Султан"
+        ]
+      },
+      {
+        "latitude": 51.103020469176,
+        "longitude": 71.360115867698,
+        "rows": 31,
+        "address_texts": 18,
+        "complex_names": [
+          "UIA.DARYN"
+        ],
+        "address_examples": [
+          "E75 13 — Квартира с ремонтом!!! КЛЮЧИ 15.01.2026",
+          "Улы Дала 10",
+          "Улы Дала 10 — D блок комфорт + класс",
+          "Улы Дала 10 — Проспект Улы Дала, 10",
+          "Улы Дала 10Б — БИЗНЕС БЛОК ГОРЯЧКА ЦЕНА НИЖЕ ЧЕМ У ЗАСТРОЙЩИКА",
+          "Улы Дала 10а",
+          "Улы Дала 14",
+          "Улы Дала 14 — Ellington mall",
+          "Улы Дала 14 — Блок К (с ремонтом)",
+          "Улы Дала 14 — КВАРТИРА С РЕМОНТОМ ОТ \\",
+          "Улы Дала 14 — Классная цена!Сдача 28 март,2026 г",
+          "Улы Дала 14 — Ключи 15 января!"
+        ]
+      },
+      {
+        "latitude": 51.143882158062,
+        "longitude": 71.528884901363,
+        "rows": 29,
+        "address_texts": 5,
+        "complex_names": [
+          "Аспан"
+        ],
+        "address_examples": [
+          "Кошкарбаева 68 — Құдайбердіұлы",
+          "Ракымжан Кошкарбаев",
+          "Ракымжан Кошкарбаев 68",
+          "Ракымжан Кошкарбаев 68 — Отличный вариант",
+          "Рахымжана Кошкарбаева 68"
+        ]
+      },
+      {
+        "latitude": 51.087586011104,
+        "longitude": 71.42876353873,
+        "rows": 29,
+        "address_texts": 11,
+        "complex_names": [
+          "Apple City"
+        ],
+        "address_examples": [
+          "Бокейхана 25",
+          "Бокейхана 25 — ИПОТЕКА+ТОРГ",
+          "Бокейхана 25 — Национальный банк, Экспо",
+          "Бокейхана 25 — Район Expo",
+          "Бокейхана 25 — СРОЧНАЯ ПРОДАЖА! ГОРЯЧАЯ ЦЕНА!",
+          "Бокейхана 25 — ЭКСПО, Mega Silk Way",
+          "Бокейхана 25 — самая низкая цена",
+          "Бокейхана 25a",
+          "Бокейхана 25а",
+          "Бокейхана 25б",
+          "Бокейхана — Онгарсынова"
+        ]
+      }
+    ],
+    "valid_train_known_house_marker_count": 4507,
+    "reused_rounded_marker_count": 634,
+    "reused_rounded_marker_rows": 3049,
+    "reused_marker_house_count": 1556,
+    "reused_markers_with_identical_normalized_address_but_multiple_districts": 102,
+    "inference": "Top repeated points each belong to one complex and many address texts; compatible with complex-level map pins, not proof of an application-wide default. Raw provenance cannot prove the original geocoding method."
+  },
+  "address_normalization_audit": {
+    "recomputed_key_mismatches": 0,
+    "same_normalized_address_multiple_districts_count": 360,
+    "affected_rows": 2584,
+    "affected_house_keys": 734,
+    "top_cross_district_addresses": [
+      {
+        "address_normalized": "м. тынышбайулы 5",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 55
+      },
+      {
+        "address_normalized": "е-36 6",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 47
+      },
+      {
+        "address_normalized": "е-36 5",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 47
+      },
+      {
+        "address_normalized": "е 882 7",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 39
+      },
+      {
+        "address_normalized": "казыбек би 41/1",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 37
+      },
+      {
+        "address_normalized": "е-15 16",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 37
+      },
+      {
+        "address_normalized": "ахмет байтурсынулы 16/3",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 35
+      },
+      {
+        "address_normalized": "анет баба 4",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 30
+      },
+      {
+        "address_normalized": "чингиз айтматов 65",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 27
+      },
+      {
+        "address_normalized": "сафуан шаймерденов 4/1",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 26
+      },
+      {
+        "address_normalized": "сыганак 12",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 25
+      },
+      {
+        "address_normalized": "калдаяков 26",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 24
+      },
+      {
+        "address_normalized": "е 103 5",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 24
+      },
+      {
+        "address_normalized": "айнакол 66/1",
+        "house_keys": 3,
+        "districts": 3,
+        "rows": 23
+      },
+      {
+        "address_normalized": "кабанбай батыра 11",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 22
+      },
+      {
+        "address_normalized": "жумекен нажимеденов 33",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 21
+      },
+      {
+        "address_normalized": "шамши калдаяков 14",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 21
+      },
+      {
+        "address_normalized": "с 902 8",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 21
+      },
+      {
+        "address_normalized": "туран 83/1",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 21
+      },
+      {
+        "address_normalized": "акмешит 1",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 21
+      },
+      {
+        "address_normalized": "сыганак 22/1",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 20
+      },
+      {
+        "address_normalized": "чингиза айтматова 36",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 20
+      },
+      {
+        "address_normalized": "ермек серкебаев 22",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 19
+      },
+      {
+        "address_normalized": "ул. айнаколь 64",
+        "house_keys": 3,
+        "districts": 3,
+        "rows": 18
+      },
+      {
+        "address_normalized": "сыганак 17",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 18
+      },
+      {
+        "address_normalized": "райымбек батыр 2",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 17
+      },
+      {
+        "address_normalized": "кошкарбаева 2",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 17
+      },
+      {
+        "address_normalized": "бейбарыс султан 12",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 16
+      },
+      {
+        "address_normalized": "е-36 11",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 16
+      },
+      {
+        "address_normalized": "шамши калдаяков 11",
+        "house_keys": 2,
+        "districts": 2,
+        "rows": 16
+      }
+    ],
+    "finding": "No pointwise key recomputation error found. Cross streets, multiple house numbers, repeated number text, and district differences need independent identity verification. No aliases were merged."
+  },
+  "candidate_export": {
+    "path": "reports/coordinate_enrichment_2026_10_13/address_candidates.csv",
+    "rows": 4068,
+    "listing_rows_represented": 9992,
+    "tiers": {
+      "address_ready_coordinate_lookup": 2257,
+      "verify_house_identity_first": 1614,
+      "existing_model_coordinate_check": 197
+    },
+    "price_or_target_columns": false,
+    "source_row_semantics": "1-based original raw input position, separated by dataset_period; source_records_json preserves every linked listing.",
+    "sha256": "819ba8f5fed162fbed21ba4605ca84a84ac32220934a36ff1b34f1ee340f26c1"
+  },
+  "checks": {
+    "active_model_hash_matches_deployment": true,
+    "catalog_csv_hashes_match_manifest": true,
+    "serialized_model_audit_matches_saved_training_audit": true,
+    "raw_january_coordinate_provenance_matches": true,
+    "march_has_no_raw_coordinates": true,
+    "house_keys_recomputed_pointwise_match": true,
+    "train_test_record_ids_match_split": true,
+    "fit_calls": 0,
+    "prediction_calls": 0,
+    "transform_calls": 1,
+    "source_hashes_unchanged_after_audit": true
+  },
+  "recommendations": [
+    "Confirm address, house number/corpus and district against an independent house-level map record before importing coordinates.",
+    "Prioritize consistent explicit addresses with insufficient or missing raw coordinates; trait or district conflicts require identity review first.",
+    "Record source object ID, exact address, source URL, access date, match method and precision; do not substitute complex-center pins for house coordinates.",
+    "An enrichment table does not modify the frozen model house map; any model feature change requires a separate version and evaluation."
+  ],
+  "limitations": [
+    "Plausible means internally consistent archive evidence, not externally verified geolocation.",
+    "Two observations may repeat an upstream map pin; the model policy is conservative but cannot prove independent measurements.",
+    "House keys missing from training cannot receive coordinates through this frozen transformer.",
+    "This audit does not resolve address ambiguities and does not prove that the 197 houses are all geographically correct."
+  ]
+}

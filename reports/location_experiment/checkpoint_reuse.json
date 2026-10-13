@@ -1,0 +1,19 @@
+{
+  "status": "completed",
+  "at_utc": "2026-10-13T10:41:34.449152+00:00",
+  "reason": "Frozen January/combined inference requires numpy NaN instead of pandas NA; reuse already prepared eight feature columns.",
+  "original_signature": "83b013454ee12bc0ce4e1720b5f36410af2939a2414004edce49bdd0681b65a4",
+  "current_signature": "06db5ac2d007cd6968c39fbd030335cb0a0328e3cf1d58e297e67cce55025bc6",
+  "only_code_change": "Two frozen predict inputs: frame.loc -> x.loc, after all CV and final candidate fits.",
+  "training_source_code_identical": true,
+  "all_other_pinned_sources_unchanged": true,
+  "model_joblibs_unchanged_sha256": {
+    "baseline8": "90f2ee072cb443c576ce753b8ff8f4928ba2ec83037547184cbb81178ec4ad79",
+    "complex": "b02a3e5e46ee069a75f13210ed20cf8a33834d7fe9fb3bb4f881bd1541fae108",
+    "coords": "a2763637f4ec5c09c3cc2850a58f16fe4ee85d6de40e789ad69807edae2a4bcc",
+    "complex_coords": "86d0faf99d7062c2d1402f0ce15a930c1764a69c9d8d75e3e0d20e4037a58b50"
+  },
+  "fit_calls": 0,
+  "original_artifacts_directory": "evaluation_fix_backup",
+  "candidate_and_cv_metadata_retain_original_fit_signature": true
+}

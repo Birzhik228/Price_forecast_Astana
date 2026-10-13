@@ -1,0 +1,5389 @@
+{
+  "schema_version": 1,
+  "checked_at_utc": "2026-10-13T15:47:49.887409+00:00",
+  "status": "passed",
+  "selection": "Two deterministic SHA256-ranked eligible keys per district, then direct-alias examples to 15; no price/error-based selection.",
+  "sample_count": 15,
+  "sample_district_counts": {
+    "есиль": 4,
+    "алматы": 3,
+    "байконур": 2,
+    "нура": 2,
+    "сарайшык": 2,
+    "сарыарка": 2
+  },
+  "sample_with_street_alias_evidence": 11,
+  "all_registry_checks": {
+    "exact_matched_keys": 898,
+    "eligible_keys": 550,
+    "registry_entries": 550,
+    "unique_eligible_physical_buildings": 521,
+    "registry_equals_all_eligible_matches": true,
+    "source_hashes_match_frozen_protocol": true,
+    "protected_originals_unchanged": true
+  },
+  "protected_source_sha256": {
+    "models/location_2026/complex_coords.joblib": "86d0faf99d7062c2d1402f0ce15a930c1764a69c9d8d75e3e0d20e4037a58b50",
+    "models/deployment/complex_coords.json": "6ba7b1d06bc1605f7984686414e58648933ed5ecda52d067bd3b2734f0aa7c86",
+    "models/location_2026/complex_coords.json": "680f18d8df5ac49fdf055aa815d764fb26e68a2b11e43f402d5b3904f47c6965",
+    "data/processed/property_catalog/listings.csv": "bb6bfa27828cb3913229b3b6d7fff6e3e6c735e97f91cbaf91eb8b318a3f85cf",
+    "data/processed/property_catalog/buildings.csv": "1213ae927c087c47ab683849fc4619af7d11a0d29ffe24f03c6f0654a34c3ebf",
+    "data/processed/property_catalog/manifest.json": "c8ac0cf5583ebc55cbd4636244c895fc226a87ebc4bcef4c4b99a92fd6c8bb2d",
+    "data/processed/combined_2026/listings_clean.csv": "28ad11f14b56315ea2dd903ffc7f8ab9d5a788f7f5e070b5ec1b61c0711d98eb",
+    "reports/location_experiment/split_manifest.csv": "0d1961e59a78473309e64069a47798a9cc2489708778ec213f22a20ace3eb797",
+    "reports/location_experiment/training_coordinate_audit.csv": "9419f198944bee4b58481ac4dad2b5b262bc5f3af90538d912049363afff1b10",
+    "data/raw/kaggle_astana/astana_apartments.csv": "923bd5483eaea5fdfe9cbf8d36c40ec1875992f66ed70ee29426dd6bc2d189ee",
+    "data/raw/turarr_march_2026/astana_apartments_raw.csv": "79c518f9ec37272c5052ea9936d3020030f4d02cccfb749fb92487fbfdf70676",
+    "building_catalog.py": "8fdcf1bf38aeb1da402a09c3a82a5c4fd5e95368b10bd29f03b7138170edc94b",
+    "location_model.py": "2b1908c219c69f4f009383c7812227543cc371d5f1bf41aac2743a61d8763b3e"
+  },
+  "artifact_sha256": {
+    "matched_addresses.csv": "9e10cb5cf5f9fd4256d66df8750c1afba9b5097699e78d365d0cfa74d7176553",
+    "registry.json": "fdd7cea2fe8040a325c76a57d573f5a2eda5b13fe937080b5a2eadd2ca8810d5",
+    "astana_addresses.json": "0978a34d40f0c3b0066e2bc37262a0f092cca1a7e407ab892d35c12976405eff"
+  },
+  "samples": [
+    {
+      "house_key": "astana|алматы|бауыржана момышулы 15/3",
+      "address_normalized": "бауыржана момышулы 15/3",
+      "district": "алматы",
+      "osm_url": "https://www.openstreetmap.org/way/424913939",
+      "osm_version": 5,
+      "osm_timestamp": "2026-03-11T06:03:32+00:00",
+      "raw_osm_tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "15/3",
+        "addr:street": "проспект Бауыржана Момышулы",
+        "building": "yes",
+        "building:levels": "9"
+      },
+      "latitude": 51.1393666,
+      "longitude": 71.47237045,
+      "boundary_relation_id": 3087155,
+      "checks": {
+        "canonical_key_matches": true,
+        "house_number_exact_after_suffix_normalization": true,
+        "street_exact_or_direct_same_road_alias": true,
+        "single_valid_polygon": true,
+        "whole_footprint_within_astana": true,
+        "output_point_on_building_surface": true,
+        "registry_entry_identical": true,
+        "duplicate_osm_geometries_equal": true
+      },
+      "alias_evidence": [],
+      "equivalent_osm_objects": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/424913939",
+          "version": 5,
+          "geometry_equals": true
+        }
+      ]
+    },
+    {
+      "house_key": "astana|алматы|райымбек батыра 54",
+      "address_normalized": "райымбек батыра 54",
+      "district": "алматы",
+      "osm_url": "https://www.openstreetmap.org/way/1089447325",
+      "osm_version": 2,
+      "osm_timestamp": "2026-03-11T06:04:22+00:00",
+      "raw_osm_tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "54",
+        "addr:street": "улица Райымбек батыра",
+        "building": "yes"
+      },
+      "latitude": 51.11230975,
+      "longitude": 71.49134305983618,
+      "boundary_relation_id": 3087155,
+      "checks": {
+        "canonical_key_matches": true,
+        "house_number_exact_after_suffix_normalization": true,
+        "street_exact_or_direct_same_road_alias": true,
+        "single_valid_polygon": true,
+        "whole_footprint_within_astana": true,
+        "output_point_on_building_surface": true,
+        "registry_entry_identical": true,
+        "duplicate_osm_geometries_equal": true
+      },
+      "alias_evidence": [],
+      "equivalent_osm_objects": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1089447325",
+          "version": 2,
+          "geometry_equals": true
+        }
+      ]
+    },
+    {
+      "house_key": "astana|байконур|пушкина 3/1",
+      "address_normalized": "пушкина 3/1",
+      "district": "байконур",
+      "osm_url": "https://www.openstreetmap.org/way/241241693",
+      "osm_version": 9,
+      "osm_timestamp": "2026-03-11T06:03:12+00:00",
+      "raw_osm_tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "3/1",
+        "addr:street": "Пушкин көшесі",
+        "building": "yes",
+        "building:levels": "5",
+        "design:ref": "К-7"
+      },
+      "latitude": 51.1565567,
+      "longitude": 71.45547814938936,
+      "boundary_relation_id": 3087155,
+      "checks": {
+        "canonical_key_matches": true,
+        "house_number_exact_after_suffix_normalization": true,
+        "street_exact_or_direct_same_road_alias": true,
+        "single_valid_polygon": true,
+        "whole_footprint_within_astana": true,
+        "output_point_on_building_surface": true,
+        "registry_entry_identical": true,
+        "duplicate_osm_geometries_equal": true
+      },
+      "alias_evidence": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537667111",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "5",
+            "maxspeed": "60",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537667113",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "5",
+            "maxspeed": "60",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537667139",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537667140",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537667141",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537667142",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537667148",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537667149",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537667151",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "5",
+            "maxspeed": "60",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537667152",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "5",
+            "maxspeed": "60",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537667153",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "5",
+            "maxspeed": "60",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537667154",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "5",
+            "maxspeed": "60",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537667155",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "5",
+            "maxspeed": "60",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537667160",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "5",
+            "maxspeed": "60",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537667161",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "5",
+            "maxspeed": "60",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537667174",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "primary",
+            "lanes": "2",
+            "maxspeed": "60",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "yes",
+            "ref": "M-36",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537667179",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "primary",
+            "lanes": "4",
+            "maxspeed": "60",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "ref": "M-36",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537667180",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "primary",
+            "lanes": "4",
+            "maxspeed": "60",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "ref": "M-36",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737413",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737414",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737415",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737416",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737417",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737418",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737419",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737422",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737423",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737433",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737434",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737435",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737445",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737446",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737447",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737448",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737449",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737450",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737451",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737452",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737455",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737456",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737457",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737458",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737459",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737460",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737461",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737465",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737466",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737471",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737472",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737473",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737474",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737475",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537737476",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537906042",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537906043",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1540024320",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "5",
+            "maxspeed": "60",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "yes",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/165835034",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "yes"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/165929096",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "primary",
+            "lanes": "1",
+            "maxspeed": "60",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "yes",
+            "ref": "M-36",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/165929103",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/184099114",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "primary",
+            "lanes": "4",
+            "maxspeed": "60",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "ref": "M-36",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/243139486",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "primary",
+            "lanes": "4",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "ref": "M-36",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/24672158",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "5",
+            "maxspeed": "60",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/30147863",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "5",
+            "maxspeed": "60",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/326084351",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "primary",
+            "lanes": "4",
+            "maxspeed": "60",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "ref": "M-36",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/356726915",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/551630924",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "1",
+            "maxspeed": "60",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/753631004",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/835668141",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Пушкин көшесі",
+            "name:en": "Pushkin street",
+            "name:kk": "Пушкин көшесі",
+            "name:ru": "улица Пушкина",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        }
+      ],
+      "equivalent_osm_objects": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/241241693",
+          "version": 9,
+          "geometry_equals": true
+        }
+      ]
+    },
+    {
+      "house_key": "astana|байконур|сейфуллина 41",
+      "address_normalized": "сейфуллина 41",
+      "district": "байконур",
+      "osm_url": "https://www.openstreetmap.org/relation/6314561",
+      "osm_version": 8,
+      "osm_timestamp": "2026-05-13T09:43:18+00:00",
+      "raw_osm_tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "41",
+        "addr:street": "Сәкен Сейфуллин көшесі",
+        "building": "apartments",
+        "building:levels": "16",
+        "name": "Верный"
+      },
+      "latitude": 51.1728676,
+      "longitude": 71.43270481356214,
+      "boundary_relation_id": 3087155,
+      "checks": {
+        "canonical_key_matches": true,
+        "house_number_exact_after_suffix_normalization": true,
+        "street_exact_or_direct_same_road_alias": true,
+        "single_valid_polygon": true,
+        "whole_footprint_within_astana": true,
+        "output_point_on_building_surface": true,
+        "registry_entry_identical": true,
+        "duplicate_osm_geometries_equal": true
+      },
+      "alias_evidence": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/275050100",
+          "tags": {
+            "highway": "residential",
+            "name": "Сәкен Сейфуллин көшесі",
+            "name:ru": "улица Сейфуллина"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/570331863",
+          "tags": {
+            "highway": "residential",
+            "name": "Сәкен Сейфуллин көшесі",
+            "name:ru": "улица Сейфуллина"
+          },
+          "direct_alias_for_chosen_object": true
+        }
+      ],
+      "equivalent_osm_objects": [
+        {
+          "osm_url": "https://www.openstreetmap.org/relation/6314561",
+          "version": 8,
+          "geometry_equals": true
+        }
+      ]
+    },
+    {
+      "house_key": "astana|есиль|е652 10",
+      "address_normalized": "е652 10",
+      "district": "есиль",
+      "osm_url": "https://www.openstreetmap.org/way/425317651",
+      "osm_version": 4,
+      "osm_timestamp": "2026-03-11T06:03:35+00:00",
+      "raw_osm_tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "10",
+        "addr:street": "улица Е652",
+        "building": "yes"
+      },
+      "latitude": 51.05833905,
+      "longitude": 71.42221287068904,
+      "boundary_relation_id": 3087155,
+      "checks": {
+        "canonical_key_matches": true,
+        "house_number_exact_after_suffix_normalization": true,
+        "street_exact_or_direct_same_road_alias": true,
+        "single_valid_polygon": true,
+        "whole_footprint_within_astana": true,
+        "output_point_on_building_surface": true,
+        "registry_entry_identical": true,
+        "duplicate_osm_geometries_equal": true
+      },
+      "alias_evidence": [],
+      "equivalent_osm_objects": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/425317651",
+          "version": 4,
+          "geometry_equals": true
+        }
+      ]
+    },
+    {
+      "house_key": "astana|есиль|е652 6",
+      "address_normalized": "е652 6",
+      "district": "есиль",
+      "osm_url": "https://www.openstreetmap.org/way/425317743",
+      "osm_version": 4,
+      "osm_timestamp": "2026-03-11T06:03:35+00:00",
+      "raw_osm_tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "6",
+        "addr:street": "улица Е652",
+        "building": "yes"
+      },
+      "latitude": 51.05909235,
+      "longitude": 71.42095035138149,
+      "boundary_relation_id": 3087155,
+      "checks": {
+        "canonical_key_matches": true,
+        "house_number_exact_after_suffix_normalization": true,
+        "street_exact_or_direct_same_road_alias": true,
+        "single_valid_polygon": true,
+        "whole_footprint_within_astana": true,
+        "output_point_on_building_surface": true,
+        "registry_entry_identical": true,
+        "duplicate_osm_geometries_equal": true
+      },
+      "alias_evidence": [],
+      "equivalent_osm_objects": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/425317743",
+          "version": 4,
+          "geometry_equals": true
+        }
+      ]
+    },
+    {
+      "house_key": "astana|нура|туран 5/8",
+      "address_normalized": "туран 5/8",
+      "district": "нура",
+      "osm_url": "https://www.openstreetmap.org/way/918112871",
+      "osm_version": 3,
+      "osm_timestamp": "2025-12-19T15:41:57+00:00",
+      "raw_osm_tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "5/8",
+        "addr:street": "Тұран даңғылы",
+        "building": "yes"
+      },
+      "latitude": 51.15238,
+      "longitude": 71.40908627905938,
+      "boundary_relation_id": 3087155,
+      "checks": {
+        "canonical_key_matches": true,
+        "house_number_exact_after_suffix_normalization": true,
+        "street_exact_or_direct_same_road_alias": true,
+        "single_valid_polygon": true,
+        "whole_footprint_within_astana": true,
+        "output_point_on_building_surface": true,
+        "registry_entry_identical": true,
+        "duplicate_osm_geometries_equal": true
+      },
+      "alias_evidence": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1184292630",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "3",
+            "maxspeed": "80",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1420153728",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1490544460",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "2",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1490544463",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1490544472",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1490544473",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1490544474",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1490544475",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1490544476",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1490544477",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "4",
+            "lanes:forward": "2",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132029",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "4",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132031",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132032",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "4",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132033",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "4",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132034",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "4",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132035",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "4",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132037",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "4",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132038",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132039",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132040",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132041",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471136",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "4",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471137",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "4",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471138",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471158",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471159",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471160",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471163",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471167",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471168",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471169",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471183",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1557366291",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "4",
+            "lanes:forward": "2",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/165600642",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "3",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/165600644",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "primary",
+            "highway:category": "kz:3;ru:3",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes",
+            "smoothness": "good",
+            "smoothness:date": "2015-09-07",
+            "source:smoothness": "http://autotourist.kz/index.php/blogs/entry/v-astanu-korotkoj-dorogoj",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/165600646",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/23984063",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/27679438",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/39362501",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/445671101",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/445671108",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "highway:category": "kz:3;ru:3",
+            "lanes": "3",
+            "maxspeed": "80",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes",
+            "smoothness": "good",
+            "smoothness:date": "2015-09-07",
+            "source:smoothness": "http://autotourist.kz/index.php/blogs/entry/v-astanu-korotkoj-dorogoj",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/503812668",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "name": "проспект Туран",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "oneway": "yes"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/503812669",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "maxspeed": "80",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/576553576",
+          "tags": {
+            "highway": "tertiary",
+            "name": "Тұран көшесі",
+            "name:en": "Turan street",
+            "name:ru": "улица Туран",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/607127139",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/607127142",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "3",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/71376127",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "highway:category": "kz:3;ru:3",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes",
+            "smoothness": "good",
+            "smoothness:date": "2015-09-07",
+            "source:maxspeed": "sign",
+            "source:smoothness": "http://autotourist.kz/index.php/blogs/entry/v-astanu-korotkoj-dorogoj",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/734363108",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "highway:category": "kz:3;ru:3",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes",
+            "smoothness": "good",
+            "smoothness:date": "2015-09-07",
+            "source:smoothness": "http://autotourist.kz/index.php/blogs/entry/v-astanu-korotkoj-dorogoj",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/734363110",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "maxspeed": "80",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/735282120",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/735282124",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/735282126",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/735282127",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        }
+      ],
+      "equivalent_osm_objects": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/918112871",
+          "version": 3,
+          "geometry_equals": true
+        }
+      ]
+    },
+    {
+      "house_key": "astana|нура|туран 46б/2",
+      "address_normalized": "туран 46б/2",
+      "district": "нура",
+      "osm_url": "https://www.openstreetmap.org/way/1026285021",
+      "osm_version": 3,
+      "osm_timestamp": "2026-03-11T06:04:15+00:00",
+      "raw_osm_tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "46Б/2",
+        "addr:street": "Тұран даңғылы",
+        "building": "apartments",
+        "building:levels": "9",
+        "name": "ЖК Champion"
+      },
+      "latitude": 51.11011635,
+      "longitude": 71.40327049790972,
+      "boundary_relation_id": 3087155,
+      "checks": {
+        "canonical_key_matches": true,
+        "house_number_exact_after_suffix_normalization": true,
+        "street_exact_or_direct_same_road_alias": true,
+        "single_valid_polygon": true,
+        "whole_footprint_within_astana": true,
+        "output_point_on_building_surface": true,
+        "registry_entry_identical": true,
+        "duplicate_osm_geometries_equal": true
+      },
+      "alias_evidence": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1184292630",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "3",
+            "maxspeed": "80",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1420153728",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1490544460",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "2",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1490544463",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1490544472",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1490544473",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1490544474",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1490544475",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1490544476",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1490544477",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "4",
+            "lanes:forward": "2",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132029",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "4",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132031",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132032",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "4",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132033",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "4",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132034",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "4",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132035",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "4",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132037",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "4",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132038",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132039",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132040",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1491132041",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471136",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "4",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471137",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "4",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471138",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471158",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471159",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471160",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471163",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471167",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471168",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471169",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1493471183",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1557366291",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "4",
+            "lanes:forward": "2",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/165600642",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "3",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/165600644",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "primary",
+            "highway:category": "kz:3;ru:3",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes",
+            "smoothness": "good",
+            "smoothness:date": "2015-09-07",
+            "source:smoothness": "http://autotourist.kz/index.php/blogs/entry/v-astanu-korotkoj-dorogoj",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/165600646",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/23984063",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/27679438",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/39362501",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/445671101",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/445671108",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "highway:category": "kz:3;ru:3",
+            "lanes": "3",
+            "maxspeed": "80",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes",
+            "smoothness": "good",
+            "smoothness:date": "2015-09-07",
+            "source:smoothness": "http://autotourist.kz/index.php/blogs/entry/v-astanu-korotkoj-dorogoj",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/503812668",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "name": "проспект Туран",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "oneway": "yes"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/503812669",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "maxspeed": "80",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/576553576",
+          "tags": {
+            "highway": "tertiary",
+            "name": "Тұран көшесі",
+            "name:en": "Turan street",
+            "name:ru": "улица Туран",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/607127139",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "7",
+            "lanes:backward": "3",
+            "lanes:forward": "4",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/607127142",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "3",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/71376127",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "highway:category": "kz:3;ru:3",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes",
+            "smoothness": "good",
+            "smoothness:date": "2015-09-07",
+            "source:maxspeed": "sign",
+            "source:smoothness": "http://autotourist.kz/index.php/blogs/entry/v-astanu-korotkoj-dorogoj",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/734363108",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "highway:category": "kz:3;ru:3",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes",
+            "smoothness": "good",
+            "smoothness:date": "2015-09-07",
+            "source:smoothness": "http://autotourist.kz/index.php/blogs/entry/v-astanu-korotkoj-dorogoj",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/734363110",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "primary",
+            "maxspeed": "80",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "oneway": "yes"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/735282120",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/735282124",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/735282126",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/735282127",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "cycleway:both": "no",
+            "foot": "no",
+            "highway": "primary",
+            "lanes": "6",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "name": "Тұран даңғылы",
+            "name:en": "Turan Avenue",
+            "name:kk": "Тұран даңғылы",
+            "name:ru": "проспект Туран",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        }
+      ],
+      "equivalent_osm_objects": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1026285021",
+          "version": 3,
+          "geometry_equals": true
+        }
+      ]
+    },
+    {
+      "house_key": "astana|сарайшык|байтурсынова 12/1",
+      "address_normalized": "байтурсынова 12/1",
+      "district": "сарайшык",
+      "osm_url": "https://www.openstreetmap.org/way/243067393",
+      "osm_version": 8,
+      "osm_timestamp": "2026-06-16T08:48:43+00:00",
+      "raw_osm_tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "12/1",
+        "addr:street": "Ахмет Байтұрсынұлы көшесі",
+        "building": "apartments",
+        "building:levels": "23"
+      },
+      "latitude": 51.123662,
+      "longitude": 71.47986698833651,
+      "boundary_relation_id": 3087155,
+      "checks": {
+        "canonical_key_matches": true,
+        "house_number_exact_after_suffix_normalization": true,
+        "street_exact_or_direct_same_road_alias": true,
+        "single_valid_polygon": true,
+        "whole_footprint_within_astana": true,
+        "output_point_on_building_surface": true,
+        "registry_entry_identical": true,
+        "duplicate_osm_geometries_equal": true
+      },
+      "alias_evidence": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/501023221",
+          "tags": {
+            "highway": "residential",
+            "name": "Ахмет Байтұрсынұлы көшесі",
+            "name:ru": "улица Байтурсынова"
+          },
+          "direct_alias_for_chosen_object": true
+        }
+      ],
+      "equivalent_osm_objects": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/243067393",
+          "version": 8,
+          "geometry_equals": true
+        }
+      ]
+    },
+    {
+      "house_key": "astana|сарайшык|шамши калдаяков 21/1",
+      "address_normalized": "шамши калдаяков 21/1",
+      "district": "сарайшык",
+      "osm_url": "https://www.openstreetmap.org/way/917348935",
+      "osm_version": 3,
+      "osm_timestamp": "2026-04-25T10:37:11+00:00",
+      "raw_osm_tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "21/1",
+        "addr:street": "Шәмші Қалдаяқов көшесі",
+        "building": "yes"
+      },
+      "latitude": 51.1162036,
+      "longitude": 71.48151577550092,
+      "boundary_relation_id": 3087155,
+      "checks": {
+        "canonical_key_matches": true,
+        "house_number_exact_after_suffix_normalization": true,
+        "street_exact_or_direct_same_road_alias": true,
+        "single_valid_polygon": true,
+        "whole_footprint_within_astana": true,
+        "output_point_on_building_surface": true,
+        "registry_entry_identical": true,
+        "duplicate_osm_geometries_equal": true
+      },
+      "alias_evidence": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1076674333",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "sidewalk:right": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1076677301",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "sidewalk:right": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1081343709",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1085003041",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1214275393",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1258247017",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/141352018",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "4",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "sidewalk:right": "separate",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1455788354",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "4",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "sidewalk:right": "separate",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1557805276",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "sidewalk:left": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1557805278",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "residential",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "sidewalk:right": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1559064235",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1559064236",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "sidewalk:left": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1559064237",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1559098200",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "sidewalk:right": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1559098201",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "sidewalk:right": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1559166484",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "sidewalk:right": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1561011239",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "sidewalk:right": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1561011240",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "sidewalk:right": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1561011241",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "sidewalk:right": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1561011243",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "sidewalk:right": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1561011244",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1561052850",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1561052851",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "sidewalk:right": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1561066705",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "sidewalk:right": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1561066706",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1561070950",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "sidewalk:right": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1561070951",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "sidewalk:right": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1561070952",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1561394512",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1561394815",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1561407065",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/165802519",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "4",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/324480500",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/409228663",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/444509911",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "sidewalk:right": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/641203803",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "4",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "surface": "asphalt",
+            "turn:lanes": "left;through||through|through"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/641203804",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "4",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/641203805",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "4",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "surface": "asphalt",
+            "turn:lanes": "reverse;through|through|through|through;right"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/641203806",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "4",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/753632887",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "4",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/831736306",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаяков",
+            "oneway": "yes",
+            "sidewalk:right": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        }
+      ],
+      "equivalent_osm_objects": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/917348935",
+          "version": 3,
+          "geometry_equals": true
+        }
+      ]
+    },
+    {
+      "house_key": "astana|сарыарка|ауэзова 26",
+      "address_normalized": "ауэзова 26",
+      "district": "сарыарка",
+      "osm_url": "https://www.openstreetmap.org/way/30637534",
+      "osm_version": 9,
+      "osm_timestamp": "2026-03-11T06:03:01+00:00",
+      "raw_osm_tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "26",
+        "addr:street": "Мұхтар Әуезов көшесі",
+        "building": "apartments",
+        "building:levels": "5"
+      },
+      "latitude": 51.17345005,
+      "longitude": 71.42314994283737,
+      "boundary_relation_id": 3087155,
+      "checks": {
+        "canonical_key_matches": true,
+        "house_number_exact_after_suffix_normalization": true,
+        "street_exact_or_direct_same_road_alias": true,
+        "single_valid_polygon": true,
+        "whole_footprint_within_astana": true,
+        "output_point_on_building_surface": true,
+        "registry_entry_identical": true,
+        "duplicate_osm_geometries_equal": true
+      },
+      "alias_evidence": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/627200056",
+          "tags": {
+            "highway": "service",
+            "name": "Мұхтар Әуезов көшесі",
+            "name:ru": "улица Ауэзова"
+          },
+          "direct_alias_for_chosen_object": true
+        }
+      ],
+      "equivalent_osm_objects": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/30637534",
+          "version": 9,
+          "geometry_equals": true
+        }
+      ]
+    },
+    {
+      "house_key": "astana|сарыарка|республики 9/1",
+      "address_normalized": "республики 9/1",
+      "district": "сарыарка",
+      "osm_url": "https://www.openstreetmap.org/way/158630911",
+      "osm_version": 10,
+      "osm_timestamp": "2026-03-11T06:03:04+00:00",
+      "raw_osm_tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "9/1",
+        "addr:street": "Республика даңғылы",
+        "building": "apartments",
+        "building:levels": "13"
+      },
+      "latitude": 51.16108995,
+      "longitude": 71.4271598535267,
+      "boundary_relation_id": 3087155,
+      "checks": {
+        "canonical_key_matches": true,
+        "house_number_exact_after_suffix_normalization": true,
+        "street_exact_or_direct_same_road_alias": true,
+        "single_valid_polygon": true,
+        "whole_footprint_within_astana": true,
+        "output_point_on_building_surface": true,
+        "registry_entry_identical": true,
+        "duplicate_osm_geometries_equal": true
+      },
+      "alias_evidence": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1087197712",
+          "tags": {
+            "highway": "secondary_link",
+            "lane_markings": "no",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1350998946",
+          "tags": {
+            "highway": "secondary",
+            "name": "Республика көшесі",
+            "name:en": "Republic Street",
+            "name:ru": "улица Республики",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1350998947",
+          "tags": {
+            "highway": "residential",
+            "name": "Республика көшесі",
+            "name:en": "Republic Street",
+            "name:ru": "улица Республики",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1350998948",
+          "tags": {
+            "highway": "residential",
+            "name": "Республика көшесі",
+            "name:en": "Republic Street",
+            "name:ru": "улица Республики",
+            "surface": "unpaved"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1425030723",
+          "tags": {
+            "highway": "secondary",
+            "name": "Республика көшесі",
+            "name:en": "Republic Street",
+            "name:ru": "улица Республики",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1426840603",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "4",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1426843895",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "4",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1426843896",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "4",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1426845963",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "4",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1426870669",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "4",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537666934",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "primary",
+            "lanes": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "yes",
+            "ref": "M-36",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537667073",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "primary",
+            "lanes": "3",
+            "maxspeed": "60",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "yes",
+            "ref": "M-36",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1537667081",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "primary",
+            "lane_markings": "yes",
+            "lanes": "3",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "yes",
+            "ref": "M-36"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1557368647",
+          "tags": {
+            "highway": "primary",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "yes",
+            "ref": "M-36"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1557368651",
+          "tags": {
+            "highway": "primary",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "yes",
+            "ref": "M-36"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1557368652",
+          "tags": {
+            "highway": "primary",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "yes",
+            "ref": "M-36"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1557369221",
+          "tags": {
+            "highway": "primary",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "yes",
+            "ref": "M-36"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1557382038",
+          "tags": {
+            "highway": "primary",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "yes",
+            "ref": "M-36"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1557382039",
+          "tags": {
+            "highway": "primary",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "yes",
+            "ref": "M-36"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1557382041",
+          "tags": {
+            "highway": "primary",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "yes",
+            "ref": "M-36"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1557382216",
+          "tags": {
+            "highway": "primary",
+            "lane_markings": "no",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "yes",
+            "ref": "M-36",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/165613702",
+          "tags": {
+            "highway": "secondary",
+            "name": "Республика көшесі",
+            "name:en": "Republic Street",
+            "name:ru": "улица Республики",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/166438393",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "4",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/23979536",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "primary",
+            "lane_markings": "yes",
+            "lanes": "3",
+            "lanes:backward": "3",
+            "lanes:forward": "3",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "yes",
+            "ref": "M-36"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/259714720",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "3",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/269144611",
+          "tags": {
+            "highway": "secondary",
+            "name": "Республика көшесі",
+            "name:en": "Republic Street",
+            "name:ru": "улица Республики",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/269144885",
+          "tags": {
+            "highway": "tertiary",
+            "name": "Республика көшесі",
+            "name:en": "Republic Street",
+            "name:ru": "улица Республики",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/348608534",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "primary",
+            "lit": "yes",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "yes",
+            "ref": "M-36",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/475754745",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "4",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/475754746",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "secondary",
+            "lanes": "4",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/479415335",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "primary",
+            "lanes": "3",
+            "lit": "yes",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "yes",
+            "ref": "M-36",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/495680083",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "primary",
+            "lanes": "3",
+            "maxspeed": "60",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "yes",
+            "source:maxspeed": "sign",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/560541069",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "primary",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "yes",
+            "ref": "M-36",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/693871434",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "primary",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "yes",
+            "ref": "M-36",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/693873791",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "primary",
+            "lanes": "3",
+            "maxspeed": "60",
+            "maxspeed:type": "sign",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "yes",
+            "ref": "M-36",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/735052403",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "residential",
+            "lane_markings": "no",
+            "lit": "yes",
+            "maxspeed": "40",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "yes",
+            "sidewalk:left": "separate",
+            "sidewalk:right": "no",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/814807513",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "primary",
+            "lanes": "3",
+            "name": "Республика даңғылы",
+            "name:kk": "Республика даңғылы",
+            "name:ru": "проспект Республики",
+            "oneway": "yes",
+            "ref": "M-36",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        }
+      ],
+      "equivalent_osm_objects": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/158630911",
+          "version": 10,
+          "geometry_equals": true
+        }
+      ]
+    },
+    {
+      "house_key": "astana|есиль|розы баглановой 2",
+      "address_normalized": "розы баглановой 2",
+      "district": "есиль",
+      "osm_url": "https://www.openstreetmap.org/way/734511248",
+      "osm_version": 4,
+      "osm_timestamp": "2025-12-19T15:41:57+00:00",
+      "raw_osm_tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "2",
+        "addr:street": "Роза Бағланова көшесі",
+        "building": "apartments",
+        "building:levels": "12"
+      },
+      "latitude": 51.11592,
+      "longitude": 71.3964351901478,
+      "boundary_relation_id": 3087155,
+      "checks": {
+        "canonical_key_matches": true,
+        "house_number_exact_after_suffix_normalization": true,
+        "street_exact_or_direct_same_road_alias": true,
+        "single_valid_polygon": true,
+        "whole_footprint_within_astana": true,
+        "output_point_on_building_surface": true,
+        "registry_entry_identical": true,
+        "duplicate_osm_geometries_equal": true
+      },
+      "alias_evidence": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1459982788",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "tertiary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "name": "Роза Бағланова көшесі",
+            "name:ru": "улица Розы Баглановой",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1526017093",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "residential",
+            "lanes": "4",
+            "maxspeed": "60",
+            "name": "Роза Бағланова көшесі",
+            "name:ru": "улица Розы Баглановой",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1526017095",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "residential",
+            "lanes": "4",
+            "maxspeed": "60",
+            "name": "Роза Бағланова көшесі",
+            "name:ru": "улица Розы Баглановой",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1526017101",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "residential",
+            "lanes": "4",
+            "maxspeed": "60",
+            "name": "Роза Бағланова көшесі",
+            "name:ru": "улица Розы Баглановой",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1556804175",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "tertiary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "name": "Роза Бағланова көшесі",
+            "name:ru": "улица Розы Баглановой",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/549292867",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "tertiary",
+            "lane_markings": "yes",
+            "lanes": "4",
+            "lanes:backward": "2",
+            "lanes:forward": "2",
+            "maxspeed": "60",
+            "name": "Роза Бағланова көшесі",
+            "name:ru": "улица Розы Баглановой",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/867643265",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "foot": "no",
+            "highway": "residential",
+            "lanes": "4",
+            "maxspeed": "60",
+            "name": "Роза Бағланова көшесі",
+            "name:ru": "улица Розы Баглановой",
+            "surface": "asphalt"
+          },
+          "direct_alias_for_chosen_object": true
+        }
+      ],
+      "equivalent_osm_objects": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/734511248",
+          "version": 4,
+          "geometry_equals": true
+        }
+      ]
+    },
+    {
+      "house_key": "astana|есиль|абикен бектуров 3",
+      "address_normalized": "абикен бектуров 3",
+      "district": "есиль",
+      "osm_url": "https://www.openstreetmap.org/way/689189360",
+      "osm_version": 8,
+      "osm_timestamp": "2026-04-27T05:54:49+00:00",
+      "raw_osm_tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "3",
+        "addr:postcode": "010016",
+        "addr:street": "Әбікен Бектұров көшесі",
+        "building": "apartments",
+        "building:levels": "9",
+        "name": "BI City Seoul блок D"
+      },
+      "latitude": 51.1287007,
+      "longitude": 71.40000720386132,
+      "boundary_relation_id": 3087155,
+      "checks": {
+        "canonical_key_matches": true,
+        "house_number_exact_after_suffix_normalization": true,
+        "street_exact_or_direct_same_road_alias": true,
+        "single_valid_polygon": true,
+        "whole_footprint_within_astana": true,
+        "output_point_on_building_surface": true,
+        "registry_entry_identical": true,
+        "duplicate_osm_geometries_equal": true
+      },
+      "alias_evidence": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1531429205",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "residential",
+            "name": "Әбікен Бектұров көшесі",
+            "name:ru": "улица Абикен Бектуров",
+            "sidewalk:left": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1531429206",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "residential",
+            "name": "Әбікен Бектұров көшесі",
+            "name:ru": "улица Абикен Бектуров",
+            "sidewalk:right": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1561039655",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "residential",
+            "name": "Әбікен Бектұров көшесі",
+            "name:ru": "улица Абикен Бектуров",
+            "sidewalk:left": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1561311321",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "residential",
+            "name": "Әбікен Бектұров көшесі",
+            "name:ru": "улица Абикен Бектуров"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/506032055",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "residential",
+            "name": "Әбікен Бектұров көшесі",
+            "name:ru": "улица Абикен Бектуров",
+            "sidewalk:both": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/736834155",
+          "tags": {
+            "addr:city": "Астана",
+            "addr:country": "KZ",
+            "highway": "residential",
+            "name": "Әбікен Бектұров көшесі",
+            "name:ru": "улица Абикен Бектуров"
+          },
+          "direct_alias_for_chosen_object": true
+        }
+      ],
+      "equivalent_osm_objects": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/689189360",
+          "version": 8,
+          "geometry_equals": true
+        }
+      ]
+    },
+    {
+      "house_key": "astana|алматы|шамши калдаякова 11",
+      "address_normalized": "шамши калдаякова 11",
+      "district": "алматы",
+      "osm_url": "https://www.openstreetmap.org/way/240873356",
+      "osm_version": 7,
+      "osm_timestamp": "2026-04-25T10:37:11+00:00",
+      "raw_osm_tags": {
+        "addr:city": "Астана",
+        "addr:country": "KZ",
+        "addr:housenumber": "11",
+        "addr:street": "Шәмші Қалдаяқов көшесі",
+        "building": "apartments",
+        "building:levels": "19"
+      },
+      "latitude": 51.1184932,
+      "longitude": 71.46181781711338,
+      "boundary_relation_id": 3087155,
+      "checks": {
+        "canonical_key_matches": true,
+        "house_number_exact_after_suffix_normalization": true,
+        "street_exact_or_direct_same_road_alias": true,
+        "single_valid_polygon": true,
+        "whole_footprint_within_astana": true,
+        "output_point_on_building_surface": true,
+        "registry_entry_identical": true,
+        "duplicate_osm_geometries_equal": true
+      },
+      "alias_evidence": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1081343710",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаякова",
+            "oneway": "yes",
+            "sidewalk:right": "separate"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1201842980",
+          "tags": {
+            "highway": "residential",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаякова",
+            "surface": "unpaved"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/1559098199",
+          "tags": {
+            "highway": "unclassified",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаякова",
+            "oneway": "yes"
+          },
+          "direct_alias_for_chosen_object": true
+        },
+        {
+          "osm_url": "https://www.openstreetmap.org/way/257231982",
+          "tags": {
+            "highway": "residential",
+            "name": "Шәмші Қалдаяқов көшесі",
+            "name:ru": "улица Шамши Калдаякова",
+            "surface": "unpaved"
+          },
+          "direct_alias_for_chosen_object": true
+        }
+      ],
+      "equivalent_osm_objects": [
+        {
+          "osm_url": "https://www.openstreetmap.org/way/240873356",
+          "version": 7,
+          "geometry_equals": true
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "This verifies address matching against the pinned OSM snapshot, not cadastral or on-site location.",
+    "15 selected addresses were inspected against raw tags and geometry; registry cardinality, identity and original hashes were checked exhaustively.",
+    "No model fitting or prediction was performed; this does not assess prediction accuracy."
+  ]
+}

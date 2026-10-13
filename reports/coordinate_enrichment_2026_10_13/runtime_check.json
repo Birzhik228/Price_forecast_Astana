@@ -1,0 +1,21 @@
+{
+  "checked_at_utc": "2026-10-13T15:50:57.397260+00:00",
+  "status": "passed",
+  "active_model_path": "models\\verified_geo_2026\\complex_coords.joblib",
+  "active_metadata_path": "models\\deployment\\complex_coords_osm.json",
+  "original_197_coordinates_preserved": true,
+  "coordinate_address_keys": 747,
+  "external_address_keys": 550,
+  "selected_record_id": "2026-03:916",
+  "selected_house_key": "astana|есиль|улы дала 88/1",
+  "osm_url": "https://www.openstreetmap.org/way/734496263",
+  "prediction_tenge": 23777907.901239976,
+  "ui_metrics": [
+    "23 777 908 ₸",
+    "642 646 ₸"
+  ],
+  "app_test_errors": 0,
+  "external_source_link_visible": true,
+  "conflicting_year_disables_coordinate_and_link": true,
+  "original_audit_sources_unchanged": true
+}

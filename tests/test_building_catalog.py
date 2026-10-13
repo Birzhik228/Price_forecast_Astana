@@ -11,7 +11,7 @@ from pathlib import Path
 import pandas as pd
 
 from build_catalog import build_catalog
-from building_catalog import build_property_catalog, normalize_address
+from building_catalog import build_property_catalog, canonical_house_key, normalize_address, normalize_complex_name
 
 
 def example(period: str, source: int, **changes: object) -> dict:
@@ -108,13 +108,16 @@ class BuildingCatalogTests(unittest.TestCase):
         self.assertEqual(result["buildings"].iloc[0].parking_status, "conflict")
         self.assertTrue(result["listings"][["developer", "elevator"]].isna().all().all())
 
-    def test_conflicting_autofill_fields_and_complex_remain_unknown(self) -> None:
+    def test_conflicting_autofill_fields_and_complex_leave_individual_records(self) -> None:
         result = self.build([example("2026-01", 1), example("2026-01", 2, year_built=2016,
                             total_floors=10, building_type="панельный", residential_complex="Другой ЖК")])
-        building = result["buildings"].iloc[0]
-        for field in ["year_built", "total_floors", "building_type", "complex_id", "complex_name"]:
-            self.assertTrue(pd.isna(building[field]))
-        self.assertEqual(result["summary"]["building_conflicts"]["year_built"], 1)
+        self.assertTrue(result["buildings"].empty)
+        self.assertTrue(result["listings"].building_id.isna().all())
+        self.assertEqual(result["listings"].candidate_building_id.nunique(), 1)
+        self.assertTrue(result["listings"].building_match_status.eq("ambiguous_conflict").all())
+        self.assertEqual(result["listings"].year_built.tolist(), [2015, 2016])
+        self.assertEqual(result["summary"]["candidate_conflicts"]["year_built_conflict"], 1)
+        self.assertEqual(len(result["conflict_audit"]), 2)
 
     def test_single_coordinate_not_usable_for_distances(self) -> None:
         result = self.build([example("2026-01", 1), example("2026-03", 1)])
@@ -141,13 +144,15 @@ class BuildingCatalogTests(unittest.TestCase):
         jan.loc[1, "longitude"] = "71.45"
         result = self.build([example("2026-01", 1), example("2026-01", 2), example("2026-03", 1)], jan)
         self.assertEqual(result["listings"].coordinate_status.tolist(), ["unverified", "unverified", "missing"])
-        self.assertIn("coordinate_spread", result["issues"].issue.tolist())
+        self.assertIn("coordinate_spread", result["summary"]["candidate_conflicts"])
+        self.assertTrue(result["listings"].building_id.isna().all())
 
     def test_invalid_outlier_not_silently_discarded_from_house_consensus(self) -> None:
         jan = raw_january(3)
         jan.loc[2, "latitude"] = "43.0"
         result = self.build([example("2026-01", i) for i in range(1, 4)], jan)
-        self.assertEqual(result["buildings"].iloc[0].coordinate_status, "unverified")
+        self.assertTrue(result["buildings"].empty)
+        self.assertTrue(result["listings"].building_id.isna().all())
         self.assertEqual(result["listings"].coordinate_status.tolist(), ["unverified", "unverified", "invalid"])
 
     def test_identical_marker_across_different_houses_not_house_precision(self) -> None:
@@ -192,6 +197,101 @@ class BuildingCatalogTests(unittest.TestCase):
             self.assertEqual([path.read_bytes() for path in paths], before)
             self.assertEqual(json.loads((root / "report/quality.json").read_text(encoding="utf-8"))["summary"], manifest["summary"])
             self.assertTrue((root / "report/issues.csv").exists())
+            self.assertTrue((root / "report/normalization_audit.csv").exists())
+            self.assertTrue((root / "report/conflict_audit.csv").exists())
+
+    def test_suffix_aliases_apply_only_house_or_corpus_tokens_and_are_idempotent(self) -> None:
+        for original, expected in [
+            ("Туран 44a", "туран 44а"), ("Туран 44A", "туран 44а"),
+            ("A-52 44a/2c", "a-52 44а/2с"), ("Туран 44 корпус 2a", "туран 44 корпус 2а"),
+            ("Туран 44 блок A", "туран 44 блок а"),
+            ("Aстана 44b", "aстана 44b"),
+        ]:
+            with self.subTest(original=original):
+                self.assertEqual(normalize_address(original), (expected, "house"))
+                self.assertEqual(normalize_address(expected), (expected, "house"))
+        self.assertNotEqual(normalize_complex_name("Amanat"), normalize_complex_name("Аmanat"))
+        self.assertNotEqual(canonical_house_key("A-52 44a", "Есиль"), canonical_house_key("А-52 44а", "Есиль"))
+
+    def test_accepted_alias_merge_audit_includes_both_original_ids(self) -> None:
+        rows = [example("2026-01", 1, address="Туран 44a"), example("2026-01", 2, address="Туран 44а")]
+        result = self.build(rows)
+        self.assertEqual(result["listings"].building_id.nunique(), 1)
+        self.assertEqual(result["listings"].old_building_id.nunique(), 2)
+        self.assertEqual(result["listings"].address.tolist(), ["Туран 44a", "Туран 44а"])
+        audit = result["normalization_audit"]
+        self.assertEqual(len(audit), 2)
+        self.assertTrue(audit.decision.eq("accepted_merge").all())
+        self.assertEqual(audit.suffix_changed.sum(), 1)
+        self.assertEqual(result["summary"]["normalization"]["accepted_merge_candidates"], 1)
+
+    def test_suffix_change_without_district_is_audited_without_merge(self) -> None:
+        result = self.build([example("2026-01", 1, address="Туран 44a", district=None)])
+        audit = result["normalization_audit"]
+        self.assertEqual(len(audit), 1)
+        self.assertEqual(audit.iloc[0].decision, "rejected_missing_district")
+        self.assertTrue(pd.isna(audit.iloc[0].new_building_id))
+        self.assertTrue(pd.isna(result["listings"].iloc[0].house_key))
+        self.assertEqual(result["summary"]["normalization"]["changed_address_rows"], 1)
+
+    def test_rejected_alias_merge_conflicts_not_resolved_by_majority_or_missing_fields(self) -> None:
+        for conflicting in [{"residential_complex": "Другой ЖК"}, {"year_built": 2020},
+                            {"total_floors": 20}, {"building_type": "панельный"}]:
+            with self.subTest(conflicting=conflicting):
+                rows = [example("2026-01", 1, address="Туран 44a"),
+                        example("2026-01", 2, address="Туран 44а", **conflicting),
+                        example("2026-03", 1, address="Туран 44a", year_built=None)]
+                result = self.build(rows)
+                self.assertTrue(result["listings"].building_id.isna().all())
+                self.assertEqual(len(result["listings"]), 3)
+                self.assertTrue(result["normalization_audit"].decision.eq("rejected_ambiguous").all())
+                self.assertEqual(result["summary"]["normalization"]["rejected_merge_candidates"], 1)
+
+    def test_house_key_and_raw_coordinates_are_pointwise_before_global_decisions(self) -> None:
+        base = example("2026-01", 1, address="Туран 44a")
+        alone = self.build([base])["listings"].iloc[0]
+        combined = self.build([base, example("2026-01", 2, address="Туран 44а", year_built=2020)])
+        conflicted = combined["listings"].iloc[0]
+        for field in ["house_key", "candidate_building_id", "raw_latitude", "raw_longitude", "raw_coordinate_status"]:
+            self.assertEqual(alone[field], conflicted[field])
+        self.assertTrue(pd.isna(conflicted.building_id))
+        inherited = self.build([example("2026-01", 1), example("2026-01", 2), example("2026-03", 1)])["listings"].iloc[2]
+        self.assertEqual(inherited.coordinate_status, "plausible")
+        self.assertEqual(inherited.raw_coordinate_status, "missing")
+        self.assertTrue(pd.isna(inherited.raw_latitude))
+        self.assertTrue(pd.isna(inherited.raw_longitude))
+
+    def test_conflicting_candidate_markers_still_block_other_house_centroid(self) -> None:
+        jan = raw_january(4, longitude="71.4")
+        rows = [example("2026-01", 1, address="Пример 1"), example("2026-01", 2, address="Пример 1"),
+                example("2026-01", 3, address="Пример 2"), example("2026-01", 4, address="Пример 2", year_built=2020)]
+        result = self.build(rows, jan)
+        self.assertEqual(result["buildings"].iloc[0].coordinate_status, "unverified")
+        self.assertTrue(result["listings"].iloc[2:].building_id.isna().all())
+
+    def test_old_stage_archived_and_repeat_outputs_idempotent(self) -> None:
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            output, reports = root / "catalog", root / "reports"
+            output.mkdir(); reports.mkdir()
+            old_manifest = {"schema_version": 1, "summary": {"listing_count": 123, "building_count": 45}}
+            (output / "manifest.json").write_text(json.dumps(old_manifest), encoding="utf-8")
+            (output / "listings.csv").write_text("old original\n", encoding="utf-8")
+            (reports / "index.html").write_text("old report", encoding="utf-8")
+            paths = [root / name for name in ["combined.csv", "january.csv", "march.csv"]]
+            for frame, path in zip([pd.DataFrame([example("2026-01", 1)]), raw_january(), raw_march()], paths):
+                frame.to_csv(path, index=False)
+            first = build_catalog(*paths, output, reports)
+            archive = Path(first["previous_stage_archives"]["catalog"]["path"])
+            self.assertEqual((archive / "listings.csv").read_text(encoding="utf-8"), "old original\n")
+            outputs = {name: (output / name).read_bytes() for name in ["listings.csv", "buildings.csv"]}
+            audits = {name: (reports / name).read_bytes() for name in ["normalization_audit.csv", "conflict_audit.csv"]}
+            second = build_catalog(*paths, output, reports)
+            self.assertEqual(first["previous_stage_archives"], second["previous_stage_archives"])
+            for name, before in outputs.items():
+                self.assertEqual((output / name).read_bytes(), before)
+            for name, before in audits.items():
+                self.assertEqual((reports / name).read_bytes(), before)
 
 
 if __name__ == "__main__":
