@@ -1,0 +1,69 @@
+{
+  "rows_january_input": 17929,
+  "rows_march_input": 3759,
+  "rows_before": 21688,
+  "rows_after": 19859,
+  "rows_removed": 1829,
+  "groups_total": 19859,
+  "duplicate_groups": 1571,
+  "cross_period_groups": 793,
+  "cross_period_input_rows": 1639,
+  "input_rows_without_match_keys": 0,
+  "duplicates_by_source": {
+    "2026-01": 1810,
+    "2026-03": 19
+  },
+  "duplicates_by_reason": {
+    "duplicate_later_source_row": 456,
+    "duplicate_less_complete": 527,
+    "duplicate_older_period": 842,
+    "duplicate_protected_holdout": 4
+  },
+  "duplicates_by_match_type": {
+    "signature": 1125,
+    "transitive": 36,
+    "url": 668
+  },
+  "kept_by_source": {
+    "2026-01": 16119,
+    "2026-03": 3740
+  },
+  "train_rows": 19269,
+  "test_rows": 590,
+  "train_groups": 19269,
+  "test_groups": 590,
+  "train_rows_by_source": {
+    "2026-01": 16119,
+    "2026-03": 3150
+  },
+  "reference_holdout_rows": 594,
+  "reference_holdout_original_groups": 590,
+  "reference_holdout_combined_groups": 590,
+  "reference_holdout_duplicate_rows_removed": 4,
+  "protected_groups_with_original_march_train_rows": 0,
+  "selection_policy": "Protect original March test; otherwise prefer March, then most nonmissing of eight model inputs, then lowest original source_row. Price is never used for grouping or representative selection.",
+  "source_row_policy": "Unique 1-based position in January followed by March before deduplication; original CSV row index and raw source_row are retained separately.",
+  "checks": [
+    "March manifest covers all March records and original source_row values match.",
+    "Union-find groups are transitive over both periods using URL and price-independent apartment_keys.",
+    "No protected holdout group contains any January record.",
+    "Exactly one record per combined group; every protected representative is an original March test record.",
+    "Train/test groups and identity keys are disjoint; no original March test record or key appears in train.",
+    "All input records appear exactly once in the representative frame or rejected table."
+  ],
+  "limitations": [
+    "Signatures are heuristic apartment candidates, not verified property identifiers; similar flats can merge and incomplete or changed descriptions can hide repeats.",
+    "Connectivity is transitive: two records may be grouped through a third record without sharing a direct key.",
+    "March is the publisher-declared period; individual March observation dates are unavailable. Preference for March does not prove a later observation date for each apartment.",
+    "This pool combines asking prices and different sources; it is not a current-market or completed-sale dataset.",
+    "The March holdout has already been inspected in previous experiments. It is a fixed benchmark, not a new untouched estimate for further model choices.",
+    "Primary test has one representative per protected group; the complete original holdout is retained separately for comparison on the unchanged observation set.",
+    "All January records may enter train, including the former January test; former January test scores cannot evaluate the combined model independently."
+  ],
+  "sources": {
+    "january_csv_sha256": "3cef002023d07f6079ff8263472716198ef37e8174d16e88a2567a84a6ae1e27",
+    "march_csv_sha256": "46ab0642cb837147cf3e9743d974158345160320aae34bf2eff5914287fee6c9",
+    "protected_march_manifest_sha256": "df187aa148e10c0e09477b98312bd3cb271d6ee5e12120694edd54faadb56511"
+  },
+  "output_sha256": "28ad11f14b56315ea2dd903ffc7f8ab9d5a788f7f5e070b5ec1b61c0711d98eb"
+}

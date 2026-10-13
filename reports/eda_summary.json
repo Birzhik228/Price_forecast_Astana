@@ -1,83 +1,97 @@
 {
-  "input_file": "data/processed/listings_clean.csv",
-  "input_sha256": "3cef002023d07f6079ff8263472716198ef37e8174d16e88a2567a84a6ae1e27",
-  "rows": 17929,
-  "collected_date_min": "2026-01-03",
-  "collected_date_max": "2026-01-06",
+  "input_file": "data/processed/march_2026/listings_clean.csv",
+  "input_sha256": "46ab0642cb837147cf3e9743d974158345160320aae34bf2eff5914287fee6c9",
+  "rows": 3759,
+  "declared_period": "2026-03",
+  "active_application_model": "january_2026",
+  "declared_period_label": "Конец марта 2026 года (период заявлен автором набора)",
+  "source_metadata": {
+    "manifest": "data/turarr_march_2026.source.json",
+    "dataset_title": "Astana Real Estate Dataset",
+    "publisher": "Turarr",
+    "source_page": "https://www.kaggle.com/datasets/turarr/astana-real-estate-dataset",
+    "dataset_version": 1,
+    "declared_data_period": "End of March 2026, according to the publisher description on Kaggle.",
+    "declared_data_period_source": "https://www.kaggle.com/api/v1/datasets/view/turarr/astana-real-estate-dataset",
+    "raw_sha256": "79c518f9ec37272c5052ea9936d3020030f4d02cccfb749fb92487fbfdf70676",
+    "row_collection_dates_available": false
+  },
+  "collected_date_min": null,
+  "collected_date_max": null,
   "price_summary_kzt": {
-    "min": 3990000.0,
+    "min": 3500000.0,
     "median": 36000000.0,
-    "mean": 48063674.88426571,
-    "p95": 120000000.0,
-    "p99": 220000000.0,
-    "max": 1500000000.0
+    "mean": 45253342.95929769,
+    "p95": 102000000.0,
+    "p99": 174680000.0000003,
+    "max": 640000000.0
   },
   "missing_counts": {
-    "district": 774,
+    "district": 132,
     "area": 0,
     "rooms": 0,
-    "floor": 971,
-    "total_floors": 971,
+    "floor": 44,
+    "total_floors": 165,
     "year_built": 0,
-    "building_type": 1106,
-    "condition": 10498
+    "building_type": 228,
+    "condition": 1961
   },
   "missing_percent": {
-    "district": 4.317028278208489,
+    "district": 3.5115722266560256,
     "area": 0.0,
     "rooms": 0.0,
-    "floor": 5.415806793463104,
-    "total_floors": 5.415806793463104,
+    "floor": 1.1705240755520085,
+    "total_floors": 4.389465283320032,
     "year_built": 0.0,
-    "building_type": 6.168776841987841,
-    "condition": 58.5531819956495
+    "building_type": 6.0654429369513165,
+    "condition": 52.16812982176111
   },
   "district_summary": [
     {
       "district_label": "Алматы",
-      "n": 3752,
-      "median_price": 30995000.0,
-      "median_area": 63.0
+      "n": 664,
+      "median_price": 33000000.0,
+      "median_area": 64.0
     },
     {
       "district_label": "Байконур",
-      "n": 850,
-      "median_price": 30000000.0,
-      "median_area": 64.75
-    },
-    {
-      "district_label": "Есиль",
-      "n": 5005,
-      "median_price": 49900000.0,
-      "median_area": 73.0
-    },
-    {
-      "district_label": "Нура",
-      "n": 4080,
-      "median_price": 37000000.0,
-      "median_area": 60.0
-    },
-    {
-      "district_label": "Район не указан",
-      "n": 774,
-      "median_price": 41250000.0,
+      "n": 169,
+      "median_price": 32500000.0,
       "median_area": 68.0
     },
     {
+      "district_label": "Есиль",
+      "n": 980,
+      "median_price": 45250000.0,
+      "median_area": 67.0
+    },
+    {
+      "district_label": "Нура",
+      "n": 1034,
+      "median_price": 37472500.0,
+      "median_area": 56.9
+    },
+    {
+      "district_label": "Район не указан",
+      "n": 132,
+      "median_price": 36000000.0,
+      "median_area": 56.92
+    },
+    {
       "district_label": "Сарайшык",
-      "n": 1456,
-      "median_price": 32000000.0,
-      "median_area": 58.0
+      "n": 389,
+      "median_price": 32500000.0,
+      "median_area": 56.7
     },
     {
       "district_label": "Сарыарка",
-      "n": 2012,
-      "median_price": 25500000.0,
-      "median_area": 53.0
+      "n": 391,
+      "median_price": 25900000.0,
+      "median_area": 53.3
     }
   ],
-  "price_area_pearson": 0.7965076300416379,
-  "price_area_spearman": 0.8493620954775986,
+  "price_area_pearson": 0.7517117201014234,
+  "price_area_spearman": 0.8271280268301646,
   "numeric_columns": [
     "price",
     "area",
@@ -89,101 +103,101 @@
   "pearson_correlations": {
     "price": {
       "price": 1.0,
-      "area": 0.7965076300416379,
-      "rooms": 0.6694521298454321,
-      "floor": 0.09734853333585738,
-      "total_floors": 0.1337315171394365,
-      "year_built": 0.14219866811131465
+      "area": 0.7517117201014234,
+      "rooms": 0.6746512074208295,
+      "floor": 0.15243240074761244,
+      "total_floors": 0.1778704215560378,
+      "year_built": 0.11252723135955676
     },
     "area": {
-      "price": 0.7965076300416379,
+      "price": 0.7517117201014234,
       "area": 1.0,
-      "rooms": 0.8465280075503273,
-      "floor": 0.10011640127772431,
-      "total_floors": 0.1204977036648848,
-      "year_built": -0.012941028855848545
+      "rooms": 0.7887257587194786,
+      "floor": 0.12597096573739974,
+      "total_floors": 0.1337184860762284,
+      "year_built": -0.066369455344178
     },
     "rooms": {
-      "price": 0.6694521298454321,
-      "area": 0.8465280075503273,
+      "price": 0.6746512074208295,
+      "area": 0.7887257587194786,
       "rooms": 1.0,
-      "floor": 0.07611706684867577,
-      "total_floors": 0.08306133533994207,
-      "year_built": -0.06936042855150763
+      "floor": 0.10541135192664541,
+      "total_floors": 0.07882347766214158,
+      "year_built": -0.09116295157761915
     },
     "floor": {
-      "price": 0.09734853333585738,
-      "area": 0.10011640127772431,
-      "rooms": 0.07611706684867577,
+      "price": 0.15243240074761244,
+      "area": 0.12597096573739974,
+      "rooms": 0.10541135192664541,
       "floor": 1.0,
-      "total_floors": 0.5974980672773843,
-      "year_built": 0.17409054563472084
+      "total_floors": 0.6003012334195346,
+      "year_built": 0.12294080290776516
     },
     "total_floors": {
-      "price": 0.1337315171394365,
-      "area": 0.1204977036648848,
-      "rooms": 0.08306133533994207,
-      "floor": 0.5974980672773843,
+      "price": 0.1778704215560378,
+      "area": 0.1337184860762284,
+      "rooms": 0.07882347766214158,
+      "floor": 0.6003012334195346,
       "total_floors": 1.0,
-      "year_built": 0.26823230922475455
+      "year_built": 0.2101347281573848
     },
     "year_built": {
-      "price": 0.14219866811131465,
-      "area": -0.012941028855848545,
-      "rooms": -0.06936042855150763,
-      "floor": 0.17409054563472084,
-      "total_floors": 0.26823230922475455,
+      "price": 0.11252723135955676,
+      "area": -0.066369455344178,
+      "rooms": -0.09116295157761915,
+      "floor": 0.12294080290776516,
+      "total_floors": 0.2101347281573848,
       "year_built": 1.0
     }
   },
   "pairwise_observations": {
     "price": {
-      "price": 17929,
-      "area": 17929,
-      "rooms": 17929,
-      "floor": 16958,
-      "total_floors": 16958,
-      "year_built": 17929
+      "price": 3759,
+      "area": 3759,
+      "rooms": 3759,
+      "floor": 3715,
+      "total_floors": 3594,
+      "year_built": 3759
     },
     "area": {
-      "price": 17929,
-      "area": 17929,
-      "rooms": 17929,
-      "floor": 16958,
-      "total_floors": 16958,
-      "year_built": 17929
+      "price": 3759,
+      "area": 3759,
+      "rooms": 3759,
+      "floor": 3715,
+      "total_floors": 3594,
+      "year_built": 3759
     },
     "rooms": {
-      "price": 17929,
-      "area": 17929,
-      "rooms": 17929,
-      "floor": 16958,
-      "total_floors": 16958,
-      "year_built": 17929
+      "price": 3759,
+      "area": 3759,
+      "rooms": 3759,
+      "floor": 3715,
+      "total_floors": 3594,
+      "year_built": 3759
     },
     "floor": {
-      "price": 16958,
-      "area": 16958,
-      "rooms": 16958,
-      "floor": 16958,
-      "total_floors": 16958,
-      "year_built": 16958
+      "price": 3715,
+      "area": 3715,
+      "rooms": 3715,
+      "floor": 3715,
+      "total_floors": 3594,
+      "year_built": 3715
     },
     "total_floors": {
-      "price": 16958,
-      "area": 16958,
-      "rooms": 16958,
-      "floor": 16958,
-      "total_floors": 16958,
-      "year_built": 16958
+      "price": 3594,
+      "area": 3594,
+      "rooms": 3594,
+      "floor": 3594,
+      "total_floors": 3594,
+      "year_built": 3594
     },
     "year_built": {
-      "price": 17929,
-      "area": 17929,
-      "rooms": 17929,
-      "floor": 16958,
-      "total_floors": 16958,
-      "year_built": 17929
+      "price": 3759,
+      "area": 3759,
+      "rooms": 3759,
+      "floor": 3715,
+      "total_floors": 3594,
+      "year_built": 3759
     }
   },
   "figures": [
@@ -201,6 +215,11 @@
   },
   "notes": [
     "All cleaned rows included; no sampling or price-tail trimming.",
-    "Descriptive EDA only; no imputation, train/test split, or model fitting performed."
+    "Descriptive EDA after training; all cleaned March rows including test are included.",
+    "The application retains the January model; this notebook reads the staged March dataset.",
+    "No model, feature, hyperparameter, or split selection is based on this report.",
+    "No imputation, train/test split, or model fitting performed in this notebook.",
+    "March 2026 is publisher-declared; no row-level collection dates are available.",
+    "Publication and retrieval timestamps are not substituted for observation dates."
   ]
 }

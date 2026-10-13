@@ -1,0 +1,421 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-12T15:54:07.457506+00:00",
+  "model_name": "XGBoost",
+  "target": "asking_price",
+  "currency": "KZT",
+  "feature_columns": [
+    "area",
+    "rooms",
+    "floor",
+    "total_floors",
+    "year_built",
+    "district",
+    "building_type",
+    "condition"
+  ],
+  "numeric_features": [
+    "area",
+    "rooms",
+    "floor",
+    "total_floors",
+    "year_built"
+  ],
+  "categorical_features": [
+    "district",
+    "building_type",
+    "condition"
+  ],
+  "categories_from_train": {
+    "district": [
+      "Алматы",
+      "Байконур",
+      "Есиль",
+      "Нура",
+      "Сарайшык",
+      "Сарыарка"
+    ],
+    "building_type": [
+      "иной",
+      "кирпичный",
+      "монолитный",
+      "панельный"
+    ],
+    "condition": [
+      "не новый, но аккуратный ремонт",
+      "свежий ремонт",
+      "свободная планировка",
+      "требует ремонта",
+      "черновая отделка"
+    ]
+  },
+  "numeric_ranges_from_train": {
+    "area": {
+      "min": 10.0,
+      "max": 785.0
+    },
+    "rooms": {
+      "min": 1.0,
+      "max": 10.0
+    },
+    "floor": {
+      "min": 1.0,
+      "max": 31.0
+    },
+    "total_floors": {
+      "min": 2.0,
+      "max": 43.0
+    },
+    "year_built": {
+      "min": 1959.0,
+      "max": 2028.0
+    }
+  },
+  "input_sha256": "46ab0642cb837147cf3e9743d974158345160320aae34bf2eff5914287fee6c9",
+  "model_sha256": "9b8253694c7f2fc109d72f30b4ce9432ad443fdf86dde32c47c5faa97ec00de2",
+  "split_manifest_sha256": "df187aa148e10c0e09477b98312bd3cb271d6ee5e12120694edd54faadb56511",
+  "split_strategy": "predefined_group_holdout",
+  "random_state": 42,
+  "test_size": 0.15802075019952114,
+  "train_rows": 3165,
+  "test_rows": 594,
+  "cv_folds": 3,
+  "cv_strategy": "GroupKFold",
+  "train_group_count": 3151,
+  "test_group_count": 590,
+  "cv_fold_details": [
+    {
+      "fold": 1,
+      "fit_rows": 2110,
+      "validation_rows": 1055,
+      "fit_groups": 2101,
+      "validation_groups": 1050
+    },
+    {
+      "fold": 2,
+      "fit_rows": 2110,
+      "validation_rows": 1055,
+      "fit_groups": 2101,
+      "validation_groups": 1050
+    },
+    {
+      "fold": 3,
+      "fit_rows": 2110,
+      "validation_rows": 1055,
+      "fit_groups": 2100,
+      "validation_groups": 1051
+    }
+  ],
+  "selection_criterion": "minimum mean GroupKFold CV MAE on March train; test is diagnostic only",
+  "selected_cv_mae_tenge": 7706334.308688783,
+  "test_metrics": {
+    "mae_tenge": 8470094.464646464,
+    "rmse_tenge": 16287189.145515777,
+    "r2": 0.7620067742686156
+  },
+  "approximate_range": {
+    "half_width_tenge": 8470094.464646464,
+    "source": "holdout_test_mae",
+    "interpretation": "prediction +/- MAE; descriptive, not a confidence or prediction interval",
+    "guaranteed_coverage": null
+  },
+  "data_period": "2026-03",
+  "data_period_label": "конца марта 2026 года (по описанию источника)",
+  "training_scope": "March train only; no January rows; not refitted on test or full dataset",
+  "python_version": "3.12.14",
+  "package_versions": {
+    "numpy": "2.2.6",
+    "pandas": "2.2.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.6.1",
+    "xgboost": "3.0.2",
+    "joblib": "1.5.1"
+  },
+  "input_file": "C:\\Users\\Adina\\Documents\\ChatGPT\\ML 2\\data\\processed\\march_2026\\listings_clean.csv",
+  "comparison": [
+    {
+      "model": "LinearRegression",
+      "role": "march_candidate",
+      "cv_mae_tenge": 10727798.893560858,
+      "cv_mae_std_tenge": 67111.21855171777,
+      "cv_rmse_tenge": 20250671.17906357,
+      "cv_rmse_std_tenge": 3924404.953112487,
+      "cv_r2": 0.6282094316192718,
+      "test_mae_tenge": 11422889.435204135,
+      "test_rmse_tenge": 20248229.32737747,
+      "test_r2": 0.6321706180857073,
+      "selected": false,
+      "negative_test_predictions": 5
+    },
+    {
+      "model": "RandomForest",
+      "role": "march_candidate",
+      "cv_mae_tenge": 8135113.20255845,
+      "cv_mae_std_tenge": 163874.9895440863,
+      "cv_rmse_tenge": 16463010.860050745,
+      "cv_rmse_std_tenge": 1173516.80521563,
+      "cv_r2": 0.7494096052525528,
+      "test_mae_tenge": 8448944.328009387,
+      "test_rmse_tenge": 16301566.86554105,
+      "test_r2": 0.7615864058115096,
+      "selected": false,
+      "negative_test_predictions": 0
+    },
+    {
+      "model": "XGBoost",
+      "role": "march_candidate",
+      "cv_mae_tenge": 7706334.308688783,
+      "cv_mae_std_tenge": 258751.36746838223,
+      "cv_rmse_tenge": 15927678.888126982,
+      "cv_rmse_std_tenge": 682107.4008989756,
+      "cv_r2": 0.7606959412350601,
+      "test_mae_tenge": 8470094.464646464,
+      "test_rmse_tenge": 16287189.145515777,
+      "test_r2": 0.7620067742686156,
+      "selected": true,
+      "negative_test_predictions": 0
+    },
+    {
+      "model": "XGBoost (tuned)",
+      "role": "march_candidate",
+      "cv_mae_tenge": 7739676.437282781,
+      "cv_mae_std_tenge": 87987.66795132449,
+      "cv_rmse_tenge": 15753362.601004561,
+      "cv_rmse_std_tenge": 1489857.010250931,
+      "cv_r2": 0.7726061690904923,
+      "test_mae_tenge": 8525503.154882155,
+      "test_rmse_tenge": 16285705.899968822,
+      "test_r2": 0.7620501195402234,
+      "selected": false,
+      "negative_test_predictions": 0
+    },
+    {
+      "model": "January baseline: RandomForest (tuned)",
+      "role": "january_frozen_reference",
+      "selected": false,
+      "cv_mae_tenge": null,
+      "cv_mae_std_tenge": null,
+      "cv_rmse_tenge": null,
+      "cv_rmse_std_tenge": null,
+      "cv_r2": null,
+      "test_mae_tenge": 7608969.962582463,
+      "test_rmse_tenge": 13913279.14878501,
+      "test_r2": 0.8263273972467259,
+      "negative_test_predictions": 0
+    }
+  ],
+  "tuned_family": "XGBoost",
+  "search_candidates": [
+    {
+      "parameters": {
+        "model__reg_lambda": 10.0,
+        "model__n_estimators": 600,
+        "model__min_child_weight": 1,
+        "model__max_depth": 3,
+        "model__learning_rate": 0.07
+      },
+      "cv_mae_tenge": 7776751.777251185,
+      "cv_mae_std_tenge": 233245.02449103576,
+      "cv_rmse_tenge": 15888294.236814557,
+      "cv_rmse_std_tenge": 1267491.9530853557,
+      "cv_r2": 0.7623211251541578
+    },
+    {
+      "parameters": {
+        "model__reg_lambda": 1.0,
+        "model__n_estimators": 300,
+        "model__min_child_weight": 1,
+        "model__max_depth": 7,
+        "model__learning_rate": 0.07
+      },
+      "cv_mae_tenge": 7973190.559557661,
+      "cv_mae_std_tenge": 234481.08035897865,
+      "cv_rmse_tenge": 16571751.683194106,
+      "cv_rmse_std_tenge": 1097134.597574467,
+      "cv_r2": 0.743099969710553
+    },
+    {
+      "parameters": {
+        "model__reg_lambda": 1.0,
+        "model__n_estimators": 600,
+        "model__min_child_weight": 1,
+        "model__max_depth": 3,
+        "model__learning_rate": 0.07
+      },
+      "cv_mae_tenge": 7801113.170774092,
+      "cv_mae_std_tenge": 161089.60291995748,
+      "cv_rmse_tenge": 15817900.107666967,
+      "cv_rmse_std_tenge": 638876.1771713891,
+      "cv_r2": 0.7663889970211812
+    },
+    {
+      "parameters": {
+        "model__reg_lambda": 10.0,
+        "model__n_estimators": 600,
+        "model__min_child_weight": 1,
+        "model__max_depth": 7,
+        "model__learning_rate": 0.07
+      },
+      "cv_mae_tenge": 7951827.623696682,
+      "cv_mae_std_tenge": 132970.60635371634,
+      "cv_rmse_tenge": 16332646.74033822,
+      "cv_rmse_std_tenge": 1202195.4334444774,
+      "cv_r2": 0.7526260565477214
+    },
+    {
+      "parameters": {
+        "model__reg_lambda": 1.0,
+        "model__n_estimators": 300,
+        "model__min_child_weight": 1,
+        "model__max_depth": 3,
+        "model__learning_rate": 0.07
+      },
+      "cv_mae_tenge": 7839788.674407583,
+      "cv_mae_std_tenge": 200738.89324669295,
+      "cv_rmse_tenge": 15885873.85705196,
+      "cv_rmse_std_tenge": 688698.7403334383,
+      "cv_r2": 0.7642943626549265
+    },
+    {
+      "parameters": {
+        "model__reg_lambda": 10.0,
+        "model__n_estimators": 300,
+        "model__min_child_weight": 5,
+        "model__max_depth": 5,
+        "model__learning_rate": 0.07
+      },
+      "cv_mae_tenge": 7816157.73586098,
+      "cv_mae_std_tenge": 141791.56838454207,
+      "cv_rmse_tenge": 16171226.359499909,
+      "cv_rmse_std_tenge": 1133202.2776029164,
+      "cv_r2": 0.7569773206905817
+    },
+    {
+      "parameters": {
+        "model__reg_lambda": 1.0,
+        "model__n_estimators": 300,
+        "model__min_child_weight": 5,
+        "model__max_depth": 5,
+        "model__learning_rate": 0.03
+      },
+      "cv_mae_tenge": 7809078.820853081,
+      "cv_mae_std_tenge": 245513.25834156823,
+      "cv_rmse_tenge": 16269663.601505527,
+      "cv_rmse_std_tenge": 940469.9602549677,
+      "cv_r2": 0.7539599303903851
+    },
+    {
+      "parameters": {
+        "model__reg_lambda": 10.0,
+        "model__n_estimators": 600,
+        "model__min_child_weight": 1,
+        "model__max_depth": 7,
+        "model__learning_rate": 0.03
+      },
+      "cv_mae_tenge": 7739676.437282781,
+      "cv_mae_std_tenge": 87987.66795132449,
+      "cv_rmse_tenge": 15753362.601004561,
+      "cv_rmse_std_tenge": 1489857.010250931,
+      "cv_r2": 0.7726061690904923
+    }
+  ],
+  "best_search_parameters": {
+    "model__reg_lambda": 10.0,
+    "model__n_estimators": 600,
+    "model__min_child_weight": 1,
+    "model__max_depth": 7,
+    "model__learning_rate": 0.03
+  },
+  "tuning_improved_cv": false,
+  "constant_train_median_test_metrics": {
+    "mae_tenge": 19262530.759259257,
+    "rmse_tenge": 34746127.95851507,
+    "r2": -0.0831413728238024
+  },
+  "old_model_test_metrics": {
+    "mae_tenge": 7608969.962582463,
+    "rmse_tenge": 13913279.14878501,
+    "r2": 0.8263273972467259
+  },
+  "old_model": {
+    "model_name": "RandomForest (tuned)",
+    "model_sha256": "f40f892700324892ee0fde041f8a5feaca2e0c01fb4231185e5c3a751b073bac",
+    "training_input_sha256": "3cef002023d07f6079ff8263472716198ef37e8174d16e88a2567a84a6ae1e27",
+    "refitted": false,
+    "cv_on_march_train": null,
+    "comparison_scope": "exactly the same March holdout rows"
+  },
+  "test_comparison": {
+    "mae_change_tenge": 861124.5020640008,
+    "mae_change_pct": 11.317228301578641,
+    "activation_decision": "not made by training runner"
+  },
+  "price_summary_by_subset": {
+    "train": {
+      "0": 3500000.0,
+      "0.5": 36000000.0,
+      "0.95": 100000000.0,
+      "0.99": 171080000.0000004,
+      "1": 640000000.0
+    },
+    "test": {
+      "0": 7200000.0,
+      "0.5": 36400000.0,
+      "0.95": 105350000.00000003,
+      "0.99": 177140000.0000001,
+      "1": 380000000.0
+    }
+  },
+  "feature_importance": [
+    {
+      "feature": "area",
+      "importance_mean_tenge": 14674273.158925753,
+      "importance_std_tenge": 1154984.1821020334
+    },
+    {
+      "feature": "year_built",
+      "importance_mean_tenge": 2862985.5747235394,
+      "importance_std_tenge": 503473.61050059076
+    },
+    {
+      "feature": "district",
+      "importance_mean_tenge": 1545586.1229699845,
+      "importance_std_tenge": 78054.4559541244
+    },
+    {
+      "feature": "rooms",
+      "importance_mean_tenge": 1277305.492827804,
+      "importance_std_tenge": 283400.7941916532
+    },
+    {
+      "feature": "total_floors",
+      "importance_mean_tenge": 786928.0127646134,
+      "importance_std_tenge": 106565.84019413049
+    },
+    {
+      "feature": "condition",
+      "importance_mean_tenge": 648679.5330489732,
+      "importance_std_tenge": 130565.9847583552
+    },
+    {
+      "feature": "building_type",
+      "importance_mean_tenge": 211827.96063191176,
+      "importance_std_tenge": 60433.50879476679
+    },
+    {
+      "feature": "floor",
+      "importance_mean_tenge": 61727.75172195919,
+      "importance_std_tenge": 51826.162248089706
+    }
+  ],
+  "importance_method": "GroupKFold validation within March train, 5 permutations per fold; fixed selected parameters",
+  "importance_caveat": "Descriptive, not nested CV; correlated features may share importance; std is not a confidence interval",
+  "limitations": [
+    "March dates come from the source description, not independently verified per-listing timestamps.",
+    "The caller defines the March-only dataset and removes January URL/signature overlaps from holdout eligibility.",
+    "Group disjointness is verified, but heuristic grouping does not prove uniqueness of physical apartments.",
+    "CV used for selection is optimistic; holdout metrics are diagnostic for the fixed selected pipeline.",
+    "Both models are evaluated on the same March holdout; this is not a six-month forecast test.",
+    "Prediction +/- test MAE is descriptive, without guaranteed coverage or independent calibration."
+  ]
+}

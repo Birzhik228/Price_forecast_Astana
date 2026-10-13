@@ -1,0 +1,418 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-12T16:27:35.014352+00:00",
+  "model_name": "RandomForest (tuned)",
+  "target": "asking_price",
+  "currency": "KZT",
+  "feature_columns": [
+    "area",
+    "rooms",
+    "floor",
+    "total_floors",
+    "year_built",
+    "district",
+    "building_type",
+    "condition"
+  ],
+  "numeric_features": [
+    "area",
+    "rooms",
+    "floor",
+    "total_floors",
+    "year_built"
+  ],
+  "categorical_features": [
+    "district",
+    "building_type",
+    "condition"
+  ],
+  "categories_from_train": {
+    "district": [
+      "Алматы",
+      "Байконур",
+      "Есиль",
+      "Нура",
+      "Сарайшык",
+      "Сарыарка"
+    ],
+    "building_type": [
+      "иной",
+      "кирпичный",
+      "монолитный",
+      "панельный"
+    ],
+    "condition": [
+      "не новый, но аккуратный ремонт",
+      "свежий ремонт",
+      "свободная планировка",
+      "требует ремонта",
+      "черновая отделка"
+    ]
+  },
+  "numeric_ranges_from_train": {
+    "area": {
+      "min": 10.0,
+      "max": 785.0
+    },
+    "rooms": {
+      "min": 1.0,
+      "max": 13.0
+    },
+    "floor": {
+      "min": 1.0,
+      "max": 41.0
+    },
+    "total_floors": {
+      "min": 2.0,
+      "max": 43.0
+    },
+    "year_built": {
+      "min": 1950.0,
+      "max": 2028.0
+    }
+  },
+  "input_sha256": "28ad11f14b56315ea2dd903ffc7f8ab9d5a788f7f5e070b5ec1b61c0711d98eb",
+  "model_sha256": "643bfe75014cb3929376a44e689905c1fe8c4fa1e72165ec7b9c0e30db4d3c8a",
+  "split_manifest_sha256": "b7a8c84df93c77aa925b2965d2768e357d429802991395a27b865f1101e4dc69",
+  "split_strategy": "predefined_group_holdout",
+  "random_state": 42,
+  "test_size": 0.02970945163401984,
+  "train_rows": 19269,
+  "test_rows": 590,
+  "cv_folds": 3,
+  "cv_strategy": "GroupKFold",
+  "train_group_count": 19269,
+  "test_group_count": 590,
+  "cv_fold_details": [
+    {
+      "fold": 1,
+      "fit_rows": 12846,
+      "validation_rows": 6423,
+      "fit_groups": 12846,
+      "validation_groups": 6423
+    },
+    {
+      "fold": 2,
+      "fit_rows": 12846,
+      "validation_rows": 6423,
+      "fit_groups": 12846,
+      "validation_groups": 6423
+    },
+    {
+      "fold": 3,
+      "fit_rows": 12846,
+      "validation_rows": 6423,
+      "fit_groups": 12846,
+      "validation_groups": 6423
+    }
+  ],
+  "selection_criterion": "minimum mean GroupKFold CV MAE on supplied train; test is diagnostic only",
+  "selected_cv_mae_tenge": 8231350.907045628,
+  "test_metrics": {
+    "mae_tenge": 7182650.364455767,
+    "rmse_tenge": 12835362.971525228,
+    "r2": 0.8530028928822403
+  },
+  "approximate_range": {
+    "half_width_tenge": 7182650.364455767,
+    "source": "holdout_test_mae",
+    "interpretation": "prediction +/- MAE; descriptive, not a confidence or prediction interval",
+    "guaranteed_coverage": null
+  },
+  "data_period": "2026-01_to_2026-03",
+  "data_period_label": "января и конца марта 2026 года (март — по описанию источника)",
+  "training_scope": "Combined January and March train, including the former January holdout; protected March holdout excluded; not refitted on protected holdout or full combined dataset",
+  "candidate_role": "combined_candidate",
+  "holdout_description": "Previously analyzed protected March holdout; the caller removes its duplicate matches and whole groups from pooled January/March train; both models evaluated on exactly the same protected rows.",
+  "holdout_previously_analyzed": true,
+  "python_version": "3.12.14",
+  "package_versions": {
+    "numpy": "2.2.6",
+    "pandas": "2.2.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.6.1",
+    "xgboost": "3.0.2",
+    "joblib": "1.5.1"
+  },
+  "input_file": "C:\\Users\\Adina\\Documents\\ChatGPT\\ML 2\\data\\processed\\combined_2026\\listings_clean.csv",
+  "comparison": [
+    {
+      "model": "LinearRegression",
+      "role": "combined_candidate",
+      "cv_mae_tenge": 12104358.47796545,
+      "cv_mae_std_tenge": 106900.92250370933,
+      "cv_rmse_tenge": 23248438.864923675,
+      "cv_rmse_std_tenge": 2724951.450703042,
+      "cv_r2": 0.6701328623320464,
+      "test_mae_tenge": 10861559.263940707,
+      "test_rmse_tenge": 18956734.223763447,
+      "test_r2": 0.6793586552383987,
+      "selected": false,
+      "negative_test_predictions": 6
+    },
+    {
+      "model": "RandomForest",
+      "role": "combined_candidate",
+      "cv_mae_tenge": 8287370.849199836,
+      "cv_mae_std_tenge": 33655.416373615146,
+      "cv_rmse_tenge": 18535785.990750227,
+      "cv_rmse_std_tenge": 2300988.399222651,
+      "cv_r2": 0.7899569505776034,
+      "test_mae_tenge": 7271135.59082322,
+      "test_rmse_tenge": 13160897.340340689,
+      "test_r2": 0.8454519670842742,
+      "selected": false,
+      "negative_test_predictions": 0
+    },
+    {
+      "model": "XGBoost",
+      "role": "combined_candidate",
+      "cv_mae_tenge": 8667976.216409778,
+      "cv_mae_std_tenge": 45336.72174352732,
+      "cv_rmse_tenge": 18953374.622878086,
+      "cv_rmse_std_tenge": 2035796.3590960575,
+      "cv_r2": 0.7805939943912098,
+      "test_mae_tenge": 7782168.179661017,
+      "test_rmse_tenge": 14019705.902511114,
+      "test_r2": 0.8246239495041859,
+      "selected": false,
+      "negative_test_predictions": 0
+    },
+    {
+      "model": "RandomForest (tuned)",
+      "role": "combined_candidate",
+      "cv_mae_tenge": 8231350.907045628,
+      "cv_mae_std_tenge": 41453.56320557418,
+      "cv_rmse_tenge": 18364990.855638955,
+      "cv_rmse_std_tenge": 2364540.1693106666,
+      "cv_r2": 0.7938246681666911,
+      "test_mae_tenge": 7182650.364455767,
+      "test_rmse_tenge": 12835362.971525228,
+      "test_r2": 0.8530028928822403,
+      "selected": true,
+      "negative_test_predictions": 0
+    },
+    {
+      "model": "January baseline: RandomForest (tuned)",
+      "role": "january_frozen_reference",
+      "selected": false,
+      "cv_mae_tenge": null,
+      "cv_mae_std_tenge": null,
+      "cv_rmse_tenge": null,
+      "cv_rmse_std_tenge": null,
+      "cv_r2": null,
+      "test_mae_tenge": 7578905.912365296,
+      "test_rmse_tenge": 13894390.816682056,
+      "test_r2": 0.8277451338036276,
+      "negative_test_predictions": 0
+    }
+  ],
+  "tuned_family": "RandomForest",
+  "search_candidates": [
+    {
+      "parameters": {
+        "model__n_estimators": 350,
+        "model__min_samples_leaf": 4,
+        "model__max_features": 1.0,
+        "model__max_depth": null
+      },
+      "cv_mae_tenge": 8414989.038133297,
+      "cv_mae_std_tenge": 38086.65486623173,
+      "cv_rmse_tenge": 18604599.062148485,
+      "cv_rmse_std_tenge": 2333331.9159459095,
+      "cv_r2": 0.7885402892180992
+    },
+    {
+      "parameters": {
+        "model__n_estimators": 350,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 0.8,
+        "model__max_depth": 24
+      },
+      "cv_mae_tenge": 8231350.907045628,
+      "cv_mae_std_tenge": 41453.56320557418,
+      "cv_rmse_tenge": 18364990.855638955,
+      "cv_rmse_std_tenge": 2364540.1693106666,
+      "cv_r2": 0.7938246681666911
+    },
+    {
+      "parameters": {
+        "model__n_estimators": 200,
+        "model__min_samples_leaf": 2,
+        "model__max_features": 0.8,
+        "model__max_depth": null
+      },
+      "cv_mae_tenge": 8259505.175916924,
+      "cv_mae_std_tenge": 28122.08867440444,
+      "cv_rmse_tenge": 18317923.38201815,
+      "cv_rmse_std_tenge": 2351902.8281783108,
+      "cv_r2": 0.7949882926342076
+    },
+    {
+      "parameters": {
+        "model__n_estimators": 200,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 1.0,
+        "model__max_depth": null
+      },
+      "cv_mae_tenge": 8291755.574700256,
+      "cv_mae_std_tenge": 44496.22122193379,
+      "cv_rmse_tenge": 18885144.552057613,
+      "cv_rmse_std_tenge": 2238232.9124420546,
+      "cv_r2": 0.7817687815179273
+    },
+    {
+      "parameters": {
+        "model__n_estimators": 200,
+        "model__min_samples_leaf": 4,
+        "model__max_features": 0.8,
+        "model__max_depth": 24
+      },
+      "cv_mae_tenge": 8405238.80435822,
+      "cv_mae_std_tenge": 48187.89729655286,
+      "cv_rmse_tenge": 18433992.403436773,
+      "cv_rmse_std_tenge": 2416702.577966004,
+      "cv_r2": 0.7924482779332443
+    },
+    {
+      "parameters": {
+        "model__n_estimators": 350,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 1.0,
+        "model__max_depth": null
+      },
+      "cv_mae_tenge": 8279304.324277196,
+      "cv_mae_std_tenge": 47191.3704906496,
+      "cv_rmse_tenge": 18823137.831685975,
+      "cv_rmse_std_tenge": 2281752.808904716,
+      "cv_r2": 0.7831661849491759
+    },
+    {
+      "parameters": {
+        "model__n_estimators": 350,
+        "model__min_samples_leaf": 2,
+        "model__max_features": 1.0,
+        "model__max_depth": 24
+      },
+      "cv_mae_tenge": 8278643.48146153,
+      "cv_mae_std_tenge": 38121.27733437989,
+      "cv_rmse_tenge": 18500851.157411378,
+      "cv_rmse_std_tenge": 2349947.8589509474,
+      "cv_r2": 0.7907047435265264
+    },
+    {
+      "parameters": {
+        "model__n_estimators": 200,
+        "model__min_samples_leaf": 1,
+        "model__max_features": 0.8,
+        "model__max_depth": 24
+      },
+      "cv_mae_tenge": 8244756.805379551,
+      "cv_mae_std_tenge": 34864.47107029736,
+      "cv_rmse_tenge": 18388293.60398914,
+      "cv_rmse_std_tenge": 2364422.1534621655,
+      "cv_r2": 0.7933188774319593
+    }
+  ],
+  "best_search_parameters": {
+    "model__n_estimators": 350,
+    "model__min_samples_leaf": 1,
+    "model__max_features": 0.8,
+    "model__max_depth": 24
+  },
+  "tuning_improved_cv": true,
+  "constant_train_median_test_metrics": {
+    "mae_tenge": 19306361.484745763,
+    "rmse_tenge": 34828215.825751975,
+    "r2": -0.0823181287007646
+  },
+  "old_model_test_metrics": {
+    "mae_tenge": 7578905.912365296,
+    "rmse_tenge": 13894390.816682056,
+    "r2": 0.8277451338036276
+  },
+  "old_model": {
+    "model_name": "RandomForest (tuned)",
+    "model_sha256": "f40f892700324892ee0fde041f8a5feaca2e0c01fb4231185e5c3a751b073bac",
+    "training_input_sha256": "3cef002023d07f6079ff8263472716198ef37e8174d16e88a2567a84a6ae1e27",
+    "refitted": false,
+    "cv_on_training_data": null,
+    "comparison_scope": "Previously analyzed protected March holdout; the caller removes its duplicate matches and whole groups from pooled January/March train; both models evaluated on exactly the same protected rows."
+  },
+  "test_comparison": {
+    "mae_change_tenge": -396255.54790952895,
+    "mae_change_pct": -5.228400411502953,
+    "activation_decision": "not made by training runner"
+  },
+  "price_summary_by_subset": {
+    "train": {
+      "0": 3500000.0,
+      "0.5": 36000000.0,
+      "0.95": 118000000.0,
+      "0.99": 210000000.0,
+      "1": 1500000000.0
+    },
+    "test": {
+      "0": 7200000.0,
+      "0.5": 36000000.0,
+      "0.95": 105549999.99999996,
+      "0.99": 177220000.00000003,
+      "1": 380000000.0
+    }
+  },
+  "feature_importance": [
+    {
+      "feature": "area",
+      "importance_mean_tenge": 21660385.29122258,
+      "importance_std_tenge": 556626.3781661802
+    },
+    {
+      "feature": "year_built",
+      "importance_mean_tenge": 4692225.784797376,
+      "importance_std_tenge": 270892.1731289175
+    },
+    {
+      "feature": "district",
+      "importance_mean_tenge": 1720590.39045639,
+      "importance_std_tenge": 63751.01737454832
+    },
+    {
+      "feature": "total_floors",
+      "importance_mean_tenge": 1060181.3585195153,
+      "importance_std_tenge": 52807.00831082417
+    },
+    {
+      "feature": "rooms",
+      "importance_mean_tenge": 915064.7352271655,
+      "importance_std_tenge": 89066.31109153586
+    },
+    {
+      "feature": "building_type",
+      "importance_mean_tenge": 429496.09888371837,
+      "importance_std_tenge": 43884.21362175313
+    },
+    {
+      "feature": "condition",
+      "importance_mean_tenge": 351636.26085795177,
+      "importance_std_tenge": 35651.14504565751
+    },
+    {
+      "feature": "floor",
+      "importance_mean_tenge": 199100.1823976511,
+      "importance_std_tenge": 32295.56415275195
+    }
+  ],
+  "importance_method": "GroupKFold validation within supplied train, 5 permutations per fold; fixed selected parameters",
+  "importance_caveat": "Descriptive, not nested CV; correlated features may share importance; std is not a confidence interval",
+  "limitations": [
+    "March dates come from the source description, not independently verified per-listing timestamps.",
+    "The caller pools and deduplicates January and March sources, excluding all protected March holdout groups and their matches from training.",
+    "The former January holdout is included in combined training and no longer validates this model.",
+    "The protected March holdout was already analyzed and informed the decision to pool data; this is diagnostic reuse, not fresh independent validation.",
+    "The same eight features, model families and search budget are retained; no new log-target, loss or geographic features are introduced. Pooling, deduplication and sample composition change, and CV may select a different family or parameters, so an improvement cannot be attributed to pooling alone.",
+    "Group disjointness is verified, but heuristic grouping does not prove uniqueness of physical apartments.",
+    "CV used for selection is optimistic; holdout metrics are diagnostic for the fixed selected pipeline.",
+    "Both models are evaluated on the same March holdout; this is not a six-month forecast test.",
+    "Prediction +/- test MAE is descriptive, without guaranteed coverage or independent calibration."
+  ]
+}

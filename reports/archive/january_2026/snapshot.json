@@ -1,0 +1,7 @@
+{
+  "period": "2026-01",
+  "model_sha256": "f40f892700324892ee0fde041f8a5feaca2e0c01fb4231185e5c3a751b073bac",
+  "input_sha256": "3cef002023d07f6079ff8263472716198ef37e8174d16e88a2567a84a6ae1e27",
+  "archived_at_utc": "2026-10-12T15:51:20.890158+00:00",
+  "description": "Original January model, cleaned data, training/EDA/error reports; not retrained."
+}

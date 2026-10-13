@@ -1,0 +1,452 @@
+{
+  "created_at_utc": "2026-10-12T16:29:27.905301+00:00",
+  "activated": false,
+  "counts": {
+    "input_rows": 21688,
+    "unique_rows": 19859,
+    "removed_rows": 1829,
+    "train_rows": 19269,
+    "test_rows": 590,
+    "reference_test_rows": 594,
+    "train_sources": {
+      "2026-01": 16119,
+      "2026-03": 3150
+    }
+  },
+  "active_model": "january",
+  "preparation": {
+    "rows_january_input": 17929,
+    "rows_march_input": 3759,
+    "rows_before": 21688,
+    "rows_after": 19859,
+    "rows_removed": 1829,
+    "groups_total": 19859,
+    "duplicate_groups": 1571,
+    "cross_period_groups": 793,
+    "cross_period_input_rows": 1639,
+    "input_rows_without_match_keys": 0,
+    "duplicates_by_source": {
+      "2026-01": 1810,
+      "2026-03": 19
+    },
+    "duplicates_by_reason": {
+      "duplicate_later_source_row": 456,
+      "duplicate_less_complete": 527,
+      "duplicate_older_period": 842,
+      "duplicate_protected_holdout": 4
+    },
+    "duplicates_by_match_type": {
+      "signature": 1125,
+      "transitive": 36,
+      "url": 668
+    },
+    "kept_by_source": {
+      "2026-01": 16119,
+      "2026-03": 3740
+    },
+    "train_rows": 19269,
+    "test_rows": 590,
+    "train_groups": 19269,
+    "test_groups": 590,
+    "train_rows_by_source": {
+      "2026-01": 16119,
+      "2026-03": 3150
+    },
+    "reference_holdout_rows": 594,
+    "reference_holdout_original_groups": 590,
+    "reference_holdout_combined_groups": 590,
+    "reference_holdout_duplicate_rows_removed": 4,
+    "protected_groups_with_original_march_train_rows": 0,
+    "selection_policy": "Protect original March test; otherwise prefer March, then most nonmissing of eight model inputs, then lowest original source_row. Price is never used for grouping or representative selection.",
+    "source_row_policy": "Unique 1-based position in January followed by March before deduplication; original CSV row index and raw source_row are retained separately.",
+    "checks": [
+      "March manifest covers all March records and original source_row values match.",
+      "Union-find groups are transitive over both periods using URL and price-independent apartment_keys.",
+      "No protected holdout group contains any January record.",
+      "Exactly one record per combined group; every protected representative is an original March test record.",
+      "Train/test groups and identity keys are disjoint; no original March test record or key appears in train.",
+      "All input records appear exactly once in the representative frame or rejected table."
+    ],
+    "limitations": [
+      "Signatures are heuristic apartment candidates, not verified property identifiers; similar flats can merge and incomplete or changed descriptions can hide repeats.",
+      "Connectivity is transitive: two records may be grouped through a third record without sharing a direct key.",
+      "March is the publisher-declared period; individual March observation dates are unavailable. Preference for March does not prove a later observation date for each apartment.",
+      "This pool combines asking prices and different sources; it is not a current-market or completed-sale dataset.",
+      "The March holdout has already been inspected in previous experiments. It is a fixed benchmark, not a new untouched estimate for further model choices.",
+      "Primary test has one representative per protected group; the complete original holdout is retained separately for comparison on the unchanged observation set.",
+      "All January records may enter train, including the former January test; former January test scores cannot evaluate the combined model independently."
+    ],
+    "sources": {
+      "january_csv_sha256": "3cef002023d07f6079ff8263472716198ef37e8174d16e88a2567a84a6ae1e27",
+      "march_csv_sha256": "46ab0642cb837147cf3e9743d974158345160320aae34bf2eff5914287fee6c9",
+      "protected_march_manifest_sha256": "df187aa148e10c0e09477b98312bd3cb271d6ee5e12120694edd54faadb56511"
+    },
+    "output_sha256": "28ad11f14b56315ea2dd903ffc7f8ab9d5a788f7f5e070b5ec1b61c0711d98eb"
+  },
+  "selected_model": "RandomForest (tuned)",
+  "common_holdout_comparison": [
+    {
+      "model": "january",
+      "algorithm": "RandomForest (tuned)",
+      "n": 590,
+      "mae_tenge": 7578905.912365296,
+      "median_ae_tenge": 3992189.795918368,
+      "rmse_tenge": 13894390.816682056,
+      "median_ape_pct": 12.092467650176431,
+      "mape_pct": 15.519999887700129,
+      "p90_ae_tenge": 16105195.138150377,
+      "bias_tenge": -744431.7213952523,
+      "over_20_pct": 27.796610169491526,
+      "over_20_n": 164,
+      "over_20_ci_low_pct": 24.33418538855324,
+      "over_20_ci_high_pct": 31.546294812289577,
+      "over_10m_pct": 21.35593220338983,
+      "coverage_pct": 71.35593220338983,
+      "under_20_pct": 11.864406779661017,
+      "overprediction_20_pct": 15.932203389830507,
+      "error_share_pct": 100.0,
+      "small_group": false,
+      "r2": 0.8277451338036276
+    },
+    {
+      "model": "march",
+      "algorithm": "XGBoost",
+      "n": 590,
+      "mae_tenge": 8422891.137288136,
+      "median_ae_tenge": 4347690.0,
+      "rmse_tenge": 16289451.467220481,
+      "median_ape_pct": 13.193968897768897,
+      "mape_pct": 16.85426896350622,
+      "p90_ae_tenge": 18698233.600000005,
+      "bias_tenge": -801595.3576271186,
+      "over_20_pct": 30.677966101694913,
+      "over_20_n": 181,
+      "over_20_ci_low_pct": 27.091809491921254,
+      "over_20_ci_high_pct": 34.51410457598775,
+      "over_10m_pct": 24.576271186440678,
+      "coverage_pct": 70.6779661016949,
+      "under_20_pct": 12.203389830508476,
+      "overprediction_20_pct": 18.47457627118644,
+      "error_share_pct": 100.0,
+      "small_group": false,
+      "r2": 0.7632415986119759
+    },
+    {
+      "model": "combined",
+      "algorithm": "RandomForest (tuned)",
+      "n": 590,
+      "mae_tenge": 7182650.364455767,
+      "median_ae_tenge": 3869368.5432900423,
+      "rmse_tenge": 12835362.971525228,
+      "median_ape_pct": 11.094935275602143,
+      "mape_pct": 14.874876156519623,
+      "p90_ae_tenge": 15769912.367711486,
+      "bias_tenge": -388697.5690216278,
+      "over_20_pct": 25.76271186440678,
+      "over_20_n": 152,
+      "over_20_ci_low_pct": 22.39862300270734,
+      "over_20_ci_high_pct": 29.44037446844169,
+      "over_10m_pct": 19.661016949152543,
+      "coverage_pct": 70.0,
+      "under_20_pct": 10.508474576271185,
+      "overprediction_20_pct": 15.254237288135593,
+      "error_share_pct": 100.0,
+      "small_group": false,
+      "r2": 0.8530028928822403
+    }
+  ],
+  "original_holdout_comparison": [
+    {
+      "model": "january",
+      "algorithm": "RandomForest (tuned)",
+      "n": 594,
+      "mae_tenge": 7608969.962582463,
+      "median_ae_tenge": 4020107.8117913827,
+      "rmse_tenge": 13913279.14878501,
+      "median_ape_pct": 12.092467650176431,
+      "mape_pct": 15.610973439974124,
+      "p90_ae_tenge": 16171356.159755198,
+      "bias_tenge": -658318.2595029307,
+      "over_20_pct": 27.946127946127948,
+      "over_20_n": 166,
+      "over_20_ci_low_pct": 24.488011735853597,
+      "over_20_ci_high_pct": 31.687660570844105,
+      "over_10m_pct": 21.548821548821547,
+      "coverage_pct": 71.21212121212122,
+      "under_20_pct": 11.784511784511785,
+      "overprediction_20_pct": 16.161616161616163,
+      "error_share_pct": 100.0,
+      "small_group": false,
+      "r2": 0.8263273972467259
+    },
+    {
+      "model": "march",
+      "algorithm": "XGBoost",
+      "n": 594,
+      "mae_tenge": 8470094.464646464,
+      "median_ae_tenge": 4365328.0,
+      "rmse_tenge": 16287189.145515777,
+      "median_ape_pct": 13.266916360968452,
+      "mape_pct": 16.9578027556174,
+      "p90_ae_tenge": 18812363.20000001,
+      "bias_tenge": -692274.2760942761,
+      "over_20_pct": 31.14478114478115,
+      "over_20_n": 185,
+      "over_20_ci_low_pct": 27.551889704447785,
+      "over_20_ci_high_pct": 34.97998280204185,
+      "over_10m_pct": 25.084175084175087,
+      "coverage_pct": 70.2020202020202,
+      "under_20_pct": 12.121212121212121,
+      "overprediction_20_pct": 19.023569023569024,
+      "error_share_pct": 100.0,
+      "small_group": false,
+      "r2": 0.7620067742686156
+    },
+    {
+      "model": "combined",
+      "algorithm": "RandomForest (tuned)",
+      "n": 594,
+      "mae_tenge": 7214403.255511891,
+      "median_ae_tenge": 3916338.180528749,
+      "rmse_tenge": 12848053.134677516,
+      "median_ape_pct": 11.17150475944257,
+      "mape_pct": 14.960470937565967,
+      "p90_ae_tenge": 15854637.831123248,
+      "bias_tenge": -305959.16999596014,
+      "over_20_pct": 25.925925925925924,
+      "over_20_n": 154,
+      "over_20_ci_low_pct": 22.56439535171027,
+      "over_20_ci_high_pct": 29.59683472353988,
+      "over_10m_pct": 19.865319865319865,
+      "coverage_pct": 69.86531986531986,
+      "under_20_pct": 10.437710437710438,
+      "overprediction_20_pct": 15.488215488215488,
+      "error_share_pct": 100.0,
+      "small_group": false,
+      "r2": 0.8519027604492825
+    }
+  ],
+  "mae_improvement_pct": 5.228400411502953,
+  "paired_mae_difference": {
+    "new_minus_january_mae_tenge": -396255.5479095282,
+    "ci95_low_tenge": -754353.0929788351,
+    "ci95_high_tenge": -108954.40361881304,
+    "iterations": 3000,
+    "seed": 42,
+    "method": "paired percentile bootstrap over one representative per heuristic apartment group",
+    "limitations": "Descriptive interval on a previously inspected holdout; heuristic groups may still be dependent. Does not account for model-selection or source bias."
+  },
+  "segments": {
+    "district": [
+      {
+        "group": "Сарыарка",
+        "n": 67,
+        "small_group": false,
+        "january_mae_tenge": 6564269.903880162,
+        "combined_mae_tenge": 6076047.40326137,
+        "mae_change_tenge": -488222.50061879214,
+        "january_over_20_pct": 19.402985074626866,
+        "combined_over_20_pct": 19.402985074626866
+      },
+      {
+        "group": "Нура",
+        "n": 174,
+        "small_group": false,
+        "january_mae_tenge": 7217536.092760904,
+        "combined_mae_tenge": 6827276.986912756,
+        "mae_change_tenge": -390259.10584814753,
+        "january_over_20_pct": 28.160919540229884,
+        "combined_over_20_pct": 27.586206896551722
+      },
+      {
+        "group": "Не указан",
+        "n": 26,
+        "small_group": true,
+        "january_mae_tenge": 6848294.7455849135,
+        "combined_mae_tenge": 8032507.177627037,
+        "mae_change_tenge": 1184212.4320421237,
+        "january_over_20_pct": 34.61538461538461,
+        "combined_over_20_pct": 34.61538461538461
+      },
+      {
+        "group": "Алматы",
+        "n": 92,
+        "small_group": false,
+        "january_mae_tenge": 9251375.093496498,
+        "combined_mae_tenge": 8744093.066061357,
+        "mae_change_tenge": -507282.0274351407,
+        "january_over_20_pct": 30.434782608695656,
+        "combined_over_20_pct": 30.434782608695656
+      },
+      {
+        "group": "Есиль",
+        "n": 148,
+        "small_group": false,
+        "january_mae_tenge": 7869915.467936015,
+        "combined_mae_tenge": 7454889.6349217985,
+        "mae_change_tenge": -415025.8330142163,
+        "january_over_20_pct": 25.675675675675674,
+        "combined_over_20_pct": 19.594594594594593
+      },
+      {
+        "group": "Сарайшык",
+        "n": 53,
+        "small_group": false,
+        "january_mae_tenge": 5949117.14424015,
+        "combined_mae_tenge": 5277514.920906114,
+        "mae_change_tenge": -671602.2233340358,
+        "january_over_20_pct": 35.84905660377358,
+        "combined_over_20_pct": 26.41509433962264
+      },
+      {
+        "group": "Байконур",
+        "n": 30,
+        "small_group": false,
+        "january_mae_tenge": 8888808.490300434,
+        "combined_mae_tenge": 8212954.593839118,
+        "mae_change_tenge": -675853.8964613155,
+        "january_over_20_pct": 26.666666666666668,
+        "combined_over_20_pct": 36.666666666666664
+      }
+    ],
+    "completeness": [
+      {
+        "group": "7 из 8",
+        "n": 266,
+        "small_group": false,
+        "january_mae_tenge": 6864752.2458547475,
+        "combined_mae_tenge": 6558354.055002942,
+        "mae_change_tenge": -306398.19085180573,
+        "january_over_20_pct": 26.691729323308273,
+        "combined_over_20_pct": 21.804511278195488
+      },
+      {
+        "group": "8 из 8",
+        "n": 259,
+        "small_group": false,
+        "january_mae_tenge": 8107710.195394942,
+        "combined_mae_tenge": 7526258.254979288,
+        "mae_change_tenge": -581451.9404156534,
+        "january_over_20_pct": 26.640926640926644,
+        "combined_over_20_pct": 27.027027027027028
+      },
+      {
+        "group": "6 из 8",
+        "n": 55,
+        "small_group": false,
+        "january_mae_tenge": 8490971.729810596,
+        "combined_mae_tenge": 8641188.479481965,
+        "mae_change_tenge": 150216.7496713698,
+        "january_over_20_pct": 36.36363636363637,
+        "combined_over_20_pct": 38.18181818181819
+      },
+      {
+        "group": "5 из 8",
+        "n": 8,
+        "small_group": true,
+        "january_mae_tenge": 7906983.77174558,
+        "combined_mae_tenge": 7232239.894281663,
+        "mae_change_tenge": -674743.8774639172,
+        "january_over_20_pct": 37.5,
+        "combined_over_20_pct": 37.5
+      },
+      {
+        "group": "3 из 8",
+        "n": 1,
+        "small_group": true,
+        "january_mae_tenge": 3199125.7142857164,
+        "combined_mae_tenge": 6859952.011428565,
+        "mae_change_tenge": 3660826.2971428484,
+        "january_over_20_pct": 0.0,
+        "combined_over_20_pct": 0.0
+      },
+      {
+        "group": "4 из 8",
+        "n": 1,
+        "small_group": true,
+        "january_mae_tenge": 12175009.263038553,
+        "combined_mae_tenge": 3957410.8212950006,
+        "mae_change_tenge": -8217598.441743553,
+        "january_over_20_pct": 100.0,
+        "combined_over_20_pct": 0.0
+      }
+    ],
+    "area": [
+      {
+        "group": "До 40 м²",
+        "n": 119,
+        "small_group": false,
+        "january_mae_tenge": 3012784.753555965,
+        "combined_mae_tenge": 3004055.33034302,
+        "mae_change_tenge": -8729.423212944996,
+        "january_over_20_pct": 26.05042016806723,
+        "combined_over_20_pct": 23.52941176470588
+      },
+      {
+        "group": "Более 40–70 м²",
+        "n": 270,
+        "small_group": false,
+        "january_mae_tenge": 5015349.94155782,
+        "combined_mae_tenge": 4777520.908025179,
+        "mae_change_tenge": -237829.0335326409,
+        "january_over_20_pct": 23.333333333333332,
+        "combined_over_20_pct": 21.48148148148148
+      },
+      {
+        "group": "Более 70–120 м²",
+        "n": 152,
+        "small_group": false,
+        "january_mae_tenge": 10620583.963858834,
+        "combined_mae_tenge": 10181033.92153501,
+        "mae_change_tenge": -439550.042323824,
+        "january_over_20_pct": 34.21052631578947,
+        "combined_over_20_pct": 32.23684210526316
+      },
+      {
+        "group": "Более 120 м²",
+        "n": 49,
+        "small_group": false,
+        "january_mae_tenge": 23358364.406024706,
+        "combined_mae_tenge": 21282312.84648906,
+        "mae_change_tenge": -2076051.559535645,
+        "january_over_20_pct": 36.734693877551024,
+        "combined_over_20_pct": 34.69387755102041
+      }
+    ]
+  },
+  "model_sha256": "643bfe75014cb3929376a44e689905c1fe8c4fa1e72165ec7b9c0e30db4d3c8a",
+  "input_sha256": "28ad11f14b56315ea2dd903ffc7f8ab9d5a788f7f5e070b5ec1b61c0711d98eb",
+  "protected_artifacts_before": {
+    "models/best_model.joblib": "f40f892700324892ee0fde041f8a5feaca2e0c01fb4231185e5c3a751b073bac",
+    "models/model_metadata.json": "c623c137cab6f093071a18a6c183d513ad311744378b1695ca4063dcd39ac1da",
+    "data/processed/listings_clean.csv": "3cef002023d07f6079ff8263472716198ef37e8174d16e88a2567a84a6ae1e27",
+    "data/processed/listings_rejected.csv": "95cb08225a52b706064969726d3c59059f64bf7a98254a0815325d9baebb9dd1",
+    "models/archive/january_2026/best_model.joblib": "f40f892700324892ee0fde041f8a5feaca2e0c01fb4231185e5c3a751b073bac",
+    "models/archive/january_2026/model_metadata.json": "c623c137cab6f093071a18a6c183d513ad311744378b1695ca4063dcd39ac1da",
+    "data/processed/january_2026/listings_clean.csv": "3cef002023d07f6079ff8263472716198ef37e8174d16e88a2567a84a6ae1e27",
+    "models/march_2026/best_model.joblib": "9b8253694c7f2fc109d72f30b4ce9432ad443fdf86dde32c47c5faa97ec00de2",
+    "models/march_2026/model_metadata.json": "bd64a3c2ea87309c16ea28a1c62db101d93ee920ea1466990beccb245fc4d554",
+    "data/processed/march_2026/listings_clean.csv": "46ab0642cb837147cf3e9743d974158345160320aae34bf2eff5914287fee6c9",
+    "reports/march_update/split_manifest.csv": "df187aa148e10c0e09477b98312bd3cb271d6ee5e12120694edd54faadb56511"
+  },
+  "protected_artifacts_after": {
+    "models/best_model.joblib": "f40f892700324892ee0fde041f8a5feaca2e0c01fb4231185e5c3a751b073bac",
+    "models/model_metadata.json": "c623c137cab6f093071a18a6c183d513ad311744378b1695ca4063dcd39ac1da",
+    "data/processed/listings_clean.csv": "3cef002023d07f6079ff8263472716198ef37e8174d16e88a2567a84a6ae1e27",
+    "data/processed/listings_rejected.csv": "95cb08225a52b706064969726d3c59059f64bf7a98254a0815325d9baebb9dd1",
+    "models/archive/january_2026/best_model.joblib": "f40f892700324892ee0fde041f8a5feaca2e0c01fb4231185e5c3a751b073bac",
+    "models/archive/january_2026/model_metadata.json": "c623c137cab6f093071a18a6c183d513ad311744378b1695ca4063dcd39ac1da",
+    "data/processed/january_2026/listings_clean.csv": "3cef002023d07f6079ff8263472716198ef37e8174d16e88a2567a84a6ae1e27",
+    "models/march_2026/best_model.joblib": "9b8253694c7f2fc109d72f30b4ce9432ad443fdf86dde32c47c5faa97ec00de2",
+    "models/march_2026/model_metadata.json": "bd64a3c2ea87309c16ea28a1c62db101d93ee920ea1466990beccb245fc4d554",
+    "data/processed/march_2026/listings_clean.csv": "46ab0642cb837147cf3e9743d974158345160320aae34bf2eff5914287fee6c9",
+    "reports/march_update/split_manifest.csv": "df187aa148e10c0e09477b98312bd3cb271d6ee5e12120694edd54faadb56511"
+  },
+  "selection_criterion": "minimum mean GroupKFold CV MAE on supplied train; test is diagnostic only",
+  "limitations": [
+    "March holdout has already been inspected; this is a diagnostic comparison, not a fresh independent test.",
+    "January's former test rows may enter combined training. January historical test is not an evaluation of this candidate.",
+    "Duplicate groups use URL and price-independent attribute signatures; false matches and missed repeats remain possible.",
+    "March period is publisher-declared; there are no row timestamps. Asking prices, not transactions or a six-month forecast."
+  ]
+}

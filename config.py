@@ -30,3 +30,4 @@ CV_FOLDS: Final[int] = 3
 SEARCH_ITERATIONS: Final[int] = 8
 MODEL_PIPELINE_PATH: Final[Path] = MODELS_DIR / "best_model.joblib"
 MODEL_METADATA_PATH: Final[Path] = MODELS_DIR / "model_metadata.json"
+PROPERTY_CATALOG_DIR: Final[Path] = PROCESSED_DATA_DIR / "property_catalog"

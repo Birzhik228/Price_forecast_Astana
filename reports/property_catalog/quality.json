@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "summary": {
+    "listing_count": 19859,
+    "building_count": 4080,
+    "complex_count": 1210,
+    "listings_with_building_id": 9992,
+    "listings_with_complex_id": 15808,
+    "listings_with_parking": 13785,
+    "coordinate_status_counts": {
+      "invalid": 28,
+      "missing": 3370,
+      "plausible": 2579,
+      "unverified": 13882
+    },
+    "building_coordinate_status_counts": {
+      "invalid": 6,
+      "missing": 433,
+      "plausible": 614,
+      "unverified": 3027
+    },
+    "address_status_counts": {
+      "ambiguous": 8091,
+      "district_missing": 552,
+      "house": 9992,
+      "incomplete": 1224
+    },
+    "dataset_period_counts": {
+      "2026-01": 16119,
+      "2026-03": 3740
+    },
+    "coordinate_inherited_count": 370,
+    "issue_counts": {
+      "address_ambiguous": 8091,
+      "address_district_missing": 552,
+      "address_incomplete": 1224,
+      "building_complex_conflict": 60,
+      "building_field_conflict": 2034,
+      "coordinate_invalid": 28,
+      "coordinate_mixed_validity": 3,
+      "coordinate_reused_across_houses": 1563,
+      "coordinate_spread": 189
+    },
+    "building_conflicts": {
+      "complex": 60,
+      "parking": 149,
+      "year_built": 887,
+      "total_floors": 719,
+      "building_type": 279
+    },
+    "policy": {
+      "bbox": {
+        "latitude_min": 50.8,
+        "latitude_max": 51.4,
+        "longitude_min": 70.8,
+        "longitude_max": 71.9
+      },
+      "maximum_radius_from_median_m": 125.0,
+      "minimum_coordinate_observations": 2,
+      "distance_allowed_statuses": [
+        "plausible"
+      ],
+      "building_key": "astana + exact normalized district + single explicit house address",
+      "complex_key": "astana + exact normalized complex name"
+    },
+    "limitations": [
+      "Адреса и ЖК сопоставлены консервативно без справочника; разные написания не объединены.",
+      "building_id не является реестровым ID; корпуса и дроби сохранены, неоднозначные адреса исключены.",
+      "plausible означает только согласованность архивных точек: точность дома внешне не подтверждена.",
+      "Одинаковые координаты у разных домов и внутридомовые конфликты запрещают расчёт расстояний.",
+      "Парковка — текст объявления, не наличие места в собственности и не включение в цену; пропуск неизвестен.",
+      "Застройщик и лифт неизвестны; большинством конфликтующие характеристики дома не выбираются.",
+      "Январские даты — сбор без часового пояса; март — период по заявлению автора, без дат строк.",
+      "Цены являются архивными ценами предложения; ссылки и актуальная доступность не проверялись."
+    ]
+  },
+  "inputs": {
+    "combined": {
+      "path": "C:\\Users\\Adina\\Documents\\ChatGPT\\ML 2\\data\\processed\\combined_2026\\listings_clean.csv",
+      "sha256": "28ad11f14b56315ea2dd903ffc7f8ab9d5a788f7f5e070b5ec1b61c0711d98eb"
+    },
+    "january_raw": {
+      "path": "C:\\Users\\Adina\\Documents\\ChatGPT\\ML 2\\data\\raw\\kaggle_astana\\astana_apartments.csv",
+      "sha256": "923bd5483eaea5fdfe9cbf8d36c40ec1875992f66ed70ee29426dd6bc2d189ee"
+    },
+    "march_raw": {
+      "path": "C:\\Users\\Adina\\Documents\\ChatGPT\\ML 2\\data\\raw\\turarr_march_2026\\astana_apartments_raw.csv",
+      "sha256": "79c518f9ec37272c5052ea9936d3020030f4d02cccfb749fb92487fbfdf70676"
+    }
+  }
+}

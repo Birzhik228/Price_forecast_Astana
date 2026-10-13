@@ -1,0 +1,17 @@
+{
+  "rows_march_clean": 3759,
+  "rows_january_reference": 17929,
+  "exact_url_overlap_rows": 672,
+  "possible_signature_overlap_rows": 608,
+  "either_overlap_rows": 796,
+  "known_group_rows": 797,
+  "novel_rows": 2962,
+  "groups_march": 3741,
+  "rows_with_signature": 3472,
+  "train_rows": 3165,
+  "test_rows": 594,
+  "random_state": 42,
+  "policy": "GroupShuffleSplit: 20% of March groups with no match anywhere in January; remaining March groups train only. No January rows in new training.",
+  "identity_caveat": "URL matches are exact. Price-independent district/location/area/rooms/floors/year signatures are conservative candidates, not proven identity. Incomplete signatures, changed addresses and similar flats may leave undetected repeats.",
+  "input_sha256": "46ab0642cb837147cf3e9743d974158345160320aae34bf2eff5914287fee6c9"
+}

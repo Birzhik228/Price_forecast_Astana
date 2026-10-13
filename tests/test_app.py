@@ -232,6 +232,44 @@ class ArtifactValidationTests(unittest.TestCase):
                 load.assert_not_called()
 
 
+class DataPeriodCaptionTests(unittest.TestCase):
+    def test_caption_uses_loaded_period_and_supports_legacy_metadata(self) -> None:
+        from streamlit.testing.v1 import AppTest
+
+        for period in (None, "конца марта 2026 года (по описанию источника)"):
+            with self.subTest(period=period):
+                metadata = metadata_fixture()
+                if period is not None:
+                    metadata["data_period_label"] = period
+                with patch("app.file_signature", return_value=(1, 1)), patch(
+                    "app.cached_artifacts", return_value=(Mock(), metadata),
+                ):
+                    app = AppTest.from_string(
+                        "from app import main\nmain()", default_timeout=30,
+                    ).run()
+
+                self.assertFalse(app.exception)
+                self.assertFalse(app.error)
+                captions = [caption.value for caption in app.caption]
+                expected_period = period or "января 2026 года"
+                self.assertIn(
+                    f"Модель обучена на объявлениях {expected_period}. Это не оценка рынка на сегодня.",
+                    captions,
+                )
+                if period is not None:
+                    self.assertFalse(any("января 2026" in caption for caption in captions))
+
+    def test_failed_model_load_does_not_claim_a_data_period(self) -> None:
+        from streamlit.testing.v1 import AppTest
+
+        with patch("app.file_signature", side_effect=FileNotFoundError):
+            app = AppTest.from_string("from app import main\nmain()", default_timeout=30).run()
+
+        self.assertFalse(app.exception)
+        self.assertTrue(app.error)
+        self.assertFalse(any("Модель обучена" in caption.value for caption in app.caption))
+
+
 @unittest.skipUnless(
     MODEL_PIPELINE_PATH.exists() and MODEL_METADATA_PATH.exists(),
     "Для интеграционных проверок нужны артефакты этапа 5.",

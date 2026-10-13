@@ -1,0 +1,4298 @@
+{
+  "created_at_utc": "2026-10-12T15:59:41.010891+00:00",
+  "data_period": "2026-03",
+  "activated": false,
+  "cleaning": {
+    "rows_before": 5003,
+    "rows_after": 3759,
+    "removed": {
+      "missing_price_or_area": 0,
+      "price_out_of_bounds": 1,
+      "area_out_of_bounds": 0,
+      "duplicate_url": 686,
+      "duplicate_features": 3,
+      "non_exact_price": 554
+    },
+    "rows_removed": 1244,
+    "missing_before": {
+      "price": 0,
+      "area": 0,
+      "rooms": 0,
+      "floor": 603,
+      "total_floors": 741,
+      "year_built": 0,
+      "building_type": 265,
+      "condition": 2865,
+      "district": 177,
+      "residential_complex": 698,
+      "address": 0,
+      "url": 0,
+      "collected_at": 5003
+    },
+    "missing_after": {
+      "price": 0,
+      "area": 0,
+      "rooms": 0,
+      "floor": 44,
+      "total_floors": 165,
+      "year_built": 0,
+      "building_type": 228,
+      "condition": 1961,
+      "district": 132,
+      "residential_complex": 586,
+      "address": 0,
+      "url": 0,
+      "collected_at": 3759
+    },
+    "numeric_parse_failures": {
+      "price": 554,
+      "area": 0,
+      "rooms": 0,
+      "floor": 0,
+      "total_floors": 0,
+      "year_built": 0
+    },
+    "invalid_optional_to_missing": {
+      "rooms": 0,
+      "floor": 0,
+      "total_floors": 0,
+      "year_built": 0
+    },
+    "inconsistent_floor_pairs_to_missing": 0,
+    "invalid_urls_to_missing": 0,
+    "thresholds": {
+      "price_min": 1000000,
+      "price_max": 2000000000,
+      "area_min": 10.0,
+      "area_max": 1000.0,
+      "reference_year": 2026
+    },
+    "optional_limits": {
+      "rooms": [
+        1,
+        20
+      ],
+      "floor": [
+        1,
+        100
+      ],
+      "total_floors": [
+        1,
+        100
+      ],
+      "year_built": [
+        1850,
+        2031
+      ]
+    },
+    "dedup_columns": [
+      "price",
+      "district",
+      "area",
+      "rooms",
+      "floor",
+      "total_floors",
+      "year_built",
+      "building_type",
+      "condition",
+      "address",
+      "residential_complex"
+    ],
+    "dedup_keep": "first_valid_row_in_source_order",
+    "review_candidates": [
+      {
+        "source_row": 210,
+        "url": "https://krisha.kz/a/show/1010842898",
+        "reason": "price_per_m2_below_100000; retained_for_review"
+      },
+      {
+        "source_row": 382,
+        "url": "https://krisha.kz/a/show/1010389182",
+        "reason": "price_per_m2_below_100000; retained_for_review"
+      }
+    ],
+    "ignored_source_columns": [
+      "Балкон",
+      "Балкон остеклён",
+      "Безопасность",
+      "Бывшее общежитие",
+      "Возможен обмен",
+      "Высота потолков",
+      "Дверь",
+      "Интернет",
+      "Квартира меблирована",
+      "Парковка",
+      "Пол",
+      "Санузел",
+      "Телефон"
+    ],
+    "notes": [
+      "Optional missing values are not imputed before train/test split.",
+      "Feature duplicates are candidates, not proven apartment identities; rejected rows are preserved.",
+      "collected_at retains the source text and its original timezone information (if any).",
+      "source_row is a 1-based record position, excluding the header, in the original CSV.",
+      "The period is publisher-declared March 2026; no row-level collection timestamp is available.",
+      "collected_at remains missing; neither publication nor download time is substituted.",
+      "Prices introduced by от/до are not exact asking prices and are excluded before URL deduplication.",
+      "Missing, unrecognized or out-of-range required rooms are rejected before URL deduplication.",
+      "Missing optional fields are preserved; no imputation or target-quantile trimming is performed.",
+      "Standalone floor values do not imply total_floors; source Этаж is authoritative over the title.",
+      "source_row refers to the original raw CSV record, excluding its header, including adapter rejections.",
+      "missing_before describes adapted fields before general cleaning; source_missing_counts describes raw fields.",
+      "Counts of normalization failures cover all raw records; removal reasons use adapter checks first."
+    ],
+    "adapter": "turarr_march_2026_v1",
+    "rows_entering_general_cleaning": 4449,
+    "rows_rejected_by_adapter": 554,
+    "general_cleaning_report": {
+      "rows_before": 4449,
+      "rows_after": 3759,
+      "removed": {
+        "missing_price_or_area": 0,
+        "price_out_of_bounds": 1,
+        "area_out_of_bounds": 0,
+        "duplicate_url": 686,
+        "duplicate_features": 3
+      },
+      "rows_removed": 690,
+      "missing_before": {
+        "price": 0,
+        "area": 0,
+        "rooms": 0,
+        "floor": 51,
+        "total_floors": 187,
+        "year_built": 0,
+        "building_type": 265,
+        "condition": 2311,
+        "district": 156,
+        "residential_complex": 698,
+        "address": 0,
+        "url": 0,
+        "collected_at": 4449
+      },
+      "missing_after": {
+        "price": 0,
+        "area": 0,
+        "rooms": 0,
+        "floor": 44,
+        "total_floors": 165,
+        "year_built": 0,
+        "building_type": 228,
+        "condition": 1961,
+        "district": 132,
+        "residential_complex": 586,
+        "address": 0,
+        "url": 0,
+        "collected_at": 3759
+      },
+      "numeric_parse_failures": {
+        "price": 0,
+        "area": 0,
+        "rooms": 0,
+        "floor": 0,
+        "total_floors": 0,
+        "year_built": 0
+      },
+      "invalid_optional_to_missing": {
+        "rooms": 0,
+        "floor": 0,
+        "total_floors": 0,
+        "year_built": 0
+      },
+      "inconsistent_floor_pairs_to_missing": 0,
+      "invalid_urls_to_missing": 0,
+      "thresholds": {
+        "price_min": 1000000,
+        "price_max": 2000000000,
+        "area_min": 10.0,
+        "area_max": 1000.0,
+        "reference_year": 2026
+      },
+      "optional_limits": {
+        "rooms": [
+          1,
+          20
+        ],
+        "floor": [
+          1,
+          100
+        ],
+        "total_floors": [
+          1,
+          100
+        ],
+        "year_built": [
+          1850,
+          2031
+        ]
+      },
+      "dedup_columns": [
+        "price",
+        "district",
+        "area",
+        "rooms",
+        "floor",
+        "total_floors",
+        "year_built",
+        "building_type",
+        "condition",
+        "address",
+        "residential_complex"
+      ],
+      "dedup_keep": "first_valid_row_in_source_order",
+      "review_candidates": [
+        {
+          "source_row": 210,
+          "url": "https://krisha.kz/a/show/1010842898",
+          "reason": "price_per_m2_below_100000; retained_for_review"
+        },
+        {
+          "source_row": 382,
+          "url": "https://krisha.kz/a/show/1010389182",
+          "reason": "price_per_m2_below_100000; retained_for_review"
+        }
+      ],
+      "ignored_source_columns": [],
+      "notes": [
+        "Optional missing values are not imputed before train/test split.",
+        "Feature duplicates are candidates, not proven apartment identities; rejected rows are preserved.",
+        "collected_at retains the source text and its original timezone information (if any).",
+        "source_row is a 1-based record position, excluding the header, in the original CSV."
+      ]
+    },
+    "input_file": "C:\\Users\\Adina\\Documents\\ChatGPT\\ML 2\\data\\raw\\turarr_march_2026\\astana_apartments_raw.csv",
+    "output_file": "C:\\Users\\Adina\\Documents\\ChatGPT\\ML 2\\data\\processed\\march_2026\\listings_clean.csv",
+    "rejected_file": "C:\\Users\\Adina\\Documents\\ChatGPT\\ML 2\\data\\processed\\march_2026\\listings_rejected.csv",
+    "source_manifest": "C:\\Users\\Adina\\Documents\\ChatGPT\\ML 2\\data\\turarr_march_2026.source.json",
+    "input_sha256": "79c518f9ec37272c5052ea9936d3020030f4d02cccfb749fb92487fbfdf70676",
+    "original_raw_sha256": "79c518f9ec37272c5052ea9936d3020030f4d02cccfb749fb92487fbfdf70676",
+    "declared_data_period": "End of March 2026, according to the publisher description on Kaggle.",
+    "row_collection_dates_available": false,
+    "parsing_anomalies": [
+      {
+        "source_row": 11,
+        "field": "price",
+        "source_value": "от 25996000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 19,
+        "field": "price",
+        "source_value": "от 36016000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 20,
+        "field": "price",
+        "source_value": "от 43255050〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 21,
+        "field": "price",
+        "source_value": "от 64752000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 22,
+        "field": "price",
+        "source_value": "от 49216617〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 23,
+        "field": "price",
+        "source_value": "от 17907800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 26,
+        "field": "price",
+        "source_value": "от 36016000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 27,
+        "field": "price",
+        "source_value": "от 43255050〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 28,
+        "field": "price",
+        "source_value": "от 64752000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 29,
+        "field": "price",
+        "source_value": "от 49216617〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 30,
+        "field": "price",
+        "source_value": "от 17907800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 47,
+        "field": "price",
+        "source_value": "от 39405150〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 48,
+        "field": "price",
+        "source_value": "от 73636890〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 49,
+        "field": "price",
+        "source_value": "от 31950960〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 50,
+        "field": "price",
+        "source_value": "от 100099200〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 51,
+        "field": "price",
+        "source_value": "от 49161049〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 77,
+        "field": "price",
+        "source_value": "от 39990000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 78,
+        "field": "price",
+        "source_value": "от 12360000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 83,
+        "field": "price",
+        "source_value": "от 45890000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 85,
+        "field": "price",
+        "source_value": "от 45890000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 86,
+        "field": "price",
+        "source_value": "от 20805820〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 87,
+        "field": "price",
+        "source_value": "от 46407330〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 88,
+        "field": "price",
+        "source_value": "от 46016100〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 89,
+        "field": "price",
+        "source_value": "от 54853550〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 90,
+        "field": "price",
+        "source_value": "от 97736550〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 91,
+        "field": "price",
+        "source_value": "от 17160000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 104,
+        "field": "price",
+        "source_value": "от 46407330〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 105,
+        "field": "price",
+        "source_value": "от 46016100〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 106,
+        "field": "price",
+        "source_value": "от 54853550〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 107,
+        "field": "price",
+        "source_value": "от 97736550〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 108,
+        "field": "price",
+        "source_value": "от 17160000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 141,
+        "field": "price",
+        "source_value": "от 98883318〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 142,
+        "field": "price",
+        "source_value": "от 101632760〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 143,
+        "field": "price",
+        "source_value": "от 55099720〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 144,
+        "field": "price",
+        "source_value": "от 98883318〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 145,
+        "field": "price",
+        "source_value": "от 101632760〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 146,
+        "field": "price",
+        "source_value": "от 55099720〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 153,
+        "field": "price",
+        "source_value": "от 32909400〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 154,
+        "field": "price",
+        "source_value": "от 21488050〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 155,
+        "field": "price",
+        "source_value": "от 92006550〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 156,
+        "field": "price",
+        "source_value": "от 35346900〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 157,
+        "field": "price",
+        "source_value": "от 44613170〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 158,
+        "field": "price",
+        "source_value": "от 18147000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 170,
+        "field": "price",
+        "source_value": "от 108921670〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 171,
+        "field": "price",
+        "source_value": "от 47507220〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 172,
+        "field": "price",
+        "source_value": "от 87765600〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 177,
+        "field": "price",
+        "source_value": "от 82321330〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 182,
+        "field": "price",
+        "source_value": "от 18717400〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 185,
+        "field": "price",
+        "source_value": "от 82321330〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 190,
+        "field": "price",
+        "source_value": "от 18717400〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 211,
+        "field": "price",
+        "source_value": "от 128251250〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 212,
+        "field": "price",
+        "source_value": "от 33225300〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 218,
+        "field": "price",
+        "source_value": "от 54518880〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 219,
+        "field": "price",
+        "source_value": "от 48483540〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 220,
+        "field": "price",
+        "source_value": "от 90644610〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 226,
+        "field": "price",
+        "source_value": "от 54518880〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 227,
+        "field": "price",
+        "source_value": "от 48483540〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 228,
+        "field": "price",
+        "source_value": "от 90644610〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 238,
+        "field": "price",
+        "source_value": "от 47742120〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 239,
+        "field": "price",
+        "source_value": "от 45395473〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 240,
+        "field": "price",
+        "source_value": "от 107125890〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 252,
+        "field": "price",
+        "source_value": "от 47742120〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 253,
+        "field": "price",
+        "source_value": "от 45395473〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 254,
+        "field": "price",
+        "source_value": "от 107125890〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 258,
+        "field": "price",
+        "source_value": "от 23232480〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 272,
+        "field": "price",
+        "source_value": "от 46821060〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 297,
+        "field": "price",
+        "source_value": "от 29884500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 298,
+        "field": "price",
+        "source_value": "от 14760000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 305,
+        "field": "price",
+        "source_value": "от 29884500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 306,
+        "field": "price",
+        "source_value": "от 14760000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 318,
+        "field": "price",
+        "source_value": "от 26289000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 319,
+        "field": "price",
+        "source_value": "от 26753100〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 320,
+        "field": "price",
+        "source_value": "от 76638040〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 321,
+        "field": "price",
+        "source_value": "от 39984000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 335,
+        "field": "price",
+        "source_value": "от 58620600〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 336,
+        "field": "price",
+        "source_value": "от 81302500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 337,
+        "field": "price",
+        "source_value": "от 47996280〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 372,
+        "field": "price",
+        "source_value": "от 40783350〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 373,
+        "field": "price",
+        "source_value": "от 63656280〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 374,
+        "field": "price",
+        "source_value": "от 54431130〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 375,
+        "field": "price",
+        "source_value": "от 71309200〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 376,
+        "field": "price",
+        "source_value": "от 11151000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 381,
+        "field": "price",
+        "source_value": "от 36747700〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 396,
+        "field": "price",
+        "source_value": "от 45206600〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 397,
+        "field": "price",
+        "source_value": "от 51859813〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 398,
+        "field": "price",
+        "source_value": "от 32336890〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 399,
+        "field": "price",
+        "source_value": "от 79075170〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 400,
+        "field": "price",
+        "source_value": "от 64232000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 414,
+        "field": "price",
+        "source_value": "от 45206600〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 415,
+        "field": "price",
+        "source_value": "от 51859813〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 416,
+        "field": "price",
+        "source_value": "от 32336890〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 417,
+        "field": "price",
+        "source_value": "от 79075170〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 418,
+        "field": "price",
+        "source_value": "от 64232000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 422,
+        "field": "price",
+        "source_value": "от 210409320〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 423,
+        "field": "price",
+        "source_value": "от 71668820〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 428,
+        "field": "price",
+        "source_value": "от 45206600〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 429,
+        "field": "price",
+        "source_value": "от 51859813〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 430,
+        "field": "price",
+        "source_value": "от 32336890〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 431,
+        "field": "price",
+        "source_value": "от 79075170〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 432,
+        "field": "price",
+        "source_value": "от 64232000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 436,
+        "field": "price",
+        "source_value": "от 210409320〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 437,
+        "field": "price",
+        "source_value": "от 71668820〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 460,
+        "field": "price",
+        "source_value": "от 61159840〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 463,
+        "field": "price",
+        "source_value": "от 23928290〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 469,
+        "field": "price",
+        "source_value": "от 61159840〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 472,
+        "field": "price",
+        "source_value": "от 23928290〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 473,
+        "field": "price",
+        "source_value": "от 49507200〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 484,
+        "field": "price",
+        "source_value": "от 23928290〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 485,
+        "field": "price",
+        "source_value": "от 49507200〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 500,
+        "field": "price",
+        "source_value": "от 19327000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 501,
+        "field": "price",
+        "source_value": "от 34968320〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 502,
+        "field": "price",
+        "source_value": "от 82981280〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 503,
+        "field": "price",
+        "source_value": "от 101857050〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 504,
+        "field": "price",
+        "source_value": "от 101857050〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 505,
+        "field": "price",
+        "source_value": "от 54672800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 515,
+        "field": "price",
+        "source_value": "от 34645320〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 516,
+        "field": "price",
+        "source_value": "от 35814240〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 517,
+        "field": "price",
+        "source_value": "от 25518900〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 518,
+        "field": "price",
+        "source_value": "от 59892000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 519,
+        "field": "price",
+        "source_value": "от 121023670〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 520,
+        "field": "price",
+        "source_value": "от 59532200〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 524,
+        "field": "price",
+        "source_value": "от 59892000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 525,
+        "field": "price",
+        "source_value": "от 121023670〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 526,
+        "field": "price",
+        "source_value": "от 59532200〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 543,
+        "field": "price",
+        "source_value": "от 38790000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 553,
+        "field": "price",
+        "source_value": "от 38790000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 554,
+        "field": "price",
+        "source_value": "от 222868800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 555,
+        "field": "price",
+        "source_value": "от 56760000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 558,
+        "field": "price",
+        "source_value": "от 101954600〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 559,
+        "field": "price",
+        "source_value": "от 144360900〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 565,
+        "field": "price",
+        "source_value": "от 101954600〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 566,
+        "field": "price",
+        "source_value": "от 144360900〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 572,
+        "field": "price",
+        "source_value": "от 29257500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 573,
+        "field": "price",
+        "source_value": "от 163637040〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 574,
+        "field": "price",
+        "source_value": "от 43942260〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 575,
+        "field": "price",
+        "source_value": "от 154654320〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 576,
+        "field": "price",
+        "source_value": "от 18870000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 582,
+        "field": "price",
+        "source_value": "от 54222000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 583,
+        "field": "price",
+        "source_value": "от 18763400〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 589,
+        "field": "price",
+        "source_value": "от 54222000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 590,
+        "field": "price",
+        "source_value": "от 18763400〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 601,
+        "field": "price",
+        "source_value": "от 20664000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 612,
+        "field": "price",
+        "source_value": "от 20664000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 720,
+        "field": "price",
+        "source_value": "от 41548680〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 721,
+        "field": "price",
+        "source_value": "от 53178000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 722,
+        "field": "price",
+        "source_value": "от 47483000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 723,
+        "field": "price",
+        "source_value": "от 58746600〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 733,
+        "field": "price",
+        "source_value": "от 41548680〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 734,
+        "field": "price",
+        "source_value": "от 53178000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 735,
+        "field": "price",
+        "source_value": "от 47483000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 736,
+        "field": "price",
+        "source_value": "от 58746600〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 737,
+        "field": "price",
+        "source_value": "от 42132650〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 738,
+        "field": "price",
+        "source_value": "от 28147500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 739,
+        "field": "price",
+        "source_value": "от 65000000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 741,
+        "field": "price",
+        "source_value": "от 44023610〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 742,
+        "field": "price",
+        "source_value": "от 33018750〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 743,
+        "field": "price",
+        "source_value": "от 167344100〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 753,
+        "field": "price",
+        "source_value": "от 90647040〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 754,
+        "field": "price",
+        "source_value": "от 163249200〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 755,
+        "field": "price",
+        "source_value": "от 110530000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 760,
+        "field": "price",
+        "source_value": "от 174337590〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 761,
+        "field": "price",
+        "source_value": "от 58851149〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 762,
+        "field": "price",
+        "source_value": "от 39387500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 766,
+        "field": "price",
+        "source_value": "от 174337590〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 767,
+        "field": "price",
+        "source_value": "от 58851149〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 768,
+        "field": "price",
+        "source_value": "от 39387500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 778,
+        "field": "price",
+        "source_value": "от 147042120〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 787,
+        "field": "price",
+        "source_value": "от 147042120〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 797,
+        "field": "price",
+        "source_value": "от 93260580〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 798,
+        "field": "price",
+        "source_value": "от 37788170〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 799,
+        "field": "price",
+        "source_value": "от 52440000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 808,
+        "field": "price",
+        "source_value": "от 41725000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 809,
+        "field": "price",
+        "source_value": "от 51031649〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 810,
+        "field": "price",
+        "source_value": "от 272778630〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 811,
+        "field": "price",
+        "source_value": "от 52468700〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 812,
+        "field": "price",
+        "source_value": "от 31696800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 813,
+        "field": "price",
+        "source_value": "от 70254470〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 814,
+        "field": "price",
+        "source_value": "от 32953860〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 815,
+        "field": "price",
+        "source_value": "от 33133800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 824,
+        "field": "price",
+        "source_value": "от 52468700〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 825,
+        "field": "price",
+        "source_value": "от 31696800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 826,
+        "field": "price",
+        "source_value": "от 70254470〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 827,
+        "field": "price",
+        "source_value": "от 32953860〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 828,
+        "field": "price",
+        "source_value": "от 33133800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 838,
+        "field": "price",
+        "source_value": "от 62462250〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 839,
+        "field": "price",
+        "source_value": "от 39839580〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 840,
+        "field": "price",
+        "source_value": "от 42207000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 849,
+        "field": "price",
+        "source_value": "от 62462250〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 850,
+        "field": "price",
+        "source_value": "от 39839580〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 851,
+        "field": "price",
+        "source_value": "от 42207000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 858,
+        "field": "price",
+        "source_value": "от 28006230〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 859,
+        "field": "price",
+        "source_value": "от 23216640〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 860,
+        "field": "price",
+        "source_value": "от 63344000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 873,
+        "field": "price",
+        "source_value": "от 91634370〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 874,
+        "field": "price",
+        "source_value": "от 80317160〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 875,
+        "field": "price",
+        "source_value": "от 39336000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 876,
+        "field": "price",
+        "source_value": "от 69324300〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 878,
+        "field": "price",
+        "source_value": "от 193000000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 882,
+        "field": "price",
+        "source_value": "от 62293000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 883,
+        "field": "price",
+        "source_value": "от 44922800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 884,
+        "field": "price",
+        "source_value": "от 69324300〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 886,
+        "field": "price",
+        "source_value": "от 193000000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 890,
+        "field": "price",
+        "source_value": "от 62293000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 891,
+        "field": "price",
+        "source_value": "от 44922800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 892,
+        "field": "price",
+        "source_value": "от 37618440〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 899,
+        "field": "price",
+        "source_value": "от 79851380〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 905,
+        "field": "price",
+        "source_value": "от 79851380〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 918,
+        "field": "price",
+        "source_value": "от 57657780〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 931,
+        "field": "price",
+        "source_value": "от 57494000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 937,
+        "field": "price",
+        "source_value": "от 37533990〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 949,
+        "field": "price",
+        "source_value": "от 39137560〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 954,
+        "field": "price",
+        "source_value": "от 174505850〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 955,
+        "field": "price",
+        "source_value": "от 60475000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 976,
+        "field": "price",
+        "source_value": "от 123144840〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 977,
+        "field": "price",
+        "source_value": "от 41725950〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 978,
+        "field": "price",
+        "source_value": "от 117239760〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 985,
+        "field": "price",
+        "source_value": "от 72550300〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 986,
+        "field": "price",
+        "source_value": "от 41241300〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 987,
+        "field": "price",
+        "source_value": "от 39729000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 988,
+        "field": "price",
+        "source_value": "от 85000000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 992,
+        "field": "price",
+        "source_value": "от 146121300〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 993,
+        "field": "price",
+        "source_value": "от 53100599〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 998,
+        "field": "price",
+        "source_value": "от 42103800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 999,
+        "field": "price",
+        "source_value": "от 29768310〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1005,
+        "field": "price",
+        "source_value": "от 72550300〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1006,
+        "field": "price",
+        "source_value": "от 41241300〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1007,
+        "field": "price",
+        "source_value": "от 39729000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1008,
+        "field": "price",
+        "source_value": "от 85000000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1012,
+        "field": "price",
+        "source_value": "от 146121300〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1013,
+        "field": "price",
+        "source_value": "от 53100599〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1018,
+        "field": "price",
+        "source_value": "от 42103800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1019,
+        "field": "price",
+        "source_value": "от 29768310〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1034,
+        "field": "price",
+        "source_value": "от 100800000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1035,
+        "field": "price",
+        "source_value": "от 32483040〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1036,
+        "field": "price",
+        "source_value": "от 43010500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1049,
+        "field": "price",
+        "source_value": "от 39712005〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1057,
+        "field": "price",
+        "source_value": "от 84064900〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1058,
+        "field": "price",
+        "source_value": "от 133348700〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1059,
+        "field": "price",
+        "source_value": "от 54751110〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1060,
+        "field": "price",
+        "source_value": "от 240026350〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1066,
+        "field": "price",
+        "source_value": "от 84064900〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1067,
+        "field": "price",
+        "source_value": "от 133348700〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1068,
+        "field": "price",
+        "source_value": "от 54751110〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1069,
+        "field": "price",
+        "source_value": "от 240026350〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1073,
+        "field": "price",
+        "source_value": "от 92300300〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1074,
+        "field": "price",
+        "source_value": "от 33676020〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1095,
+        "field": "price",
+        "source_value": "от 45097700〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1096,
+        "field": "price",
+        "source_value": "от 91598970〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1097,
+        "field": "price",
+        "source_value": "от 85350380〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1103,
+        "field": "price",
+        "source_value": "от 143230960〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1104,
+        "field": "price",
+        "source_value": "от 143230960〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1111,
+        "field": "price",
+        "source_value": "от 49380000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1119,
+        "field": "price",
+        "source_value": "от 132994290〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1120,
+        "field": "price",
+        "source_value": "от 19931800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1131,
+        "field": "price",
+        "source_value": "от 132994290〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1132,
+        "field": "price",
+        "source_value": "от 19931800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1140,
+        "field": "price",
+        "source_value": "от 39189555〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1141,
+        "field": "price",
+        "source_value": "от 239511100〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1142,
+        "field": "price",
+        "source_value": "от 40751950〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1143,
+        "field": "price",
+        "source_value": "от 41073347〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1148,
+        "field": "price",
+        "source_value": "от 39189555〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1149,
+        "field": "price",
+        "source_value": "от 239511100〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1150,
+        "field": "price",
+        "source_value": "от 40751950〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1151,
+        "field": "price",
+        "source_value": "от 41073347〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1152,
+        "field": "price",
+        "source_value": "от 41412227〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1153,
+        "field": "price",
+        "source_value": "от 42126000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1154,
+        "field": "price",
+        "source_value": "от 8220000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1160,
+        "field": "price",
+        "source_value": "от 158065660〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1161,
+        "field": "price",
+        "source_value": "от 41780830〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1162,
+        "field": "price",
+        "source_value": "от 61426500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1165,
+        "field": "price",
+        "source_value": "от 158065660〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1166,
+        "field": "price",
+        "source_value": "от 41780830〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1167,
+        "field": "price",
+        "source_value": "от 61426500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1175,
+        "field": "price",
+        "source_value": "от 23971500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1180,
+        "field": "price",
+        "source_value": "от 30264000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1181,
+        "field": "price",
+        "source_value": "от 96214080〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1184,
+        "field": "price",
+        "source_value": "от 30264000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1185,
+        "field": "price",
+        "source_value": "от 96214080〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1200,
+        "field": "price",
+        "source_value": "от 29183000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1201,
+        "field": "price",
+        "source_value": "от 39167200〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1207,
+        "field": "price",
+        "source_value": "от 29183000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1208,
+        "field": "price",
+        "source_value": "от 39167200〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1217,
+        "field": "price",
+        "source_value": "от 122006080〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1218,
+        "field": "price",
+        "source_value": "от 77571650〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1231,
+        "field": "price",
+        "source_value": "от 56486800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1239,
+        "field": "price",
+        "source_value": "от 42166800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1240,
+        "field": "price",
+        "source_value": "от 49392000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1245,
+        "field": "price",
+        "source_value": "от 42166800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1246,
+        "field": "price",
+        "source_value": "от 49392000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1256,
+        "field": "price",
+        "source_value": "от 79245000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1269,
+        "field": "price",
+        "source_value": "от 51267600〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1275,
+        "field": "price",
+        "source_value": "от 101849600〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1288,
+        "field": "price",
+        "source_value": "от 47369000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1300,
+        "field": "price",
+        "source_value": "от 85843170〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1301,
+        "field": "price",
+        "source_value": "от 20402320〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1302,
+        "field": "price",
+        "source_value": "от 75573560〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1307,
+        "field": "price",
+        "source_value": "от 85843170〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1308,
+        "field": "price",
+        "source_value": "от 20402320〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1309,
+        "field": "price",
+        "source_value": "от 75573560〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1314,
+        "field": "price",
+        "source_value": "от 29342320〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1315,
+        "field": "price",
+        "source_value": "от 56292200〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1316,
+        "field": "price",
+        "source_value": "от 44009450〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1333,
+        "field": "price",
+        "source_value": "от 65692120〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1334,
+        "field": "price",
+        "source_value": "от 45424830〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1342,
+        "field": "price",
+        "source_value": "от 29470050〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1350,
+        "field": "price",
+        "source_value": "от 36879360〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1355,
+        "field": "price",
+        "source_value": "от 48429380〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1356,
+        "field": "price",
+        "source_value": "от 56479500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1358,
+        "field": "price",
+        "source_value": "от 88072020〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1359,
+        "field": "price",
+        "source_value": "от 68773620〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1360,
+        "field": "price",
+        "source_value": "от 83107760〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1361,
+        "field": "price",
+        "source_value": "от 72453500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1362,
+        "field": "price",
+        "source_value": "от 21744800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1363,
+        "field": "price",
+        "source_value": "от 169679120〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1364,
+        "field": "price",
+        "source_value": "от 56479500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1366,
+        "field": "price",
+        "source_value": "от 88072020〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1367,
+        "field": "price",
+        "source_value": "от 68773620〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1368,
+        "field": "price",
+        "source_value": "от 83107760〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1369,
+        "field": "price",
+        "source_value": "от 72453500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1370,
+        "field": "price",
+        "source_value": "от 21744800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1371,
+        "field": "price",
+        "source_value": "от 169679120〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1372,
+        "field": "price",
+        "source_value": "от 61624500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1373,
+        "field": "price",
+        "source_value": "от 105826250〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1374,
+        "field": "price",
+        "source_value": "от 29871800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1375,
+        "field": "price",
+        "source_value": "от 27083000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1392,
+        "field": "price",
+        "source_value": "от 61993500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1393,
+        "field": "price",
+        "source_value": "от 118965000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1394,
+        "field": "price",
+        "source_value": "от 53409000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1395,
+        "field": "price",
+        "source_value": "от 74875280〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1399,
+        "field": "price",
+        "source_value": "от 44233800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1400,
+        "field": "price",
+        "source_value": "от 31130760〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1401,
+        "field": "price",
+        "source_value": "от 60923863〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1402,
+        "field": "price",
+        "source_value": "от 92399580〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1403,
+        "field": "price",
+        "source_value": "от 62422000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1404,
+        "field": "price",
+        "source_value": "от 31130760〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1405,
+        "field": "price",
+        "source_value": "от 60923863〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1406,
+        "field": "price",
+        "source_value": "от 92399580〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1407,
+        "field": "price",
+        "source_value": "от 62422000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1408,
+        "field": "price",
+        "source_value": "от 27703500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1409,
+        "field": "price",
+        "source_value": "от 168869610〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1415,
+        "field": "price",
+        "source_value": "от 68794000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1416,
+        "field": "price",
+        "source_value": "от 65543920〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1419,
+        "field": "price",
+        "source_value": "от 44946020〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1434,
+        "field": "price",
+        "source_value": "от 47355000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1435,
+        "field": "price",
+        "source_value": "от 67431150〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1436,
+        "field": "price",
+        "source_value": "от 73992240〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1437,
+        "field": "price",
+        "source_value": "от 68913220〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1444,
+        "field": "price",
+        "source_value": "от 67431150〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1445,
+        "field": "price",
+        "source_value": "от 73992240〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1446,
+        "field": "price",
+        "source_value": "от 68913220〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1461,
+        "field": "price",
+        "source_value": "от 37285515〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1464,
+        "field": "price",
+        "source_value": "от 37285515〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1480,
+        "field": "price",
+        "source_value": "от 149885400〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1481,
+        "field": "price",
+        "source_value": "от 32006700〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1487,
+        "field": "price",
+        "source_value": "от 79735210〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1488,
+        "field": "price",
+        "source_value": "от 27895490〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1489,
+        "field": "price",
+        "source_value": "от 44826240〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1490,
+        "field": "price",
+        "source_value": "от 130853340〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1491,
+        "field": "price",
+        "source_value": "от 26932500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1497,
+        "field": "price",
+        "source_value": "от 37718880〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1498,
+        "field": "price",
+        "source_value": "от 44038980〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1508,
+        "field": "price",
+        "source_value": "от 55921500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1509,
+        "field": "price",
+        "source_value": "от 27381200〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1510,
+        "field": "price",
+        "source_value": "от 42641690〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1511,
+        "field": "price",
+        "source_value": "от 182182860〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1514,
+        "field": "price",
+        "source_value": "от 53214400〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1515,
+        "field": "price",
+        "source_value": "от 73616100〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1516,
+        "field": "price",
+        "source_value": "от 57653800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1522,
+        "field": "price",
+        "source_value": "от 91880300〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1523,
+        "field": "price",
+        "source_value": "от 41286840〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1528,
+        "field": "price",
+        "source_value": "от 91880300〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1529,
+        "field": "price",
+        "source_value": "от 41286840〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1534,
+        "field": "price",
+        "source_value": "от 50337000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1549,
+        "field": "price",
+        "source_value": "от 28013050〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1550,
+        "field": "price",
+        "source_value": "от 62755987〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1551,
+        "field": "price",
+        "source_value": "от 74713730〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1560,
+        "field": "price",
+        "source_value": "от 78770400〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1561,
+        "field": "price",
+        "source_value": "от 66722040〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1564,
+        "field": "price",
+        "source_value": "от 78770400〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1565,
+        "field": "price",
+        "source_value": "от 66722040〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1569,
+        "field": "price",
+        "source_value": "от 56388153〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1570,
+        "field": "price",
+        "source_value": "от 63949200〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1571,
+        "field": "price",
+        "source_value": "от 43879140〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1572,
+        "field": "price",
+        "source_value": "от 39185900〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1573,
+        "field": "price",
+        "source_value": "от 65500000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1577,
+        "field": "price",
+        "source_value": "от 53747100〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1578,
+        "field": "price",
+        "source_value": "от 61268200〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1579,
+        "field": "price",
+        "source_value": "от 35616000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1597,
+        "field": "price",
+        "source_value": "от 41105850〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1599,
+        "field": "price",
+        "source_value": "от 49333440〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1614,
+        "field": "price",
+        "source_value": "от 39943200〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1615,
+        "field": "price",
+        "source_value": "от 48165000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1616,
+        "field": "price",
+        "source_value": "от 33849270〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1617,
+        "field": "price",
+        "source_value": "от 75623710〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1623,
+        "field": "price",
+        "source_value": "от 176853630〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1624,
+        "field": "price",
+        "source_value": "от 34546940〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1634,
+        "field": "price",
+        "source_value": "от 66338730〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1635,
+        "field": "price",
+        "source_value": "от 42005250〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1640,
+        "field": "price",
+        "source_value": "от 95555240〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1641,
+        "field": "price",
+        "source_value": "от 44428650〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1642,
+        "field": "price",
+        "source_value": "от 51594060〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1643,
+        "field": "price",
+        "source_value": "от 30642040〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1645,
+        "field": "price",
+        "source_value": "от 95555240〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1646,
+        "field": "price",
+        "source_value": "от 44428650〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1647,
+        "field": "price",
+        "source_value": "от 51594060〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1648,
+        "field": "price",
+        "source_value": "от 30642040〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1651,
+        "field": "price",
+        "source_value": "от 52556160〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1652,
+        "field": "price",
+        "source_value": "от 113170500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1663,
+        "field": "price",
+        "source_value": "от 42435000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1675,
+        "field": "price",
+        "source_value": "от 121842800〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1676,
+        "field": "price",
+        "source_value": "от 77983420〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1680,
+        "field": "price",
+        "source_value": "от 27474300〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1681,
+        "field": "price",
+        "source_value": "от 73968420〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1683,
+        "field": "price",
+        "source_value": "от 222106560〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1685,
+        "field": "price",
+        "source_value": "от 27474300〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1686,
+        "field": "price",
+        "source_value": "от 73968420〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1688,
+        "field": "price",
+        "source_value": "от 222106560〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1689,
+        "field": "price",
+        "source_value": "от 61761609〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1697,
+        "field": "price",
+        "source_value": "от 88570290〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1712,
+        "field": "price",
+        "source_value": "от 105975190〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1713,
+        "field": "price",
+        "source_value": "от 62269000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1714,
+        "field": "price",
+        "source_value": "от 55300200〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1715,
+        "field": "price",
+        "source_value": "от 62298600〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1727,
+        "field": "price",
+        "source_value": "от 43230000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1733,
+        "field": "price",
+        "source_value": "от 37387960〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1734,
+        "field": "price",
+        "source_value": "от 64263000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1735,
+        "field": "price",
+        "source_value": "от 32668466〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1742,
+        "field": "price",
+        "source_value": "от 39729000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1743,
+        "field": "price",
+        "source_value": "от 40495000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1746,
+        "field": "price",
+        "source_value": "от 37387960〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1747,
+        "field": "price",
+        "source_value": "от 64263000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1748,
+        "field": "price",
+        "source_value": "от 32668466〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1755,
+        "field": "price",
+        "source_value": "от 39729000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1756,
+        "field": "price",
+        "source_value": "от 40495000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1770,
+        "field": "price",
+        "source_value": "от 75667760〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1774,
+        "field": "price",
+        "source_value": "от 101359350〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1775,
+        "field": "price",
+        "source_value": "от 81098790〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1781,
+        "field": "price",
+        "source_value": "от 28470000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1784,
+        "field": "price",
+        "source_value": "от 73563365〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1785,
+        "field": "price",
+        "source_value": "от 50458880〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1786,
+        "field": "price",
+        "source_value": "от 44889000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1787,
+        "field": "price",
+        "source_value": "от 51579680〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1788,
+        "field": "price",
+        "source_value": "от 58449280〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1789,
+        "field": "price",
+        "source_value": "от 128961000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1797,
+        "field": "price",
+        "source_value": "от 25055100〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1801,
+        "field": "price",
+        "source_value": "от 105373040〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1805,
+        "field": "price",
+        "source_value": "от 105373040〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1818,
+        "field": "price",
+        "source_value": "от 89653850〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1819,
+        "field": "price",
+        "source_value": "от 81406150〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1835,
+        "field": "price",
+        "source_value": "от 97592270〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1836,
+        "field": "price",
+        "source_value": "от 20750600〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1845,
+        "field": "price",
+        "source_value": "от 44200000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1846,
+        "field": "price",
+        "source_value": "от 38264450〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1878,
+        "field": "price",
+        "source_value": "от 82649760〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1879,
+        "field": "price",
+        "source_value": "от 40519710〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1880,
+        "field": "price",
+        "source_value": "от 46504554〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1893,
+        "field": "price",
+        "source_value": "от 64515870〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1894,
+        "field": "price",
+        "source_value": "от 40022850〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1918,
+        "field": "price",
+        "source_value": "от 32542784〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1931,
+        "field": "price",
+        "source_value": "от 9630000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1958,
+        "field": "price",
+        "source_value": "от 63996660〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1974,
+        "field": "price",
+        "source_value": "от 45556350〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 1996,
+        "field": "price",
+        "source_value": "от 148169560〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2007,
+        "field": "price",
+        "source_value": "от 42172100〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2008,
+        "field": "price",
+        "source_value": "от 36395200〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2009,
+        "field": "price",
+        "source_value": "от 62693750〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2017,
+        "field": "price",
+        "source_value": "от 145772000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2018,
+        "field": "price",
+        "source_value": "от 37116230〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2030,
+        "field": "price",
+        "source_value": "от 61956180〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2031,
+        "field": "price",
+        "source_value": "от 99938920〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2032,
+        "field": "price",
+        "source_value": "от 48477000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2037,
+        "field": "price",
+        "source_value": "от 94918480〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2050,
+        "field": "price",
+        "source_value": "от 49334640〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2054,
+        "field": "price",
+        "source_value": "от 220683100〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2062,
+        "field": "price",
+        "source_value": "от 56614050〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2064,
+        "field": "price",
+        "source_value": "от 56614050〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2068,
+        "field": "price",
+        "source_value": "от 64116680〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2069,
+        "field": "price",
+        "source_value": "от 37081920〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2077,
+        "field": "price",
+        "source_value": "от 132090000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2113,
+        "field": "price",
+        "source_value": "от 26962000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2116,
+        "field": "price",
+        "source_value": "от 35567200〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2121,
+        "field": "price",
+        "source_value": "от 128126360〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2128,
+        "field": "price",
+        "source_value": "от 48982587〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2129,
+        "field": "price",
+        "source_value": "от 46321110〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2154,
+        "field": "price",
+        "source_value": "от 29099700〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2172,
+        "field": "price",
+        "source_value": "от 40998960〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2188,
+        "field": "price",
+        "source_value": "от 48766300〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2219,
+        "field": "price",
+        "source_value": "от 53810100〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2235,
+        "field": "price",
+        "source_value": "от 53600580〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2241,
+        "field": "price",
+        "source_value": "от 24495450〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2248,
+        "field": "price",
+        "source_value": "от 24147900〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2262,
+        "field": "price",
+        "source_value": "от 14175000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2268,
+        "field": "price",
+        "source_value": "от 14175000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2271,
+        "field": "price",
+        "source_value": "от 150360000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2273,
+        "field": "price",
+        "source_value": "от 76719200〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2281,
+        "field": "price",
+        "source_value": "от 143802480〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2290,
+        "field": "price",
+        "source_value": "от 34714190〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2294,
+        "field": "price",
+        "source_value": "от 147969360〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2301,
+        "field": "price",
+        "source_value": "от 126285250〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2314,
+        "field": "price",
+        "source_value": "от 39091500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2349,
+        "field": "price",
+        "source_value": "от 67854310〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2354,
+        "field": "price",
+        "source_value": "от 39418570〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2366,
+        "field": "price",
+        "source_value": "от 39418570〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2383,
+        "field": "price",
+        "source_value": "от 30292960〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2386,
+        "field": "price",
+        "source_value": "от 30292960〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2387,
+        "field": "price",
+        "source_value": "от 58671150〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2393,
+        "field": "price",
+        "source_value": "от 9985500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2418,
+        "field": "price",
+        "source_value": "от 40080320〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2432,
+        "field": "price",
+        "source_value": "от 61147790〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2465,
+        "field": "price",
+        "source_value": "от 122364560〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2472,
+        "field": "price",
+        "source_value": "от 125065500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2481,
+        "field": "price",
+        "source_value": "от 50563000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2485,
+        "field": "price",
+        "source_value": "от 50563000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2488,
+        "field": "price",
+        "source_value": "от 46016560〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2489,
+        "field": "price",
+        "source_value": "от 27555810〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2492,
+        "field": "price",
+        "source_value": "от 77629040〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2499,
+        "field": "price",
+        "source_value": "от 34951260〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2501,
+        "field": "price",
+        "source_value": "от 54732960〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2502,
+        "field": "price",
+        "source_value": "от 65826750〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2504,
+        "field": "price",
+        "source_value": "от 65826750〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2522,
+        "field": "price",
+        "source_value": "от 38937500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2528,
+        "field": "price",
+        "source_value": "от 38937500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2534,
+        "field": "price",
+        "source_value": "от 99337000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2542,
+        "field": "price",
+        "source_value": "от 70802700〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2547,
+        "field": "price",
+        "source_value": "от 112096140〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2550,
+        "field": "price",
+        "source_value": "от 52529040〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2556,
+        "field": "price",
+        "source_value": "от 49069440〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2567,
+        "field": "price",
+        "source_value": "от 127290240〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2568,
+        "field": "price",
+        "source_value": "от 35017500〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2588,
+        "field": "price",
+        "source_value": "от 27575100〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2661,
+        "field": "price",
+        "source_value": "от 38178900〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2665,
+        "field": "price",
+        "source_value": "от 38178900〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2669,
+        "field": "price",
+        "source_value": "от 283932000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2690,
+        "field": "price",
+        "source_value": "от 58881000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2703,
+        "field": "price",
+        "source_value": "от 52545512〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2704,
+        "field": "price",
+        "source_value": "от 52545512〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2707,
+        "field": "price",
+        "source_value": "от 50131200〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2713,
+        "field": "price",
+        "source_value": "от 38818780〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2725,
+        "field": "price",
+        "source_value": "от 87371040〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2727,
+        "field": "price",
+        "source_value": "от 29302040〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2734,
+        "field": "price",
+        "source_value": "от 52645760〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2745,
+        "field": "price",
+        "source_value": "от 115401000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2759,
+        "field": "price",
+        "source_value": "от 56733400〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2767,
+        "field": "price",
+        "source_value": "от 59413000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2779,
+        "field": "price",
+        "source_value": "от 45873181〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2780,
+        "field": "price",
+        "source_value": "от 79808300〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2806,
+        "field": "price",
+        "source_value": "от 53499330〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2838,
+        "field": "price",
+        "source_value": "от 40452210〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2852,
+        "field": "price",
+        "source_value": "от 44454564〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2907,
+        "field": "price",
+        "source_value": "от 50076000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 2959,
+        "field": "price",
+        "source_value": "от 30525600〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 3014,
+        "field": "price",
+        "source_value": "от 34992000〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 3135,
+        "field": "price",
+        "source_value": "от 126247600〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      },
+      {
+        "source_row": 3151,
+        "field": "price",
+        "source_value": "от 32374637〒",
+        "reason": "non_exact_price",
+        "action": "reject"
+      }
+    ],
+    "parsing_anomaly_counts": {
+      "non_exact_price": 554
+    },
+    "adapter_normalizations": {
+      "price_currency_marker_u3012_to_tenge": 5003,
+      "standalone_floor_without_total": 138
+    },
+    "source_missing_counts": {
+      "url": 0,
+      "title": 0,
+      "price": 0,
+      "Балкон": 2408,
+      "Балкон остеклён": 4062,
+      "Безопасность": 2663,
+      "Бывшее общежитие": 912,
+      "Возможен обмен": 554,
+      "Высота потолков": 269,
+      "Год постройки": 0,
+      "Город": 0,
+      "Дверь": 2680,
+      "Жилой комплекс": 698,
+      "Интернет": 3425,
+      "Квартира меблирована": 2330,
+      "Парковка": 1811,
+      "Площадь": 0,
+      "Пол": 2665,
+      "Санузел": 1429,
+      "Состояние квартиры": 2865,
+      "Телефон": 3982,
+      "Тип дома": 265,
+      "Этаж": 603
+    },
+    "category_values": {
+      "district": [
+        "Алматы",
+        "Байконур",
+        "Есиль",
+        "Нура",
+        "Сарайшык",
+        "Сарыарка"
+      ],
+      "building_type": [
+        "иной",
+        "кирпичный",
+        "монолитный",
+        "панельный"
+      ],
+      "condition": [
+        "не новый, но аккуратный ремонт",
+        "свежий ремонт",
+        "свободная планировка",
+        "требует ремонта",
+        "черновая отделка"
+      ]
+    },
+    "pandas_version": "2.2.3",
+    "numpy_version": "2.2.6",
+    "output_sha256": "46ab0642cb837147cf3e9743d974158345160320aae34bf2eff5914287fee6c9",
+    "rejected_sha256": "79efed4f40483415b9ccb8225f65af8f30bb2ca0d7d10d5ac1762cc8243b8e28"
+  },
+  "overlap": {
+    "rows_march_clean": 3759,
+    "rows_january_reference": 17929,
+    "exact_url_overlap_rows": 672,
+    "possible_signature_overlap_rows": 608,
+    "either_overlap_rows": 796,
+    "known_group_rows": 797,
+    "novel_rows": 2962,
+    "groups_march": 3741,
+    "rows_with_signature": 3472,
+    "train_rows": 3165,
+    "test_rows": 594,
+    "random_state": 42,
+    "policy": "GroupShuffleSplit: 20% of March groups with no match anywhere in January; remaining March groups train only. No January rows in new training.",
+    "identity_caveat": "URL matches are exact. Price-independent district/location/area/rooms/floors/year signatures are conservative candidates, not proven identity. Incomplete signatures, changed addresses and similar flats may leave undetected repeats."
+  },
+  "old_model_all_novel_metrics": {
+    "n": 2962,
+    "mae_tenge": 7290290.219500406,
+    "median_ae_tenge": 3848449.7457220033,
+    "rmse_tenge": 16737580.988774382,
+    "median_ape_pct": 10.905161898748759,
+    "mape_pct": 15.672039197056222,
+    "p90_ae_tenge": 15981895.346938778,
+    "bias_tenge": 31971.632644621866,
+    "over_20_pct": 25.65833896016205,
+    "over_20_n": 760,
+    "over_20_ci_low_pct": 24.117724736480362,
+    "over_20_ci_high_pct": 27.26200947987989,
+    "over_10m_pct": 19.480081026333558,
+    "coverage_pct": 73.8352464550979,
+    "under_20_pct": 10.229574611748818,
+    "overprediction_20_pct": 15.428764348413235,
+    "error_share_pct": 100.0,
+    "small_group": false
+  },
+  "common_holdout_comparison": [
+    {
+      "model": "Январская модель",
+      "n": 594,
+      "mae_tenge": 7608969.962582463,
+      "median_ae_tenge": 4020107.8117913827,
+      "rmse_tenge": 13913279.14878501,
+      "median_ape_pct": 12.092467650176431,
+      "mape_pct": 15.610973439974124,
+      "p90_ae_tenge": 16171356.159755198,
+      "bias_tenge": -658318.2595029307,
+      "over_20_pct": 27.946127946127948,
+      "over_20_n": 166,
+      "over_20_ci_low_pct": 24.488011735853597,
+      "over_20_ci_high_pct": 31.687660570844105,
+      "over_10m_pct": 21.548821548821547,
+      "coverage_pct": 71.21212121212122,
+      "under_20_pct": 11.784511784511785,
+      "overprediction_20_pct": 16.161616161616163,
+      "error_share_pct": 100.0,
+      "small_group": false,
+      "r2": 0.8263273972467259
+    },
+    {
+      "model": "Мартовская модель",
+      "n": 594,
+      "mae_tenge": 8470094.464646464,
+      "median_ae_tenge": 4365328.0,
+      "rmse_tenge": 16287189.145515777,
+      "median_ape_pct": 13.266916360968452,
+      "mape_pct": 16.9578027556174,
+      "p90_ae_tenge": 18812363.20000001,
+      "bias_tenge": -692274.2760942761,
+      "over_20_pct": 31.14478114478115,
+      "over_20_n": 185,
+      "over_20_ci_low_pct": 27.551889704447785,
+      "over_20_ci_high_pct": 34.97998280204185,
+      "over_10m_pct": 25.084175084175087,
+      "coverage_pct": 70.2020202020202,
+      "under_20_pct": 12.121212121212121,
+      "overprediction_20_pct": 19.023569023569024,
+      "error_share_pct": 100.0,
+      "small_group": false,
+      "r2": 0.7620067742686156
+    }
+  ],
+  "mae_improvement_pct": -11.317228301578641,
+  "old_model_sha256": "f40f892700324892ee0fde041f8a5feaca2e0c01fb4231185e5c3a751b073bac",
+  "new_model_sha256": "9b8253694c7f2fc109d72f30b4ce9432ad443fdf86dde32c47c5faa97ec00de2",
+  "input_sha256": "46ab0642cb837147cf3e9743d974158345160320aae34bf2eff5914287fee6c9",
+  "selected_model": "XGBoost"
+}
