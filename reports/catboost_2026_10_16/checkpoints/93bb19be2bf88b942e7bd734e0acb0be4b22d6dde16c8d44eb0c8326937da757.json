@@ -1,0 +1,21 @@
+{
+  "identity": {
+    "protocol_sha256": "ba3fd224fad72d80aa5dc5ee345d27b9dccb09d2d9c385efb2ae09336b466c09",
+    "variant": "catboost_log",
+    "params_id": "depth8_t900",
+    "train_index_sha256": "98ed032d24a91c0a28118e17085389dc87adec4f05ddda22809a212d49d56523",
+    "validation_index_sha256": "21f1c1af00c7611ec83e27e32f11dc1e09b79c31ada686583319e3b2428bd14a"
+  },
+  "csv_sha256": "9d5346a2ea7d0b49ca2476332b77985b39f39e51975cb06984c763b3db7c33e8",
+  "fit_seconds": 42.98399999999674,
+  "metrics": {
+    "n": 6423,
+    "mae_tenge": 6904770.011032945,
+    "rmse_tenge": 13800851.883941097,
+    "r2": 0.8786472007445182,
+    "median_ae_tenge": 3559493.759727884,
+    "median_ape_pct": 10.022868529383263,
+    "over_20_n": 1295,
+    "over_20_pct": 20.161918106803675
+  }
+}

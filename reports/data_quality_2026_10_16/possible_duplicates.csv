@@ -1,0 +1,3 @@
+record_id,group,house_key,rooms,area,floor,total_floors,year_built,price,url,review_group,decision
+2026-01:12626,combined_000226,astana|алматы|абылай-хана проспект 20а,1,39.0,3.0,5.0,1983,16200000.0,https://krisha.kz/a/show/1008363714,1,retain_distinct_urls_identity_unconfirmed
+2026-01:3495,combined_003470,astana|алматы|абылай-хана проспект 20а,1,39.0,3.0,5.0,1983,16500000.0,https://krisha.kz/a/show/1008297230,1,retain_distinct_urls_identity_unconfirmed

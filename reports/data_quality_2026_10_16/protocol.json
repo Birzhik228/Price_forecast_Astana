@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "policy": "source_evidence_only_v1",
+  "created_at_utc": "2026-10-16T07:18:30.854140+00:00",
+  "sources_sha256": {
+    "data/processed/combined_2026/listings_clean.csv": "28ad11f14b56315ea2dd903ffc7f8ab9d5a788f7f5e070b5ec1b61c0711d98eb",
+    "data/processed/property_catalog/listings.csv": "bb6bfa27828cb3913229b3b6d7fff6e3e6c735e97f91cbaf91eb8b318a3f85cf",
+    "data/raw/kaggle_astana/astana_apartments.csv": "923bd5483eaea5fdfe9cbf8d36c40ec1875992f66ed70ee29426dd6bc2d189ee",
+    "data/raw/turarr_march_2026/astana_apartments_raw.csv": "79c518f9ec37272c5052ea9936d3020030f4d02cccfb749fb92487fbfdf70676",
+    "reports/location_experiment/split_manifest.csv": "0d1961e59a78473309e64069a47798a9cc2489708778ec213f22a20ace3eb797",
+    "reports/combined_update/deduplication_audit.csv": "98bb07e6b644e8bdb1b3969c4645f572283e1c212cf584a80710b7ea8f555b04",
+    "data/raw/osm_2026_10_13/astana_addresses.source.json": "2d378cb1c2eb637ef49d8e0c8646e5184e7c4f37b8bda1de7274f0b34c8fd275",
+    "data/raw/osm_2026_10_13/astana_addresses.json": "0978a34d40f0c3b0066e2bc37262a0f092cca1a7e407ab892d35c12976405eff",
+    "address_identity_audit.py": "5b239315a78eeede799a870e1c5f0acff6f239de0414cfd1e1516a15d6352c3f",
+    "reports/active_error_audit_2026_10_16/errors.csv": "63644f74627642f88ab1fc5bcde05ffb1d585ef2f34c828162bf082a38bf6502",
+    "reports/active_error_audit_2026_10_16/audit_report.json": "85e40fcac2afb342cbc8b9d06bc4407bbd2673464561028e2b3952b6c1c6c65b",
+    "reports/location_experiment/experiment_plan.json": "1452b23aff1210512b86d202b1eee2f2518f6a3cb8333ce6cbbd3281424c3710",
+    "reports/property_catalog/conflict_audit.csv": "d574949f56bffa347a198ccc14bcd4399a1a96eb4d3e55ce145c326e36e650f8",
+    "building_catalog.py": "8fdcf1bf38aeb1da402a09c3a82a5c4fd5e95368b10bd29f03b7138170edc94b",
+    "location_model.py": "2b1908c219c69f4f009383c7812227543cc371d5f1bf41aac2743a61d8763b3e",
+    "clean.py": "a7b72e59f6c955dfc31cdd164716435b3249ecea250c01d6947122a45550fdef",
+    "march_data.py": "252ae0d67944bc0a60e6f3874df5b7d3bc7fd507480b62214909797e1d0868f1",
+    "repair_archived_data.py": "44a21e655bcbe389243c41d160e630efb2eea938ab210c1839437e4af1af6400",
+    "config.py": "0bd09943cbeffa95c2f21dd3c8fbef53c589bf0bca11bd3498b4a323c99e495a"
+  },
+  "active_artifacts_sha256": {
+    "models/verified_geo_2026/complex_coords.joblib": "1c68f8a289f8bd6eed5a7d96553c4b83a6db522a9ee7e7a0fed0b853423f0025",
+    "models/deployment/complex_coords_osm.json": "7dd6ddd6cb487fbefc505ad8bab5da64ac6f72a3a0aaa31967ac04c6e827c36c"
+  },
+  "rules": [
+    "missing district only from own explicit district-only address",
+    "missing complex only from own explicit complex-only address",
+    "no majority assignment",
+    "withdraw a derived house identity when the entire address is an OSM numbered street name",
+    "no target correction or outlier removal",
+    "no training or activation",
+    "preserve original split"
+  ]
+}

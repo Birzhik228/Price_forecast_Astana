@@ -1,4 +1,4 @@
-"""Адаптер приложения для схем 1 и 2 без изменения замороженных pipeline."""
+"""Адаптер приложения для схем 1–3 без изменения сохранённых моделей."""
 
 from __future__ import annotations
 
@@ -50,12 +50,15 @@ def _known_complexes(pipeline: Pipeline) -> set[str]:
     return {name for value in categories if (name := normalize_complex_name(value)) is not None}
 
 
-def load_app_artifacts(model_path: Path, metadata_path: Path) -> tuple[Pipeline, dict[str, Any]]:
+def load_app_artifacts(model_path: Path, metadata_path: Path) -> tuple[Any, dict[str, Any]]:
     """Загрузить собственный локальный артефакт приложения с проверкой SHA и схемы."""
     model_path, metadata_path = Path(model_path), Path(metadata_path)
     metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
     if isinstance(metadata, dict) and metadata.get("schema_version") == 1:
         return load_artifacts(model_path, metadata_path)
+    if isinstance(metadata, dict) and metadata.get("schema_version") == 3:
+        from catboost_prediction import load_catboost_artifacts
+        return load_catboost_artifacts(model_path, metadata_path)
     _validate_location_metadata(metadata)
     with model_path.open("rb") as stream:
         if hashlib.file_digest(stream, "sha256").hexdigest() != metadata["model_sha256"]:
@@ -98,7 +101,7 @@ def _district(value: Any) -> str | None:
 
 
 def predict_app_apartment(
-    pipeline: Pipeline, metadata: dict[str, Any], values: dict[str, Any],
+    pipeline: Any, metadata: dict[str, Any], values: dict[str, Any],
     location: dict[str, Any] | None = None,
 ) -> PredictionResult:
     """Использовать явный адрес и версионированную географию pipeline.
@@ -109,6 +112,9 @@ def predict_app_apartment(
     """
     if isinstance(metadata, dict) and metadata.get("schema_version") == 1:
         return predict_apartment(pipeline, metadata, values)
+    if isinstance(metadata, dict) and metadata.get("schema_version") == 3:
+        from catboost_prediction import predict_catboost_apartment
+        return predict_catboost_apartment(pipeline, metadata, values, location)
     _validate_location_metadata(metadata)
     if location is not None and not isinstance(location, dict):
         raise ValueError("Местоположение должно быть словарём параметров.")

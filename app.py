@@ -8,7 +8,6 @@ from typing import Any
 
 import pandas as pd
 import streamlit as st
-from sklearn.pipeline import Pipeline
 
 from config import (
     APP_MODEL_METADATA_PATH as MODEL_METADATA_PATH,
@@ -44,7 +43,7 @@ def file_signature(path: Path) -> tuple[int, int]:
 def cached_artifacts(
     model_path: str, metadata_path: str,
     model_signature: tuple[int, int], metadata_signature: tuple[int, int],
-) -> tuple[Pipeline, dict[str, Any]]:
+) -> tuple[Any, dict[str, Any]]:
     """Сигнатуры входят в ключ кэша; сами файлы читаются только при загрузке."""
     return load_artifacts(Path(model_path), Path(metadata_path))
 
@@ -81,10 +80,13 @@ def location_selector(catalog: PropertyCatalog, metadata: dict[str, Any]) -> dic
     }
     if st.session_state.get("location_complex") not in complex_labels:
         st.session_state["location_complex"] = None
-    location_model = metadata.get("schema_version") == 2
+    location_model = metadata.get("schema_version") in (2, 3)
+    uses_coordinates = metadata.get("schema_version") == 2
     with st.expander("ЖК и адрес квартиры", expanded=True):
         st.caption(
             "Необязательно. ЖК участвует в оценке цены. По адресу модель учитывает координаты, если они известны для этого дома. Выбор также уточняет поиск аналогов."
+            if uses_coordinates else
+            "Необязательно. ЖК участвует в оценке CatBoost. Адрес и координаты помогают подобрать похожие объявления из архива."
             if location_model else
             "Необязательно. Выбор места уточняет поиск аналогов. Модель цены использует восемь параметров ниже."
         )
@@ -152,7 +154,7 @@ def location_selector(catalog: PropertyCatalog, metadata: dict[str, Any]) -> dic
     return location
 
 
-def manual_location_selector(location: dict[str, Any]) -> dict[str, Any]:
+def manual_location_selector(location: dict[str, Any], uses_coordinates: bool = True) -> dict[str, Any]:
     """Allow a location outside the archive, preserving unknown values."""
     result = location.copy()
     if result.get("complex_name") and result.get("address_normalized"):
@@ -165,7 +167,9 @@ def manual_location_selector(location: dict[str, Any]) -> dict[str, Any]:
         if not result.get("address_normalized"):
             value = st.text_input("Адрес дома", key="location_manual_address", max_chars=240,
                                   placeholder="Улица и номер дома",
-                                  help="Укажите район в анкете ниже. Если адрес модели неизвестен, расчёт останется доступен без известных координат дома.").strip()
+                                  help=("Укажите район в анкете ниже. Если адрес модели неизвестен, расчёт останется доступен без известных координат дома."
+                                        if uses_coordinates else
+                                        "Укажите район в анкете ниже. Адрес уточняет поиск архивных аналогов; CatBoost использует параметры квартиры и ЖК.")).strip()
             result["address_normalized"] = value or None
     return result
 
@@ -216,7 +220,7 @@ def main() -> None:
                 str(MODEL_PIPELINE_PATH), str(MODEL_METADATA_PATH), *file_signatures,
             )
     except FileNotFoundError:
-        st.error("Файлы модели с ЖК и координатами не найдены. Восстановите сохранённые артефакты и подготовьте модель для приложения по README.")
+        st.error("Файлы выбранной модели не найдены. Восстановите сохранённые артефакты и подготовьте модель для приложения по README.")
         return
     except Exception:
         LOGGER.exception("Не удалось загрузить модель")
@@ -224,10 +228,11 @@ def main() -> None:
         return
 
     data_period_label = metadata.get("data_period_label", "января 2026 года")
-    uses_location = metadata.get("schema_version") == 2
+    uses_location = metadata.get("schema_version") in (2, 3)
+    uses_coordinates = metadata.get("schema_version") == 2
     if uses_location:
-        st.caption("Модель: ЖК и координаты")
-        if metadata.get("geo_enrichment"):
+        st.caption("Модель: " + metadata.get("model_label", "ЖК и координаты" if uses_coordinates else "CatBoost с MAE · параметры квартиры и ЖК"))
+        if uses_coordinates and metadata.get("geo_enrichment"):
             st.caption("Координаты части домов дополнены по точным адресам "
                        "[OpenStreetMap](https://www.openstreetmap.org/copyright), снимок 12 октября 2026. "
                        "© OpenStreetMap contributors · ODbL 1.0.")
@@ -259,7 +264,7 @@ def main() -> None:
         st.session_state["catalog_signature"] = catalog_state
     location = location_selector(catalog, metadata) if catalog is not None else {}
     if uses_location:
-        location = manual_location_selector(location)
+        location = manual_location_selector(location, uses_coordinates=uses_coordinates)
     location_selection = tuple(location.get(field) for field in (
         "complex_id", "building_id", "complex_name", "address_normalized", "location_district",
         "exclude_url", "invalid_listing_url",
@@ -381,13 +386,15 @@ def main() -> None:
         st.write(
             "Модель сравнивает параметры с закономерностями в объявлениях о продаже квартир. "
             + ("Учитывает ЖК и доступные по адресу координаты дома. Фактическая цена сделки, торг и вид из окна в прогнозе не учитываются."
+               if uses_coordinates else
+               "CatBoost учитывает восемь основных параметров и ЖК. Адрес и координаты помогают подбирать архивные аналоги. Фактическая цена сделки, торг и вид из окна в прогнозе не учитываются."
                if uses_location else "Фактическая цена сделки, торг, точный адрес, вид из окна и другие детали в прогнозе не учитываются.")
         )
         st.write(
             f"Средняя абсолютная ошибка {'на повторно использованной мартовской выборке' if uses_location else 'на отложенной выборке'} — {format_tenge(metadata['test_metrics']['mae_tenge'])}. "
             "Это среднее по разным квартирам. Особенно дорогие или необычные квартиры могут оцениваться значительно хуже."
         )
-        if uses_location:
+        if uses_coordinates:
             st.write("Координаты взяты из обучающего справочника и проверены на внутреннюю согласованность; точность до дома внешним источником не подтверждена. Проверка на свежих данных ещё не проведена.")
 
 

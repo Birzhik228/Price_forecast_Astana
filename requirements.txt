@@ -22,6 +22,7 @@ ipykernel==6.29.5
 # Обучение и сохранение моделей.
 scikit-learn==1.6.1
 xgboost==3.0.2
+catboost==1.2.10
 joblib==1.5.1
 threadpoolctl==3.7.0
 

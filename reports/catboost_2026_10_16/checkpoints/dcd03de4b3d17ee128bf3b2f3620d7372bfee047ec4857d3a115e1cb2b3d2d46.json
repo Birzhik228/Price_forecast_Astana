@@ -1,0 +1,21 @@
+{
+  "identity": {
+    "protocol_sha256": "ba3fd224fad72d80aa5dc5ee345d27b9dccb09d2d9c385efb2ae09336b466c09",
+    "variant": "rf_control",
+    "params_id": "fixed_current_rf",
+    "train_index_sha256": "904ae20ae3814d9382d341408e3518cd3b67e42d07a74de70cd6a8896daff58d",
+    "validation_index_sha256": "97d6a9ef9a8bf217eb8b50d7eb34bb4be84c8ca01418b4b35af71e8e0fbf6e9e"
+  },
+  "csv_sha256": "202d6b0763b10a4ef5a4ef8148e3d0a1d6ba5bc26405b3d2d29cefc9d4b7b683",
+  "fit_seconds": 24.218999999997322,
+  "metrics": {
+    "n": 6423,
+    "mae_tenge": 7833627.870436584,
+    "rmse_tenge": 22068212.458189365,
+    "r2": 0.7162903461535539,
+    "median_ae_tenge": 3902189.8278155103,
+    "median_ape_pct": 10.964839578018184,
+    "over_20_n": 1634,
+    "over_20_pct": 25.439825626654212
+  }
+}

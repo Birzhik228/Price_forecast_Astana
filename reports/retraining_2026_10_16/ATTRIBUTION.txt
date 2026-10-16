@@ -1,0 +1,3 @@
+Contains derived OpenStreetMap geographic information. © OpenStreetMap contributors; ODbL 1.0.
+https://www.openstreetmap.org/copyright
+Frozen source registry: data/processed/verified_coordinates_2026_10_13/registry.json SHA256 fdd7cea2fe8040a325c76a57d573f5a2eda5b13fe937080b5a2eadd2ca8810d5

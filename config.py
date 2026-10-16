@@ -31,6 +31,6 @@ SEARCH_ITERATIONS: Final[int] = 8
 MODEL_PIPELINE_PATH: Final[Path] = MODELS_DIR / "best_model.joblib"
 MODEL_METADATA_PATH: Final[Path] = MODELS_DIR / "model_metadata.json"
 # Application routing is separate from the frozen January benchmark artifacts.
-APP_MODEL_PIPELINE_PATH: Final[Path] = MODELS_DIR / "verified_geo_2026" / "complex_coords.joblib"
-APP_MODEL_METADATA_PATH: Final[Path] = MODELS_DIR / "deployment" / "complex_coords_osm.json"
+APP_MODEL_PIPELINE_PATH: Final[Path] = MODELS_DIR / "catboost_2026_10_16" / "catboost_mae.joblib"
+APP_MODEL_METADATA_PATH: Final[Path] = MODELS_DIR / "deployment" / "catboost_mae.json"
 PROPERTY_CATALOG_DIR: Final[Path] = PROCESSED_DATA_DIR / "property_catalog"

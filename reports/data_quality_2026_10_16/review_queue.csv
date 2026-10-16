@@ -1,0 +1,5 @@
+record_id,subset,issue,evidence,decision,url
+2026-01:5707,train,price_per_m2_below_100000,price=12900000.0; area=135.0; original values agree with source,retained_source_value_requires_external_confirmation,https://krisha.kz/a/show/1007757991
+2026-01:12060,train,price_per_m2_below_100000,price=8500000.0; area=170.0; original values agree with source,retained_source_value_requires_external_confirmation,https://krisha.kz/a/show/1007453701
+2026-03:210,train,price_per_m2_below_100000,price=21500000.0; area=432.0; original values agree with source,retained_source_value_requires_external_confirmation,https://krisha.kz/a/show/1010842898
+2026-03:382,train,price_per_m2_below_100000,price=44900000.0; area=785.0; original values agree with source,retained_source_value_requires_external_confirmation,https://krisha.kz/a/show/1010389182

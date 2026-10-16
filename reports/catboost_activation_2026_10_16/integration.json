@@ -1,0 +1,37 @@
+{
+  "created_at_utc": "2026-10-16T15:02:32.014107+00:00",
+  "status": "passed",
+  "variant": "catboost_mae",
+  "schema_version": 3,
+  "application_switched": true,
+  "activation_compatibility_validated": true,
+  "fit_calls": 0,
+  "holdout_rows_replayed_through_app_adapter": 590,
+  "adapter_replay_max_delta_tenge": 0.0,
+  "adapter_mae_tenge": 5578165.446170975,
+  "real_streamlit_apptest": {
+    "passed": true,
+    "manual_complex_price_tenge": 63285287.154819116,
+    "sample_record_id": "2026-03:75",
+    "archive_analogs_section": true,
+    "automatic_district": "Есиль",
+    "selected_complex_id": "complex_002f44f8063f55d754eb",
+    "selection_clears_previous_result": true,
+    "model_caption_correct": true
+  },
+  "application_source_sha256": {
+    "config.py": "bb39e450aac3115a125ad5594820a8a6cf0d85ea771c776383f84710d256be86",
+    "app.py": "aa2aabae8fc649015df5e351df572d8bcabd76a1d1f895245d03680858fd4f5c",
+    "location_prediction.py": "317939d15f36338ccb9aaedad42f333c6455600f99ee05c2b5cefae930c52369",
+    "catboost_prediction.py": "955ad76c6763a33eb4fc9bb87596fc49ad978f710518565b38e5b4f1caf1f9a6"
+  },
+  "active_model": {
+    "path": "models\\catboost_2026_10_16\\catboost_mae.joblib",
+    "sha256": "59c31744fd6368e34b017d0d89161d3cdf1b32e5c169255cb6ef7fd031b92f6e"
+  },
+  "active_metadata": {
+    "path": "models\\deployment\\catboost_mae.json",
+    "sha256": "28e7164a44b9e0b3639e41fdc0a61254774938788a1ee25548226d5b0d0ea583"
+  },
+  "historical_experiment_unchanged": true
+}

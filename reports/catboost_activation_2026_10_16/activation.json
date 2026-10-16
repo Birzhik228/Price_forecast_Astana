@@ -1,0 +1,575 @@
+{
+  "schema_version": 1,
+  "status": "prepared_for_user_requested_activation",
+  "created_at_utc": "2026-10-16T14:59:01.604488+00:00",
+  "variant": "catboost_mae",
+  "model_path": "models/catboost_2026_10_16/catboost_mae.joblib",
+  "model_sha256": "59c31744fd6368e34b017d0d89161d3cdf1b32e5c169255cb6ef7fd031b92f6e",
+  "metadata_path": "models/deployment/catboost_mae.json",
+  "metadata_sha256": "28e7164a44b9e0b3639e41fdc0a61254774938788a1ee25548226d5b0d0ea583",
+  "train_rows": 19269,
+  "test_rows": 590,
+  "test_metrics": {
+    "n": 590,
+    "mae_tenge": 5578165.446170975,
+    "rmse_tenge": 10905397.093069362,
+    "r2": 0.8938853253881873,
+    "median_ae_tenge": 3093631.696197754,
+    "median_ape_pct": 8.472508779225212,
+    "over_20_n": 91,
+    "over_20_pct": 15.423728813559324
+  },
+  "selected_by_cv": false,
+  "cv_selected_variant": "catboost_log",
+  "activation_reason": "explicit_user_request_catboost_mae_after_report",
+  "fit_calls": 0,
+  "prediction_replay_max_delta_tenge": 0.0,
+  "application_config_modified_by_generator": false,
+  "activation_compatibility_validated": false,
+  "integration_audit": "A separate integration audit must confirm the application adapter and UI.",
+  "source_snapshot_policy": {
+    "reason": "Application integration changes config and dispatch only; historical experiment source bytes are preserved.",
+    "allowed_changed_paths": [
+      "config.py",
+      "location_prediction.py"
+    ],
+    "snapshot_paths": {
+      "config.py": "reports/catboost_activation_2026_10_16/source_snapshot/config.py",
+      "location_prediction.py": "reports/catboost_activation_2026_10_16/source_snapshot/location_prediction.py"
+    },
+    "other_pinned_sources_must_match": true
+  },
+  "source_evidence": {
+    "data/processed/combined_2026/listings_clean.csv": {
+      "sha256": "28ad11f14b56315ea2dd903ffc7f8ab9d5a788f7f5e070b5ec1b61c0711d98eb",
+      "verified_path": "data/processed/combined_2026/listings_clean.csv",
+      "uses_original_snapshot": false
+    },
+    "data/processed/property_catalog/listings.csv": {
+      "sha256": "bb6bfa27828cb3913229b3b6d7fff6e3e6c735e97f91cbaf91eb8b318a3f85cf",
+      "verified_path": "data/processed/property_catalog/listings.csv",
+      "uses_original_snapshot": false
+    },
+    "data/raw/kaggle_astana/astana_apartments.csv": {
+      "sha256": "923bd5483eaea5fdfe9cbf8d36c40ec1875992f66ed70ee29426dd6bc2d189ee",
+      "verified_path": "data/raw/kaggle_astana/astana_apartments.csv",
+      "uses_original_snapshot": false
+    },
+    "data/raw/turarr_march_2026/astana_apartments_raw.csv": {
+      "sha256": "79c518f9ec37272c5052ea9936d3020030f4d02cccfb749fb92487fbfdf70676",
+      "verified_path": "data/raw/turarr_march_2026/astana_apartments_raw.csv",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/split_manifest.csv": {
+      "sha256": "0d1961e59a78473309e64069a47798a9cc2489708778ec213f22a20ace3eb797",
+      "verified_path": "reports/location_experiment/split_manifest.csv",
+      "uses_original_snapshot": false
+    },
+    "reports/combined_update/deduplication_audit.csv": {
+      "sha256": "98bb07e6b644e8bdb1b3969c4645f572283e1c212cf584a80710b7ea8f555b04",
+      "verified_path": "reports/combined_update/deduplication_audit.csv",
+      "uses_original_snapshot": false
+    },
+    "data/raw/osm_2026_10_13/astana_addresses.source.json": {
+      "sha256": "2d378cb1c2eb637ef49d8e0c8646e5184e7c4f37b8bda1de7274f0b34c8fd275",
+      "verified_path": "data/raw/osm_2026_10_13/astana_addresses.source.json",
+      "uses_original_snapshot": false
+    },
+    "data/raw/osm_2026_10_13/astana_addresses.json": {
+      "sha256": "0978a34d40f0c3b0066e2bc37262a0f092cca1a7e407ab892d35c12976405eff",
+      "verified_path": "data/raw/osm_2026_10_13/astana_addresses.json",
+      "uses_original_snapshot": false
+    },
+    "address_identity_audit.py": {
+      "sha256": "5b239315a78eeede799a870e1c5f0acff6f239de0414cfd1e1516a15d6352c3f",
+      "verified_path": "address_identity_audit.py",
+      "uses_original_snapshot": false
+    },
+    "reports/active_error_audit_2026_10_16/errors.csv": {
+      "sha256": "63644f74627642f88ab1fc5bcde05ffb1d585ef2f34c828162bf082a38bf6502",
+      "verified_path": "reports/active_error_audit_2026_10_16/errors.csv",
+      "uses_original_snapshot": false
+    },
+    "reports/active_error_audit_2026_10_16/audit_report.json": {
+      "sha256": "85e40fcac2afb342cbc8b9d06bc4407bbd2673464561028e2b3952b6c1c6c65b",
+      "verified_path": "reports/active_error_audit_2026_10_16/audit_report.json",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/experiment_plan.json": {
+      "sha256": "1452b23aff1210512b86d202b1eee2f2518f6a3cb8333ce6cbbd3281424c3710",
+      "verified_path": "reports/location_experiment/experiment_plan.json",
+      "uses_original_snapshot": false
+    },
+    "reports/property_catalog/conflict_audit.csv": {
+      "sha256": "d574949f56bffa347a198ccc14bcd4399a1a96eb4d3e55ce145c326e36e650f8",
+      "verified_path": "reports/property_catalog/conflict_audit.csv",
+      "uses_original_snapshot": false
+    },
+    "building_catalog.py": {
+      "sha256": "8fdcf1bf38aeb1da402a09c3a82a5c4fd5e95368b10bd29f03b7138170edc94b",
+      "verified_path": "building_catalog.py",
+      "uses_original_snapshot": false
+    },
+    "location_model.py": {
+      "sha256": "2b1908c219c69f4f009383c7812227543cc371d5f1bf41aac2743a61d8763b3e",
+      "verified_path": "location_model.py",
+      "uses_original_snapshot": false
+    },
+    "clean.py": {
+      "sha256": "a7b72e59f6c955dfc31cdd164716435b3249ecea250c01d6947122a45550fdef",
+      "verified_path": "clean.py",
+      "uses_original_snapshot": false
+    },
+    "march_data.py": {
+      "sha256": "252ae0d67944bc0a60e6f3874df5b7d3bc7fd507480b62214909797e1d0868f1",
+      "verified_path": "march_data.py",
+      "uses_original_snapshot": false
+    },
+    "repair_archived_data.py": {
+      "sha256": "44a21e655bcbe389243c41d160e630efb2eea938ab210c1839437e4af1af6400",
+      "verified_path": "repair_archived_data.py",
+      "uses_original_snapshot": false
+    },
+    "config.py": {
+      "sha256": "0bd09943cbeffa95c2f21dd3c8fbef53c589bf0bca11bd3498b4a323c99e495a",
+      "verified_path": "reports/catboost_activation_2026_10_16/source_snapshot/config.py",
+      "uses_original_snapshot": true
+    },
+    "data/processed/reviewed_2026_10_16/listings_clean.csv": {
+      "sha256": "2282b00585da24eeef1d8b01721b1d117f44d4d90079c1e18c0dc51884cc4dca",
+      "verified_path": "data/processed/reviewed_2026_10_16/listings_clean.csv",
+      "uses_original_snapshot": false
+    },
+    "data/processed/reviewed_2026_10_16/listings.csv": {
+      "sha256": "4a958f1570fb2c3b477b1ece596195fbe0385b476c4eecbbb2178974fae4b047",
+      "verified_path": "data/processed/reviewed_2026_10_16/listings.csv",
+      "uses_original_snapshot": false
+    },
+    "data/processed/reviewed_2026_10_16/buildings.csv": {
+      "sha256": "7c2ade73a7254fc839541a12260bc275143e39499624dcfdf3a7cf64979ee7d4",
+      "verified_path": "data/processed/reviewed_2026_10_16/buildings.csv",
+      "uses_original_snapshot": false
+    },
+    "reports/data_quality_2026_10_16/corrections.csv": {
+      "sha256": "ff8cfebb39ea01f475a6777794e799219bd9e2110b4f4e4063979e4d604d3b04",
+      "verified_path": "reports/data_quality_2026_10_16/corrections.csv",
+      "uses_original_snapshot": false
+    },
+    "reports/data_quality_2026_10_16/review_queue.csv": {
+      "sha256": "73e6d3a02e15b9f24c41c3daa97bafde31ac1ca928e736c908e2201005409bf5",
+      "verified_path": "reports/data_quality_2026_10_16/review_queue.csv",
+      "uses_original_snapshot": false
+    },
+    "reports/data_quality_2026_10_16/possible_duplicates.csv": {
+      "sha256": "e56b1b743a65120e7220c4f504494e3c16f803a9c5298e0e28123db7109fb7e8",
+      "verified_path": "reports/data_quality_2026_10_16/possible_duplicates.csv",
+      "uses_original_snapshot": false
+    },
+    "reports/data_quality_2026_10_16/previous_dedup_address_conflicts.csv": {
+      "sha256": "b02b1f277545806b02f2e807acc1a2d18881648395ddd903fc9e9a1b36d521b8",
+      "verified_path": "reports/data_quality_2026_10_16/previous_dedup_address_conflicts.csv",
+      "uses_original_snapshot": false
+    },
+    "reports/data_quality_2026_10_16/building_review_queue.csv": {
+      "sha256": "7cbccf67a0eb11a397aa3726330c1e6a3dff1cf1c88a42e9897af37e0dabe692",
+      "verified_path": "reports/data_quality_2026_10_16/building_review_queue.csv",
+      "uses_original_snapshot": false
+    },
+    "reports/data_quality_2026_10_16/numbered_street_evidence.csv": {
+      "sha256": "6337ee9cd05a95b216132a607c43f378c2f4c375269f63270c0708df14e9baeb",
+      "verified_path": "reports/data_quality_2026_10_16/numbered_street_evidence.csv",
+      "uses_original_snapshot": false
+    },
+    "reports/data_quality_2026_10_16/top_error_review.csv": {
+      "sha256": "92fc7d58ad56e29400fdf426bd3508faf06239a6eb2db27c3d3f18b2014d9bcf",
+      "verified_path": "reports/data_quality_2026_10_16/top_error_review.csv",
+      "uses_original_snapshot": false
+    },
+    "data/processed/reviewed_2026_10_16/reference_split_manifest.csv": {
+      "sha256": "0d1961e59a78473309e64069a47798a9cc2489708778ec213f22a20ace3eb797",
+      "verified_path": "data/processed/reviewed_2026_10_16/reference_split_manifest.csv",
+      "uses_original_snapshot": false
+    },
+    "models/verified_geo_2026/complex_coords.joblib": {
+      "sha256": "1c68f8a289f8bd6eed5a7d96553c4b83a6db522a9ee7e7a0fed0b853423f0025",
+      "verified_path": "models/verified_geo_2026/complex_coords.joblib",
+      "uses_original_snapshot": false
+    },
+    "models/deployment/complex_coords_osm.json": {
+      "sha256": "7dd6ddd6cb487fbefc505ad8bab5da64ac6f72a3a0aaa31967ac04c6e827c36c",
+      "verified_path": "models/deployment/complex_coords_osm.json",
+      "uses_original_snapshot": false
+    },
+    "models/best_model.joblib": {
+      "sha256": "f40f892700324892ee0fde041f8a5feaca2e0c01fb4231185e5c3a751b073bac",
+      "verified_path": "models/best_model.joblib",
+      "uses_original_snapshot": false
+    },
+    "models/model_metadata.json": {
+      "sha256": "c623c137cab6f093071a18a6c183d513ad311744378b1695ca4063dcd39ac1da",
+      "verified_path": "models/model_metadata.json",
+      "uses_original_snapshot": false
+    },
+    "models/combined_2026/best_model.joblib": {
+      "sha256": "643bfe75014cb3929376a44e689905c1fe8c4fa1e72165ec7b9c0e30db4d3c8a",
+      "verified_path": "models/combined_2026/best_model.joblib",
+      "uses_original_snapshot": false
+    },
+    "models/combined_2026/model_metadata.json": {
+      "sha256": "580f8b324ff052e56bbae537dc9385268191761b2e4f19d23de891a7b94f3825",
+      "verified_path": "models/combined_2026/model_metadata.json",
+      "uses_original_snapshot": false
+    },
+    "models/march_2026/best_model.joblib": {
+      "sha256": "9b8253694c7f2fc109d72f30b4ce9432ad443fdf86dde32c47c5faa97ec00de2",
+      "verified_path": "models/march_2026/best_model.joblib",
+      "uses_original_snapshot": false
+    },
+    "models/march_2026/model_metadata.json": {
+      "sha256": "bd64a3c2ea87309c16ea28a1c62db101d93ee920ea1466990beccb245fc4d554",
+      "verified_path": "models/march_2026/model_metadata.json",
+      "uses_original_snapshot": false
+    },
+    "reports/combined_update/split_manifest.csv": {
+      "sha256": "b7a8c84df93c77aa925b2965d2768e357d429802991395a27b865f1101e4dc69",
+      "verified_path": "reports/combined_update/split_manifest.csv",
+      "uses_original_snapshot": false
+    },
+    "data/processed/property_catalog/manifest.json": {
+      "sha256": "c8ac0cf5583ebc55cbd4636244c895fc226a87ebc4bcef4c4b99a92fd6c8bb2d",
+      "verified_path": "data/processed/property_catalog/manifest.json",
+      "uses_original_snapshot": false
+    },
+    "location_experiment.py": {
+      "sha256": "fd27b31a7dd48b6a7c068bde029ba65752e03e93c606aaea7acc24a8bdffb21b",
+      "verified_path": "location_experiment.py",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/experiment_report.json": {
+      "sha256": "84737d8526b83cd07e59585a55e510c776e67173a0efbd3fa86e51d9d79aae6e",
+      "verified_path": "reports/location_experiment/experiment_report.json",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/holdout_predictions.csv": {
+      "sha256": "467c870dcfcb6d7ceba1f214ba50ac3fe608512d43ef7c3599bdf62b20a5a343",
+      "verified_path": "reports/location_experiment/holdout_predictions.csv",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/unseen_house_check.json": {
+      "sha256": "007b56ecd1ded0c463b2d359cf886ff0aff5265a6d11d500b11ff793aa39ff8b",
+      "verified_path": "reports/location_experiment/unseen_house_check.json",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/alias_overlap_audit.json": {
+      "sha256": "4bdd4f8b4bc12cc6b2bd545fd720b58cc17b68d2077ccf5d97ffd8f4a0fbf84a",
+      "verified_path": "reports/location_experiment/alias_overlap_audit.json",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/cv_baseline8.json": {
+      "sha256": "070e3e5291658455738ca510caf9e88226bb2b2692f817daeab670138bf3895e",
+      "verified_path": "reports/location_experiment/cv_baseline8.json",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/cv_complex.json": {
+      "sha256": "bd000470b51b213f894287ca9ebe4df58635a92169363693fe4fcd32306a0c2b",
+      "verified_path": "reports/location_experiment/cv_complex.json",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/cv_coords.json": {
+      "sha256": "fe57ebff4695f8d3b1ca4dbc56444011525a024c7917be4632dc7e5100bd2a78",
+      "verified_path": "reports/location_experiment/cv_coords.json",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/cv_complex_coords.json": {
+      "sha256": "6cf80b03f73a29ffabb1a99181bfeea63a28af7b3c224c3e48c5915bb3ec973b",
+      "verified_path": "reports/location_experiment/cv_complex_coords.json",
+      "uses_original_snapshot": false
+    },
+    "models/location_2026/baseline8.joblib": {
+      "sha256": "90f2ee072cb443c576ce753b8ff8f4928ba2ec83037547184cbb81178ec4ad79",
+      "verified_path": "models/location_2026/baseline8.joblib",
+      "uses_original_snapshot": false
+    },
+    "models/location_2026/baseline8.json": {
+      "sha256": "891dade27002aeecd607bffe36264f8ef5a242e45942690749fb64edb6901a7f",
+      "verified_path": "models/location_2026/baseline8.json",
+      "uses_original_snapshot": false
+    },
+    "models/location_2026/complex.joblib": {
+      "sha256": "b02a3e5e46ee069a75f13210ed20cf8a33834d7fe9fb3bb4f881bd1541fae108",
+      "verified_path": "models/location_2026/complex.joblib",
+      "uses_original_snapshot": false
+    },
+    "models/location_2026/complex.json": {
+      "sha256": "1b0a28fd181fa02b24733e0a06486e328a704cd182740efca155b048cacf4d4e",
+      "verified_path": "models/location_2026/complex.json",
+      "uses_original_snapshot": false
+    },
+    "models/location_2026/coords.joblib": {
+      "sha256": "a2763637f4ec5c09c3cc2850a58f16fe4ee85d6de40e789ad69807edae2a4bcc",
+      "verified_path": "models/location_2026/coords.joblib",
+      "uses_original_snapshot": false
+    },
+    "models/location_2026/coords.json": {
+      "sha256": "321f96b1a4cd0c909775320181d3151ad049ee2ddf1a02612a9ae8467ed34868",
+      "verified_path": "models/location_2026/coords.json",
+      "uses_original_snapshot": false
+    },
+    "models/location_2026/complex_coords.joblib": {
+      "sha256": "86d0faf99d7062c2d1402f0ce15a930c1764a69c9d8d75e3e0d20e4037a58b50",
+      "verified_path": "models/location_2026/complex_coords.joblib",
+      "uses_original_snapshot": false
+    },
+    "models/location_2026/complex_coords.json": {
+      "sha256": "680f18d8df5ac49fdf055aa815d764fb26e68a2b11e43f402d5b3904f47c6965",
+      "verified_path": "models/location_2026/complex_coords.json",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/checkpoint_reuse.json": {
+      "sha256": "e1cdb96324b213fe0b5bd5ee1821858cf7fd91663edd71e95318fc432dcc217e",
+      "verified_path": "reports/location_experiment/checkpoint_reuse.json",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/evaluation_fix_backup/experiment_plan.json": {
+      "sha256": "a86efede9aa6e1eb3c838e703a9ed998096bd36723437f1e1e34f148b62076c8",
+      "verified_path": "reports/location_experiment/evaluation_fix_backup/experiment_plan.json",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/evaluation_fix_backup/location_experiment.py": {
+      "sha256": "9f87c6479942120a526442af0a635704e7d9ac33593c9cd8f074d0ef4a70285d",
+      "verified_path": "reports/location_experiment/evaluation_fix_backup/location_experiment.py",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/evaluation_fix_backup/cv_baseline8.json": {
+      "sha256": "762eafbc8e91d5e507613e871c1e59bb69f5f08b766873107ced5d9784c8669d",
+      "verified_path": "reports/location_experiment/evaluation_fix_backup/cv_baseline8.json",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/evaluation_fix_backup/baseline8_metadata.json": {
+      "sha256": "68d713a6f01a8f5a6e35be49a0e35840bb97768c12be1ab0338886f7b0b03a5d",
+      "verified_path": "reports/location_experiment/evaluation_fix_backup/baseline8_metadata.json",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/evaluation_fix_backup/cv_complex.json": {
+      "sha256": "8247e901540471f5ce676b56a866380b365b0155255eea012e21503df87ab6b7",
+      "verified_path": "reports/location_experiment/evaluation_fix_backup/cv_complex.json",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/evaluation_fix_backup/complex_metadata.json": {
+      "sha256": "888b4f26636a8c64db70ed69ae32f39758faf0fbd530b2f61cc6c8688da260c5",
+      "verified_path": "reports/location_experiment/evaluation_fix_backup/complex_metadata.json",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/evaluation_fix_backup/cv_coords.json": {
+      "sha256": "944f88db965023e4de900e618095c9a61377a6056784a2abbf4690308189f48b",
+      "verified_path": "reports/location_experiment/evaluation_fix_backup/cv_coords.json",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/evaluation_fix_backup/coords_metadata.json": {
+      "sha256": "9b5e6b44b6e1cf991adab0def1c59b94db3fadacf33cd0dacf6b839b3e5c57ba",
+      "verified_path": "reports/location_experiment/evaluation_fix_backup/coords_metadata.json",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/evaluation_fix_backup/cv_complex_coords.json": {
+      "sha256": "dcd53b8d8c578b5a11b4a2d061b57fa7b8f6a5afce55004908c48601260f73d1",
+      "verified_path": "reports/location_experiment/evaluation_fix_backup/cv_complex_coords.json",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/evaluation_fix_backup/complex_coords_metadata.json": {
+      "sha256": "eeaf1f11806ab280e4bd1cedd269b1150196aac0fb6c4ed880ffca12d35af310",
+      "verified_path": "reports/location_experiment/evaluation_fix_backup/complex_coords_metadata.json",
+      "uses_original_snapshot": false
+    },
+    "reports/location_experiment/verification.json": {
+      "sha256": "ddaeaef68782fb1edb58a7ca0abfa7d0392929eff54a4b15d613202bb59496a5",
+      "verified_path": "reports/location_experiment/verification.json",
+      "uses_original_snapshot": false
+    },
+    "models/deployment/complex_coords.json": {
+      "sha256": "6ba7b1d06bc1605f7984686414e58648933ed5ecda52d067bd3b2734f0aa7c86",
+      "verified_path": "models/deployment/complex_coords.json",
+      "uses_original_snapshot": false
+    },
+    "data/processed/verified_coordinates_2026_10_13/registry.json": {
+      "sha256": "fdd7cea2fe8040a325c76a57d573f5a2eda5b13fe937080b5a2eadd2ca8810d5",
+      "verified_path": "data/processed/verified_coordinates_2026_10_13/registry.json",
+      "uses_original_snapshot": false
+    },
+    "features.py": {
+      "sha256": "59f5deb93b15b8bab2bb120196cbbb9eaa1754b92ff642b76dbac7978af68cfb",
+      "verified_path": "features.py",
+      "uses_original_snapshot": false
+    },
+    "location_prediction.py": {
+      "sha256": "35590e0a0d95f8eb3071661279e06399fe897b3e65eae88ef4249d542132634b",
+      "verified_path": "reports/catboost_activation_2026_10_16/source_snapshot/location_prediction.py",
+      "uses_original_snapshot": true
+    },
+    "comparables.py": {
+      "sha256": "e7d22b27f771ebe1f46063a6b9d95ff0108796ef280f294a5a554e8f92588bdf",
+      "verified_path": "comparables.py",
+      "uses_original_snapshot": false
+    },
+    "enrich_coordinate_model.py": {
+      "sha256": "b4fdc14c9de5d53ec0b54c3e954022c2098a44166dd3d7792f654843420dc6a2",
+      "verified_path": "enrich_coordinate_model.py",
+      "uses_original_snapshot": false
+    },
+    "verified_geo_model.py": {
+      "sha256": "5f2369361381b6ba77e833a5b8bf456cbbbe6032e58cd7722c9944fff59a52a2",
+      "verified_path": "verified_geo_model.py",
+      "uses_original_snapshot": false
+    },
+    "reports/coordinate_enrichment_2026_10_13/protocol.json": {
+      "sha256": "ad141d60f75005ec39ced2d4ca50d28a7ebfd6923b26bedde32709c245b6c83c",
+      "verified_path": "reports/coordinate_enrichment_2026_10_13/protocol.json",
+      "uses_original_snapshot": false
+    },
+    "reports/coordinate_enrichment_2026_10_13/model_comparison.json": {
+      "sha256": "16122647b005bffe76b80ed4bc0379a55232f176f0491d315b429b5a96ae54b9",
+      "verified_path": "reports/coordinate_enrichment_2026_10_13/model_comparison.json",
+      "uses_original_snapshot": false
+    },
+    "models/verified_geo_2026/complex_coords.json": {
+      "sha256": "b85ccfb61f6937a3f99e7dec44148f01e52848ebffaaabe8474a48ddb681a1e7",
+      "verified_path": "models/verified_geo_2026/complex_coords.json",
+      "uses_original_snapshot": false
+    },
+    "active_error_analysis.py": {
+      "sha256": "38ffd0baec7ab8bf780f61ad77098a28bd3b662f2e3f407a0f72325c67654bb3",
+      "verified_path": "active_error_analysis.py",
+      "uses_original_snapshot": false
+    },
+    "error_analysis.py": {
+      "sha256": "75d17bc0f121e18fcab203cff9758d52e426a58bfaf6e10cbaa6d785cb4d1625",
+      "verified_path": "error_analysis.py",
+      "uses_original_snapshot": false
+    },
+    "data/processed/property_catalog/buildings.csv": {
+      "sha256": "1213ae927c087c47ab683849fc4619af7d11a0d29ffe24f03c6f0654a34c3ebf",
+      "verified_path": "data/processed/property_catalog/buildings.csv",
+      "uses_original_snapshot": false
+    },
+    "reports/coordinate_enrichment_2026_10_13/holdout_predictions.csv": {
+      "sha256": "6e059ee2a31825bec9ea86c935be77999649813b6320afaaca66d0acad90fd48",
+      "verified_path": "reports/coordinate_enrichment_2026_10_13/holdout_predictions.csv",
+      "uses_original_snapshot": false
+    },
+    "prediction.py": {
+      "sha256": "d01f7715b0dffb0dc0aa50347744f7d58fdc8985b5e5ef55e689bd8b4fbb53e5",
+      "verified_path": "prediction.py",
+      "uses_original_snapshot": false
+    },
+    "data/processed/reviewed_2026_10_16/manifest.json": {
+      "sha256": "84d84d82e28bc353997371b5693608fae82a9f51560071bfa8829ee84b9f2844",
+      "verified_path": "data/processed/reviewed_2026_10_16/manifest.json",
+      "uses_original_snapshot": false
+    },
+    "reports/data_quality_2026_10_16/protocol.json": {
+      "sha256": "834ecb9de2251c9686050c5b9e1ebf523d687739be09ed2b04142e0f8baff15c",
+      "verified_path": "reports/data_quality_2026_10_16/protocol.json",
+      "uses_original_snapshot": false
+    },
+    "reports/active_error_audit_2026_10_16/protocol.json": {
+      "sha256": "a0e1f193cf58d5b2ce939f82e655d402f3d47a6282a7d37fc90b504bf55d752a",
+      "verified_path": "reports/active_error_audit_2026_10_16/protocol.json",
+      "uses_original_snapshot": false
+    },
+    "retrain_reviewed.py": {
+      "sha256": "473a716b6e7bff4c0f578e79076d595b806ef578651cd4783a83110b7997921d",
+      "verified_path": "retrain_reviewed.py",
+      "uses_original_snapshot": false
+    },
+    "retraining_data.py": {
+      "sha256": "84dadfc096167bd3ae497c04b169f3d37e8d70865097b4c55306317aecf2e8c4",
+      "verified_path": "retraining_data.py",
+      "uses_original_snapshot": false
+    },
+    "retraining_report.py": {
+      "sha256": "bbaf47e1f0bc6c07738805d7ed11c99d81a27e95e6b126cb40c58d0d7d0a6c33",
+      "verified_path": "retraining_report.py",
+      "uses_original_snapshot": false
+    },
+    "trainable_verified_geo.py": {
+      "sha256": "418af19890880514a018464e7e720440050726709182fd39fdd00166a68fc81c",
+      "verified_path": "trainable_verified_geo.py",
+      "uses_original_snapshot": false
+    },
+    "train.py": {
+      "sha256": "0a3815bd8044ee1c43e21d3d9811ec831d0f733d3dfa7919a64049c83c2a2a45",
+      "verified_path": "train.py",
+      "uses_original_snapshot": false
+    },
+    "reports/retraining_2026_10_16/protocol.json": {
+      "sha256": "c15c397e3f74e9d2f7e8780e990dbd5b66e9f8f4ab9c44c9f87b801bd4dacf60",
+      "verified_path": "reports/retraining_2026_10_16/protocol.json",
+      "uses_original_snapshot": false
+    },
+    "reports/retraining_2026_10_16/comparison.json": {
+      "sha256": "0587184969afad8b63bc9c72cc5f3c04a74d34123da2b9ce8ecc5f0fcabe12a6",
+      "verified_path": "reports/retraining_2026_10_16/comparison.json",
+      "uses_original_snapshot": false
+    },
+    "train_catboost_experiment.py": {
+      "sha256": "6c26d4d0d0edb02e87a05e0084f1936ca5b221d1fec8504fcf127acb3ecc466e",
+      "verified_path": "train_catboost_experiment.py",
+      "uses_original_snapshot": false
+    },
+    "catboost_model.py": {
+      "sha256": "ab4e90344f740d2f68b2d51a948dd2833c9623db3958b9de1fd40209471cec52",
+      "verified_path": "catboost_model.py",
+      "uses_original_snapshot": false
+    },
+    "catboost_validation.py": {
+      "sha256": "2d5295f7a66a3c4c72e332ecefa09a467dd12dbfaae581764a1383fc80f668a4",
+      "verified_path": "catboost_validation.py",
+      "uses_original_snapshot": false
+    },
+    "catboost_report.py": {
+      "sha256": "12a25613e43325b5b7179c786782d03ee00458db4eb5d1dfe89fae4fe616b6d3",
+      "verified_path": "catboost_report.py",
+      "uses_original_snapshot": false
+    },
+    "requirements.txt": {
+      "sha256": "8383d0e5cc52497c070d933b84e716fc5b7ed9d31c8ff31bf25bc26a0bb0da96",
+      "verified_path": "requirements.txt",
+      "uses_original_snapshot": false
+    },
+    "requirements.lock.txt": {
+      "sha256": "3395a9952db5f30ad3bb47b9a51cfb9e8060988e44447cefacb061aa4e361741",
+      "verified_path": "requirements.lock.txt",
+      "uses_original_snapshot": false
+    }
+  },
+  "artifact_sha256": {
+    "reports/catboost_2026_10_16/protocol.json": "ba3fd224fad72d80aa5dc5ee345d27b9dccb09d2d9c385efb2ae09336b466c09",
+    "reports/catboost_2026_10_16/comparison.json": "5c7a7de43cbc5ef17311848c72dde4c1a1e105ce0742f12e8db39dc24759c755",
+    "reports/catboost_2026_10_16/selection_cv.json": "bb392a5abbae830812baab32fb49bbd6dc827b2eba4a78be1cfd484e8dcb6f19",
+    "models/catboost_2026_10_16/catboost_mae.json": "763f56b22566fa76a383cbe7ca700056a260bdee7da2b9b9e0bb2896def16729",
+    "models/catboost_2026_10_16/catboost_mae.joblib": "59c31744fd6368e34b017d0d89161d3cdf1b32e5c169255cb6ef7fd031b92f6e",
+    "reports/catboost_2026_10_16/cv_folds.csv": "223bdcbe2ea7f941141a971604d42a23135a04e107ee4dde5cfb71f34f4b3e2c",
+    "reports/catboost_2026_10_16/split_manifest.csv": "b85e06472bac9739dc37e69b30ebe10ae1a2f70047946cad34c72e7d14d03f7c",
+    "reports/catboost_2026_10_16/nested_oof_predictions.csv": "37afb16fa51b32b7ee0c02395ec3f5cce99109bca02141c63723dce8da64dfd3",
+    "reports/catboost_2026_10_16/holdout_predictions.csv": "d1c4e394b9b915dc60f10e04f5f9a6f712639017cc3b067a6602292ddbcb6744",
+    "reports/catboost_2026_10_16/segments.csv": "67a4fd3b0d1cd197315414d97f27f21ee7e6a1f76bbe017df5c2474548024bb2",
+    "reports/catboost_2026_10_16/fit_log.csv": "6bc759b3d8710e588cb4a0873c65af9f0808d54ab4c6665c539496a2516f45a0"
+  },
+  "previous_deployment": {
+    "model_path": "models/verified_geo_2026/complex_coords.joblib",
+    "metadata_path": "models/deployment/complex_coords_osm.json",
+    "model_sha256": "1c68f8a289f8bd6eed5a7d96553c4b83a6db522a9ee7e7a0fed0b853423f0025",
+    "metadata_sha256": "7dd6ddd6cb487fbefc505ad8bab5da64ac6f72a3a0aaa31967ac04c6e827c36c"
+  },
+  "checks": [
+    "protocol_signature",
+    "all_pinned_source_sha256_or_two_exact_snapshots",
+    "all_experiment_csv_sha256",
+    "model_sha256_and_fitted_native_schema",
+    "same_holdout_ids_order_and_prices",
+    "exact_saved_prediction_replay",
+    "holdout_metrics_recomputed",
+    "train_only_categories_ranges_and_complexes",
+    "previous_deployment_preserved",
+    "no_training"
+  ]
+}
